@@ -21,12 +21,18 @@
     <ClInclude Include="SpriteRenderingSystem\SpriteRenderer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="PlayerClass\Player.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameObjectSystem\GameObject.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="SpriteRenderingSystem\SpriteRenderer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerClass\Player.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

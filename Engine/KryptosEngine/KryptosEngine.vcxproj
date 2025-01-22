@@ -20,10 +20,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameObjectSystem\GameObject.h" />
+    <ClInclude Include="PlayerClass\Player.h" />
     <ClInclude Include="SpriteRenderingSystem\SpriteRenderer.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameObjectSystem\GameObject.cpp" />
+    <ClCompile Include="PlayerClass\Player.cpp" />
     <ClCompile Include="SpriteRenderingSystem\SpriteRenderer.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

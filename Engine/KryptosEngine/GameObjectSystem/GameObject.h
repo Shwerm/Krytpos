@@ -14,6 +14,7 @@ class GameObject {
 protected:
     std::string name;           // Name of the game object
     sf::Vector2f position;      // Position of the game object
+    sf::Angle rotation;         // Rotation of the game object
     bool active;                // Whether the object is active or not
 
 public:

@@ -14,12 +14,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
-            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
@@ -28,10 +24,14 @@
               "RelativeDocumentMoniker": "KryptosGame\\SourceFiles\\main.cpp",
               "ToolTip": "D:\\Personal Projects\\Working Title - Kryptos\\Krytpos\\Solution\\KryptosGame\\KryptosGame\\SourceFiles\\main.cpp",
               "RelativeToolTip": "KryptosGame\\SourceFiles\\main.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-01-22T14:52:52.946Z",
+              "WhenOpened": "2025-01-22T16:05:43.257Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
             }
           ]
         }

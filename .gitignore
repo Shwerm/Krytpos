@@ -1,0 +1,9 @@
+/Build/
+/Solution/**/*.obj
+/Solution/**/*.pdb
+/Solution/**/*.ipch
+/Solution/**/*.log
+/Solution/.vs/
+*.user
+*.suo
+*.sdf

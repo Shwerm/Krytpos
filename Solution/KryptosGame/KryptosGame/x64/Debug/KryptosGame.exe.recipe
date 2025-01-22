@@ -2,7 +2,7 @@
 <Project>
   <ProjectOutputs>
     <ProjectOutput>
-      <FullPath>D:\Personal Projects\Working Title - Kryptos\Krytpos\Build\Debugx64\KryptosGame.exe</FullPath>
+      <FullPath>D:\Personal Projects\Working Title - Kryptos\Krytpos\Build\Game\Debugx64\KryptosGame.exe</FullPath>
     </ProjectOutput>
   </ProjectOutputs>
   <ContentFiles />

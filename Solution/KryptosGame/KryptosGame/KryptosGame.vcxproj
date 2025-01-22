@@ -21,6 +21,11 @@
   <ItemGroup>
     <ClCompile Include="SourceFiles\main.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Engine\KryptosEngine\KryptosEngine.vcxproj">
+      <Project>{fa92a39c-c4e6-4a5c-a834-51c19a5e427f}</Project>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
@@ -74,13 +79,13 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <OutDir>..\..\..\Build\Releasex64\</OutDir>
-    <IncludePath>D:\Personal Projects\C++\Libraries\SFML\SFML-3.0.0\include;$(IncludePath)</IncludePath>
+    <OutDir>..\..\..\Build\Game\Releasex64\</OutDir>
+    <IncludePath>D:\Personal Projects\C++\Libraries\SFML\SFML-3.0.0\include;D:\Personal Projects\Working Title - Kryptos\Krytpos\Engine\KryptosEngine\Include\GameObjectSystem;D:\Personal Projects\Working Title - Kryptos\Krytpos\Engine\KryptosEngine\Include\PlayerClass;D:\Personal Projects\Working Title - Kryptos\Krytpos\Engine\KryptosEngine\Include\SpriteRenderingSystem;$(IncludePath)</IncludePath>
     <LibraryPath>D:\Personal Projects\C++\Libraries\SFML\SFML-3.0.0\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <OutDir>..\..\..\Build\Debugx64\</OutDir>
-    <IncludePath>D:\Personal Projects\C++\Libraries\SFML\SFML-3.0.0\include\;$(IncludePath)</IncludePath>
+    <OutDir>..\..\..\Build\Game\Debugx64\</OutDir>
+    <IncludePath>D:\Personal Projects\C++\Libraries\SFML\SFML-3.0.0\include\;D:\Personal Projects\Working Title - Kryptos\Krytpos\Engine\KryptosEngine\Include;$(IncludePath)</IncludePath>
     <LibraryPath>D:\Personal Projects\C++\Libraries\SFML\SFML-3.0.0\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -122,7 +127,8 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>sfml-graphics-s-d.lib;sfml-system-s-d.lib;sfml-network-s-d.lib;sfml-window-s-d.lib;sfml-audio-s-d.lib;opengl32.lib;freetype.lib;winmm.lib;gdi32.lib;flac.lib;vorbisenc.lib;vorbisfile.lib;vorbis.lib;ogg.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>sfml-graphics-s-d.lib;sfml-system-s-d.lib;sfml-network-s-d.lib;sfml-window-s-d.lib;sfml-audio-s-d.lib;opengl32.lib;freetype.lib;winmm.lib;gdi32.lib;flac.lib;vorbisenc.lib;vorbisfile.lib;vorbis.lib;ogg.lib;ws2_32.lib;KryptosEngine.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>D:\Personal Projects\Working Title - Kryptos\Krytpos\Engine\KryptosEngine\x64\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">

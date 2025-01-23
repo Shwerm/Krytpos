@@ -2,7 +2,7 @@
 #include "../Include/PlayerClass/Player.h"
 
 
-// Constructor
+// Constructor & default player values
 Player::Player(const std::string& name, const sf::Vector2f& position, const std::string& texturePath)
     : GameObject(name, position),
     health(100.f),

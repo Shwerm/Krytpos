@@ -32,6 +32,8 @@ public:
     void setPosition(const sf::Vector2f& newPosition);
     sf::Vector2f getPosition() const;
 
+    const std::string& getName() const { return name; }
+
     bool isActive() const;
     void setActive(bool state);
 };

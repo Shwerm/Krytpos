@@ -3,13 +3,14 @@
   "WorkspaceRootPath": "D:\\Personal Projects\\Working Title - Kryptos\\Krytpos\\Solution\\KryptosGame\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{FA92A39C-C4E6-4A5C-A834-51C19A5E427F}|..\\..\\Engine\\KryptosEngine\\KryptosEngine.vcxproj|D:\\Personal Projects\\Working Title - Kryptos\\Krytpos\\Engine\\KryptosEngine\\Source\\SpriteRenderingSystem\\SpriteRenderer.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{24693151-1949-4EDC-B165-8DBAF16B226A}|KryptosGame\\KryptosGame.vcxproj|D:\\Personal Projects\\Working Title - Kryptos\\Krytpos\\Solution\\KryptosGame\\KryptosGame\\SourceFiles\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{24693151-1949-4EDC-B165-8DBAF16B226A}|KryptosGame\\KryptosGame.vcxproj|solutionrelative:KryptosGame\\SourceFiles\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FA92A39C-C4E6-4A5C-A834-51C19A5E427F}|..\\..\\Engine\\KryptosEngine\\KryptosEngine.vcxproj|D:\\Personal Projects\\Working Title - Kryptos\\Krytpos\\Engine\\KryptosEngine\\Source\\PlayerClass\\Player.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{FA92A39C-C4E6-4A5C-A834-51C19A5E427F}|..\\..\\Engine\\KryptosEngine\\KryptosEngine.vcxproj|D:\\Personal Projects\\Working Title - Kryptos\\Krytpos\\Engine\\KryptosEngine\\Source\\DebugWindow\\DebugWindow.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FA92A39C-C4E6-4A5C-A834-51C19A5E427F}|..\\..\\Engine\\KryptosEngine\\KryptosEngine.vcxproj|D:\\Personal Projects\\Working Title - Kryptos\\Krytpos\\Engine\\KryptosEngine\\Source\\GameObjectSystem\\GameObject.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{FA92A39C-C4E6-4A5C-A834-51C19A5E427F}|..\\..\\Engine\\KryptosEngine\\KryptosEngine.vcxproj|D:\\Personal Projects\\Working Title - Kryptos\\Krytpos\\Engine\\KryptosEngine\\Include\\DebugWindow\\DebugWindow.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -19,49 +20,49 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 3,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "SpriteRenderer.cpp",
-              "DocumentMoniker": "D:\\Personal Projects\\Working Title - Kryptos\\Krytpos\\Engine\\KryptosEngine\\Source\\SpriteRenderingSystem\\SpriteRenderer.cpp",
-              "RelativeDocumentMoniker": "..\\..\\Engine\\KryptosEngine\\Source\\SpriteRenderingSystem\\SpriteRenderer.cpp",
-              "ToolTip": "D:\\Personal Projects\\Working Title - Kryptos\\Krytpos\\Engine\\KryptosEngine\\Source\\SpriteRenderingSystem\\SpriteRenderer.cpp",
-              "RelativeToolTip": "..\\..\\Engine\\KryptosEngine\\Source\\SpriteRenderingSystem\\SpriteRenderer.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAAAAAA8AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-01-22T19:39:06.615Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Player.cpp",
-              "DocumentMoniker": "D:\\Personal Projects\\Working Title - Kryptos\\Krytpos\\Engine\\KryptosEngine\\Source\\PlayerClass\\Player.cpp",
-              "RelativeDocumentMoniker": "..\\..\\Engine\\KryptosEngine\\Source\\PlayerClass\\Player.cpp",
-              "ToolTip": "D:\\Personal Projects\\Working Title - Kryptos\\Krytpos\\Engine\\KryptosEngine\\Source\\PlayerClass\\Player.cpp",
-              "RelativeToolTip": "..\\..\\Engine\\KryptosEngine\\Source\\PlayerClass\\Player.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAApAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-01-22T19:38:41.017Z",
+              "DocumentIndex": 2,
+              "Title": "DebugWindow.h",
+              "DocumentMoniker": "D:\\Personal Projects\\Working Title - Kryptos\\Krytpos\\Engine\\KryptosEngine\\Include\\DebugWindow\\DebugWindow.h",
+              "RelativeDocumentMoniker": "..\\..\\Engine\\KryptosEngine\\Include\\DebugWindow\\DebugWindow.h",
+              "ToolTip": "D:\\Personal Projects\\Working Title - Kryptos\\Krytpos\\Engine\\KryptosEngine\\Include\\DebugWindow\\DebugWindow.h",
+              "RelativeToolTip": "..\\..\\Engine\\KryptosEngine\\Include\\DebugWindow\\DebugWindow.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-01-23T16:02:57.09Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "GameObject.cpp",
-              "DocumentMoniker": "D:\\Personal Projects\\Working Title - Kryptos\\Krytpos\\Engine\\KryptosEngine\\Source\\GameObjectSystem\\GameObject.cpp",
-              "RelativeDocumentMoniker": "..\\..\\Engine\\KryptosEngine\\Source\\GameObjectSystem\\GameObject.cpp",
-              "ToolTip": "D:\\Personal Projects\\Working Title - Kryptos\\Krytpos\\Engine\\KryptosEngine\\Source\\GameObjectSystem\\GameObject.cpp",
-              "RelativeToolTip": "..\\..\\Engine\\KryptosEngine\\Source\\GameObjectSystem\\GameObject.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAzAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "DebugWindow.cpp",
+              "DocumentMoniker": "D:\\Personal Projects\\Working Title - Kryptos\\Krytpos\\Engine\\KryptosEngine\\Source\\DebugWindow\\DebugWindow.cpp",
+              "RelativeDocumentMoniker": "..\\..\\Engine\\KryptosEngine\\Source\\DebugWindow\\DebugWindow.cpp",
+              "ToolTip": "D:\\Personal Projects\\Working Title - Kryptos\\Krytpos\\Engine\\KryptosEngine\\Source\\DebugWindow\\DebugWindow.cpp",
+              "RelativeToolTip": "..\\..\\Engine\\KryptosEngine\\Source\\DebugWindow\\DebugWindow.cpp",
+              "ViewState": "AgIAABMAAAAAAAAAAAAcwB4AAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-01-22T19:37:27.372Z",
+              "WhenOpened": "2025-01-23T15:26:38.904Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "main.cpp",
+              "DocumentMoniker": "D:\\Personal Projects\\Working Title - Kryptos\\Krytpos\\Solution\\KryptosGame\\KryptosGame\\SourceFiles\\main.cpp",
+              "RelativeDocumentMoniker": "KryptosGame\\SourceFiles\\main.cpp",
+              "ToolTip": "D:\\Personal Projects\\Working Title - Kryptos\\Krytpos\\Solution\\KryptosGame\\KryptosGame\\SourceFiles\\main.cpp",
+              "RelativeToolTip": "KryptosGame\\SourceFiles\\main.cpp",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAwwCUAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-01-22T19:43:50.028Z",
               "EditorCaption": ""
             }
           ]

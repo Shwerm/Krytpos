@@ -19,4 +19,8 @@
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
+  <ItemGroup>
+    <Font Include="EngineAssets\Fonts\DebugWindowFont\AtkinsonHyperlegible-Bold.ttf" />
+    <Font Include="EngineAssets\Fonts\DebugWindowFont\AtkinsonHyperlegible-Regular.ttf" />
+  </ItemGroup>
 </Project>

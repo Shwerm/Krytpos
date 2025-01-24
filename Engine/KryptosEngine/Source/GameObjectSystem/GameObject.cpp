@@ -5,28 +5,39 @@ Dependencies: GameObject.h
 */
 
 #include "../Include/GameObjectSystem/GameObject.h"
+#include "../include/GameObjectSystem/GameObjectManager.h"
 
-// Constructor implementation
+// Constructor
 GameObject::GameObject(const std::string& name, const sf::Vector2f& position)
-    : name(name), position(position), active(true) {}
-
-// Set position
-void GameObject::setPosition(const sf::Vector2f& newPosition) {
-    position = newPosition;
+    : name(name), position(position), active(true) {
+    GameObjectManager::getInstance().registerObject(this);
 }
 
-// Get position
+// Destructor
+GameObject::~GameObject() {
+    GameObjectManager::getInstance().unregisterObject(this);
+}
+
+// Getters
+std::string GameObject::getName() const {
+    return name;
+}
+
 sf::Vector2f GameObject::getPosition() const {
     return position;
 }
 
-// Get active state
 bool GameObject::isActive() const {
     return active;
 }
 
-// Set active state
+// Setters
+void GameObject::setPosition(const sf::Vector2f& newPosition) {
+    position = newPosition;
+}
+
 void GameObject::setActive(bool state) {
     active = state;
 }
+
 

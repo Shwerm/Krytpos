@@ -19,20 +19,22 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Include\GameObjectSystem\GameObjectManager.h" />
     <ClInclude Include="Include\DebugWindow\DebugWindow.h" />
     <ClInclude Include="Include\GameObjectSystem\GameObject.h" />
     <ClInclude Include="Include\PlayerClass\Player.h" />
     <ClInclude Include="Include\SpriteRenderingSystem\SpriteRenderer.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Source\GameObjectSystem\GameObjectManager.cpp" />
     <ClCompile Include="Source\DebugWindow\DebugWindow.cpp" />
     <ClCompile Include="Source\GameObjectSystem\GameObject.cpp" />
     <ClCompile Include="Source\PlayerClass\Player.cpp" />
     <ClCompile Include="Source\SpriteRenderingSystem\SpriteRenderer.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <Font Include="Assets\Fonts\DebugWindowFont\AtkinsonHyperlegible-Bold.ttf" />
-    <Font Include="Assets\Fonts\DebugWindowFont\AtkinsonHyperlegible-Regular.ttf" />
+    <Font Include="EngineAssets\Fonts\DebugWindowFont\AtkinsonHyperlegible-Bold.ttf" />
+    <Font Include="EngineAssets\Fonts\DebugWindowFont\AtkinsonHyperlegible-Regular.ttf" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>

@@ -4,33 +4,25 @@ All Rights Reserved 2025.
 Dependencies: Graphics.hpp, vector, string, GameObject.h
 */
 #pragma once
-#ifndef DEBUGWINDOW_H
-#define DEBUGWINDOW_H
-
 #include <SFML/Graphics.hpp>
 #include <vector>
 #include <string>
 #include "../GameObjectSystem/GameObject.h"
+#include <unordered_map>
+#include "../GameObjectSystem/GameObjectManager.h"
 
 class DebugWindow {
 private:
-    sf::RenderWindow debugWindow;             // Separate window for debugging
-    bool isVisible;                           // Toggle visibility
-    const std::vector<GameObject*>& objects;  // Reference to tracked game objects
+    sf::RenderWindow debugWindow;          // Separate window for debugging
+    bool isVisible;                        // Toggle visibility
+    std::unordered_map<GameObject*, bool> expandedState; // Dropdown state for each object
 
 public:
-    // Constructor
-    DebugWindow(const std::vector<GameObject*>& trackedObjects);
+    DebugWindow();
 
-    // Toggle visibility
     void toggleVisibility();
-
-    // Draw the debug window
     void draw();
-
-    // Check if debug window is open
     bool isOpen() const;
 };
 
-#endif // DEBUGWINDOW_H
 

@@ -13,12 +13,11 @@ int main()
 
     // Declare Player
     Player player("Kryptos", sf::Vector2(100.f, 300.f), playerTexturePath);
-
-    // Add Player to tracked game objects
-    std::vector<GameObject*> trackedObjects = { &player };
+    // Declare other game objects (e.g., enemies, items)
+    Player anotherPlayer("Athena", sf::Vector2(200.f, 400.f), playerTexturePath); // Example additional player
 
     // Create the Debug Window
-    DebugWindow debugWindow(trackedObjects);
+    DebugWindow debugWindow;
 
     sf::Clock clock;
 
@@ -43,12 +42,14 @@ int main()
 
         // Update Player
         player.update(deltaTime);
+		anotherPlayer.update(deltaTime);
 
         // Clear screen
         window.clear();
 
-        // Render Player
+        // Render Player + AnotherPlayer 
         player.draw(window);
+		anotherPlayer.draw(window);
 
         // Render Debug Window
         debugWindow.draw();

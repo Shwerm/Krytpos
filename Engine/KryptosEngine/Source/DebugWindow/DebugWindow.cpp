@@ -3,18 +3,13 @@ Debug Window source - Kryptos - Sam Camilleri, Mural Studios
 All Rights Reserved 2025.
 Dependencies: Graphics.hpp, iostream, Text.hpp, Font.hpp, DebugWindow.h, stdexcept
 */
-#include <SFML/Graphics.hpp>
-#include <iostream>
-#include <SFML/Graphics/Text.hpp>
-#include <SFML/Graphics/Font.hpp>
-#include "../../Include/DebugWindow/DebugWindow.h" // Adjust to the correct path
+#include "../Include/DebugWindow/DebugWindow.h"
 #include <stdexcept>
-
+#include <iostream>
 // Constructor
-DebugWindow::DebugWindow(const std::vector<GameObject*>& trackedObjects)
+DebugWindow::DebugWindow()
     : debugWindow(sf::VideoMode({ 400, 600 }), "Debug Window", sf::Style::Titlebar | sf::Style::Close),
-    isVisible(false),
-    objects(trackedObjects) {
+    isVisible(false) {
     debugWindow.setFramerateLimit(30);
 }
 
@@ -31,29 +26,39 @@ void DebugWindow::draw() {
     debugWindow.clear(sf::Color::Black);
 
     sf::Font font;
-    if (!font.openFromFile("D:/Personal Projects/Working Title - Kryptos/Krytpos/Engine/KryptosEngine/Assets/Fonts/DebugWindowFont/AtkinsonHyperlegible-Regular.ttf")) {
-        std::cerr << "Failed to load font!" << std::endl;
-    }
-    else {
-		std::cout << "Font loaded successfully!" << std::endl;
+    if (!font.openFromFile("EngineAssets/Fonts/DebugWindowFont/AtkinsonHyperlegible-Regular.ttf")) {
+        std::cout << "Failed to load font!" << std::endl;
     }
 
-    sf::Text text(font, "Debug Info", 14); // Pass string, font, and size
+    sf::Text text(font, " ", 14);
     text.setFillColor(sf::Color::White);
 
     float yOffset = 10.f;
 
-    for (const auto& object : objects) {
+    // Iterate through all game objects
+    for (const auto& object : GameObjectManager::getInstance().getGameObjects()) {
         if (!object->isActive()) continue;
 
-        text.setString(
-            "Name: " + object->getName() + "\n" +
-            "Position: (" + std::to_string(object->getPosition().x) + ", " + std::to_string(object->getPosition().y) + ")"
-        );
+        // Show the object's name
+        text.setString("Name: " + object->getName());
         text.setPosition(sf::Vector2f(10.f, yOffset));
-        yOffset += 50.f;
-
         debugWindow.draw(text);
+
+        yOffset += 20.f;
+
+        // Toggle dropdown
+        if (expandedState[object]) {
+            text.setString("Position: (" +
+                std::to_string(object->getPosition().x) + ", " +
+                std::to_string(object->getPosition().y) + ")");
+            text.setPosition(sf::Vector2f(20.f, yOffset));
+            debugWindow.draw(text);
+
+            yOffset += 20.f;
+        }
+
+        // Reserve space for the dropdown toggle
+        yOffset += 10.f;
     }
 
     debugWindow.display();
@@ -63,3 +68,4 @@ void DebugWindow::draw() {
 bool DebugWindow::isOpen() const {
     return debugWindow.isOpen();
 }
+

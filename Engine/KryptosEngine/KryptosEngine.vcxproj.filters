@@ -27,6 +27,9 @@
     <ClInclude Include="Include\DebugWindow\DebugWindow.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Include\GameObjectSystem\GameObjectManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\GameObjectSystem\GameObject.cpp">
@@ -41,9 +44,12 @@
     <ClCompile Include="Source\DebugWindow\DebugWindow.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Source\GameObjectSystem\GameObjectManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <Font Include="Assets\Fonts\DebugWindowFont\AtkinsonHyperlegible-Regular.ttf" />
-    <Font Include="Assets\Fonts\DebugWindowFont\AtkinsonHyperlegible-Bold.ttf" />
+    <Font Include="EngineAssets\Fonts\DebugWindowFont\AtkinsonHyperlegible-Regular.ttf" />
+    <Font Include="EngineAssets\Fonts\DebugWindowFont\AtkinsonHyperlegible-Bold.ttf" />
   </ItemGroup>
 </Project>

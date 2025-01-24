@@ -26,6 +26,10 @@
       <Project>{fa92a39c-c4e6-4a5c-a834-51c19a5e427f}</Project>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <Font Include="EngineAssets\Fonts\DebugWindowFont\AtkinsonHyperlegible-Bold.ttf" />
+    <Font Include="EngineAssets\Fonts\DebugWindowFont\AtkinsonHyperlegible-Regular.ttf" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
@@ -130,6 +134,12 @@
       <AdditionalDependencies>sfml-graphics-s-d.lib;sfml-system-s-d.lib;sfml-network-s-d.lib;sfml-window-s-d.lib;sfml-audio-s-d.lib;opengl32.lib;freetype.lib;winmm.lib;gdi32.lib;flac.lib;vorbisenc.lib;vorbisfile.lib;vorbis.lib;ogg.lib;ws2_32.lib;KryptosEngine.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>D:\Personal Projects\Working Title - Kryptos\Krytpos\Engine\KryptosEngine\x64\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
+    <PostBuildEvent>
+      <Command>if not exist "D:\Personal Projects\Working Title - Kryptos\Krytpos\Solution\KryptosGame\KryptosGame\EngineAssets" mkdir "D:\Personal Projects\Working Title - Kryptos\Krytpos\Solution\KryptosGame\KryptosGame\EngineAssets"
+xcopy /E /Y "D:\Personal Projects\Working Title - Kryptos\Krytpos\Engine\KryptosEngine\EngineAssets" "D:\Personal Projects\Working Title - Kryptos\Krytpos\Solution\KryptosGame\KryptosGame\EngineAssets"
+
+</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -148,6 +158,12 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>sfml-graphics-s.lib;sfml-system-s.lib;sfml-network-s.lib;sfml-window-s.lib;sfml-audio-s.lib;opengl32.lib;freetype.lib;winmm.lib;gdi32.lib;flac.lib;vorbisenc.lib;vorbisfile.lib;vorbis.lib;ogg.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <PostBuildEvent>
+      <Command>if not exist "D:\Personal Projects\Working Title - Kryptos\Krytpos\Solution\KryptosGame\KryptosGame\EngineAssets" mkdir "D:\Personal Projects\Working Title - Kryptos\Krytpos\Solution\KryptosGame\KryptosGame\EngineAssets"
+xcopy /E /Y "D:\Personal Projects\Working Title - Kryptos\Krytpos\Engine\KryptosEngine\EngineAssets" "D:\Personal Projects\Working Title - Kryptos\Krytpos\Solution\KryptosGame\KryptosGame\EngineAssets"
+
+</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -6,17 +6,21 @@ Dependencies: Graphics.hpp, iostream, Text.hpp, Font.hpp, DebugWindow.h, stdexce
 #include "../Include/DebugWindow/DebugWindow.h"
 #include "../Include/PlayerClass/Player.h"
 #include <SFML/Window/Event.hpp>
-#include <SFML/Graphics/Rect.hpp>
-
+#include <SFML/System/String.hpp>
 
 #include <stdexcept>
 #include <iostream>
+
 // Constructor
 DebugWindow::DebugWindow()
     : debugWindow(),
     isVisible(false),
     toggleKey(sf::Keyboard::Key::F1) { // Default toggle key: `F1`
     debugWindow.setFramerateLimit(60);
+
+    if (!defaultFont.openFromFile("EngineAssets/Fonts/DebugWindowFont/AtkinsonHyperlegible-Regular.ttf")) {
+        throw std::runtime_error("Failed to load default font for DebugWindow");
+    }
 }
 
 // Handle input for toggling debug window
@@ -40,114 +44,97 @@ void DebugWindow::toggleVisibility() {
     }
 }
 
-// Draw the debug window
 void DebugWindow::draw() {
     if (!isVisible || !debugWindow.isOpen())
         return;
 
+    bool mouseClicked = false;
+    sf::Vector2<float> mousePosF;
+
     // Process events for the debug window
     while (const std::optional<sf::Event> event = debugWindow.pollEvent()) {
         if (event->is<sf::Event::Closed>()) {
-            close(); // Close the debug window when the "X" button is clicked
-            return;
+            close();
+            return; // Close the debug window
         }
 
-        // Check for a single left mouse button press
         if (event->is<sf::Event::MouseButtonPressed>() &&
             event->getIf<sf::Event::MouseButtonPressed>()->button == sf::Mouse::Button::Left) {
+            mouseClicked = true;
             sf::Vector2i mousePos = sf::Mouse::getPosition(debugWindow);
-
-            float yOffset = 10.f; // Reset yOffset to match the rendering loop
-            for (const auto& object : GameObjectManager::getInstance().getGameObjects()) {
-                if (!object->isActive()) continue;
-
-                // Check if the mouse clicked on the object's name
-                sf::FloatRect nameBounds(sf::Vector2<float>(10.f, yOffset), sf::Vector2<float>(200.f, 20.f)); // Position and size as vectors
-
-                // Convert mouse position to float vector
-                sf::Vector2<float> mousePosF(static_cast<float>(mousePos.x), static_cast<float>(mousePos.y));
-
-                if (nameBounds.contains(mousePosF)) {
-                    expandedState[object] = !expandedState[object]; // Toggle dropdown
-                }
-
-
-
-                // Increment yOffset to match positioning in the rendering loop
-                yOffset += 20.f;
-                if (expandedState[object]) {
-                    yOffset += 100.f; // Space for dropdown details
-                }
-            }
+            mousePosF = sf::Vector2<float>(static_cast<float>(mousePos.x), static_cast<float>(mousePos.y));
         }
     }
 
     debugWindow.clear(sf::Color::Black);
 
-    sf::Font font;
-    if (!font.openFromFile("EngineAssets/Fonts/DebugWindowFont/AtkinsonHyperlegible-Regular.ttf")) {
-        std::cout << "Failed to load font!" << std::endl;
-        return;
-    }
-
-    sf::Text text(font, " ", 14);
-    text.setFillColor(sf::Color::White);
-
     float yOffset = 10.f;
 
-    // Iterate through all game objects and render their details
     for (const auto& object : GameObjectManager::getInstance().getGameObjects()) {
         if (!object->isActive()) continue;
 
-        // Show the object's name
-        text.setString("Name: " + object->getName() + "->");
-        text.setPosition(sf::Vector2f(10.f, yOffset));
-        debugWindow.draw(text);
+        // Create the name text
+        sf::String displayName = sf::String("Name: ") + object->getName();
+        sf::Text nameText(defaultFont, displayName, 14); // Correct parameter order
+        nameText.setFillColor(sf::Color::White);
+        nameText.setPosition(sf::Vector2f(10.f, yOffset));
+        debugWindow.draw(nameText);
+
+        // Check for mouse click on this text
+        if (mouseClicked && nameText.getGlobalBounds().contains(mousePosF)) {
+            expandedState[object] = !expandedState[object];
+        }
+
         yOffset += 20.f;
 
+        // Draw expanded details if the object is expanded
         if (expandedState[object]) {
-            // Show the object's position
-            text.setString("Position: (" +
-                std::to_string(object->getPosition().x) + ", " +
-                std::to_string(object->getPosition().y) + ")");
-            text.setPosition(sf::Vector2f(20.f, yOffset));
-            debugWindow.draw(text);
+            sf::Text positionText(defaultFont,
+                sf::String("Position: (" +
+                    std::to_string(object->getPosition().x) + ", " +
+                    std::to_string(object->getPosition().y) + ")"),
+                14);
+            positionText.setFillColor(sf::Color::White);
+            positionText.setPosition(sf::Vector2f(20.f, yOffset));
+            debugWindow.draw(positionText);
+
             yOffset += 20.f;
 
-            // If the object is a Player, show additional attributes
             if (auto player = dynamic_cast<Player*>(object)) {
-                text.setString("Health: " + std::to_string(player->getHealth()));
-                text.setPosition(sf::Vector2f(20.f, yOffset));
-                debugWindow.draw(text);
-                yOffset += 20.f;
+                std::vector<std::pair<std::string, float>> attributes = {
+                    {"Health", player->getHealth()},
+                    {"Attack Speed", player->getAttackSpeed()},
+                    {"Movement Speed", player->getMovementSpeed()},
+                    {"Attack Multiplier", player->getAttackMultiplier()},
+                    {"Jump Multiplier", player->getJumpMultiplier()} };
 
-                text.setString("Attack Speed: " + std::to_string(player->getAttackSpeed()));
-                text.setPosition(sf::Vector2f(20.f, yOffset));
-                debugWindow.draw(text);
-                yOffset += 20.f;
-
-                text.setString("Movement Speed: " + std::to_string(player->getMovementSpeed()));
-                text.setPosition(sf::Vector2f(20.f, yOffset));
-                debugWindow.draw(text);
-                yOffset += 20.f;
-
-                text.setString("Attack Multiplier: " + std::to_string(player->getAttackMultiplier()));
-                text.setPosition(sf::Vector2f(20.f, yOffset));
-                debugWindow.draw(text);
-                yOffset += 20.f;
-
-                text.setString("Jump Multiplier: " + std::to_string(player->getJumpMultiplier()));
-                text.setPosition(sf::Vector2f(20.f, yOffset));
-                debugWindow.draw(text);
-                yOffset += 20.f;
+                for (const auto& [label, value] : attributes) {
+                    sf::Text attributeText(defaultFont,
+                        sf::String(label + ": " + std::to_string(value)),
+                        14);
+                    attributeText.setFillColor(sf::Color::White);
+                    attributeText.setPosition(sf::Vector2f(20.f, yOffset));
+                    debugWindow.draw(attributeText);
+                    yOffset += 20.f;
+                }
             }
         }
 
-        yOffset += 10.f;
+        yOffset += 10.f; // Add spacing between objects
     }
 
     debugWindow.display();
 }
+
+
+
+
+
+
+
+
+
+
 
 
 // Close the debug window

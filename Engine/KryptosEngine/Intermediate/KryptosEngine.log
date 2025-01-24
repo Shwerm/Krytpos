@@ -1,0 +1,56 @@
+﻿D:\VisualStudio\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(516,5): warning MSB8004: Intermediate Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Intermediate Directory.
+D:\VisualStudio\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(517,5): warning MSB8004: Output Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Output Directory.
+  GameObjectManager.cpp
+  DebugWindow.cpp
+D:\VisualStudio\VC\Tools\MSVC\14.41.34120\include\memory(3597,35): error C2665: 'sf::Text::Text': no overloaded function could convert all the argument types
+  (compiling source file 'Source/DebugWindow/DebugWindow.cpp')
+      D:\Personal Projects\C++\Libraries\SFML\SFML-3.0.0\include\SFML\Graphics\Text.hpp(93,5):
+      could be 'sf::Text::Text(const sf::Font &&,sf::String,unsigned int)'
+          D:\VisualStudio\VC\Tools\MSVC\14.41.34120\include\memory(3597,35):
+          'sf::Text::Text(const sf::Font &&,sf::String,unsigned int)': cannot convert argument 1 from '_Ty' to 'const sf::Font &&'
+          with
+          [
+              _Ty=std::basic_string<char,std::char_traits<char>,std::allocator<char>>
+          ]
+              D:\VisualStudio\VC\Tools\MSVC\14.41.34120\include\memory(3597,56):
+              Reason: cannot convert from '_Ty' to 'const sf::Font'
+          with
+          [
+              _Ty=std::basic_string<char,std::char_traits<char>,std::allocator<char>>
+          ]
+              D:\VisualStudio\VC\Tools\MSVC\14.41.34120\include\memory(3597,56):
+              No user-defined-conversion operator available that can perform this conversion, or the operator cannot be called
+      D:\Personal Projects\C++\Libraries\SFML\SFML-3.0.0\include\SFML\Graphics\Text.hpp(87,5):
+      or       'sf::Text::Text(const sf::Font &,sf::String,unsigned int)'
+          D:\VisualStudio\VC\Tools\MSVC\14.41.34120\include\memory(3597,35):
+          'sf::Text::Text(const sf::Font &,sf::String,unsigned int)': cannot convert argument 1 from '_Ty' to 'const sf::Font &'
+          with
+          [
+              _Ty=std::basic_string<char,std::char_traits<char>,std::allocator<char>>
+          ]
+              D:\VisualStudio\VC\Tools\MSVC\14.41.34120\include\memory(3597,56):
+              Reason: cannot convert from '_Ty' to 'const sf::Font'
+          with
+          [
+              _Ty=std::basic_string<char,std::char_traits<char>,std::allocator<char>>
+          ]
+              D:\VisualStudio\VC\Tools\MSVC\14.41.34120\include\memory(3597,56):
+              No user-defined-conversion operator available that can perform this conversion, or the operator cannot be called
+      D:\VisualStudio\VC\Tools\MSVC\14.41.34120\include\memory(3597,35):
+      while trying to match the argument list '(_Ty, sf::Font, _Ty)'
+          with
+          [
+              _Ty=std::basic_string<char,std::char_traits<char>,std::allocator<char>>
+          ]
+          and
+          [
+              _Ty=int
+          ]
+      D:\VisualStudio\VC\Tools\MSVC\14.41.34120\include\memory(3597,35):
+      the template instantiation context (the oldest one first) is
+          D:\Personal Projects\Working Title - Kryptos\Krytpos\Engine\KryptosEngine\Source\DebugWindow\DebugWindow.cpp(83,26):
+          see reference to function template instantiation 'std::unique_ptr<sf::Text,std::default_delete<sf::Text>> std::make_unique<sf::Text,std::basic_string<char,std::char_traits<char>,std::allocator<char>>,sf::Font&,int,0>(std::basic_string<char,std::char_traits<char>,std::allocator<char>> &&,sf::Font &,int &&)' being compiled
+  
+  GameObject.cpp
+  Player.cpp
+  SpriteRenderer.cpp

@@ -2,9 +2,9 @@
 #include <SFML/Window/Event.hpp>
 #include "PlayerClass/Player.h"
 #include "DebugWindow/DebugWindow.h"
+#include <iostream>
 
-int main()
-{
+int main() {
     // Create the main window
     sf::RenderWindow window(sf::VideoMode({ 800, 600 }), "Player, Game Object & Sprite Renderer Test");
 
@@ -13,7 +13,6 @@ int main()
 
     // Declare Player
     Player player("Kryptos", sf::Vector2(100.f, 300.f), playerTexturePath);
-    // Declare other game objects (e.g., enemies, items)
     Player anotherPlayer("Athena", sf::Vector2(200.f, 400.f), playerTexturePath); // Example additional player
 
     // Create the Debug Window
@@ -22,39 +21,38 @@ int main()
     sf::Clock clock;
 
     // Start the game loop
-    while (window.isOpen())
-    {
+    while (window.isOpen()) {
         // Process events
-        while (const std::optional event = window.pollEvent())
-        {
+        while (const std::optional event = window.pollEvent()) {
             // Close window: exit
-            if (event->is<sf::Event::Closed>())
+            if (event->is<sf::Event::Closed>()) {
                 window.close();
-
-            // Toggle debug window visibility with F1 key
-            if (event->is<sf::Event::KeyPressed>() && event->getIf<sf::Event::KeyPressed>()->code == sf::Keyboard::Key::F1) {
-                debugWindow.toggleVisibility();
+                debugWindow.close(); // Close the debug window as well
             }
         }
 
         // Calculate delta time
         float deltaTime = clock.restart().asSeconds();
 
-        // Update Player
+        // Update Players
         player.update(deltaTime);
-		anotherPlayer.update(deltaTime);
+        anotherPlayer.update(deltaTime);
 
         // Clear screen
         window.clear();
 
-        // Render Player + AnotherPlayer 
+        // Render Players
         player.draw(window);
-		anotherPlayer.draw(window);
+        anotherPlayer.draw(window);
+
+        debugWindow.handleInput();
 
         // Render Debug Window
-        debugWindow.draw();
+        if (debugWindow.isOpen()) {
+            debugWindow.draw();
+        }
 
-        // Update the window
+        // Update the main window
         window.display();
     }
 

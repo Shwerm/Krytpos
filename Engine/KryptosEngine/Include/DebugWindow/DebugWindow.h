@@ -16,13 +16,16 @@ private:
     sf::RenderWindow debugWindow;          // Separate window for debugging
     bool isVisible;                        // Toggle visibility
     std::unordered_map<GameObject*, bool> expandedState; // Dropdown state for each object
+	sf::Keyboard::Key toggleKey;		   // Key to toggle visibility
 
 public:
     DebugWindow();
 
+	void handleInput();
     void toggleVisibility();
     void draw();
     bool isOpen() const;
+	void close();
 };
 
 

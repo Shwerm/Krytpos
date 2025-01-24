@@ -5,25 +5,52 @@ Dependencies: Graphics.hpp, iostream, Text.hpp, Font.hpp, DebugWindow.h, stdexce
 */
 #include "../Include/DebugWindow/DebugWindow.h"
 #include "../Include/PlayerClass/Player.h"
+#include <SFML/Window/Event.hpp>
+
 
 #include <stdexcept>
 #include <iostream>
 // Constructor
 DebugWindow::DebugWindow()
-    : debugWindow(sf::VideoMode({ 400, 600 }), "Debug Window", sf::Style::Titlebar | sf::Style::Close),
-    isVisible(false) {
-    debugWindow.setFramerateLimit(30);
+    : debugWindow(),
+    isVisible(false),
+    toggleKey(sf::Keyboard::Key::F1) { // Default toggle key: `F1`
+    debugWindow.setFramerateLimit(60);
+}
+
+// Handle input for toggling debug window
+void DebugWindow::handleInput() {
+    if (sf::Keyboard::isKeyPressed(toggleKey) && !debugWindow.isOpen()) {
+        toggleVisibility();
+    }
 }
 
 // Toggle visibility
 void DebugWindow::toggleVisibility() {
     isVisible = !isVisible;
+
+    if (isVisible) {
+        if (!debugWindow.isOpen()) {
+            debugWindow.create(sf::VideoMode({ 400, 600 }), "Debug Window", sf::Style::Titlebar | sf::Style::Close);
+        }
+    }
+    else {
+        close();
+    }
 }
 
 // Draw the debug window
 void DebugWindow::draw() {
     if (!isVisible || !debugWindow.isOpen())
         return;
+
+    // Process events for the debug window
+    while (const std::optional event = debugWindow.pollEvent()) {
+        if (event->is<sf::Event::Closed>()) {
+            close(); // Close the debug window when the "X" button is clicked
+            return;
+        }
+    }
 
     debugWindow.clear(sf::Color::Black);
 
@@ -100,6 +127,13 @@ void DebugWindow::draw() {
     debugWindow.display();
 }
 
+// Close the debug window
+void DebugWindow::close() {
+    if (debugWindow.isOpen()) {
+        debugWindow.close();
+    }
+	isVisible = false;
+}
 
 // Check if debug window is open
 bool DebugWindow::isOpen() const {

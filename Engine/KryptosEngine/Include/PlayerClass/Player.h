@@ -1,3 +1,8 @@
+/*
+Player class header - Kryptos - Sam Camilleri, Mural Studios
+All Rights Reserved 2025.
+Dependencies: GameObject.h, SpriteRenderer.h
+*/
 #ifndef PLAYER_H
 #define PLAYER_H
 

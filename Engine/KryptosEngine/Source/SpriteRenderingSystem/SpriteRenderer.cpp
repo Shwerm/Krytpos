@@ -1,3 +1,8 @@
+/*
+Sprite Renderer source - Kryptos - Sam Camilleri, Mural Studios
+All Rights Reserved 2025.
+Dependencies: Graphics.hpp, vector, string, GameObject.h
+*/
 #include "../Include/SpriteRenderingSystem/SpriteRenderer.h"
 #include <stdexcept>
 

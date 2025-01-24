@@ -1,5 +1,6 @@
 /*
 Game Object Source - Krytpos - Sam Camilleri, Mural Studios
+All Rights Reserved 2025.
 Dependencies: GameObject.h
 */
 

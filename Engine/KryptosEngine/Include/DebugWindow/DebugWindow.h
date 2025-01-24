@@ -1,3 +1,8 @@
+/*
+Debug Window header - Kryptos - Sam Camilleri, Mural Studios
+All Rights Reserved 2025.
+Dependencies: Graphics.hpp, vector, string, GameObject.h
+*/
 #pragma once
 #ifndef DEBUGWINDOW_H
 #define DEBUGWINDOW_H

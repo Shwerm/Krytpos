@@ -1,3 +1,9 @@
+/*
+Player class source - Kryptos - Sam Camilleri, Mural Studios
+All Rights Reserved 2025.
+Dependencies: Keyboard.hpp, Player.h
+*/
+
 #include <SFML/Window/Keyboard.hpp>
 #include "../Include/PlayerClass/Player.h"
 

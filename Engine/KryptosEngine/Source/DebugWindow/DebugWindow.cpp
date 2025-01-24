@@ -1,3 +1,8 @@
+/*
+Debug Window source - Kryptos - Sam Camilleri, Mural Studios
+All Rights Reserved 2025.
+Dependencies: Graphics.hpp, iostream, Text.hpp, Font.hpp, DebugWindow.h, stdexcept
+*/
 #include <SFML/Graphics.hpp>
 #include <iostream>
 #include <SFML/Graphics/Text.hpp>

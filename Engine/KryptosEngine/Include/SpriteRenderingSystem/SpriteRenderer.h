@@ -1,3 +1,9 @@
+/*
+Sprite Renderer header - Kryptos - Sam Camilleri, Mural Studios
+All Rights Reserved 2025.
+Dependencies: Graphics.hpp, string, unordered_map, memory
+*/
+
 #ifndef SPRITERENDERER_H
 #define SPRITERENDERER_H
 

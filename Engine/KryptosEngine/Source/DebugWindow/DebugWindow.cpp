@@ -6,6 +6,7 @@ Dependencies: Graphics.hpp, iostream, Text.hpp, Font.hpp, DebugWindow.h, stdexce
 #include "../Include/DebugWindow/DebugWindow.h"
 #include "../Include/PlayerClass/Player.h"
 #include <SFML/Window/Event.hpp>
+#include <SFML/Graphics/Rect.hpp>
 
 
 #include <stdexcept>
@@ -45,10 +46,39 @@ void DebugWindow::draw() {
         return;
 
     // Process events for the debug window
-    while (const std::optional event = debugWindow.pollEvent()) {
+    while (const std::optional<sf::Event> event = debugWindow.pollEvent()) {
         if (event->is<sf::Event::Closed>()) {
             close(); // Close the debug window when the "X" button is clicked
             return;
+        }
+
+        // Check for a single left mouse button press
+        if (event->is<sf::Event::MouseButtonPressed>() &&
+            event->getIf<sf::Event::MouseButtonPressed>()->button == sf::Mouse::Button::Left) {
+            sf::Vector2i mousePos = sf::Mouse::getPosition(debugWindow);
+
+            float yOffset = 10.f; // Reset yOffset to match the rendering loop
+            for (const auto& object : GameObjectManager::getInstance().getGameObjects()) {
+                if (!object->isActive()) continue;
+
+                // Check if the mouse clicked on the object's name
+                sf::FloatRect nameBounds(sf::Vector2<float>(10.f, yOffset), sf::Vector2<float>(200.f, 20.f)); // Position and size as vectors
+
+                // Convert mouse position to float vector
+                sf::Vector2<float> mousePosF(static_cast<float>(mousePos.x), static_cast<float>(mousePos.y));
+
+                if (nameBounds.contains(mousePosF)) {
+                    expandedState[object] = !expandedState[object]; // Toggle dropdown
+                }
+
+
+
+                // Increment yOffset to match positioning in the rendering loop
+                yOffset += 20.f;
+                if (expandedState[object]) {
+                    yOffset += 100.f; // Space for dropdown details
+                }
+            }
         }
     }
 
@@ -65,23 +95,15 @@ void DebugWindow::draw() {
 
     float yOffset = 10.f;
 
-    // Iterate through all game objects
+    // Iterate through all game objects and render their details
     for (const auto& object : GameObjectManager::getInstance().getGameObjects()) {
         if (!object->isActive()) continue;
 
         // Show the object's name
-        text.setString("Name: " + object->getName());
+        text.setString("Name: " + object->getName() + "->");
         text.setPosition(sf::Vector2f(10.f, yOffset));
         debugWindow.draw(text);
         yOffset += 20.f;
-
-        // Toggle dropdown state
-        if (sf::Mouse::isButtonPressed(sf::Mouse::Button::Left)) {
-            sf::Vector2i mousePos = sf::Mouse::getPosition(debugWindow);
-            if (mousePos.y >= yOffset - 20.f && mousePos.y < yOffset) {
-                expandedState[object] = !expandedState[object];
-            }
-        }
 
         if (expandedState[object]) {
             // Show the object's position
@@ -126,6 +148,7 @@ void DebugWindow::draw() {
 
     debugWindow.display();
 }
+
 
 // Close the debug window
 void DebugWindow::close() {

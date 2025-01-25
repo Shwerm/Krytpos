@@ -8,8 +8,8 @@ Dependencies: GameObject.h
 #include "../include/GameObjectSystem/GameObjectManager.h"
 
 // Constructor
-GameObject::GameObject(const std::string& name, const sf::Vector2f& position)
-    : name(name), position(position), active(true) {
+GameObject::GameObject(const std::string& name, const sf::Vector2f& position, const sf::Angle& rotation, const float& mass, const bool& useGravity)
+    : name(name), position(position), active(true), mass(mass), useGravity(true){
     GameObjectManager::getInstance().registerObject(this);
 }
 
@@ -31,6 +31,18 @@ bool GameObject::isActive() const {
     return active;
 }
 
+float GameObject::getMass() const {
+    return mass;
+}
+
+bool GameObject::getUseGravity() const {
+	return useGravity;
+}
+
+sf::Angle GameObject::getRotation() const {
+	return rotation;
+}
+
 // Setters
 void GameObject::setPosition(const sf::Vector2f& newPosition) {
     position = newPosition;
@@ -38,6 +50,18 @@ void GameObject::setPosition(const sf::Vector2f& newPosition) {
 
 void GameObject::setActive(bool state) {
     active = state;
+}
+
+void GameObject::setMass(float newMass) {
+    mass = newMass;
+}
+
+void GameObject::setUseGravity(bool state) {
+	useGravity = state;
+}
+
+void GameObject::setRotation(const sf::Angle& newRotation) {
+	rotation = newRotation;
 }
 
 

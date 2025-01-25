@@ -9,14 +9,19 @@ Dependencies: string, Graphics.hpp
 #include <string>
 
 class GameObject {
+	// Protected members are accessible by derived classes
+    // GameObject values
 protected:
-    std::string name;           // Name of the game object
-    sf::Vector2f position;      // Position of the game object
-    bool active;                // Whether the object is active
+    std::string name;      
+    sf::Vector2f position;
+	sf::Angle rotation;
+    bool active;       
+    float mass;
+	bool useGravity;
 
 public:
     // Constructor
-    GameObject(const std::string& name, const sf::Vector2f& position);
+    GameObject(const std::string& name, const sf::Vector2f& position, const sf::Angle& rotation, const float& mass, const bool& useGravity);
 
     // Virtual destructor
     virtual ~GameObject();
@@ -29,10 +34,16 @@ public:
     std::string getName() const;
     sf::Vector2f getPosition() const;
     bool isActive() const;
+    float getMass() const;
+	bool getUseGravity() const;
+	sf::Angle getRotation() const;
 
     // Setters
     void setPosition(const sf::Vector2f& newPosition);
     void setActive(bool state);
+	void setMass(float newMass);
+	void setUseGravity(bool state);
+	void setRotation(const sf::Angle& newRotation);
 };
 
 

@@ -1,17 +1,32 @@
 /*
-Debug Window source - Kryptos - Sam Camilleri, Mural Studios
-All Rights Reserved 2025.
-Dependencies: Graphics.hpp, iostream, Text.hpp, Font.hpp, DebugWindow.h, stdexcept
-*/
+ * DebugWindow.cpp - Kryptos Debugging Interface
+ * ---------------------------------------------
+ * Implements the DebugWindow class for providing a graphical debugging interface.
+ * Allows visualization and interaction with game object states during runtime.
+ *
+ * Author: Sam Camilleri, Mural Studios
+ * All Rights Reserved, 2025.
+ *
+ * Dependencies:
+ *   - Graphics.hpp: Provides SFML graphics components.
+ *   - iostream: Standard I/O for debugging.
+ *   - Text.hpp, Font.hpp: SFML text and font handling.
+ *   - DebugWindow.h: Header for DebugWindow class.
+ *   - stdexcept: For exception handling.
+ */
+
 #include "../Include/DebugWindow/DebugWindow.h"
 #include "../Include/PlayerClass/Player.h"
 #include <SFML/Window/Event.hpp>
 #include <SFML/System/String.hpp>
-
 #include <stdexcept>
 #include <iostream>
 
-// Constructor
+ /**
+  * @brief Constructs a DebugWindow object.
+  * Initializes the SFML window and loads the default font.
+  * Throws a runtime error if the font fails to load.
+  */
 DebugWindow::DebugWindow()
     : debugWindow(),
     isVisible(false),
@@ -23,14 +38,20 @@ DebugWindow::DebugWindow()
     }
 }
 
-// Handle input for toggling debug window
+/**
+ * @brief Handles keyboard input for toggling the debug window.
+ * Monitors the assigned toggle key and switches the window's visibility when pressed
+ */
 void DebugWindow::handleInput() {
     if (sf::Keyboard::isKeyPressed(toggleKey) && !debugWindow.isOpen()) {
         toggleVisibility();
     }
 }
 
-// Toggle visibility
+/**
+ * @brief Toggles the visibility of the debug window.
+ * Opens the debug window if currently closed, or closes it if open.
+ */
 void DebugWindow::toggleVisibility() {
     isVisible = !isVisible;
 
@@ -44,18 +65,24 @@ void DebugWindow::toggleVisibility() {
     }
 }
 
+/**
+ * @brief Renders the debug window.
+ * Displays game object names, properties, and debug-tracked values.
+ * Handles user interaction with the window's elements.
+ */
 void DebugWindow::draw() {
-    if (!isVisible || !debugWindow.isOpen())
+    if (!isVisible || !debugWindow.isOpen()) {
         return;
+    }
 
     bool mouseClicked = false;
     sf::Vector2<float> mousePosF;
 
-    // Process events for the debug window
+    // Process events in the debug window
     while (const std::optional<sf::Event> event = debugWindow.pollEvent()) {
         if (event->is<sf::Event::Closed>()) {
             close();
-            return; // Close the debug window
+            return; // Exit if the window is closed
         }
 
         if (event->is<sf::Event::MouseButtonPressed>() &&
@@ -73,23 +100,22 @@ void DebugWindow::draw() {
     for (const auto& object : GameObjectManager::getInstance().getGameObjects()) {
         if (!object->isActive()) continue;
 
-        // Create the name text
+        // Render game object name
         sf::String displayName = sf::String("Name: ") + object->getName();
         sf::Text nameText(defaultFont, displayName, 14);
         nameText.setFillColor(sf::Color::White);
         nameText.setPosition(sf::Vector2f(10.f, yOffset));
         debugWindow.draw(nameText);
 
-        // Check for mouse click on this text
+        // Handle mouse clicks on object names
         if (mouseClicked && nameText.getGlobalBounds().contains(mousePosF)) {
             expandedState[object] = !expandedState[object];
         }
 
         yOffset += 20.f;
 
-        // Draw expanded details if the object is expanded
+        // Render additional details if expanded
         if (expandedState[object]) {
-            // Display default properties (position, rotation, etc.)
             sf::Text positionText(defaultFont,
                 sf::String("Position: (" +
                     std::to_string(object->getPosition().x) + ", " +
@@ -124,7 +150,6 @@ void DebugWindow::draw() {
             debugWindow.draw(gravityText);
             yOffset += 20.f;
 
-            // Display dynamically tracked variables
             const auto& trackedVars = object->getDebugTrackedValues();
             for (const auto& [name, getter] : trackedVars) {
                 sf::Text trackedVarText(defaultFont, name + ": " + getter(), 14);
@@ -141,17 +166,21 @@ void DebugWindow::draw() {
     debugWindow.display();
 }
 
-
-// Close the debug window
+/**
+ * @brief Closes the debug window.
+ * Releases resources associated with the window and resets visibility.
+ */
 void DebugWindow::close() {
     if (debugWindow.isOpen()) {
         debugWindow.close();
     }
-	isVisible = false;
+    isVisible = false;
 }
 
-// Check if debug window is open
+/**
+ * @brief Checks if the debug window is open.
+ * @return True if the debug window is open, false otherwise.
+ */
 bool DebugWindow::isOpen() const {
     return debugWindow.isOpen();
 }
-

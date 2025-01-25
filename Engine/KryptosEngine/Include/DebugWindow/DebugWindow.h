@@ -1,34 +1,83 @@
 /*
-Debug Window header - Kryptos - Sam Camilleri, Mural Studios
-All Rights Reserved 2025.
-Dependencies: Graphics.hpp, vector, string, GameObject.h
-*/
-#pragma once
-#include <SFML/Graphics.hpp>  // For sf::Text, sf::Font, sf::RenderWindow, sf::String
-#include <SFML/Window/Keyboard.hpp>  // For sf::Keyboard
-#include <unordered_map>  // For std::unordered_map
-#include <memory>  // For std::unique_ptr
-#include "../GameObjectSystem/GameObject.h"  // For GameObject class
-#include "../GameObjectSystem/GameObjectManager.h"  // For GameObjectManager
+ * DebugWindow.h - Kryptos Debugging Interface
+ * -------------------------------------------
+ * Provides a graphical debugging overlay to visualize game objects and their state.
+ * Designed for use within the Kryptos game and engine.
+ *
+ * Author: Sam Camilleri, Mural Studios
+ * All Rights Reserved, 2025.
+ *
+ * Dependencies:
+ *   - GameObjectManager.h: Manages game objects in the engine.
+ */
 
+#pragma once
+
+#include "../GameObjectSystem/GameObjectManager.h"
+#include <SFML/Graphics.hpp>
+#include <unordered_map>
+#include <memory>
+
+ /**
+  * @class DebugWindow
+  * @brief Provides a graphical interface for debugging game objects in the engine.
+  *
+  * This class allows visualisation and interaction with game object data during runtime.
+  * It supports toggling visibility, displaying object names, and expanding details per object.
+  */
 class DebugWindow {
 private:
-    sf::RenderWindow debugWindow;          // Separate window for debugging
-    bool isVisible;                        // Toggle visibility
-	sf::Keyboard::Key toggleKey;		   // Key to toggle visibility
-    std::unordered_map<GameObject*, std::unique_ptr<sf::Text>> nameTexts; // Map of game objects to their text
-    std::unordered_map<GameObject*, bool> expandedState; // Dropdown state for each object
-    sf::Font defaultFont; // Font for all texts
+    sf::RenderWindow debugWindow; ///< Window for rendering debug information.
+    bool isVisible;               ///< Tracks whether the debug window is currently visible.
+    sf::Keyboard::Key toggleKey;  ///< Key used to toggle the visibility of the debug window.
 
+    /**
+     * Map of game objects to their corresponding name text elements.
+     * Ownership of `sf::Text` is managed via unique pointers.
+     */
+    std::unordered_map<GameObject*, std::unique_ptr<sf::Text>> nameTexts;
+
+    /**
+     * Stores the expanded/collapsed state for each game object in the debug window.
+     */
+    std::unordered_map<GameObject*, bool> expandedState;
+
+    sf::Font defaultFont; ///< Default font used for rendering text in the debug window.
 
 public:
+    /**
+     * @brief Constructs a DebugWindow object.
+     * Initializes the debug window and loads required resources.
+     */
     DebugWindow();
 
-	void handleInput();
+    /**
+     * @brief Handles input for toggling the debug window.
+     * Listens for the toggle key and switches visibility accordingly.
+     */
+    void handleInput();
+
+    /**
+     * @brief Toggles the visibility of the debug window.
+     * If visible, the window is rendered; otherwise, it is hidden.
+     */
     void toggleVisibility();
-    void draw();
-	void close();
+
+    /**
+     * @brief Closes the debug window.
+     * Releases any resources associated with the window.
+     */
+    void close();
+
+    /**
+     * @brief Checks if the debug window is open.
+     * @return True if the debug window is open, false otherwise.
+     */
     bool isOpen() const;
+
+    /**
+     * @brief Draws the debug window and its elements.
+     * Renders game object information, expanded details, and UI elements.
+     */
+    void draw();
 };
-
-

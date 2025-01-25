@@ -1,50 +1,64 @@
-/*
-Game Object Header - Krytpos - Sam Camilleri, Mural Studios
-All Rights Reserved 2025.
-Dependencies: string, Graphics.hpp
-*/
-
 #pragma once
 #include <SFML/Graphics.hpp>
 #include <string>
+#include <unordered_map>
+#include <functional>
+#include <type_traits>
 
 class GameObject {
-	// Protected members are accessible by derived classes
-    // GameObject values
+private:
+    std::unordered_map<std::string, std::function<std::string()>> debugTrackedValues; // Map of debug-tracked variables
+
 protected:
-    std::string name;      
+    std::string name;
     sf::Vector2f position;
-	sf::Angle rotation;
-    bool active;       
+    sf::Angle rotation;
+    bool active;
     float mass;
-	bool useGravity;
+    bool useGravity;
+
+    // Register a debug-tracked variable
+    template <typename T>
+    void registerDebugVariable(const std::string& name, T& variable) {
+        debugTrackedValues[name] = [&variable]() -> std::string {
+            if constexpr (std::is_same_v<T, bool>) {
+                return variable ? "true" : "false";
+            }
+            else {
+                return std::to_string(variable);
+            }
+            };
+    }
 
 public:
-    // Constructor
-    GameObject(const std::string& name, const sf::Vector2f& position, const sf::Angle& rotation, const float& mass, const bool& useGravity);
+    GameObject(
+        const std::string& name,
+        const sf::Vector2f& position,
+        const bool& active,
+        const sf::Angle& rotation,
+        const float& mass,
+        const bool& useGravity
+    );
 
-    // Virtual destructor
     virtual ~GameObject();
 
-    // Pure virtual methods for update and draw
-    virtual void update(float deltaTime) = 0;
-    virtual void draw(sf::RenderWindow& window) = 0;
+    // Retrieve debug-tracked variables
+    const std::unordered_map<std::string, std::function<std::string()>>& getDebugTrackedValues() const {
+        return debugTrackedValues;
+    }
 
     // Getters
     std::string getName() const;
     sf::Vector2f getPosition() const;
     bool isActive() const;
     float getMass() const;
-	bool getUseGravity() const;
-	sf::Angle getRotation() const;
+    bool getUseGravity() const;
+    sf::Angle getRotation() const;
 
     // Setters
     void setPosition(const sf::Vector2f& newPosition);
     void setActive(bool state);
-	void setMass(float newMass);
-	void setUseGravity(bool state);
-	void setRotation(const sf::Angle& newRotation);
+    void setMass(float newMass);
+    void setUseGravity(bool state);
+    void setRotation(const sf::Angle& newRotation);
 };
-
-
-

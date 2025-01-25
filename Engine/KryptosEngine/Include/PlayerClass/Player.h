@@ -26,10 +26,10 @@ public:
     ~Player() override = default;
 
     // Update the player's logic
-    void update(float deltaTime) override;
+    void update(float deltaTime);
 
     // Render the player
-    void draw(sf::RenderWindow& window) override;
+    void draw(sf::RenderWindow& window);
 
     // Getters and setters for health
     float getHealth() const;

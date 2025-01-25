@@ -8,8 +8,21 @@ Dependencies: GameObject.h
 #include "../include/GameObjectSystem/GameObjectManager.h"
 
 // Constructor
-GameObject::GameObject(const std::string& name, const sf::Vector2f& position, const sf::Angle& rotation, const float& mass, const bool& useGravity)
-    : name(name), position(position), active(true), mass(mass), useGravity(true){
+GameObject::GameObject(
+    const std::string& name, 
+    const sf::Vector2f& position, 
+    const bool& active, 
+    const sf::Angle& rotation, 
+    const float& mass, 
+    const bool& useGravity)
+    : 
+    name(name), 
+    position(position), 
+    active(true), 
+    rotation(rotation), 
+    mass(mass), 
+    useGravity(true)
+{
     GameObjectManager::getInstance().registerObject(this);
 }
 

@@ -9,8 +9,17 @@ Dependencies: Keyboard.hpp, Player.h
 
 
 // Constructor & default player values
-Player::Player(const std::string& name, const sf::Vector2f& position, const std::string& texturePath)
-    : GameObject(name, position),
+Player::Player(
+    const std::string& name,
+    const sf::Vector2f& position,
+    const std::string& texturePath)
+    : GameObject(
+        name,
+        position, 
+        active, 
+        rotation, 
+        mass, 
+        useGravity),
     health(100.f),
     attackSpeed(1.f),
     movementSpeed(200.f),
@@ -19,6 +28,13 @@ Player::Player(const std::string& name, const sf::Vector2f& position, const std:
     spriteRenderer() {
     spriteRenderer.loadTexture(texturePath);
     spriteRenderer.setPosition(position);
+
+    // Register variables for debugging in debug window
+    //registerDebugVariable("Health: ", health);
+    registerDebugVariable("Attack Speed: ", attackSpeed);
+    registerDebugVariable("Movement Speed: ", movementSpeed);
+    registerDebugVariable("Attack Multiplier: ", attackMultiplier);
+    registerDebugVariable("Jump Multiplier: ", jumpMultiplier);
 }
 
 // Update the player's logic

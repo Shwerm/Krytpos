@@ -75,7 +75,7 @@ void DebugWindow::draw() {
 
         // Create the name text
         sf::String displayName = sf::String("Name: ") + object->getName();
-        sf::Text nameText(defaultFont, displayName, 14); // Correct parameter order
+        sf::Text nameText(defaultFont, displayName, 14);
         nameText.setFillColor(sf::Color::White);
         nameText.setPosition(sf::Vector2f(10.f, yOffset));
         debugWindow.draw(nameText);
@@ -89,6 +89,7 @@ void DebugWindow::draw() {
 
         // Draw expanded details if the object is expanded
         if (expandedState[object]) {
+            // Display default properties (position, rotation, etc.)
             sf::Text positionText(defaultFont,
                 sf::String("Position: (" +
                     std::to_string(object->getPosition().x) + ", " +
@@ -97,26 +98,40 @@ void DebugWindow::draw() {
             positionText.setFillColor(sf::Color::White);
             positionText.setPosition(sf::Vector2f(20.f, yOffset));
             debugWindow.draw(positionText);
-
             yOffset += 20.f;
 
-            if (auto player = dynamic_cast<Player*>(object)) {
-                std::vector<std::pair<std::string, float>> attributes = {
-                    {"Health", player->getHealth()},
-                    {"Attack Speed", player->getAttackSpeed()},
-                    {"Movement Speed", player->getMovementSpeed()},
-                    {"Attack Multiplier", player->getAttackMultiplier()},
-                    {"Jump Multiplier", player->getJumpMultiplier()} };
+            sf::Text rotationText(defaultFont,
+                sf::String("Rotation: " + std::to_string(object->getRotation().asDegrees()) + " degrees"),
+                14);
+            rotationText.setFillColor(sf::Color::White);
+            rotationText.setPosition(sf::Vector2f(20.f, yOffset));
+            debugWindow.draw(rotationText);
+            yOffset += 20.f;
 
-                for (const auto& [label, value] : attributes) {
-                    sf::Text attributeText(defaultFont,
-                        sf::String(label + ": " + std::to_string(value)),
-                        14);
-                    attributeText.setFillColor(sf::Color::White);
-                    attributeText.setPosition(sf::Vector2f(20.f, yOffset));
-                    debugWindow.draw(attributeText);
-                    yOffset += 20.f;
-                }
+            sf::Text massText(defaultFont,
+                sf::String("Mass: " + std::to_string(object->getMass())),
+                14);
+            massText.setFillColor(sf::Color::White);
+            massText.setPosition(sf::Vector2f(20.f, yOffset));
+            debugWindow.draw(massText);
+            yOffset += 20.f;
+
+            sf::Text gravityText(defaultFont,
+                sf::String("Use Gravity: " + std::string(object->getUseGravity() ? "true" : "false")),
+                14);
+            gravityText.setFillColor(sf::Color::White);
+            gravityText.setPosition(sf::Vector2f(20.f, yOffset));
+            debugWindow.draw(gravityText);
+            yOffset += 20.f;
+
+            // Display dynamically tracked variables
+            const auto& trackedVars = object->getDebugTrackedValues();
+            for (const auto& [name, getter] : trackedVars) {
+                sf::Text trackedVarText(defaultFont, name + ": " + getter(), 14);
+                trackedVarText.setFillColor(sf::Color::White);
+                trackedVarText.setPosition(sf::Vector2f(20.f, yOffset));
+                debugWindow.draw(trackedVarText);
+                yOffset += 20.f;
             }
         }
 
@@ -125,16 +140,6 @@ void DebugWindow::draw() {
 
     debugWindow.display();
 }
-
-
-
-
-
-
-
-
-
-
 
 
 // Close the debug window

@@ -8,7 +8,7 @@
 int main() {
     // Initialize the engine logger
     KryptosEngine::Logger::Init();
-    //spdlog::info("Game started");
+    spdlog::info("Game started");
 
     // Create the main window
     sf::RenderWindow window(sf::VideoMode({ 800, 600 }), "Player, Game Object & Sprite Renderer Test");

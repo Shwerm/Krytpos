@@ -302,12 +302,12 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <OutDir>.\x64\Debug</OutDir>
+    <OutDir>.\x64\Debug\</OutDir>
     <IncludePath>D:\Personal Projects\C++\Libraries\SFML\SFML-3.0.0\include;D:\Personal Projects\Working Title - Kryptos\Krytpos\Engine\KryptosEngine\Include;$(IncludePath)</IncludePath>
     <LibraryPath>D:\Personal Projects\C++\Libraries\SFML\SFML-3.0.0\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <OutDir>.\x64\Release</OutDir>
+    <OutDir>.\x64\Release\</OutDir>
     <IncludePath>D:\Personal Projects\C++\Libraries\SFML\SFML-3.0.0\include;D:\Personal Projects\Working Title - Kryptos\Krytpos\Engine\KryptosEngine\Include;$(IncludePath)</IncludePath>
     <LibraryPath>D:\Personal Projects\C++\Libraries\SFML\SFML-3.0.0\lib;$(LibraryPath)</LibraryPath>
     <IntDir>.\Intermediate</IntDir>
@@ -344,7 +344,7 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>SFML_STATIC;SPDLOG_HEADER_ONLY</PreprocessorDefinitions>
+      <PreprocessorDefinitions>SFML_STATIC</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <AdditionalIncludeDirectories>$(ProjectDir)ThirdParty\spdlog\include</AdditionalIncludeDirectories>
@@ -363,7 +363,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>SFML_STATIC;SPDLOG_HEADER_ONLY</PreprocessorDefinitions>
+      <PreprocessorDefinitions>SFML_STATIC</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <AdditionalIncludeDirectories>$(ProjectDir)ThirdParty\spdlog\include</AdditionalIncludeDirectories>

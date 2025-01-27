@@ -1,32 +1,42 @@
 /*
-Game Object Source - Krytpos - Sam Camilleri, Mural Studios
-All Rights Reserved 2025.
-Dependencies: GameObject.h
-*/
+ * GameObject.cpp - Kryptos Game Object Implementation
+ * ---------------------------------------------------
+ * Implements the GameObject class, managing properties and debug tracking.
+ *
+ * Author: Sam Camilleri, Mural Studios
+ * All Rights Reserved, 2025.
+ *
+ * Dependencies:
+ *   - GameObject.h: Header for the GameObject class.
+ *   - GameObjectManager.h: Manages registration of game objects.
+ */
 
 #include "../Include/GameObjectSystem/GameObject.h"
-#include "../include/GameObjectSystem/GameObjectManager.h"
+#include "../Include/GameObjectSystem/GameObjectManager.h"
 
-// Constructor
-GameObject::GameObject(
-    const std::string& name, 
-    const sf::Vector2f& position, 
-    const bool& active, 
-    const sf::Angle& rotation, 
-    const float& mass, 
+ /**
+  * @brief Constructs a GameObject and registers it with the GameObjectManager.
+  * @param name Name of the game object.
+  * @param position Initial position of the object.
+  * @param active Whether the object is active.
+  * @param rotation Initial rotation of the object.
+  * @param mass Mass of the object.
+  * @param useGravity Whether the object is affected by gravity.
+  */
+GameObject::GameObject(const std::string& name,
+    const sf::Vector2f& position,
+    const bool& active,
+    const sf::Angle& rotation,
+    const float& mass,
     const bool& useGravity)
-    : 
-    name(name), 
-    position(position), 
-    active(true), 
-    rotation(rotation), 
-    mass(mass), 
-    useGravity(true)
-{
+    : name(name), position(position), active(true), rotation(rotation), mass(mass), useGravity(true) {
     GameObjectManager::getInstance().registerObject(this);
 }
 
-// Destructor
+/**
+ * @brief Destructor for GameObject.
+ * Unregisters the object from the GameObjectManager.
+ */
 GameObject::~GameObject() {
     GameObjectManager::getInstance().unregisterObject(this);
 }
@@ -49,11 +59,11 @@ float GameObject::getMass() const {
 }
 
 bool GameObject::getUseGravity() const {
-	return useGravity;
+    return useGravity;
 }
 
 sf::Angle GameObject::getRotation() const {
-	return rotation;
+    return rotation;
 }
 
 // Setters
@@ -70,11 +80,9 @@ void GameObject::setMass(float newMass) {
 }
 
 void GameObject::setUseGravity(bool state) {
-	useGravity = state;
+    useGravity = state;
 }
 
 void GameObject::setRotation(const sf::Angle& newRotation) {
-	rotation = newRotation;
+    rotation = newRotation;
 }
-
-

@@ -30,7 +30,7 @@ Player::Player(
     spriteRenderer.setPosition(position);
 
     // Register variables for debugging in debug window
-    //registerDebugVariable("Health: ", health);
+    registerDebugVariable("Health: ", health);
     registerDebugVariable("Attack Speed: ", attackSpeed);
     registerDebugVariable("Movement Speed: ", movementSpeed);
     registerDebugVariable("Attack Multiplier: ", attackMultiplier);

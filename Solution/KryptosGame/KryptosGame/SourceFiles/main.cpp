@@ -1,14 +1,24 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/Window/Event.hpp>
-#include "LoggingSystem/Logger.h"
+#include "../include/Initialisers/EngineInit.h"
 #include "PlayerClass/Player.h"
 #include "DebugWindow/DebugWindow.h"
 #include <iostream>
 
 int main() {
-    // Initialize the engine logger
-    KryptosEngine::Logger::Init();
-    spdlog::info("Game started");
+    try {
+        // Initialize the engine
+        KryptosEngine::EngineInit::Initialise();
+
+        // Log a message indicating the game has started
+        KryptosEngine::Logger::GetLogger()->info("Game started successfully");
+
+        // Game logic goes here...
+    }
+    catch (const std::exception& e) {
+        std::cerr << "An exception occurred during engine initialization: " << e.what() << std::endl;
+        return -1;
+    }
 
     // Create the main window
     sf::RenderWindow window(sf::VideoMode({ 800, 600 }), "Player, Game Object & Sprite Renderer Test");

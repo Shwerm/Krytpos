@@ -17,6 +17,7 @@
 
 #include "../Include/DebugWindow/DebugWindow.h"
 #include "../Include/PlayerClass/Player.h"
+#include "../Include/LoggingSystem/DebugWindow/DebugWindowLogger.h"
 #include <SFML/Window/Event.hpp>
 #include <stdexcept>
 #include <iostream>
@@ -42,8 +43,13 @@ namespace KryptosEngine {
             debugWindow.setFramerateLimit(60);
 
             if (!defaultFont.openFromFile("EngineAssets/Fonts/DebugWindowFont/AtkinsonHyperlegible-Regular.ttf")) {
-                throw std::runtime_error("Failed to load default font for DebugWindow");
+				KryptosEngine::DebugWindowLogger::GetLogger()->error("Failed to load DebugWindow font");
             }
+            else {
+				KryptosEngine::DebugWindowLogger::GetLogger()->info("DebugWindow font loaded successfully");
+            }
+
+			KryptosEngine::DebugWindowLogger::GetLogger()->info("DebugWindow initialised successfully");
         }
 
         /**
@@ -66,6 +72,7 @@ namespace KryptosEngine {
             if (isVisible) {
                 if (!debugWindow.isOpen()) {
                     debugWindow.create(sf::VideoMode({ 400, 600 }), "Debug Window", sf::Style::Titlebar | sf::Style::Close);
+					KryptosEngine::DebugWindowLogger::GetLogger()->info("DebugWindow opened successfully");
                 }
             }
             else {

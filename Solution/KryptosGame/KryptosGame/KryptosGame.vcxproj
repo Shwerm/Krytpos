@@ -137,6 +137,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>sfml-graphics-s-d.lib;sfml-system-s-d.lib;sfml-network-s-d.lib;sfml-window-s-d.lib;sfml-audio-s-d.lib;opengl32.lib;freetype.lib;winmm.lib;gdi32.lib;flac.lib;vorbisenc.lib;vorbisfile.lib;vorbis.lib;ogg.lib;ws2_32.lib;KryptosEngine.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>D:\Personal Projects\Working Title - Kryptos\Krytpos\Engine\KryptosEngine\x64\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>/IGNORE:4099 /NODEFAULTLIB:msvcrt.lib %(AdditionalOptions)</AdditionalOptions>
     </Link>
     <PostBuildEvent>
       <Command>if not exist "D:\Personal Projects\Working Title - Kryptos\Krytpos\Solution\KryptosGame\KryptosGame\EngineAssets" mkdir "D:\Personal Projects\Working Title - Kryptos\Krytpos\Solution\KryptosGame\KryptosGame\EngineAssets"

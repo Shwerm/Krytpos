@@ -7,17 +7,16 @@
 
 namespace KryptosEngine {
 
-    class Logger
-    {
+    class Logger {
     public:
-        // Initializes the logging system
+        // Initializes the general logging system
         static void Init();
 
         // Retrieves the default logger
         static std::shared_ptr<spdlog::logger>& GetLogger();
 
     private:
-        static std::shared_ptr<spdlog::logger> s_Logger; // Default logger instance
+        static std::shared_ptr<spdlog::logger> s_Logger; // Default engine logger
     };
-} // namespace KryptosEngine
 
+} // namespace KryptosEngine

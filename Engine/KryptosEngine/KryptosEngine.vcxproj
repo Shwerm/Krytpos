@@ -19,6 +19,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Include\Initialisers\EngineInit.h" />
+    <ClInclude Include="Include\LoggingSystem\DebugWindow\DebugWindowLogger.h" />
     <ClInclude Include="Include\GameObjectSystem\GameObjectManager.h" />
     <ClInclude Include="Include\DebugWindow\DebugWindow.h" />
     <ClInclude Include="Include\GameObjectSystem\GameObject.h" />
@@ -237,6 +239,8 @@
     <ClInclude Include="ThirdParty\spdlog\include\spdlog\version.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Source\Initialisers\EngineInit.cpp" />
+    <ClCompile Include="Source\LoggingSystem\DebugWindow\DebugWindowLogger.cpp" />
     <ClCompile Include="Source\LoggingSystem\Logger.cpp" />
     <ClCompile Include="Source\GameObjectSystem\GameObjectManager.cpp" />
     <ClCompile Include="Source\DebugWindow\DebugWindow.cpp" />

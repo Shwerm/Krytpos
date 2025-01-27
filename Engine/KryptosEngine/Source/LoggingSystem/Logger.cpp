@@ -13,7 +13,7 @@ namespace KryptosEngine {
         console_sink->set_pattern("[%T] [%^%l%$] %v");
         file_sink->set_pattern("[%T] [%l] %v");
 
-        // Create a logger with multiple sinks
+        // Create the default logger with multiple sinks
         s_Logger = std::make_shared<spdlog::logger>("EngineLogger", spdlog::sinks_init_list{ console_sink, file_sink });
         spdlog::register_logger(s_Logger);
 
@@ -23,9 +23,6 @@ namespace KryptosEngine {
         // Set log level and flush level
         s_Logger->set_level(spdlog::level::info); // Default log level
         s_Logger->flush_on(spdlog::level::warn);  // Flush warnings or higher
-
-        // Log the initialization
-        s_Logger->info("Logger initialized successfully");
     }
 
     std::shared_ptr<spdlog::logger>& Logger::GetLogger() {

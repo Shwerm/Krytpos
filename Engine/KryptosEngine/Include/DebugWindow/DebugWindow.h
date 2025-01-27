@@ -17,6 +17,12 @@
 #include <SFML/Graphics.hpp>
 #include <unordered_map>
 #include <memory>
+#include "../Include/DebugWindow/DebugWindow.h"
+#include "../Include/PlayerClass/Player.h"
+#include "../Include/LoggingSystem/DebugWindow/DebugWindowLogger.h"
+#include <SFML/Window/Event.hpp>
+#include <stdexcept>
+#include <iostream>
 
 namespace KryptosEngine {
     namespace DebugWindow {

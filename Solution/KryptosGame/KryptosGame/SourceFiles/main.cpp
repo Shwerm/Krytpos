@@ -1,10 +1,15 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/Window/Event.hpp>
+#include "LoggingSystem/Logger.h"
 #include "PlayerClass/Player.h"
 #include "DebugWindow/DebugWindow.h"
 #include <iostream>
 
 int main() {
+    // Initialize the engine logger
+    KryptosEngine::Logger::Init();
+    //spdlog::info("Game started");
+
     // Create the main window
     sf::RenderWindow window(sf::VideoMode({ 800, 600 }), "Player, Game Object & Sprite Renderer Test");
 

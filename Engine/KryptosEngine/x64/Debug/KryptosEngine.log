@@ -1,4 +1,10 @@
 ﻿D:\VisualStudio\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(517,5): warning MSB8004: Output Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Output Directory.
+  Logger.cpp
+D:\Personal Projects\Working Title - Kryptos\Krytpos\Engine\KryptosEngine\ThirdParty\spdlog\include\spdlog\common.h(46,13): warning C4005: 'SPDLOG_HEADER_ONLY': macro redefinition
+  (compiling source file 'Source/LoggingSystem/Logger.cpp')
+      D:\Personal Projects\Working Title - Kryptos\Krytpos\Engine\KryptosEngine\ThirdParty\spdlog\include\spdlog\common.h(46,13):
+      'SPDLOG_HEADER_ONLY' previously declared on the command line
+  
   GameObjectManager.cpp
   DebugWindow.cpp
   GameObject.cpp

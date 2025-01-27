@@ -1,8 +1,4 @@
-﻿  Logger.cpp
-  GameObjectManager.cpp
-  DebugWindow.cpp
-  GameObject.cpp
-  Player.cpp
-  SpriteRenderer.cpp
+﻿  DebugWindow.cpp
+  Logger.cpp
   Generating Code...
   KryptosEngine.vcxproj -> D:\Personal Projects\Working Title - Kryptos\Krytpos\Engine\KryptosEngine\x64\Debug\KryptosEngine.lib

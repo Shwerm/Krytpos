@@ -21,7 +21,8 @@ int main() {
     Player anotherPlayer("Athena", sf::Vector2(200.f, 400.f), playerTexturePath); // Example additional player
 
     // Create the Debug Window
-    DebugWindow debugWindow;
+	KryptosEngine::DebugWindow::DebugWindow debugWindow;
+	debugWindow.initialise();
 
     sf::Clock clock;
 

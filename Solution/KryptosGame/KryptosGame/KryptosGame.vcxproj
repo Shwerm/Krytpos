@@ -130,6 +130,7 @@
       <AdditionalIncludeDirectories>D:\Personal Projects\Working Title - Kryptos\Krytpos\Engine\KryptosEngine\ThirdParty\spdlog\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>/utf-8
  %(AdditionalOptions)</AdditionalOptions>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -156,6 +157,7 @@ xcopy /E /Y "D:\Personal Projects\Working Title - Kryptos\Krytpos\Engine\Kryptos
       <AdditionalIncludeDirectories>D:\Personal Projects\Working Title - Kryptos\Krytpos\Engine\KryptosEngine\ThirdParty\spdlog\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>/utf-8
  %(AdditionalOptions)</AdditionalOptions>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>

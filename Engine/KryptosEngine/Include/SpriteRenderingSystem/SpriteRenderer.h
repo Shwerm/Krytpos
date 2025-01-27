@@ -1,8 +1,18 @@
 /*
-Sprite Renderer header - Kryptos - Sam Camilleri, Mural Studios
-All Rights Reserved 2025.
-Dependencies: Graphics.hpp, string, unordered_map, memory
-*/
+ * SpriteRenderer.h - Kryptos Sprite Rendering System
+ * --------------------------------------------------
+ * Defines the SpriteRenderer class for rendering sprites in the Kryptos engine.
+ * Includes functionality for texture management, transformations, and rendering.
+ *
+ * Author: Sam Camilleri, Mural Studios
+ * All Rights Reserved, 2025.
+ *
+ * Dependencies:
+ *   - SFML/Graphics.hpp: For sprite and texture handling.
+ *   - string: For texture path management.
+ *   - unordered_map: For caching textures.
+ *   - memory: For smart pointers.
+ */
 
 #ifndef SPRITERENDERER_H
 #define SPRITERENDERER_H
@@ -12,48 +22,93 @@ Dependencies: Graphics.hpp, string, unordered_map, memory
 #include <unordered_map>
 #include <memory>
 
+ /**
+  * @class SpriteRenderer
+  * @brief Handles the rendering of 2D sprites and texture management.
+  *
+  * The SpriteRenderer class simplifies the process of loading, managing, and
+  * rendering sprites. It includes support for texture caching to optimize performance.
+  */
 class SpriteRenderer {
 private:
-    std::unique_ptr<sf::Sprite> sprite;             // Unique pointer to the sprite
-    std::shared_ptr<sf::Texture> texture;           // Shared texture for efficient memory usage
-    static std::unordered_map<std::string,          // Cache for loaded textures
+    std::unique_ptr<sf::Sprite> sprite;             ///< Unique pointer to the sprite instance.
+    std::shared_ptr<sf::Texture> texture;           ///< Shared pointer to the sprite's texture.
+    static std::unordered_map<std::string,          ///< Cache for loaded textures.
         std::shared_ptr<sf::Texture>> textureCache;
 
 public:
-    // Constructor
+    /**
+     * @brief Constructs a SpriteRenderer object.
+     * Initializes the sprite and texture pointers to nullptr.
+     */
     SpriteRenderer();
 
-    // Destructor
+    /**
+     * @brief Destructor for the SpriteRenderer class.
+     */
     ~SpriteRenderer() = default;
 
-    // Load a texture and set it for the sprite
+    /**
+     * @brief Loads a texture from a file and sets it for the sprite.
+     *
+     * Caches the texture for efficient reuse. Throws an exception if the texture cannot be loaded.
+     * @param texturePath The file path of the texture to load.
+     */
     void loadTexture(const std::string& texturePath);
 
-    // Set the position of the sprite
+    /**
+     * @brief Sets the position of the sprite in the game world.
+     * @param position The new position of the sprite.
+     */
     void setPosition(const sf::Vector2f& position);
 
-    // Get the position of the sprite
+    /**
+     * @brief Gets the current position of the sprite.
+     * @return The position of the sprite as a vector.
+     */
     sf::Vector2f getPosition() const;
 
-    // Set the origin of the sprite for transformations
+    /**
+     * @brief Sets the origin of the sprite for transformations.
+     * @param origin The new origin of the sprite.
+     */
     void setOrigin(const sf::Vector2f& origin);
 
-    // Set the rotation of the sprite
+    /**
+     * @brief Sets the rotation of the sprite.
+     * @param angle The rotation angle in degrees.
+     */
     void setRotation(float angle);
 
-    // Get the current rotation of the sprite
+    /**
+     * @brief Gets the current rotation of the sprite.
+     * @return The rotation angle in degrees.
+     */
     float getRotation() const;
 
-    // Set the scale of the sprite
+    /**
+     * @brief Sets the scale of the sprite.
+     * @param scale The new scale of the sprite as a vector.
+     */
     void setScale(const sf::Vector2f& scale);
 
-    // Get the scale of the sprite
+    /**
+     * @brief Gets the current scale of the sprite.
+     * @return The scale of the sprite as a vector.
+     */
     sf::Vector2f getScale() const;
 
-    // Render the sprite to the given render window
+    /**
+     * @brief Renders the sprite to the specified render window.
+     * @param window The render window where the sprite will be drawn.
+     */
     void draw(sf::RenderWindow& window) const;
 
-    // Static method to clear the texture cache
+    /**
+     * @brief Clears the global texture cache.
+     *
+     * This function removes all cached textures from memory.
+     */
     static void clearCache();
 };
 

@@ -1,7 +1,6 @@
 ﻿D:\VisualStudio\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(517,5): warning MSB8004: Output Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Output Directory.
   DebugWindow.cpp
-  GameObject.cpp
-  GameObjectManager.cpp
   Player.cpp
+  SpriteRenderer.cpp
   Generating Code...
   KryptosEngine.vcxproj -> D:\Personal Projects\Working Title - Kryptos\Krytpos\Engine\KryptosEngine\x64\Debug\KryptosEngine.lib

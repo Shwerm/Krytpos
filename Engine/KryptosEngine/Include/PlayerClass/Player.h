@@ -1,34 +1,65 @@
 /*
-Player class header - Kryptos - Sam Camilleri, Mural Studios
-All Rights Reserved 2025.
-Dependencies: GameObject.h, SpriteRenderer.h
-*/
+ * Player.h - Kryptos Player Class
+ * --------------------------------
+ * Defines the Player class, derived from GameObject, with gameplay-specific properties
+ * such as health, movement, and attack multipliers.
+ *
+ * Author: Sam Camilleri, Mural Studios
+ * All Rights Reserved, 2025.
+ *
+ * Dependencies:
+ *   - GameObject.h: Base class for all game objects.
+ *   - SpriteRenderer.h: For rendering the player's sprite.
+ */
+
 #ifndef PLAYER_H
 #define PLAYER_H
 
 #include "../GameObjectSystem/GameObject.h"
 #include "../SpriteRenderingSystem/SpriteRenderer.h"
 
+ /**
+  * @class Player
+  * @brief Represents the player character in the Kryptos game engine.
+  *
+  * The Player class extends GameObject and includes player-specific attributes such as health,
+  * movement speed, attack speed, and multipliers for attacks and jumping.
+  */
 class Player : public GameObject {
 private:
-    float health;                   // Player's health
-    float attackSpeed;              // Speed of attacks
-    float movementSpeed;            // Speed of movement
-    float attackMultiplier;         // Damage multiplier for attacks
-    float jumpMultiplier;           // Jump height multiplier
-    SpriteRenderer spriteRenderer;  // Sprite renderer for the player
+    float health;                   ///< Player's current health.
+    float attackSpeed;              ///< Speed of the player's attacks.
+    float movementSpeed;            ///< Speed at which the player moves.
+    float attackMultiplier;         ///< Multiplier for attack damage.
+    float jumpMultiplier;           ///< Multiplier for jump height.
+    SpriteRenderer spriteRenderer;  ///< Renders the player's sprite.
 
 public:
-    // Constructor
+    /**
+     * @brief Constructs a Player object.
+     *
+     * Initializes the player with specified parameters and default attributes.
+     * @param name The name of the player.
+     * @param position The initial position of the player.
+     * @param texturePath Path to the texture used for the player's sprite.
+     */
     Player(const std::string& name, const sf::Vector2f& position, const std::string& texturePath);
 
-    // Destructor
+    /**
+     * @brief Destructor for the Player class.
+     */
     ~Player() override = default;
 
-    // Update the player's logic
+    /**
+     * @brief Updates the player's logic.
+     * @param deltaTime Time elapsed since the last frame, used for time-based updates.
+     */
     void update(float deltaTime);
 
-    // Render the player
+    /**
+     * @brief Renders the player to the given window.
+     * @param window The render window where the player is drawn.
+     */
     void draw(sf::RenderWindow& window);
 
     // Getters and setters for health

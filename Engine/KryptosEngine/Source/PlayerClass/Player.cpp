@@ -1,25 +1,32 @@
 /*
-Player class source - Kryptos - Sam Camilleri, Mural Studios
-All Rights Reserved 2025.
-Dependencies: Keyboard.hpp, Player.h
-*/
+ * Player.cpp - Kryptos Player Implementation
+ * ------------------------------------------
+ * Implements the Player class, handling logic, movement, and rendering.
+ *
+ * Author: Sam Camilleri, Mural Studios
+ * All Rights Reserved, 2025.
+ *
+ * Dependencies:
+ *   - Keyboard.hpp: For handling player input.
+ *   - Player.h: Header for the Player class.
+ */
 
 #include <SFML/Window/Keyboard.hpp>
 #include "../Include/PlayerClass/Player.h"
 
-
-// Constructor & default player values
+ /**
+  * @brief Constructs a Player object with default attributes.
+  *
+  * Loads the player's texture, initializes its sprite renderer, and registers debug-tracked variables.
+  * @param name The name of the player.
+  * @param position The initial position of the player.
+  * @param texturePath Path to the texture used for the player's sprite.
+  */
 Player::Player(
     const std::string& name,
     const sf::Vector2f& position,
     const std::string& texturePath)
-    : GameObject(
-        name,
-        position, 
-        active, 
-        rotation, 
-        mass, 
-        useGravity),
+    : GameObject(name, position, active, rotation, mass, useGravity),
     health(100.f),
     attackSpeed(1.f),
     movementSpeed(200.f),
@@ -29,7 +36,7 @@ Player::Player(
     spriteRenderer.loadTexture(texturePath);
     spriteRenderer.setPosition(position);
 
-    // Register variables for debugging in debug window
+    // Register variables for debugging in the debug window
     registerDebugVariable("Health: ", health);
     registerDebugVariable("Attack Speed: ", attackSpeed);
     registerDebugVariable("Movement Speed: ", movementSpeed);
@@ -37,11 +44,14 @@ Player::Player(
     registerDebugVariable("Jump Multiplier: ", jumpMultiplier);
 }
 
-// Update the player's logic
+/**
+ * @brief Updates the player's logic, including movement and input handling.
+ * @param deltaTime Time elapsed since the last frame.
+ */
 void Player::update(float deltaTime) {
-    // Example of basic movement logic using arrow keys
     sf::Vector2f movement(0.f, 0.f);
 
+    // Handle movement input
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::W)) {
         movement.y -= movementSpeed * deltaTime;
     }
@@ -55,17 +65,20 @@ void Player::update(float deltaTime) {
         movement.x += movementSpeed * deltaTime;
     }
 
-    // Example jump logic
+    // Handle jump input
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Space)) {
         movement.y -= jumpMultiplier * 300.f * deltaTime; // Example jump force
     }
 
-    // Update position
+    // Update position and sprite
     position += movement;
     spriteRenderer.setPosition(position);
 }
 
-// Render the player
+/**
+ * @brief Renders the player using the provided render window.
+ * @param window The render window where the player is drawn.
+ */
 void Player::draw(sf::RenderWindow& window) {
     spriteRenderer.draw(window);
 }

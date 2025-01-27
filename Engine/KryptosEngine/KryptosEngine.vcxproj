@@ -24,8 +24,115 @@
     <ClInclude Include="Include\GameObjectSystem\GameObject.h" />
     <ClInclude Include="Include\PlayerClass\Player.h" />
     <ClInclude Include="Include\SpriteRenderingSystem\SpriteRenderer.h" />
+    <ClInclude Include="Include\LoggingSystem\Logger.h" />
+    <ClInclude Include="ThirdParty\sdplog\include\spdlog\async.h" />
+    <ClInclude Include="ThirdParty\sdplog\include\spdlog\async_logger-inl.h" />
+    <ClInclude Include="ThirdParty\sdplog\include\spdlog\async_logger.h" />
+    <ClInclude Include="ThirdParty\sdplog\include\spdlog\cfg\argv.h" />
+    <ClInclude Include="ThirdParty\sdplog\include\spdlog\cfg\env.h" />
+    <ClInclude Include="ThirdParty\sdplog\include\spdlog\cfg\helpers-inl.h" />
+    <ClInclude Include="ThirdParty\sdplog\include\spdlog\cfg\helpers.h" />
+    <ClInclude Include="ThirdParty\sdplog\include\spdlog\common-inl.h" />
+    <ClInclude Include="ThirdParty\sdplog\include\spdlog\common.h" />
+    <ClInclude Include="ThirdParty\sdplog\include\spdlog\details\backtracer-inl.h" />
+    <ClInclude Include="ThirdParty\sdplog\include\spdlog\details\backtracer.h" />
+    <ClInclude Include="ThirdParty\sdplog\include\spdlog\details\circular_q.h" />
+    <ClInclude Include="ThirdParty\sdplog\include\spdlog\details\console_globals.h" />
+    <ClInclude Include="ThirdParty\sdplog\include\spdlog\details\file_helper-inl.h" />
+    <ClInclude Include="ThirdParty\sdplog\include\spdlog\details\file_helper.h" />
+    <ClInclude Include="ThirdParty\sdplog\include\spdlog\details\fmt_helper.h" />
+    <ClInclude Include="ThirdParty\sdplog\include\spdlog\details\log_msg-inl.h" />
+    <ClInclude Include="ThirdParty\sdplog\include\spdlog\details\log_msg.h" />
+    <ClInclude Include="ThirdParty\sdplog\include\spdlog\details\log_msg_buffer-inl.h" />
+    <ClInclude Include="ThirdParty\sdplog\include\spdlog\details\log_msg_buffer.h" />
+    <ClInclude Include="ThirdParty\sdplog\include\spdlog\details\mpmc_blocking_q.h" />
+    <ClInclude Include="ThirdParty\sdplog\include\spdlog\details\null_mutex.h" />
+    <ClInclude Include="ThirdParty\sdplog\include\spdlog\details\os-inl.h" />
+    <ClInclude Include="ThirdParty\sdplog\include\spdlog\details\os.h" />
+    <ClInclude Include="ThirdParty\sdplog\include\spdlog\details\periodic_worker-inl.h" />
+    <ClInclude Include="ThirdParty\sdplog\include\spdlog\details\periodic_worker.h" />
+    <ClInclude Include="ThirdParty\sdplog\include\spdlog\details\registry-inl.h" />
+    <ClInclude Include="ThirdParty\sdplog\include\spdlog\details\registry.h" />
+    <ClInclude Include="ThirdParty\sdplog\include\spdlog\details\synchronous_factory.h" />
+    <ClInclude Include="ThirdParty\sdplog\include\spdlog\details\tcp_client-windows.h" />
+    <ClInclude Include="ThirdParty\sdplog\include\spdlog\details\tcp_client.h" />
+    <ClInclude Include="ThirdParty\sdplog\include\spdlog\details\thread_pool-inl.h" />
+    <ClInclude Include="ThirdParty\sdplog\include\spdlog\details\thread_pool.h" />
+    <ClInclude Include="ThirdParty\sdplog\include\spdlog\details\udp_client-windows.h" />
+    <ClInclude Include="ThirdParty\sdplog\include\spdlog\details\udp_client.h" />
+    <ClInclude Include="ThirdParty\sdplog\include\spdlog\details\windows_include.h" />
+    <ClInclude Include="ThirdParty\sdplog\include\spdlog\fmt\bin_to_hex.h" />
+    <ClInclude Include="ThirdParty\sdplog\include\spdlog\fmt\bundled\args.h" />
+    <ClInclude Include="ThirdParty\sdplog\include\spdlog\fmt\bundled\base.h" />
+    <ClInclude Include="ThirdParty\sdplog\include\spdlog\fmt\bundled\chrono.h" />
+    <ClInclude Include="ThirdParty\sdplog\include\spdlog\fmt\bundled\color.h" />
+    <ClInclude Include="ThirdParty\sdplog\include\spdlog\fmt\bundled\compile.h" />
+    <ClInclude Include="ThirdParty\sdplog\include\spdlog\fmt\bundled\core.h" />
+    <ClInclude Include="ThirdParty\sdplog\include\spdlog\fmt\bundled\format-inl.h" />
+    <ClInclude Include="ThirdParty\sdplog\include\spdlog\fmt\bundled\format.h" />
+    <ClInclude Include="ThirdParty\sdplog\include\spdlog\fmt\bundled\locale.h" />
+    <ClInclude Include="ThirdParty\sdplog\include\spdlog\fmt\bundled\os.h" />
+    <ClInclude Include="ThirdParty\sdplog\include\spdlog\fmt\bundled\ostream.h" />
+    <ClInclude Include="ThirdParty\sdplog\include\spdlog\fmt\bundled\printf.h" />
+    <ClInclude Include="ThirdParty\sdplog\include\spdlog\fmt\bundled\ranges.h" />
+    <ClInclude Include="ThirdParty\sdplog\include\spdlog\fmt\bundled\std.h" />
+    <ClInclude Include="ThirdParty\sdplog\include\spdlog\fmt\bundled\xchar.h" />
+    <ClInclude Include="ThirdParty\sdplog\include\spdlog\fmt\chrono.h" />
+    <ClInclude Include="ThirdParty\sdplog\include\spdlog\fmt\compile.h" />
+    <ClInclude Include="ThirdParty\sdplog\include\spdlog\fmt\fmt.h" />
+    <ClInclude Include="ThirdParty\sdplog\include\spdlog\fmt\ostr.h" />
+    <ClInclude Include="ThirdParty\sdplog\include\spdlog\fmt\ranges.h" />
+    <ClInclude Include="ThirdParty\sdplog\include\spdlog\fmt\std.h" />
+    <ClInclude Include="ThirdParty\sdplog\include\spdlog\fmt\xchar.h" />
+    <ClInclude Include="ThirdParty\sdplog\include\spdlog\formatter.h" />
+    <ClInclude Include="ThirdParty\sdplog\include\spdlog\fwd.h" />
+    <ClInclude Include="ThirdParty\sdplog\include\spdlog\logger-inl.h" />
+    <ClInclude Include="ThirdParty\sdplog\include\spdlog\logger.h" />
+    <ClInclude Include="ThirdParty\sdplog\include\spdlog\mdc.h" />
+    <ClInclude Include="ThirdParty\sdplog\include\spdlog\pattern_formatter-inl.h" />
+    <ClInclude Include="ThirdParty\sdplog\include\spdlog\pattern_formatter.h" />
+    <ClInclude Include="ThirdParty\sdplog\include\spdlog\sinks\android_sink.h" />
+    <ClInclude Include="ThirdParty\sdplog\include\spdlog\sinks\ansicolor_sink-inl.h" />
+    <ClInclude Include="ThirdParty\sdplog\include\spdlog\sinks\ansicolor_sink.h" />
+    <ClInclude Include="ThirdParty\sdplog\include\spdlog\sinks\base_sink-inl.h" />
+    <ClInclude Include="ThirdParty\sdplog\include\spdlog\sinks\base_sink.h" />
+    <ClInclude Include="ThirdParty\sdplog\include\spdlog\sinks\basic_file_sink-inl.h" />
+    <ClInclude Include="ThirdParty\sdplog\include\spdlog\sinks\basic_file_sink.h" />
+    <ClInclude Include="ThirdParty\sdplog\include\spdlog\sinks\callback_sink.h" />
+    <ClInclude Include="ThirdParty\sdplog\include\spdlog\sinks\daily_file_sink.h" />
+    <ClInclude Include="ThirdParty\sdplog\include\spdlog\sinks\dist_sink.h" />
+    <ClInclude Include="ThirdParty\sdplog\include\spdlog\sinks\dup_filter_sink.h" />
+    <ClInclude Include="ThirdParty\sdplog\include\spdlog\sinks\hourly_file_sink.h" />
+    <ClInclude Include="ThirdParty\sdplog\include\spdlog\sinks\kafka_sink.h" />
+    <ClInclude Include="ThirdParty\sdplog\include\spdlog\sinks\mongo_sink.h" />
+    <ClInclude Include="ThirdParty\sdplog\include\spdlog\sinks\msvc_sink.h" />
+    <ClInclude Include="ThirdParty\sdplog\include\spdlog\sinks\null_sink.h" />
+    <ClInclude Include="ThirdParty\sdplog\include\spdlog\sinks\ostream_sink.h" />
+    <ClInclude Include="ThirdParty\sdplog\include\spdlog\sinks\qt_sinks.h" />
+    <ClInclude Include="ThirdParty\sdplog\include\spdlog\sinks\ringbuffer_sink.h" />
+    <ClInclude Include="ThirdParty\sdplog\include\spdlog\sinks\rotating_file_sink-inl.h" />
+    <ClInclude Include="ThirdParty\sdplog\include\spdlog\sinks\rotating_file_sink.h" />
+    <ClInclude Include="ThirdParty\sdplog\include\spdlog\sinks\sink-inl.h" />
+    <ClInclude Include="ThirdParty\sdplog\include\spdlog\sinks\sink.h" />
+    <ClInclude Include="ThirdParty\sdplog\include\spdlog\sinks\stdout_color_sinks-inl.h" />
+    <ClInclude Include="ThirdParty\sdplog\include\spdlog\sinks\stdout_color_sinks.h" />
+    <ClInclude Include="ThirdParty\sdplog\include\spdlog\sinks\stdout_sinks-inl.h" />
+    <ClInclude Include="ThirdParty\sdplog\include\spdlog\sinks\stdout_sinks.h" />
+    <ClInclude Include="ThirdParty\sdplog\include\spdlog\sinks\syslog_sink.h" />
+    <ClInclude Include="ThirdParty\sdplog\include\spdlog\sinks\systemd_sink.h" />
+    <ClInclude Include="ThirdParty\sdplog\include\spdlog\sinks\tcp_sink.h" />
+    <ClInclude Include="ThirdParty\sdplog\include\spdlog\sinks\udp_sink.h" />
+    <ClInclude Include="ThirdParty\sdplog\include\spdlog\sinks\wincolor_sink-inl.h" />
+    <ClInclude Include="ThirdParty\sdplog\include\spdlog\sinks\wincolor_sink.h" />
+    <ClInclude Include="ThirdParty\sdplog\include\spdlog\sinks\win_eventlog_sink.h" />
+    <ClInclude Include="ThirdParty\sdplog\include\spdlog\spdlog-inl.h" />
+    <ClInclude Include="ThirdParty\sdplog\include\spdlog\spdlog.h" />
+    <ClInclude Include="ThirdParty\sdplog\include\spdlog\stopwatch.h" />
+    <ClInclude Include="ThirdParty\sdplog\include\spdlog\tweakme.h" />
+    <ClInclude Include="ThirdParty\sdplog\include\spdlog\version.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Source\LoggingSystem\Logger.cpp" />
     <ClCompile Include="Source\GameObjectSystem\GameObjectManager.cpp" />
     <ClCompile Include="Source\DebugWindow\DebugWindow.cpp" />
     <ClCompile Include="Source\GameObjectSystem\GameObject.cpp" />
@@ -132,9 +239,10 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_DEBUG;_CONSOLE;SFML_STATIC;BUILD_ENGINE_DLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>SPDLOG_HEADER_ONLY;SFML_STATIC</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
+      <AdditionalIncludeDirectories>D:\Personal Projects\Working Title - Kryptos\Krytpos\Engine\KryptosEngine\ThirdParty\sdplog\include\spdlog;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -148,9 +256,10 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>NDEBUG;_CONSOLE;SFML_STATIC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>SPDLOG_HEADER_ONLY;SFML_STATIC</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
+      <AdditionalIncludeDirectories>D:\Personal Projects\Working Title - Kryptos\Krytpos\Engine\KryptosEngine\ThirdParty\sdplog\include\spdlog;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>

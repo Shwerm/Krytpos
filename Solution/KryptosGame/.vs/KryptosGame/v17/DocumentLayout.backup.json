@@ -3,12 +3,6 @@
   "WorkspaceRootPath": "D:\\Personal Projects\\Working Title - Kryptos\\Krytpos\\Solution\\KryptosGame\\",
   "Documents": [
     {
-<<<<<<< HEAD
-=======
-      "AbsoluteMoniker": "D:0:0:{FA92A39C-C4E6-4A5C-A834-51C19A5E427F}|..\\..\\Engine\\KryptosEngine\\KryptosEngine.vcxproj|D:\\Personal Projects\\Working Title - Kryptos\\Krytpos\\Engine\\KryptosEngine\\Source\\DebugWindow\\DebugWindow.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
->>>>>>> parent of 00df3be (update: Clean build of DebugWindow logging system)
       "AbsoluteMoniker": "D:0:0:{24693151-1949-4EDC-B165-8DBAF16B226A}|KryptosGame\\KryptosGame.vcxproj|D:\\Personal Projects\\Working Title - Kryptos\\Krytpos\\Solution\\KryptosGame\\KryptosGame\\SourceFiles\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{24693151-1949-4EDC-B165-8DBAF16B226A}|KryptosGame\\KryptosGame.vcxproj|solutionrelative:KryptosGame\\SourceFiles\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
@@ -32,34 +26,21 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-<<<<<<< HEAD
           "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 0,
-=======
-          "SelectedChildIndex": 1,
-          "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
->>>>>>> parent of 00df3be (update: Clean build of DebugWindow logging system)
               "Title": "main.cpp",
               "DocumentMoniker": "D:\\Personal Projects\\Working Title - Kryptos\\Krytpos\\Solution\\KryptosGame\\KryptosGame\\SourceFiles\\main.cpp",
               "RelativeDocumentMoniker": "KryptosGame\\SourceFiles\\main.cpp",
               "ToolTip": "D:\\Personal Projects\\Working Title - Kryptos\\Krytpos\\Solution\\KryptosGame\\KryptosGame\\SourceFiles\\main.cpp",
               "RelativeToolTip": "KryptosGame\\SourceFiles\\main.cpp",
-<<<<<<< HEAD
               "ViewState": "AgIAABAAAAAAAAAAAAAcwCEAAAA4AAAAAAAAAA==",
-=======
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAJAAAAAAAAAA==",
->>>>>>> parent of 00df3be (update: Clean build of DebugWindow logging system)
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-01-27T19:49:03.545Z",
               "IsPinned": true,
               "EditorCaption": ""
-<<<<<<< HEAD
             },
             {
               "$type": "Bookmark",
@@ -115,25 +96,7 @@
               "ViewState": "AgIAABoAAAAAAAAAAAAQwCUAAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-02-05T15:31:37.334Z",
-=======
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "DebugWindow.cpp",
-              "DocumentMoniker": "D:\\Personal Projects\\Working Title - Kryptos\\Krytpos\\Engine\\KryptosEngine\\Source\\DebugWindow\\DebugWindow.cpp",
-              "RelativeDocumentMoniker": "..\\..\\Engine\\KryptosEngine\\Source\\DebugWindow\\DebugWindow.cpp",
-              "ToolTip": "D:\\Personal Projects\\Working Title - Kryptos\\Krytpos\\Engine\\KryptosEngine\\Source\\DebugWindow\\DebugWindow.cpp",
-              "RelativeToolTip": "..\\..\\Engine\\KryptosEngine\\Source\\DebugWindow\\DebugWindow.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-01-27T20:10:56.803Z",
->>>>>>> parent of 00df3be (update: Clean build of DebugWindow logging system)
               "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
             }
           ]
         }

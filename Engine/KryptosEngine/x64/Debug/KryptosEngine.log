@@ -1,8 +1,2 @@
-<<<<<<< HEAD
 ﻿  EngineInit.cpp
-=======
-﻿  DebugWindow.cpp
-  EngineInit.cpp
-  Generating Code...
->>>>>>> parent of 00df3be (update: Clean build of DebugWindow logging system)
   KryptosEngine.vcxproj -> D:\Personal Projects\Working Title - Kryptos\Krytpos\Engine\KryptosEngine\x64\Debug\KryptosEngine.lib

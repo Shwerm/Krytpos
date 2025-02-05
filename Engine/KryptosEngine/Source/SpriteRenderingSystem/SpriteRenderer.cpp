@@ -12,6 +12,7 @@
  */
 
 #include "../Include/SpriteRenderingSystem/SpriteRenderer.h"
+#include "../Include/LoggingSystem/SpriteRenderer/SpriteRendererLogger.h"
 #include <stdexcept>
 
  // Initialize the static texture cache
@@ -21,7 +22,9 @@ std::unordered_map<std::string, std::shared_ptr<sf::Texture>> SpriteRenderer::te
  * @brief Constructs a SpriteRenderer object.
  * Initializes the sprite and texture pointers to nullptr.
  */
-SpriteRenderer::SpriteRenderer() : sprite(nullptr), texture(nullptr) {}
+SpriteRenderer::SpriteRenderer(const std::string& name) : objectName(name), sprite(nullptr), texture(nullptr) {
+    KryptosEngine::SpriteRendererLogger::GetLogger()->info("SpriteRenderer instance created for game object: {}", objectName);
+}
 
 /**
  * @brief Loads a texture from a file and sets it for the sprite.
@@ -32,17 +35,23 @@ SpriteRenderer::SpriteRenderer() : sprite(nullptr), texture(nullptr) {}
  * @throws std::runtime_error If the texture cannot be loaded.
  */
 void SpriteRenderer::loadTexture(const std::string& texturePath) {
+    KryptosEngine::SpriteRendererLogger::GetLogger()->info("[{}] Loading texture: {}", objectName, texturePath);
+
     auto it = textureCache.find(texturePath);
     if (it != textureCache.end()) {
         texture = it->second;
+        KryptosEngine::SpriteRendererLogger::GetLogger()->debug("[{}] Reused cached texture: {}", objectName, texturePath);
     }
     else {
         auto newTexture = std::make_shared<sf::Texture>();
         if (!newTexture->loadFromFile(texturePath)) {
+            KryptosEngine::SpriteRendererLogger::GetLogger()->error("[{}] Failed to load texture from: {}", objectName, texturePath);
             throw std::runtime_error("Failed to load texture from: " + texturePath);
         }
         textureCache[texturePath] = newTexture;
         texture = newTexture;
+        KryptosEngine::SpriteRendererLogger::GetLogger()->debug("[{}] Successfully loaded and cached texture: {}", objectName, texturePath);
+    
     }
 
     sprite = std::make_unique<sf::Sprite>(*texture);

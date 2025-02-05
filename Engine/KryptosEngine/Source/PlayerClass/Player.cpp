@@ -32,7 +32,7 @@ Player::Player(
     movementSpeed(200.f),
     attackMultiplier(1.f),
     jumpMultiplier(1.f),
-    spriteRenderer() {
+    spriteRenderer(name) {
     spriteRenderer.loadTexture(texturePath);
     spriteRenderer.setPosition(position);
 

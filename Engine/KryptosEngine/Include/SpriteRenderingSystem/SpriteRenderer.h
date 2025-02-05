@@ -33,6 +33,7 @@ class SpriteRenderer {
 private:
     std::unique_ptr<sf::Sprite> sprite;             ///< Unique pointer to the sprite instance.
     std::shared_ptr<sf::Texture> texture;           ///< Shared pointer to the sprite's texture.
+    std::string objectName;
     static std::unordered_map<std::string,          ///< Cache for loaded textures.
         std::shared_ptr<sf::Texture>> textureCache;
 
@@ -41,7 +42,7 @@ public:
      * @brief Constructs a SpriteRenderer object.
      * Initializes the sprite and texture pointers to nullptr.
      */
-    SpriteRenderer();
+    explicit SpriteRenderer(const std::string& name);
 
     /**
      * @brief Destructor for the SpriteRenderer class.

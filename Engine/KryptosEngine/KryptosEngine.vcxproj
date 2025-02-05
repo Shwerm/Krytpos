@@ -27,6 +27,7 @@
     <ClInclude Include="Include\PlayerClass\Player.h" />
     <ClInclude Include="Include\SpriteRenderingSystem\SpriteRenderer.h" />
     <ClInclude Include="Include\LoggingSystem\Logger.h" />
+    <ClInclude Include="Include\LoggingSystem\SpriteRenderer\SpriteRendererLogger.h" />
     <ClInclude Include="ThirdParty\sdplog\include\spdlog\async.h" />
     <ClInclude Include="ThirdParty\sdplog\include\spdlog\async_logger-inl.h" />
     <ClInclude Include="ThirdParty\sdplog\include\spdlog\async_logger.h" />
@@ -247,6 +248,7 @@
     <ClCompile Include="Source\GameObjectSystem\GameObject.cpp" />
     <ClCompile Include="Source\PlayerClass\Player.cpp" />
     <ClCompile Include="Source\SpriteRenderingSystem\SpriteRenderer.cpp" />
+    <ClCompile Include="Source\LoggingSystem\SpriteRenderer\SpriteRendererLogger.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Font Include="EngineAssets\Fonts\DebugWindowFont\AtkinsonHyperlegible-Bold.ttf" />

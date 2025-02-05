@@ -669,6 +669,9 @@
     <ClInclude Include="Include\Initialisers\EngineInit.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Include\LoggingSystem\SpriteRenderer\SpriteRendererLogger.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\GameObjectSystem\GameObject.cpp">
@@ -693,6 +696,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Source\Initialisers\EngineInit.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\LoggingSystem\SpriteRenderer\SpriteRendererLogger.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

@@ -15,6 +15,7 @@
 #pragma once
 #include "../Include/LoggingSystem/Logger.h"
 #include "../Include/LoggingSystem/DebugWindow/DebugWindowLogger.h"
+#include "../Include/LoggingSystem/SpriteRenderer/SpriteRendererLogger.h"
 
 namespace KryptosEngine {
 

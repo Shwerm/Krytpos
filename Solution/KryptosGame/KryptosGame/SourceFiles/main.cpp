@@ -26,9 +26,9 @@ int main() {
     // Path to the player texture
     std::string playerTexturePath = "D:\\Personal Projects\\Working Title - Kryptos\\Art\\KryptosPlayerSprite\\KrillConcept03.png";
 
-    // Declare Player
+    // Declare Players
     Player player("Kryptos", sf::Vector2(100.f, 300.f), playerTexturePath);
-    Player anotherPlayer("Athena", sf::Vector2(200.f, 400.f), playerTexturePath); // Example additional player
+    //Player anotherPlayer("Athena", sf::Vector2(200.f, 400.f), playerTexturePath); // Example additional player
 
     // Create the Debug Window
 	KryptosEngine::DebugWindow::DebugWindow debugWindow;
@@ -52,14 +52,14 @@ int main() {
 
         // Update Players
         player.update(deltaTime);
-        anotherPlayer.update(deltaTime);
+        //anotherPlayer.update(deltaTime);
 
         // Clear screen
         window.clear();
 
         // Render Players
         player.draw(window);
-        anotherPlayer.draw(window);
+        //anotherPlayer.draw(window);
 
         debugWindow.handleInput();
 

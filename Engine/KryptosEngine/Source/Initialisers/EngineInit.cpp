@@ -20,21 +20,17 @@ namespace KryptosEngine {
      * Sets up the general logging system and the debug window logging system.
      * Additional systems can be initialized in this method as required.
      */
-    void EngineInit::Init() {
-        // Initialise general logging system
+    void EngineInit::Initialise() {
+        // Initialize general logging system
         Logger::Init();
-        Logger::GetLogger()->info("General logging system initialised");
+        Logger::GetLogger()->info("General logging system initialized");
 
-        // Initialise Debug Window logging
+        // Initialize Debug Window logging
         DebugWindowLogger::Init();
-        DebugWindowLogger::GetLogger()->info("Debug Window logging initialised");
+        DebugWindowLogger::GetLogger()->info("Debug Window logging initialized");
 
-        // Initialise Debug Window
-		DebugWindow::DebugWindow debugWindow;
-        debugWindow.init();
-
-        // Future systems can be initialised here
-        Logger::GetLogger()->info("Engine initialisation completed");
+        // Future systems can be initialized here
+        Logger::GetLogger()->info("Engine initialization completed");
     }
 
 } // namespace KryptosEngine

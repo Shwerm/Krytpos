@@ -8,7 +8,7 @@
 int main() {
     try {
         // Initialize the engine
-        KryptosEngine::EngineInit::Init();
+        KryptosEngine::EngineInit::Initialise();
 
         // Log a message indicating the game has started
         KryptosEngine::Logger::GetLogger()->info("Game started successfully");
@@ -30,8 +30,9 @@ int main() {
     Player player("Kryptos", sf::Vector2(100.f, 300.f), playerTexturePath);
     Player anotherPlayer("Athena", sf::Vector2(200.f, 400.f), playerTexturePath); // Example additional player
 
-    //Create Debug Window
-    KryptosEngine::DebugWindow::DebugWindow debugWindow;
+    // Create the Debug Window
+	KryptosEngine::DebugWindow::DebugWindow debugWindow;
+	debugWindow.initialise();
 
     sf::Clock clock;
 

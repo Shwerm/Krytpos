@@ -15,7 +15,6 @@
 #pragma once
 #include "../Include/LoggingSystem/Logger.h"
 #include "../Include/LoggingSystem/DebugWindow/DebugWindowLogger.h"
-#include "../Include/DebugWindow/DebugWindow.h"
 
 namespace KryptosEngine {
 
@@ -33,7 +32,7 @@ namespace KryptosEngine {
          *
          * Sets up logging, debugging, and other core systems to prepare the engine for use.
          */
-        static void Init();
+        static void Initialise();
     };
 
 } // namespace KryptosEngine

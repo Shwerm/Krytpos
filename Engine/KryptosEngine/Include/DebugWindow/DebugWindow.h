@@ -64,7 +64,7 @@ namespace KryptosEngine {
              * Loads resources like the default font and sets up initial configurations.
              * @throw std::runtime_error if resources fail to load.
              */
-            void initialise();
+            void init();
 
             /**
              * @brief Handles input for toggling the debug window.

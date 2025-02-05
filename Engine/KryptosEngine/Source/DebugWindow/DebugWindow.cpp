@@ -34,7 +34,7 @@ namespace KryptosEngine {
          * Loads the default font and sets up the window's initial state.
          * @throw std::runtime_error if the font fails to load.
          */
-        void DebugWindow::initialise() {
+        void DebugWindow::init() {
             debugWindow.setFramerateLimit(60);
 
             if (!defaultFont.openFromFile("EngineAssets/Fonts/DebugWindowFont/AtkinsonHyperlegible-Regular.ttf")) {

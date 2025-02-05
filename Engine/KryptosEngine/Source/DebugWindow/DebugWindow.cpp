@@ -185,6 +185,7 @@ namespace KryptosEngine {
                 debugWindow.close();
             }
             isVisible = false;
+			KryptosEngine::DebugWindowLogger::GetLogger()->info("DebugWindow closed successfully");
         }
 
         /**

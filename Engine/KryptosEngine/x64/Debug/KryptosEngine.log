@@ -1,4 +1,6 @@
 ﻿  DebugWindow.cpp
   EngineInit.cpp
+  DebugWindowLogger.cpp
+  Logger.cpp
   Generating Code...
   KryptosEngine.vcxproj -> D:\Personal Projects\Working Title - Kryptos\Krytpos\Engine\KryptosEngine\x64\Debug\KryptosEngine.lib

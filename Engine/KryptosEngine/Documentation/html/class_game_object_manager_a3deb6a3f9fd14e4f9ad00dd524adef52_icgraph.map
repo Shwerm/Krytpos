@@ -1,0 +1,17 @@
+<map id="GameObjectManager::GameObjectManager" name="GameObjectManager::GameObjectManager">
+<area shape="rect" id="Node000001" title="Private constructor to enforce singleton pattern." alt="" coords="604,72,757,115"/>
+<area shape="rect" id="Node000002" href="$class_game_object_manager.html#a82f3274e89d13c1463ebb6ba2fa5db79" title="Deleted copy constructor to prevent copying the singleton instance." alt="" coords="404,5,556,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="600,69,546,51,548,46,601,64"/>
+<area shape="rect" id="Node000003" href="$class_game_object_manager.html#a86e915794a703ba492d4f336351c0389" title="Provides access to the singleton instance of GameObjectManager." alt="" coords="404,72,556,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="589,96,557,96,557,91,589,91"/>
+<area shape="rect" id="Node000008" href="$class_game_object_manager.html#aec8da28a6f0da76621a0f72680eaf7c8" title="Deleted assignment operator to prevent copying the singleton instance." alt="" coords="404,139,556,181"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="601,122,548,141,546,135,600,117"/>
+<area shape="rect" id="Node000004" href="$class_kryptos_engine_1_1_debug_window_1_1_debug_window.html#abc5bad14d7c81fdc9e7acb2b3d9e34b7" title="Renders the debug interface. Iterates through active game objects and displays relevant data...." alt="" coords="157,13,356,56"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="388,72,340,59,341,54,390,67"/>
+<area shape="rect" id="Node000005" href="$class_game_object.html#a98b8d66c6cbeb852fc5cc8ef4f2b99c6" title="Constructs a GameObject with specified properties." alt="" coords="169,80,344,107"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="388,96,345,96,345,91,388,91"/>
+<area shape="rect" id="Node000007" href="$class_game_object.html#ab82dfdb656f9051c0587e6593b2dda97" title="Destructor for GameObject. Unregisters the object from the GameObjectManager." alt="" coords="165,131,348,157"/>
+<area shape="poly" id="edge6_Node000003_Node000007" title=" " alt="" coords="389,117,319,133,318,127,388,111"/>
+<area shape="rect" id="Node000006" href="$class_player.html#ae31c0ce97eab32c57f484d1162c03ad1" title="Constructs a Player object." alt="" coords="5,80,109,107"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="153,96,109,96,109,91,153,91"/>
+</map>

@@ -1,0 +1,217 @@
+\doxysection{Game\+Object\+Manager Class Reference}
+\hypertarget{class_game_object_manager}{}\label{class_game_object_manager}\index{GameObjectManager@{GameObjectManager}}
+
+
+Singleton class for managing all active game objects.  
+
+
+
+
+{\ttfamily \#include $<$Game\+Object\+Manager.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_game_object_manager_a82f3274e89d13c1463ebb6ba2fa5db79}{Game\+Object\+Manager}} (const \mbox{\hyperlink{class_game_object_manager}{Game\+Object\+Manager}} \&)=delete
+\begin{DoxyCompactList}\small\item\em Deleted copy constructor to prevent copying the singleton instance. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_game_object_manager}{Game\+Object\+Manager}} \& \mbox{\hyperlink{class_game_object_manager_aec8da28a6f0da76621a0f72680eaf7c8}{operator=}} (const \mbox{\hyperlink{class_game_object_manager}{Game\+Object\+Manager}} \&)=delete
+\begin{DoxyCompactList}\small\item\em Deleted assignment operator to prevent copying the singleton instance. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_object_manager_a1ca2d6027049aa09b74b208d9ac6bbb8}{register\+Object}} (\mbox{\hyperlink{class_game_object}{Game\+Object}} \texorpdfstring{$\ast$}{*}object)
+\begin{DoxyCompactList}\small\item\em Registers a new game object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_object_manager_af648bfd92af8a89a57491b64be7d85e8}{unregister\+Object}} (\mbox{\hyperlink{class_game_object}{Game\+Object}} \texorpdfstring{$\ast$}{*}object)
+\begin{DoxyCompactList}\small\item\em Unregisters an existing game object. \end{DoxyCompactList}\item 
+const std\+::vector$<$ \mbox{\hyperlink{class_game_object}{Game\+Object}} \texorpdfstring{$\ast$}{*} $>$ \& \mbox{\hyperlink{class_game_object_manager_aa611d731754b64d5a85c6bd31c2cfc9d}{get\+Game\+Objects}} () const
+\begin{DoxyCompactList}\small\item\em Provides access to all registered game objects. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_game_object_manager}{Game\+Object\+Manager}} \& \mbox{\hyperlink{class_game_object_manager_a86e915794a703ba492d4f336351c0389}{get\+Instance}} ()
+\begin{DoxyCompactList}\small\item\em Provides access to the singleton instance of \doxylink{class_game_object_manager}{Game\+Object\+Manager}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_game_object_manager_a3deb6a3f9fd14e4f9ad00dd524adef52}{Game\+Object\+Manager}} ()=default
+\begin{DoxyCompactList}\small\item\em Private constructor to enforce singleton pattern. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{class_game_object}{Game\+Object}} \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{class_game_object_manager_a4a15006eaa04040ac2f83d88bd2cb395}{game\+Objects}}
+\begin{DoxyCompactList}\small\item\em List of all active game objects. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Singleton class for managing all active game objects. 
+
+This class provides centralized management for game objects, ensuring consistent registration, unregistration, and access. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_game_object_manager_a3deb6a3f9fd14e4f9ad00dd524adef52}\index{GameObjectManager@{GameObjectManager}!GameObjectManager@{GameObjectManager}}
+\index{GameObjectManager@{GameObjectManager}!GameObjectManager@{GameObjectManager}}
+\doxysubsubsection{\texorpdfstring{GameObjectManager()}{GameObjectManager()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_game_object_manager_a3deb6a3f9fd14e4f9ad00dd524adef52} 
+Game\+Object\+Manager\+::\+Game\+Object\+Manager (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [default]}}
+
+
+
+Private constructor to enforce singleton pattern. 
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_game_object_manager_a3deb6a3f9fd14e4f9ad00dd524adef52_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_game_object_manager_a82f3274e89d13c1463ebb6ba2fa5db79}\index{GameObjectManager@{GameObjectManager}!GameObjectManager@{GameObjectManager}}
+\index{GameObjectManager@{GameObjectManager}!GameObjectManager@{GameObjectManager}}
+\doxysubsubsection{\texorpdfstring{GameObjectManager()}{GameObjectManager()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_game_object_manager_a82f3274e89d13c1463ebb6ba2fa5db79} 
+Game\+Object\+Manager\+::\+Game\+Object\+Manager (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_game_object_manager}{Game\+Object\+Manager}} \&}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+
+
+Deleted copy constructor to prevent copying the singleton instance. 
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=345pt]{class_game_object_manager_a82f3274e89d13c1463ebb6ba2fa5db79_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_game_object_manager_aa611d731754b64d5a85c6bd31c2cfc9d}\index{GameObjectManager@{GameObjectManager}!getGameObjects@{getGameObjects}}
+\index{getGameObjects@{getGameObjects}!GameObjectManager@{GameObjectManager}}
+\doxysubsubsection{\texorpdfstring{getGameObjects()}{getGameObjects()}}
+{\footnotesize\ttfamily \label{class_game_object_manager_aa611d731754b64d5a85c6bd31c2cfc9d} 
+const std\+::vector$<$ \mbox{\hyperlink{class_game_object}{Game\+Object}} \texorpdfstring{$\ast$}{*} $>$ \& Game\+Object\+Manager\+::get\+Game\+Objects (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Provides access to all registered game objects. 
+
+\begin{DoxyReturn}{Returns}
+A constant reference to the vector of game object pointers.
+\end{DoxyReturn}
+Returns a constant reference to the internal list of game objects. \begin{DoxyReturn}{Returns}
+A constant reference to the vector of game object pointers. 
+\end{DoxyReturn}
+\Hypertarget{class_game_object_manager_a86e915794a703ba492d4f336351c0389}\index{GameObjectManager@{GameObjectManager}!getInstance@{getInstance}}
+\index{getInstance@{getInstance}!GameObjectManager@{GameObjectManager}}
+\doxysubsubsection{\texorpdfstring{getInstance()}{getInstance()}}
+{\footnotesize\ttfamily \label{class_game_object_manager_a86e915794a703ba492d4f336351c0389} 
+static \mbox{\hyperlink{class_game_object_manager}{Game\+Object\+Manager}} \& Game\+Object\+Manager\+::get\+Instance (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Provides access to the singleton instance of \doxylink{class_game_object_manager}{Game\+Object\+Manager}. 
+
+\begin{DoxyReturn}{Returns}
+A reference to the singleton instance. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=345pt]{class_game_object_manager_a86e915794a703ba492d4f336351c0389_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_game_object_manager_a86e915794a703ba492d4f336351c0389_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_game_object_manager_aec8da28a6f0da76621a0f72680eaf7c8}\index{GameObjectManager@{GameObjectManager}!operator=@{operator=}}
+\index{operator=@{operator=}!GameObjectManager@{GameObjectManager}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \label{class_game_object_manager_aec8da28a6f0da76621a0f72680eaf7c8} 
+\mbox{\hyperlink{class_game_object_manager}{Game\+Object\+Manager}} \& Game\+Object\+Manager\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_game_object_manager}{Game\+Object\+Manager}} \&}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+
+
+Deleted assignment operator to prevent copying the singleton instance. 
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=345pt]{class_game_object_manager_aec8da28a6f0da76621a0f72680eaf7c8_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_game_object_manager_a1ca2d6027049aa09b74b208d9ac6bbb8}\index{GameObjectManager@{GameObjectManager}!registerObject@{registerObject}}
+\index{registerObject@{registerObject}!GameObjectManager@{GameObjectManager}}
+\doxysubsubsection{\texorpdfstring{registerObject()}{registerObject()}}
+{\footnotesize\ttfamily \label{class_game_object_manager_a1ca2d6027049aa09b74b208d9ac6bbb8} 
+void Game\+Object\+Manager\+::register\+Object (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_game_object}{Game\+Object}} \texorpdfstring{$\ast$}{*}}]{object}{}\end{DoxyParamCaption})}
+
+
+
+Registers a new game object. 
+
+Adds the object to the internal list if it is not already registered. 
+\begin{DoxyParams}{Parameters}
+{\em object} & Pointer to the game object to register.\\
+\hline
+\end{DoxyParams}
+Adds the game object to the internal list if it is not already registered. Ensures no duplicate registrations. 
+\begin{DoxyParams}{Parameters}
+{\em object} & Pointer to the game object to register. \\
+\hline
+\end{DoxyParams}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_game_object_manager_a1ca2d6027049aa09b74b208d9ac6bbb8_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_game_object_manager_af648bfd92af8a89a57491b64be7d85e8}\index{GameObjectManager@{GameObjectManager}!unregisterObject@{unregisterObject}}
+\index{unregisterObject@{unregisterObject}!GameObjectManager@{GameObjectManager}}
+\doxysubsubsection{\texorpdfstring{unregisterObject()}{unregisterObject()}}
+{\footnotesize\ttfamily \label{class_game_object_manager_af648bfd92af8a89a57491b64be7d85e8} 
+void Game\+Object\+Manager\+::unregister\+Object (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_game_object}{Game\+Object}} \texorpdfstring{$\ast$}{*}}]{object}{}\end{DoxyParamCaption})}
+
+
+
+Unregisters an existing game object. 
+
+Removes the object from the internal list. 
+\begin{DoxyParams}{Parameters}
+{\em object} & Pointer to the game object to unregister.\\
+\hline
+\end{DoxyParams}
+Removes the game object from the internal list if it exists. 
+\begin{DoxyParams}{Parameters}
+{\em object} & Pointer to the game object to unregister. \\
+\hline
+\end{DoxyParams}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_game_object_manager_af648bfd92af8a89a57491b64be7d85e8_icgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_game_object_manager_a4a15006eaa04040ac2f83d88bd2cb395}\index{GameObjectManager@{GameObjectManager}!gameObjects@{gameObjects}}
+\index{gameObjects@{gameObjects}!GameObjectManager@{GameObjectManager}}
+\doxysubsubsection{\texorpdfstring{gameObjects}{gameObjects}}
+{\footnotesize\ttfamily \label{class_game_object_manager_a4a15006eaa04040ac2f83d88bd2cb395} 
+std\+::vector$<$\mbox{\hyperlink{class_game_object}{Game\+Object}}\texorpdfstring{$\ast$}{*}$>$ Game\+Object\+Manager\+::game\+Objects\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+List of all active game objects. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Personal Projects/\+Working Title -\/ Kryptos/\+Krytpos/\+Engine/\+Kryptos\+Engine/\+Include/\+Game\+Object\+System/\mbox{\hyperlink{_game_object_manager_8h}{Game\+Object\+Manager.\+h}}\item 
+D\+:/\+Personal Projects/\+Working Title -\/ Kryptos/\+Krytpos/\+Engine/\+Kryptos\+Engine/\+Source/\+Game\+Object\+System/\mbox{\hyperlink{_game_object_manager_8cpp}{Game\+Object\+Manager.\+cpp}}\end{DoxyCompactItemize}

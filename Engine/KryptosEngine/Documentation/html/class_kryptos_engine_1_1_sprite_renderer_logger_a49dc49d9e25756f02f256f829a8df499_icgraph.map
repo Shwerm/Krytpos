@@ -1,0 +1,9 @@
+<map id="KryptosEngine::SpriteRendererLogger::GetLogger" name="KryptosEngine::SpriteRendererLogger::GetLogger">
+<area shape="rect" id="Node000001" title=" " alt="" coords="257,64,458,107"/>
+<area shape="rect" id="Node000002" href="$class_kryptos_engine_1_1_engine_init.html#a40c6f6dbfbc0f67458af9c7ec5418a3d" title="Initializes all engine systems." alt="" coords="21,5,193,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="248,63,193,49,194,44,249,57"/>
+<area shape="rect" id="Node000003" href="$class_sprite_renderer.html#a965f9f9b79fe5da804d6465c0e1be82b" title="Loads a texture from a file and sets it for the sprite." alt="" coords="15,72,199,99"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="241,88,199,88,199,83,241,83"/>
+<area shape="rect" id="Node000004" href="$class_sprite_renderer.html#a36dfdced4b9a09a1defdb73e2a90dadd" title="Constructs a SpriteRenderer object. Initializes the sprite and texture pointers to nullptr." alt="" coords="5,123,209,149"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="242,111,177,125,176,119,241,106"/>
+</map>

@@ -1,0 +1,8 @@
+<map id="KryptosEngine::DebugWindow::DebugWindow::toggleVisibility" name="KryptosEngine::DebugWindow::DebugWindow::toggleVisibility">
+<area shape="rect" id="Node000001" title="Toggles debug window visibility. Opens or closes the debug overlay depending on its current state." alt="" coords="5,35,212,77"/>
+<area shape="rect" id="Node000002" href="$class_kryptos_engine_1_1_debug_window_1_1_debug_window.html#a9e6c4b0f61a01c5ef324492537a9352a" title="Closes the debug window. Cleans up any open resources and resets the visibility flag." alt="" coords="260,5,459,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="212,41,244,37,244,43,213,47"/>
+<area shape="rect" id="Node000003" href="$class_kryptos_engine_1_1_debug_window_logger.html#ad92491d9b1fddbd22d1b8d177e5acf9c" title="Retrieves the Debug Window logger instance." alt="" coords="507,35,706,77"/>
+<area shape="poly" id="edge3_Node000001_Node000003" title=" " alt="" coords="212,56,260,57,459,57,492,57,492,62,459,63,260,63,212,62"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="460,36,492,40,491,45,459,41"/>
+</map>

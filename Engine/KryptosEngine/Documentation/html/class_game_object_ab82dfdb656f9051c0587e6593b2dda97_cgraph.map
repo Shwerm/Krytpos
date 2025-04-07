@@ -1,0 +1,9 @@
+<map id="GameObject::~GameObject" name="GameObject::~GameObject">
+<area shape="rect" id="Node000001" title="Destructor for GameObject. Unregisters the object from the GameObjectManager." alt="" coords="5,47,189,73"/>
+<area shape="rect" id="Node000002" href="$class_game_object_manager.html#a86e915794a703ba492d4f336351c0389" title="Provides access to the singleton instance of GameObjectManager." alt="" coords="237,5,389,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="187,43,221,38,222,43,188,49"/>
+<area shape="rect" id="Node000004" href="$class_game_object_manager.html#af648bfd92af8a89a57491b64be7d85e8" title="Unregisters an existing game object." alt="" coords="237,72,389,115"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="188,71,222,77,221,82,187,77"/>
+<area shape="rect" id="Node000003" href="$class_game_object_manager.html#a3deb6a3f9fd14e4f9ad00dd524adef52" title="Private constructor to enforce singleton pattern." alt="" coords="437,5,589,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="389,24,422,24,422,29,389,29"/>
+</map>

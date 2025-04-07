@@ -706,4 +706,7 @@
     <Font Include="EngineAssets\Fonts\DebugWindowFont\AtkinsonHyperlegible-Regular.ttf" />
     <Font Include="EngineAssets\Fonts\DebugWindowFont\AtkinsonHyperlegible-Bold.ttf" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="DoxyGenFiles\Doxyfile" />
+  </ItemGroup>
 </Project>

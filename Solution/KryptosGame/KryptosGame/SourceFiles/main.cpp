@@ -12,8 +12,6 @@ int main() {
 
         // Log a message indicating the game has started
         KryptosEngine::Logger::GetLogger()->info("Game started successfully");
-
-        // Game logic goes here...
     }
     catch (const std::exception& e) {
         std::cerr << "An exception occurred during engine initialization: " << e.what() << std::endl;

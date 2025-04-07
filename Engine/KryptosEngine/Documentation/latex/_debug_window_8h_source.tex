@@ -1,0 +1,66 @@
+\doxysection{Debug\+Window.\+h}
+\hypertarget{_debug_window_8h_source}{}\label{_debug_window_8h_source}\index{D:/Personal Projects/Working Title -\/ Kryptos/Krytpos/Engine/KryptosEngine/Include/DebugWindow/DebugWindow.h@{D:/Personal Projects/Working Title -\/ Kryptos/Krytpos/Engine/KryptosEngine/Include/DebugWindow/DebugWindow.h}}
+\mbox{\hyperlink{_debug_window_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ DebugWindow.h\ -\/\ Kryptos\ Debugging\ Interface}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ Provides\ a\ graphical\ debugging\ overlay\ to\ visualize\ game\ objects\ and\ their\ state.}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ Designed\ for\ use\ within\ the\ Kryptos\ game\ and\ engine.}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *\ Author:\ Sam\ Camilleri,\ Mural\ Studios}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *\ All\ Rights\ Reserved,\ 2025.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *\ Dependencies:}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ *\ \ \ -\/\ GameObjectManager.h:\ Manages\ game\ objects\ in\ the\ engine.}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_game_object_manager_8h}{../GameObjectSystem/GameObjectManager.h}}"{}}}
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#include\ <SFML/Graphics.hpp>}}
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#include\ <unordered\_map>}}
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{\#include\ "{}../Include/DebugWindow/DebugWindow.h"{}}}
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{\#include\ "{}../Include/PlayerClass/Player.h"{}}}
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#include\ "{}../Include/LoggingSystem/DebugWindow/DebugWindowLogger.h"{}}}
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#include\ <SFML/Window/Event.hpp>}}
+\DoxyCodeLine{00038\ \textcolor{preprocessor}{\#include\ <stdexcept>}}
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_kryptos_engine}{KryptosEngine}}\ \{}
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_kryptos_engine_1_1_debug_window}{DebugWindow}}\ \{}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_kryptos_engine_1_1_debug_window_1_1_debug_window_a624ab8992651ba2dec35f9897fc356e9}{DebugWindow}}\ \{}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \ \ \ \ sf::RenderWindow\ \mbox{\hyperlink{class_kryptos_engine_1_1_debug_window_1_1_debug_window_a61787eb72cf074a6977d0be211861888}{debugWindow}};\ }
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_kryptos_engine_1_1_debug_window_1_1_debug_window_a136fce1dd39afbd54353a83c1bab98a1}{isVisible}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \ \ \ \ sf::Keyboard::Key\ \mbox{\hyperlink{class_kryptos_engine_1_1_debug_window_1_1_debug_window_a442dab0402c9280d21dcca64a028bfdd}{toggleKey}};\ \ }
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \ \ \ \ std::unordered\_map<GameObject*,\ std::unique\_ptr<sf::Text>>\ \mbox{\hyperlink{class_kryptos_engine_1_1_debug_window_1_1_debug_window_ac1402b82017866f85b08fb11371ebce6}{nameTexts}};}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \ \ \ \ std::unordered\_map<GameObject*,\ bool>\ \mbox{\hyperlink{class_kryptos_engine_1_1_debug_window_1_1_debug_window_ad7301754d2bf5abc190ba013ff1c2bcd}{expandedState}};}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \ \ \ \ sf::Font\ \mbox{\hyperlink{class_kryptos_engine_1_1_debug_window_1_1_debug_window_ac2d45a4e1b6f56bd0992c5aa81a81606}{defaultFont}};\ }
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_kryptos_engine_1_1_debug_window_1_1_debug_window_a624ab8992651ba2dec35f9897fc356e9}{DebugWindow}}();}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_kryptos_engine_1_1_debug_window_1_1_debug_window_ad310417a485c035966b882b4defd3a5c}{initialise}}();}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_kryptos_engine_1_1_debug_window_1_1_debug_window_ae95f08e8004a6cef8d570a22e8760859}{handleInput}}();}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_kryptos_engine_1_1_debug_window_1_1_debug_window_ab92b8f3eef32e44fdab5185a37b77d38}{toggleVisibility}}();}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_kryptos_engine_1_1_debug_window_1_1_debug_window_a9e6c4b0f61a01c5ef324492537a9352a}{close}}();}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_kryptos_engine_1_1_debug_window_1_1_debug_window_aa126466c2aecbe1a499cee849c2b67f5}{isOpen}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_kryptos_engine_1_1_debug_window_1_1_debug_window_abc5bad14d7c81fdc9e7acb2b3d9e34b7}{draw}}();}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00116\ \ \ \ \ \}\ \textcolor{comment}{//\ namespace\ DebugWindow}}
+\DoxyCodeLine{00117\ \}\ \textcolor{comment}{//\ namespace\ KryptosEngine}}
+
+\end{DoxyCode}

@@ -1,0 +1,333 @@
+\doxysection{Game\+Object Class Reference}
+\hypertarget{class_game_object}{}\label{class_game_object}\index{GameObject@{GameObject}}
+
+
+Base class for game objects in the Kryptos engine.  
+
+
+
+
+{\ttfamily \#include $<$Game\+Object.\+h$>$}
+
+
+
+Inheritance diagram for Game\+Object\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=151pt]{class_game_object__inherit__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_game_object_a98b8d66c6cbeb852fc5cc8ef4f2b99c6}{Game\+Object}} (const std\+::string \&\mbox{\hyperlink{class_game_object_af542b33c8de269343e22c5629e6b66c0}{name}}, const sf\+::\+Vector2f \&\mbox{\hyperlink{class_game_object_a86e4253e3734436b4a5a0c503e0033b4}{position}}, const bool \&\mbox{\hyperlink{class_game_object_afa3bf48882a927f94a6d922045a435e0}{active}}, const sf\+::\+Angle \&\mbox{\hyperlink{class_game_object_a38b0b06a82402a76f7311def99c05cc1}{rotation}}, const float \&\mbox{\hyperlink{class_game_object_acce2dc8ab8ad6c7ad39ded2cb2aee78f}{mass}}, const bool \&\mbox{\hyperlink{class_game_object_a24a87de9f5977d11d2a209c9107a4a13}{use\+Gravity}})
+\begin{DoxyCompactList}\small\item\em Constructs a \doxylink{class_game_object}{Game\+Object} with specified properties. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{class_game_object_ab82dfdb656f9051c0587e6593b2dda97}{\texorpdfstring{$\sim$}{\string~}\+Game\+Object}} ()
+\begin{DoxyCompactList}\small\item\em Destructor for \doxylink{class_game_object}{Game\+Object}. Unregisters the object from the \doxylink{class_game_object_manager}{Game\+Object\+Manager}. \end{DoxyCompactList}\item 
+const std\+::unordered\+\_\+map$<$ std\+::string, std\+::function$<$ std\+::string()$>$ $>$ \& \mbox{\hyperlink{class_game_object_a1c56838af6019afc03b093acc7db4ae7}{get\+Debug\+Tracked\+Values}} () const
+\begin{DoxyCompactList}\small\item\em Retrieves debug-\/tracked variables. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{class_game_object_a7b5b5ca6b3754cdfb175cd1938c77f10}{get\+Name}} () const
+\item 
+sf\+::\+Vector2f \mbox{\hyperlink{class_game_object_a43a1f9dafe383a47a20abb51919e9e79}{get\+Position}} () const
+\item 
+bool \mbox{\hyperlink{class_game_object_abe79de441ec36735859f8e0e20888033}{is\+Active}} () const
+\item 
+float \mbox{\hyperlink{class_game_object_a3618f83d846be4951b77fcf822e0ecc3}{get\+Mass}} () const
+\item 
+bool \mbox{\hyperlink{class_game_object_a547f7ad4725237b5d0c679647c422526}{get\+Use\+Gravity}} () const
+\item 
+sf\+::\+Angle \mbox{\hyperlink{class_game_object_a23581cefceaed58bfef6582f00120422}{get\+Rotation}} () const
+\item 
+void \mbox{\hyperlink{class_game_object_a389e12474b59bd9425723e74c2920d3e}{set\+Position}} (const sf\+::\+Vector2f \&new\+Position)
+\item 
+void \mbox{\hyperlink{class_game_object_aa6fd096ea793f7d51c23d06910bf5bf0}{set\+Active}} (bool state)
+\item 
+void \mbox{\hyperlink{class_game_object_ab77c5362fd6b461711a6b6ed887233a9}{set\+Mass}} (float new\+Mass)
+\item 
+void \mbox{\hyperlink{class_game_object_aadd20a7d359e21819ae8d0a035fe2fe2}{set\+Use\+Gravity}} (bool state)
+\item 
+void \mbox{\hyperlink{class_game_object_a5f2378c79aba75c0f306b33cb86a9228}{set\+Rotation}} (const sf\+::\+Angle \&new\+Rotation)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T$>$ }\\void \mbox{\hyperlink{class_game_object_aec6eb340cbdbe0cadb146806d02e5714}{register\+Debug\+Variable}} (const std\+::string \&\mbox{\hyperlink{class_game_object_af542b33c8de269343e22c5629e6b66c0}{name}}, T \&variable)
+\begin{DoxyCompactList}\small\item\em Registers a variable for debugging. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \mbox{\hyperlink{class_game_object_af542b33c8de269343e22c5629e6b66c0}{name}}
+\begin{DoxyCompactList}\small\item\em Name of the game object. \end{DoxyCompactList}\item 
+sf\+::\+Vector2f \mbox{\hyperlink{class_game_object_a86e4253e3734436b4a5a0c503e0033b4}{position}}
+\begin{DoxyCompactList}\small\item\em Position of the object in the game world. \end{DoxyCompactList}\item 
+sf\+::\+Angle \mbox{\hyperlink{class_game_object_a38b0b06a82402a76f7311def99c05cc1}{rotation}}
+\begin{DoxyCompactList}\small\item\em Rotation of the object in the game world. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_game_object_afa3bf48882a927f94a6d922045a435e0}{active}}
+\begin{DoxyCompactList}\small\item\em Indicates whether the object is active. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_game_object_acce2dc8ab8ad6c7ad39ded2cb2aee78f}{mass}}
+\begin{DoxyCompactList}\small\item\em Mass of the object, used for physics calculations. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_game_object_a24a87de9f5977d11d2a209c9107a4a13}{use\+Gravity}}
+\begin{DoxyCompactList}\small\item\em Indicates whether the object is affected by gravity. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::unordered\+\_\+map$<$ std\+::string, std\+::function$<$ std\+::string()$>$ $>$ \mbox{\hyperlink{class_game_object_a52157ab456d409ce06ec5f91432159d2}{debug\+Tracked\+Values}}
+\begin{DoxyCompactList}\small\item\em Stores debug-\/tracked variables and their associated getter functions. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Base class for game objects in the Kryptos engine. 
+
+Represents an entity in the game world with properties such as position, rotation, mass, and whether it uses gravity. Supports debug-\/tracked variables. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_game_object_a98b8d66c6cbeb852fc5cc8ef4f2b99c6}\index{GameObject@{GameObject}!GameObject@{GameObject}}
+\index{GameObject@{GameObject}!GameObject@{GameObject}}
+\doxysubsubsection{\texorpdfstring{GameObject()}{GameObject()}}
+{\footnotesize\ttfamily \label{class_game_object_a98b8d66c6cbeb852fc5cc8ef4f2b99c6} 
+Game\+Object\+::\+Game\+Object (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name}{, }\item[{const sf\+::\+Vector2f \&}]{position}{, }\item[{const bool \&}]{active}{, }\item[{const sf\+::\+Angle \&}]{rotation}{, }\item[{const float \&}]{mass}{, }\item[{const bool \&}]{use\+Gravity}{}\end{DoxyParamCaption})}
+
+
+
+Constructs a \doxylink{class_game_object}{Game\+Object} with specified properties. 
+
+Constructs a \doxylink{class_game_object}{Game\+Object} and registers it with the \doxylink{class_game_object_manager}{Game\+Object\+Manager}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & Name of the game object. \\
+\hline
+{\em position} & Initial position of the object. \\
+\hline
+{\em active} & Whether the object is active. \\
+\hline
+{\em rotation} & Initial rotation of the object. \\
+\hline
+{\em mass} & Mass of the object. \\
+\hline
+{\em use\+Gravity} & Whether the object is affected by gravity. \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_game_object_a98b8d66c6cbeb852fc5cc8ef4f2b99c6_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=325pt]{class_game_object_a98b8d66c6cbeb852fc5cc8ef4f2b99c6_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_game_object_ab82dfdb656f9051c0587e6593b2dda97}\index{GameObject@{GameObject}!````~GameObject@{\texorpdfstring{$\sim$}{\string~}GameObject}}
+\index{````~GameObject@{\texorpdfstring{$\sim$}{\string~}GameObject}!GameObject@{GameObject}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}GameObject()}{\string~GameObject()}}
+{\footnotesize\ttfamily \label{class_game_object_ab82dfdb656f9051c0587e6593b2dda97} 
+Game\+Object\+::\texorpdfstring{$\sim$}{\string~}\+Game\+Object (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Destructor for \doxylink{class_game_object}{Game\+Object}. Unregisters the object from the \doxylink{class_game_object_manager}{Game\+Object\+Manager}. 
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_game_object_ab82dfdb656f9051c0587e6593b2dda97_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_game_object_a1c56838af6019afc03b093acc7db4ae7}\index{GameObject@{GameObject}!getDebugTrackedValues@{getDebugTrackedValues}}
+\index{getDebugTrackedValues@{getDebugTrackedValues}!GameObject@{GameObject}}
+\doxysubsubsection{\texorpdfstring{getDebugTrackedValues()}{getDebugTrackedValues()}}
+{\footnotesize\ttfamily \label{class_game_object_a1c56838af6019afc03b093acc7db4ae7} 
+const std\+::unordered\+\_\+map$<$ std\+::string, std\+::function$<$ std\+::string()$>$ $>$ \& Game\+Object\+::get\+Debug\+Tracked\+Values (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Retrieves debug-\/tracked variables. 
+
+\begin{DoxyReturn}{Returns}
+A map of variable names and their getter functions. 
+\end{DoxyReturn}
+\Hypertarget{class_game_object_a3618f83d846be4951b77fcf822e0ecc3}\index{GameObject@{GameObject}!getMass@{getMass}}
+\index{getMass@{getMass}!GameObject@{GameObject}}
+\doxysubsubsection{\texorpdfstring{getMass()}{getMass()}}
+{\footnotesize\ttfamily \label{class_game_object_a3618f83d846be4951b77fcf822e0ecc3} 
+float Game\+Object\+::get\+Mass (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_game_object_a7b5b5ca6b3754cdfb175cd1938c77f10}\index{GameObject@{GameObject}!getName@{getName}}
+\index{getName@{getName}!GameObject@{GameObject}}
+\doxysubsubsection{\texorpdfstring{getName()}{getName()}}
+{\footnotesize\ttfamily \label{class_game_object_a7b5b5ca6b3754cdfb175cd1938c77f10} 
+std\+::string Game\+Object\+::get\+Name (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_game_object_a43a1f9dafe383a47a20abb51919e9e79}\index{GameObject@{GameObject}!getPosition@{getPosition}}
+\index{getPosition@{getPosition}!GameObject@{GameObject}}
+\doxysubsubsection{\texorpdfstring{getPosition()}{getPosition()}}
+{\footnotesize\ttfamily \label{class_game_object_a43a1f9dafe383a47a20abb51919e9e79} 
+sf\+::\+Vector2f Game\+Object\+::get\+Position (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_game_object_a23581cefceaed58bfef6582f00120422}\index{GameObject@{GameObject}!getRotation@{getRotation}}
+\index{getRotation@{getRotation}!GameObject@{GameObject}}
+\doxysubsubsection{\texorpdfstring{getRotation()}{getRotation()}}
+{\footnotesize\ttfamily \label{class_game_object_a23581cefceaed58bfef6582f00120422} 
+sf\+::\+Angle Game\+Object\+::get\+Rotation (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_game_object_a547f7ad4725237b5d0c679647c422526}\index{GameObject@{GameObject}!getUseGravity@{getUseGravity}}
+\index{getUseGravity@{getUseGravity}!GameObject@{GameObject}}
+\doxysubsubsection{\texorpdfstring{getUseGravity()}{getUseGravity()}}
+{\footnotesize\ttfamily \label{class_game_object_a547f7ad4725237b5d0c679647c422526} 
+bool Game\+Object\+::get\+Use\+Gravity (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_game_object_abe79de441ec36735859f8e0e20888033}\index{GameObject@{GameObject}!isActive@{isActive}}
+\index{isActive@{isActive}!GameObject@{GameObject}}
+\doxysubsubsection{\texorpdfstring{isActive()}{isActive()}}
+{\footnotesize\ttfamily \label{class_game_object_abe79de441ec36735859f8e0e20888033} 
+bool Game\+Object\+::is\+Active (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_game_object_aec6eb340cbdbe0cadb146806d02e5714}\index{GameObject@{GameObject}!registerDebugVariable@{registerDebugVariable}}
+\index{registerDebugVariable@{registerDebugVariable}!GameObject@{GameObject}}
+\doxysubsubsection{\texorpdfstring{registerDebugVariable()}{registerDebugVariable()}}
+{\footnotesize\ttfamily \label{class_game_object_aec6eb340cbdbe0cadb146806d02e5714} 
+template$<$typename T$>$ \\
+void Game\+Object\+::register\+Debug\+Variable (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name}{, }\item[{T \&}]{variable}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+
+
+Registers a variable for debugging. 
+
+Tracks the value of a variable for display in the debug interface. 
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The type of the variable to register. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em name} & The name of the variable. \\
+\hline
+{\em variable} & The variable to track. \\
+\hline
+\end{DoxyParams}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=331pt]{class_game_object_aec6eb340cbdbe0cadb146806d02e5714_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_game_object_aa6fd096ea793f7d51c23d06910bf5bf0}\index{GameObject@{GameObject}!setActive@{setActive}}
+\index{setActive@{setActive}!GameObject@{GameObject}}
+\doxysubsubsection{\texorpdfstring{setActive()}{setActive()}}
+{\footnotesize\ttfamily \label{class_game_object_aa6fd096ea793f7d51c23d06910bf5bf0} 
+void Game\+Object\+::set\+Active (\begin{DoxyParamCaption}\item[{bool}]{state}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_game_object_ab77c5362fd6b461711a6b6ed887233a9}\index{GameObject@{GameObject}!setMass@{setMass}}
+\index{setMass@{setMass}!GameObject@{GameObject}}
+\doxysubsubsection{\texorpdfstring{setMass()}{setMass()}}
+{\footnotesize\ttfamily \label{class_game_object_ab77c5362fd6b461711a6b6ed887233a9} 
+void Game\+Object\+::set\+Mass (\begin{DoxyParamCaption}\item[{float}]{new\+Mass}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_game_object_a389e12474b59bd9425723e74c2920d3e}\index{GameObject@{GameObject}!setPosition@{setPosition}}
+\index{setPosition@{setPosition}!GameObject@{GameObject}}
+\doxysubsubsection{\texorpdfstring{setPosition()}{setPosition()}}
+{\footnotesize\ttfamily \label{class_game_object_a389e12474b59bd9425723e74c2920d3e} 
+void Game\+Object\+::set\+Position (\begin{DoxyParamCaption}\item[{const sf\+::\+Vector2f \&}]{new\+Position}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_game_object_a5f2378c79aba75c0f306b33cb86a9228}\index{GameObject@{GameObject}!setRotation@{setRotation}}
+\index{setRotation@{setRotation}!GameObject@{GameObject}}
+\doxysubsubsection{\texorpdfstring{setRotation()}{setRotation()}}
+{\footnotesize\ttfamily \label{class_game_object_a5f2378c79aba75c0f306b33cb86a9228} 
+void Game\+Object\+::set\+Rotation (\begin{DoxyParamCaption}\item[{const sf\+::\+Angle \&}]{new\+Rotation}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_game_object_aadd20a7d359e21819ae8d0a035fe2fe2}\index{GameObject@{GameObject}!setUseGravity@{setUseGravity}}
+\index{setUseGravity@{setUseGravity}!GameObject@{GameObject}}
+\doxysubsubsection{\texorpdfstring{setUseGravity()}{setUseGravity()}}
+{\footnotesize\ttfamily \label{class_game_object_aadd20a7d359e21819ae8d0a035fe2fe2} 
+void Game\+Object\+::set\+Use\+Gravity (\begin{DoxyParamCaption}\item[{bool}]{state}{}\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_game_object_afa3bf48882a927f94a6d922045a435e0}\index{GameObject@{GameObject}!active@{active}}
+\index{active@{active}!GameObject@{GameObject}}
+\doxysubsubsection{\texorpdfstring{active}{active}}
+{\footnotesize\ttfamily \label{class_game_object_afa3bf48882a927f94a6d922045a435e0} 
+bool Game\+Object\+::active\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Indicates whether the object is active. 
+
+\Hypertarget{class_game_object_a52157ab456d409ce06ec5f91432159d2}\index{GameObject@{GameObject}!debugTrackedValues@{debugTrackedValues}}
+\index{debugTrackedValues@{debugTrackedValues}!GameObject@{GameObject}}
+\doxysubsubsection{\texorpdfstring{debugTrackedValues}{debugTrackedValues}}
+{\footnotesize\ttfamily \label{class_game_object_a52157ab456d409ce06ec5f91432159d2} 
+std\+::unordered\+\_\+map$<$std\+::string, std\+::function$<$std\+::string()$>$ $>$ Game\+Object\+::debug\+Tracked\+Values\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Stores debug-\/tracked variables and their associated getter functions. 
+
+\Hypertarget{class_game_object_acce2dc8ab8ad6c7ad39ded2cb2aee78f}\index{GameObject@{GameObject}!mass@{mass}}
+\index{mass@{mass}!GameObject@{GameObject}}
+\doxysubsubsection{\texorpdfstring{mass}{mass}}
+{\footnotesize\ttfamily \label{class_game_object_acce2dc8ab8ad6c7ad39ded2cb2aee78f} 
+float Game\+Object\+::mass\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Mass of the object, used for physics calculations. 
+
+\Hypertarget{class_game_object_af542b33c8de269343e22c5629e6b66c0}\index{GameObject@{GameObject}!name@{name}}
+\index{name@{name}!GameObject@{GameObject}}
+\doxysubsubsection{\texorpdfstring{name}{name}}
+{\footnotesize\ttfamily \label{class_game_object_af542b33c8de269343e22c5629e6b66c0} 
+std\+::string Game\+Object\+::name\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Name of the game object. 
+
+\Hypertarget{class_game_object_a86e4253e3734436b4a5a0c503e0033b4}\index{GameObject@{GameObject}!position@{position}}
+\index{position@{position}!GameObject@{GameObject}}
+\doxysubsubsection{\texorpdfstring{position}{position}}
+{\footnotesize\ttfamily \label{class_game_object_a86e4253e3734436b4a5a0c503e0033b4} 
+sf\+::\+Vector2f Game\+Object\+::position\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Position of the object in the game world. 
+
+\Hypertarget{class_game_object_a38b0b06a82402a76f7311def99c05cc1}\index{GameObject@{GameObject}!rotation@{rotation}}
+\index{rotation@{rotation}!GameObject@{GameObject}}
+\doxysubsubsection{\texorpdfstring{rotation}{rotation}}
+{\footnotesize\ttfamily \label{class_game_object_a38b0b06a82402a76f7311def99c05cc1} 
+sf\+::\+Angle Game\+Object\+::rotation\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Rotation of the object in the game world. 
+
+\Hypertarget{class_game_object_a24a87de9f5977d11d2a209c9107a4a13}\index{GameObject@{GameObject}!useGravity@{useGravity}}
+\index{useGravity@{useGravity}!GameObject@{GameObject}}
+\doxysubsubsection{\texorpdfstring{useGravity}{useGravity}}
+{\footnotesize\ttfamily \label{class_game_object_a24a87de9f5977d11d2a209c9107a4a13} 
+bool Game\+Object\+::use\+Gravity\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Indicates whether the object is affected by gravity. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Personal Projects/\+Working Title -\/ Kryptos/\+Krytpos/\+Engine/\+Kryptos\+Engine/\+Include/\+Game\+Object\+System/\mbox{\hyperlink{_game_object_8h}{Game\+Object.\+h}}\item 
+D\+:/\+Personal Projects/\+Working Title -\/ Kryptos/\+Krytpos/\+Engine/\+Kryptos\+Engine/\+Source/\+Game\+Object\+System/\mbox{\hyperlink{_game_object_8cpp}{Game\+Object.\+cpp}}\end{DoxyCompactItemize}

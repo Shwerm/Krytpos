@@ -1,0 +1,5 @@
+<map id="GameObjectManager::unregisterObject" name="GameObjectManager::unregisterObject">
+<area shape="rect" id="Node000001" title="Unregisters an existing game object." alt="" coords="237,5,389,48"/>
+<area shape="rect" id="Node000002" href="$class_game_object.html#ab82dfdb656f9051c0587e6593b2dda97" title="Destructor for GameObject. Unregisters the object from the GameObjectManager." alt="" coords="5,13,189,40"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="221,29,189,29,189,24,221,24"/>
+</map>

@@ -11,7 +11,21 @@
  *   - GameObjectManager.h: Manages game objects in the engine.
  */
 
+ /**
+  * @file DebugWindow.h
+  * @brief Header file for the DebugWindow class used in the Kryptos Debugging System.
+  * @ingroup DebugSystem
+  * @author
+  * Sam Camilleri, Mural Studios
+  * @date 2025
+  */
+
 #pragma once
+
+  /**
+   * @defgroup DebugSystem Debugging System
+   * @brief Contains classes and functionality related to runtime debugging.
+   */
 
 #include "../GameObjectSystem/GameObjectManager.h"
 #include <SFML/Graphics.hpp>
@@ -26,78 +40,78 @@
 
 namespace KryptosEngine {
     namespace DebugWindow {
+
         /**
+         * @ingroup DebugSystem
          * @class DebugWindow
          * @brief Provides a graphical interface for debugging game objects in the engine.
-         *
-         * This class allows visualization and interaction with game object data during runtime.
-         * It supports toggling visibility, displaying object names, and expanding details per object.
+         * @details The DebugWindow displays real-time information such as transform and physics values,
+         * along with developer-defined variables. This tool is essential for debugging during development.
          */
         class DebugWindow {
         private:
-            sf::RenderWindow debugWindow; ///< Window for rendering debug information.
-            bool isVisible;               ///< Tracks whether the debug window is currently visible.
-            sf::Keyboard::Key toggleKey;  ///< Key used to toggle the visibility of the debug window.
+            sf::RenderWindow debugWindow; /**< SFML window used to render the debug overlay. */
+            bool isVisible;               /**< Boolean flag to track window visibility status. */
+            sf::Keyboard::Key toggleKey;  /**< Keybind for toggling the debug window visibility. */
 
             /**
-             * Map of game objects to their corresponding name text elements.
-             * Ownership of `sf::Text` is managed via unique pointers.
+             * @brief Stores game object name labels.
+             * Maps each GameObject pointer to a unique pointer managing its sf::Text object.
              */
             std::unordered_map<GameObject*, std::unique_ptr<sf::Text>> nameTexts;
 
             /**
-             * Stores the expanded/collapsed state for each game object in the debug window.
+             * @brief Tracks whether each game object in the debug window is expanded or collapsed.
+             * This determines whether additional debug details are drawn.
              */
             std::unordered_map<GameObject*, bool> expandedState;
 
-            sf::Font defaultFont; ///< Default font used for rendering text in the debug window.
+            sf::Font defaultFont; /**< Font used for rendering debug UI text. */
 
         public:
             /**
-             * @brief Constructs a DebugWindow object.
-             * Does not initialize resources.
+             * @brief Default constructor.
+             * Initializes the internal state but does not load resources.
              */
             DebugWindow();
 
             /**
              * @brief Initializes the debug window.
-             * Loads resources like the default font and sets up initial configurations.
-             * @throw std::runtime_error if resources fail to load.
+             * Loads required assets like fonts and sets up the window state.
+             * @throw std::runtime_error if fonts or other resources fail to load.
              */
             void initialise();
 
             /**
-             * @brief Handles input for toggling the debug window.
-             * Listens for the toggle key and switches visibility accordingly.
+             * @brief Checks for keyboard input to toggle visibility.
+             * Should be called once per frame in the engine's main loop.
              */
             void handleInput();
 
             /**
-             * @brief Toggles the visibility of the debug window.
-             * If visible, the window is rendered; otherwise, it is hidden.
+             * @brief Toggles debug window visibility.
+             * Opens or closes the debug overlay depending on its current state.
              */
             void toggleVisibility();
 
             /**
              * @brief Closes the debug window.
-             * Releases any resources associated with the window.
+             * Cleans up any open resources and resets the visibility flag.
              */
             void close();
 
             /**
-             * @brief Checks if the debug window is open.
-             * @return True if the debug window is open, false otherwise.
+             * @brief Checks if the debug window is currently open.
+             * @return True if open, false if closed.
              */
             bool isOpen() const;
 
             /**
-             * @brief Draws the debug window and its elements.
-             * Renders game object information, expanded details, and UI elements.
+             * @brief Renders the debug interface.
+             * Iterates through active game objects and displays relevant data.
+             * Also handles interaction with expandable details via mouse click.
              */
             void draw();
         };
     } // namespace DebugWindow
 } // namespace KryptosEngine
-
-
-

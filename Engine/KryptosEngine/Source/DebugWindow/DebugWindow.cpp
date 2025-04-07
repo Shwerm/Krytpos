@@ -1,55 +1,47 @@
-/*
- * DebugWindow.cpp - Kryptos Debugging Interface
- * ---------------------------------------------
- * Implements the DebugWindow class for providing a graphical debugging interface.
- * Allows visualization and interaction with game object states during runtime.
- *
- * Author: Sam Camilleri, Mural Studios
- * All Rights Reserved, 2025.
- *
- * Dependencies:
- *   - Graphics.hpp: Provides SFML graphics components.
- *   - iostream: Standard I/O for debugging.
- *   - Text.hpp, Font.hpp: SFML text and font handling.
- *   - DebugWindow.h: Header for DebugWindow class.
- *   - stdexcept: For exception handling.
+/**
+ * @file DebugWindow.cpp
+ * @brief Implementation of the DebugWindow class for runtime graphical debugging.
+ * @ingroup DebugSystem
  */
 
 #include "../Include/DebugWindow/DebugWindow.h"
 
 namespace KryptosEngine {
     namespace DebugWindow {
+
         /**
-         * @brief Constructs a DebugWindow object.
-         * Does not initialize resources. Use `initialize()` to complete setup.
+         * @brief Default constructor for DebugWindow.
+         * Initializes internal state variables but does not create a window.
          */
         DebugWindow::DebugWindow()
             : debugWindow(),
             isVisible(false),
-            toggleKey(sf::Keyboard::Key::F1) { // Default toggle key: `F1`
+            toggleKey(sf::Keyboard::Key::F1) // F1 used to toggle visibility
+        {
         }
 
         /**
-         * @brief Initializes the debug window.
-         * Loads the default font and sets up the window's initial state.
-         * @throw std::runtime_error if the font fails to load.
+         * @brief Initializes the debug window and loads the required font.
+         * Sets the frame rate and logs success or failure.
+         * @throw std::runtime_error if the font cannot be loaded.
          */
         void DebugWindow::initialise() {
             debugWindow.setFramerateLimit(60);
 
+            // Attempt to load the default font from disk
             if (!defaultFont.openFromFile("EngineAssets/Fonts/DebugWindowFont/AtkinsonHyperlegible-Regular.ttf")) {
-				KryptosEngine::DebugWindowLogger::GetLogger()->error("Failed to load DebugWindow font");
+                KryptosEngine::DebugWindowLogger::GetLogger()->error("Failed to load DebugWindow font");
             }
             else {
-				KryptosEngine::DebugWindowLogger::GetLogger()->info("DebugWindow font loaded successfully");
+                KryptosEngine::DebugWindowLogger::GetLogger()->info("DebugWindow font loaded successfully");
             }
 
-			KryptosEngine::DebugWindowLogger::GetLogger()->info("DebugWindow initialised successfully");
+            KryptosEngine::DebugWindowLogger::GetLogger()->info("DebugWindow initialised successfully");
         }
 
         /**
-         * @brief Handles keyboard input for toggling the debug window.
-         * Monitors the assigned toggle key and switches the window's visibility when pressed.
+         * @brief Listens for input to toggle the debug window.
+         * If the toggle key is pressed and the window is not open, it switches the visibility.
          */
         void DebugWindow::handleInput() {
             if (sf::Keyboard::isKeyPressed(toggleKey) && !debugWindow.isOpen()) {
@@ -58,16 +50,20 @@ namespace KryptosEngine {
         }
 
         /**
-         * @brief Toggles the visibility of the debug window.
-         * Opens the debug window if currently closed, or closes it if open.
+         * @brief Toggles the debug window on or off.
+         * Creates the SFML window if toggled on and not already open.
          */
         void DebugWindow::toggleVisibility() {
             isVisible = !isVisible;
 
             if (isVisible) {
                 if (!debugWindow.isOpen()) {
-                    debugWindow.create(sf::VideoMode({ 400, 600 }), "Debug Window", sf::Style::Titlebar | sf::Style::Close);
-					KryptosEngine::DebugWindowLogger::GetLogger()->info("DebugWindow opened successfully");
+                    debugWindow.create(
+                        sf::VideoMode({ 400, 600 }),
+                        "Debug Window",
+                        sf::Style::Titlebar | sf::Style::Close
+                    );
+                    KryptosEngine::DebugWindowLogger::GetLogger()->info("DebugWindow opened successfully");
                 }
             }
             else {
@@ -76,25 +72,23 @@ namespace KryptosEngine {
         }
 
         /**
-         * @brief Renders the debug window.
-         * Displays game object names, properties, and debug-tracked values.
-         * Handles user interaction with the window's elements.
+         * @brief Draws all debug information to the debug window.
+         * Displays game object names, details, and any tracked variables.
          */
         void DebugWindow::draw() {
-            if (!isVisible || !debugWindow.isOpen()) {
-                return;
-            }
+            if (!isVisible || !debugWindow.isOpen()) return;
 
             bool mouseClicked = false;
             sf::Vector2<float> mousePosF;
 
-            // Process events in the debug window
+            // Event polling and interaction handling
             while (const std::optional<sf::Event> event = debugWindow.pollEvent()) {
                 if (event->is<sf::Event::Closed>()) {
                     close();
-                    return; // Exit if the window is closed
+                    return;
                 }
 
+                // Mouse click detection for expand/collapse
                 if (event->is<sf::Event::MouseButtonPressed>() &&
                     event->getIf<sf::Event::MouseButtonPressed>()->button == sf::Mouse::Button::Left) {
                     mouseClicked = true;
@@ -104,28 +98,28 @@ namespace KryptosEngine {
             }
 
             debugWindow.clear(sf::Color::Black);
-
             float yOffset = 10.f;
 
+            // Iterate over all game objects in the engine
             for (const auto& object : GameObjectManager::getInstance().getGameObjects()) {
                 if (!object->isActive()) continue;
 
-                // Render game object name
+                // Draw the object name
                 sf::String displayName = sf::String("Name: ") + object->getName();
                 sf::Text nameText(defaultFont, displayName, 14);
                 nameText.setFillColor(sf::Color::White);
                 nameText.setPosition(sf::Vector2f(10.f, yOffset));
                 debugWindow.draw(nameText);
 
-                // Handle mouse clicks on object names
+                // Expand or collapse object info
                 if (mouseClicked && nameText.getGlobalBounds().contains(mousePosF)) {
                     expandedState[object] = !expandedState[object];
                 }
 
                 yOffset += 20.f;
 
-                // Render additional details if expanded
                 if (expandedState[object]) {
+                    // Position data
                     sf::Text positionText(defaultFont,
                         sf::String("Position: (" +
                             std::to_string(object->getPosition().x) + ", " +
@@ -136,6 +130,7 @@ namespace KryptosEngine {
                     debugWindow.draw(positionText);
                     yOffset += 20.f;
 
+                    // Rotation data
                     sf::Text rotationText(defaultFont,
                         sf::String("Rotation: " + std::to_string(object->getRotation().asDegrees()) + " degrees"),
                         14);
@@ -144,6 +139,7 @@ namespace KryptosEngine {
                     debugWindow.draw(rotationText);
                     yOffset += 20.f;
 
+                    // Mass data
                     sf::Text massText(defaultFont,
                         sf::String("Mass: " + std::to_string(object->getMass())),
                         14);
@@ -152,6 +148,7 @@ namespace KryptosEngine {
                     debugWindow.draw(massText);
                     yOffset += 20.f;
 
+                    // Gravity usage
                     sf::Text gravityText(defaultFont,
                         sf::String("Use Gravity: " + std::string(object->getUseGravity() ? "true" : "false")),
                         14);
@@ -160,6 +157,7 @@ namespace KryptosEngine {
                     debugWindow.draw(gravityText);
                     yOffset += 20.f;
 
+                    // Tracked developer-defined variables
                     const auto& trackedVars = object->getDebugTrackedValues();
                     for (const auto& [name, getter] : trackedVars) {
                         sf::Text trackedVarText(defaultFont, name + ": " + getter(), 14);
@@ -170,33 +168,31 @@ namespace KryptosEngine {
                     }
                 }
 
-                yOffset += 10.f; // Add spacing between objects
+                yOffset += 10.f; // Vertical spacing between entries
             }
 
             debugWindow.display();
         }
 
         /**
-         * @brief Closes the debug window.
-         * Releases resources associated with the window and resets visibility.
+         * @brief Closes the debug window if open.
+         * Resets the visibility state and logs the closure.
          */
         void DebugWindow::close() {
             if (debugWindow.isOpen()) {
                 debugWindow.close();
             }
             isVisible = false;
-			KryptosEngine::DebugWindowLogger::GetLogger()->info("DebugWindow closed successfully");
+            KryptosEngine::DebugWindowLogger::GetLogger()->info("DebugWindow closed successfully");
         }
 
         /**
-         * @brief Checks if the debug window is open.
-         * @return True if the debug window is open, false otherwise.
+         * @brief Returns the state of the debug window.
+         * @return True if the window is currently open, false otherwise.
          */
         bool DebugWindow::isOpen() const {
             return debugWindow.isOpen();
         }
+
     } // namespace DebugWindow
 } // namespace KryptosEngine
-
-
-

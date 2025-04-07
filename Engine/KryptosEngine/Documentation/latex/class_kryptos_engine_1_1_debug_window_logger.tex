@@ -1,0 +1,92 @@
+\doxysection{Kryptos\+Engine\+::Debug\+Window\+Logger Class Reference}
+\hypertarget{class_kryptos_engine_1_1_debug_window_logger}{}\label{class_kryptos_engine_1_1_debug_window_logger}\index{KryptosEngine::DebugWindowLogger@{KryptosEngine::DebugWindowLogger}}
+
+
+Provides logging functionality specific to the Debug Window.  
+
+
+
+
+{\ttfamily \#include $<$Debug\+Window\+Logger.\+h$>$}
+
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{class_kryptos_engine_1_1_debug_window_logger_a54c39113e4aa63501527e1134dc16f0f}{Init}} ()
+\begin{DoxyCompactList}\small\item\em Initializes the Debug Window logger. \end{DoxyCompactList}\item 
+static std\+::shared\+\_\+ptr$<$ spdlog\+::logger $>$ \& \mbox{\hyperlink{class_kryptos_engine_1_1_debug_window_logger_ad92491d9b1fddbd22d1b8d177e5acf9c}{Get\+Logger}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves the Debug Window logger instance. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static std\+::shared\+\_\+ptr$<$ spdlog\+::logger $>$ \mbox{\hyperlink{class_kryptos_engine_1_1_debug_window_logger_ab222cc77e40facef11dbad977cc0576d}{s\+\_\+\+Debug\+Logger}}
+\begin{DoxyCompactList}\small\item\em \doxylink{class_kryptos_engine_1_1_logger}{Logger} instance for the Debug Window. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Provides logging functionality specific to the Debug Window. 
+
+The \doxylink{class_kryptos_engine_1_1_debug_window_logger}{Debug\+Window\+Logger} class initializes and manages a dedicated logger for use with the Debug Window, enabling detailed debugging information. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_kryptos_engine_1_1_debug_window_logger_ad92491d9b1fddbd22d1b8d177e5acf9c}\index{KryptosEngine::DebugWindowLogger@{KryptosEngine::DebugWindowLogger}!GetLogger@{GetLogger}}
+\index{GetLogger@{GetLogger}!KryptosEngine::DebugWindowLogger@{KryptosEngine::DebugWindowLogger}}
+\doxysubsubsection{\texorpdfstring{GetLogger()}{GetLogger()}}
+{\footnotesize\ttfamily \label{class_kryptos_engine_1_1_debug_window_logger_ad92491d9b1fddbd22d1b8d177e5acf9c} 
+std\+::shared\+\_\+ptr$<$ spdlog\+::logger $>$ \& Kryptos\+Engine\+::\+Debug\+Window\+Logger\+::\+Get\+Logger (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Retrieves the Debug Window logger instance. 
+
+Provides access to the initialized logger for use in Debug Window components. \begin{DoxyReturn}{Returns}
+A shared pointer to the spdlog logger.
+\end{DoxyReturn}
+Provides access to the logger for use in Debug Window components and systems. \begin{DoxyReturn}{Returns}
+A shared pointer to the spdlog logger. 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_kryptos_engine_1_1_debug_window_logger_ad92491d9b1fddbd22d1b8d177e5acf9c_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_kryptos_engine_1_1_debug_window_logger_a54c39113e4aa63501527e1134dc16f0f}\index{KryptosEngine::DebugWindowLogger@{KryptosEngine::DebugWindowLogger}!Init@{Init}}
+\index{Init@{Init}!KryptosEngine::DebugWindowLogger@{KryptosEngine::DebugWindowLogger}}
+\doxysubsubsection{\texorpdfstring{Init()}{Init()}}
+{\footnotesize\ttfamily \label{class_kryptos_engine_1_1_debug_window_logger_a54c39113e4aa63501527e1134dc16f0f} 
+void Kryptos\+Engine\+::\+Debug\+Window\+Logger\+::\+Init (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Initializes the Debug Window logger. 
+
+Configures the logger with a specific format and debug-\/level logging.
+
+Sets up the logger with a custom name, output format, and debug-\/level logging. Ensures detailed and color-\/coded logs for Debug Window events. Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_kryptos_engine_1_1_debug_window_logger_a54c39113e4aa63501527e1134dc16f0f_icgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_kryptos_engine_1_1_debug_window_logger_ab222cc77e40facef11dbad977cc0576d}\index{KryptosEngine::DebugWindowLogger@{KryptosEngine::DebugWindowLogger}!s\_DebugLogger@{s\_DebugLogger}}
+\index{s\_DebugLogger@{s\_DebugLogger}!KryptosEngine::DebugWindowLogger@{KryptosEngine::DebugWindowLogger}}
+\doxysubsubsection{\texorpdfstring{s\_DebugLogger}{s\_DebugLogger}}
+{\footnotesize\ttfamily \label{class_kryptos_engine_1_1_debug_window_logger_ab222cc77e40facef11dbad977cc0576d} 
+std\+::shared\+\_\+ptr$<$ spdlog\+::logger $>$ Kryptos\+Engine\+::\+Debug\+Window\+Logger\+::s\+\_\+\+Debug\+Logger\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+\doxylink{class_kryptos_engine_1_1_logger}{Logger} instance for the Debug Window. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Personal Projects/\+Working Title -\/ Kryptos/\+Krytpos/\+Engine/\+Kryptos\+Engine/\+Include/\+Logging\+System/\+Debug\+Window/\mbox{\hyperlink{_debug_window_logger_8h}{Debug\+Window\+Logger.\+h}}\item 
+D\+:/\+Personal Projects/\+Working Title -\/ Kryptos/\+Krytpos/\+Engine/\+Kryptos\+Engine/\+Source/\+Logging\+System/\+Debug\+Window/\mbox{\hyperlink{_debug_window_logger_8cpp}{Debug\+Window\+Logger.\+cpp}}\end{DoxyCompactItemize}

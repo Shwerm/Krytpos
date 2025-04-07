@@ -1,0 +1,27 @@
+\doxysection{Sprite\+Renderer\+Logger.\+h}
+\hypertarget{_sprite_renderer_logger_8h_source}{}\label{_sprite_renderer_logger_8h_source}\index{D:/Personal Projects/Working Title -\/ Kryptos/Krytpos/Engine/KryptosEngine/Include/LoggingSystem/SpriteRenderer/SpriteRendererLogger.h@{D:/Personal Projects/Working Title -\/ Kryptos/Krytpos/Engine/KryptosEngine/Include/LoggingSystem/SpriteRenderer/SpriteRendererLogger.h}}
+\mbox{\hyperlink{_sprite_renderer_logger_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <spdlog/spdlog.h>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <spdlog/sinks/stdout\_color\_sinks.h>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_kryptos_engine}{KryptosEngine}}\ \{}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_kryptos_engine_1_1_sprite_renderer_logger}{SpriteRendererLogger}}\ \{}
+\DoxyCodeLine{00010\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00011\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Initializes\ the\ Sprite\ Renderer\ Logger}}
+\DoxyCodeLine{00012\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_kryptos_engine_1_1_sprite_renderer_logger_af18a34d9cb863c8fba1368701adf49c5}{Init}}();}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Retrieves\ the\ Sprite\ Renderer\ Logger}}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ std::shared\_ptr<spdlog::logger>\&\ \mbox{\hyperlink{class_kryptos_engine_1_1_sprite_renderer_logger_a49dc49d9e25756f02f256f829a8df499}{GetLogger}}();}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ std::shared\_ptr<spdlog::logger>\ \mbox{\hyperlink{class_kryptos_engine_1_1_sprite_renderer_logger_a4477cd06dd493a5cb07f1ad89398d539}{s\_SpriteLogger}};\ \textcolor{comment}{//\ Logger\ instance\ for\ Sprite\ Rendering}}
+\DoxyCodeLine{00019\ \ \ \ \ \};}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \}\ \textcolor{comment}{//\ namespace\ KryptosEngine}}
+
+\end{DoxyCode}

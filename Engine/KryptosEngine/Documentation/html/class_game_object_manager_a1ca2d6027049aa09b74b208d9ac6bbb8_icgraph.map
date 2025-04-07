@@ -1,0 +1,7 @@
+<map id="GameObjectManager::registerObject" name="GameObjectManager::registerObject">
+<area shape="rect" id="Node000001" title="Registers a new game object." alt="" coords="380,5,532,48"/>
+<area shape="rect" id="Node000002" href="$class_game_object.html#a98b8d66c6cbeb852fc5cc8ef4f2b99c6" title="Constructs a GameObject with specified properties." alt="" coords="157,13,332,40"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="365,29,333,29,333,24,365,24"/>
+<area shape="rect" id="Node000003" href="$class_player.html#ae31c0ce97eab32c57f484d1162c03ad1" title="Constructs a Player object." alt="" coords="5,13,109,40"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="141,29,109,29,109,24,141,24"/>
+</map>

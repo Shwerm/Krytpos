@@ -1,0 +1,66 @@
+\doxysection{Player.\+h}
+\hypertarget{_player_8h_source}{}\label{_player_8h_source}\index{D:/Personal Projects/Working Title -\/ Kryptos/Krytpos/Engine/KryptosEngine/Include/PlayerClass/Player.h@{D:/Personal Projects/Working Title -\/ Kryptos/Krytpos/Engine/KryptosEngine/Include/PlayerClass/Player.h}}
+\mbox{\hyperlink{_player_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ Player.h\ -\/\ Kryptos\ Player\ Class}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ Defines\ the\ Player\ class,\ derived\ from\ GameObject,\ with\ gameplay-\/specific\ properties}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ such\ as\ health,\ movement,\ and\ attack\ multipliers.}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *\ Author:\ Sam\ Camilleri,\ Mural\ Studios}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *\ All\ Rights\ Reserved,\ 2025.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *\ Dependencies:}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ *\ \ \ -\/\ GameObject.h:\ Base\ class\ for\ all\ game\ objects.}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ *\ \ \ -\/\ SpriteRenderer.h:\ For\ rendering\ the\ player's\ sprite.}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#ifndef\ PLAYER\_H}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#define\ PLAYER\_H}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_game_object_8h}{../GameObjectSystem/GameObject.h}}"{}}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_sprite_renderer_8h}{../SpriteRenderingSystem/SpriteRenderer.h}}"{}}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00028\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_player_ae31c0ce97eab32c57f484d1162c03ad1}{Player}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_game_object_a98b8d66c6cbeb852fc5cc8ef4f2b99c6}{GameObject}}\ \{}
+\DoxyCodeLine{00029\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_player_adc89cdfcf04e9e8aa8a45090fc52dc96}{health}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_player_a8195415ba6809ff044655a04b5109187}{attackSpeed}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_player_aac9c0114d8784c5230fe910e0dc24f4b}{movementSpeed}};\ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_player_a016496f364071020a1c36f8810e8afa6}{attackMultiplier}};\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_player_a40c75d1e02c4b545b4217a251385e234}{jumpMultiplier}};\ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00035\ \ \ \ \ \mbox{\hyperlink{class_sprite_renderer}{SpriteRenderer}}\ \mbox{\hyperlink{class_player_ae8efef841a6de041a044e11554e07018}{spriteRenderer}};\ \ }
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00046\ \ \ \ \ \mbox{\hyperlink{class_player_ae31c0ce97eab32c57f484d1162c03ad1}{Player}}(\textcolor{keyword}{const}\ std::string\&\ \mbox{\hyperlink{class_game_object_af542b33c8de269343e22c5629e6b66c0}{name}},\ \textcolor{keyword}{const}\ sf::Vector2f\&\ \mbox{\hyperlink{class_game_object_a86e4253e3734436b4a5a0c503e0033b4}{position}},\ \textcolor{keyword}{const}\ std::string\&\ texturePath);}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00051\ \ \ \ \ \mbox{\hyperlink{class_player_a1228878de27edb8544145dc7964ce72a}{\string~Player}}()\ \textcolor{keyword}{override}\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_player_a584e779f6483c59a680766e3b11f060a}{update}}(\textcolor{keywordtype}{float}\ deltaTime);}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_player_a70bbe0afb8ef88207288c9134ae80b6e}{draw}}(sf::RenderWindow\&\ window);}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{comment}{//\ Getters\ and\ setters\ for\ health}}
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_player_afcc299d7551ef246cd94c24dba21513a}{getHealth}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_player_aa64429606228cb5522f4458c2e1cfd6e}{setHealth}}(\textcolor{keywordtype}{float}\ value);}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{comment}{//\ Getters\ and\ setters\ for\ attack\ speed}}
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_player_a73ab084707f664efe9e7f9f2f37d6e4c}{getAttackSpeed}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_player_a2ab08b2d34e235943cb7a0e8d403dd0c}{setAttackSpeed}}(\textcolor{keywordtype}{float}\ value);}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{comment}{//\ Getters\ and\ setters\ for\ movement\ speed}}
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_player_a4c811c0a0b14f9171ae62ef8d44c1b5c}{getMovementSpeed}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_player_a31f9dc3bf4082d33a866bf5b01d128de}{setMovementSpeed}}(\textcolor{keywordtype}{float}\ value);}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{comment}{//\ Getters\ and\ setters\ for\ attack\ multiplier}}
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_player_a05771d76f03bbe813c41db20e61af98f}{getAttackMultiplier}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_player_ae7605ffffef181a6e559709fb0ecfea5}{setAttackMultiplier}}(\textcolor{keywordtype}{float}\ value);}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{comment}{//\ Getters\ and\ setters\ for\ jump\ multiplier}}
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_player_ae836257994b9bfd143c0d49bd4d01995}{getJumpMultiplier}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_player_a5ca2f1483ca48db01c64f9e127838e0d}{setJumpMultiplier}}(\textcolor{keywordtype}{float}\ value);}
+\DoxyCodeLine{00084\ \};}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ PLAYER\_H}}
+
+\end{DoxyCode}

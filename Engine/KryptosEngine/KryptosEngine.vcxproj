@@ -254,6 +254,9 @@
     <Font Include="EngineAssets\Fonts\DebugWindowFont\AtkinsonHyperlegible-Bold.ttf" />
     <Font Include="EngineAssets\Fonts\DebugWindowFont\AtkinsonHyperlegible-Regular.ttf" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="DoxyGenFiles\Doxyfile" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>

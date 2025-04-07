@@ -1,0 +1,92 @@
+\doxysection{Kryptos\+Engine\+::Logger Class Reference}
+\hypertarget{class_kryptos_engine_1_1_logger}{}\label{class_kryptos_engine_1_1_logger}\index{KryptosEngine::Logger@{KryptosEngine::Logger}}
+
+
+Provides a centralized logging system for the Kryptos engine.  
+
+
+
+
+{\ttfamily \#include $<$Logger.\+h$>$}
+
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{class_kryptos_engine_1_1_logger_ac489ee42d73c60b87020a5b52ddea730}{Init}} ()
+\begin{DoxyCompactList}\small\item\em Initializes the general logging system. \end{DoxyCompactList}\item 
+static std\+::shared\+\_\+ptr$<$ spdlog\+::logger $>$ \& \mbox{\hyperlink{class_kryptos_engine_1_1_logger_afbf72621adb7fb1620be6192caa015bd}{Get\+Logger}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves the default logger instance. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static std\+::shared\+\_\+ptr$<$ spdlog\+::logger $>$ \mbox{\hyperlink{class_kryptos_engine_1_1_logger_ac64f18defb59e62de1d046cf0eb75ddc}{s\+\_\+\+Logger}}
+\begin{DoxyCompactList}\small\item\em Default engine logger. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Provides a centralized logging system for the Kryptos engine. 
+
+The \doxylink{class_kryptos_engine_1_1_logger}{Logger} class initializes a default logger and provides access to it for consistent logging throughout the engine. Supports both console and file-\/based logging. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_kryptos_engine_1_1_logger_afbf72621adb7fb1620be6192caa015bd}\index{KryptosEngine::Logger@{KryptosEngine::Logger}!GetLogger@{GetLogger}}
+\index{GetLogger@{GetLogger}!KryptosEngine::Logger@{KryptosEngine::Logger}}
+\doxysubsubsection{\texorpdfstring{GetLogger()}{GetLogger()}}
+{\footnotesize\ttfamily \label{class_kryptos_engine_1_1_logger_afbf72621adb7fb1620be6192caa015bd} 
+std\+::shared\+\_\+ptr$<$ spdlog\+::logger $>$ \& Kryptos\+Engine\+::\+Logger\+::\+Get\+Logger (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Retrieves the default logger instance. 
+
+Provides access to the initialized logger for use in other components. \begin{DoxyReturn}{Returns}
+A shared pointer to the spdlog logger.
+\end{DoxyReturn}
+Provides access to the logger initialized during engine startup. \begin{DoxyReturn}{Returns}
+A shared pointer to the spdlog logger. 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_kryptos_engine_1_1_logger_afbf72621adb7fb1620be6192caa015bd_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_kryptos_engine_1_1_logger_ac489ee42d73c60b87020a5b52ddea730}\index{KryptosEngine::Logger@{KryptosEngine::Logger}!Init@{Init}}
+\index{Init@{Init}!KryptosEngine::Logger@{KryptosEngine::Logger}}
+\doxysubsubsection{\texorpdfstring{Init()}{Init()}}
+{\footnotesize\ttfamily \label{class_kryptos_engine_1_1_logger_ac489ee42d73c60b87020a5b52ddea730} 
+void Kryptos\+Engine\+::\+Logger\+::\+Init (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Initializes the general logging system. 
+
+Sets up the logging sinks, formats, and default logger. Ensures logging is ready to use at engine startup.
+
+Configures logging sinks for console and file output, sets default patterns, and initializes the default logger for the engine. Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_kryptos_engine_1_1_logger_ac489ee42d73c60b87020a5b52ddea730_icgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_kryptos_engine_1_1_logger_ac64f18defb59e62de1d046cf0eb75ddc}\index{KryptosEngine::Logger@{KryptosEngine::Logger}!s\_Logger@{s\_Logger}}
+\index{s\_Logger@{s\_Logger}!KryptosEngine::Logger@{KryptosEngine::Logger}}
+\doxysubsubsection{\texorpdfstring{s\_Logger}{s\_Logger}}
+{\footnotesize\ttfamily \label{class_kryptos_engine_1_1_logger_ac64f18defb59e62de1d046cf0eb75ddc} 
+std\+::shared\+\_\+ptr$<$ spdlog\+::logger $>$ Kryptos\+Engine\+::\+Logger\+::s\+\_\+\+Logger\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Default engine logger. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Personal Projects/\+Working Title -\/ Kryptos/\+Krytpos/\+Engine/\+Kryptos\+Engine/\+Include/\+Logging\+System/\mbox{\hyperlink{_logger_8h}{Logger.\+h}}\item 
+D\+:/\+Personal Projects/\+Working Title -\/ Kryptos/\+Krytpos/\+Engine/\+Kryptos\+Engine/\+Source/\+Logging\+System/\mbox{\hyperlink{_logger_8cpp}{Logger.\+cpp}}\end{DoxyCompactItemize}

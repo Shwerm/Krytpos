@@ -20,31 +20,25 @@ void EnvironmentGenerator::generate() {
 }
 
 void EnvironmentGenerator::spawnPlatform() {
-    // Define platform properties
     float platformWidth = Random::Range(settings.minPlatformWidth, settings.maxPlatformWidth);
     std::string texturePath = settings.texturePaths[Random::Range(0, settings.texturePaths.size())];
 
-    // Start from next spawn position
     sf::Vector2f spawnPos = nextSpawnPosition;
     bool vertical = Random::Chance(settings.verticalStackChance);
 
-    if (vertical) {
-        float yOffset = Random::Range(-settings.sameXOffsetYRange, settings.sameXOffsetYRange);
-        spawnPos.y = std::clamp(spawnPos.y + yOffset, settings.minY, settings.maxY);
-        spawnPos.x += Random::Range(settings.minPlatformWidth * 0.5f, settings.minPlatformWidth); // X spacing even for vertical
-    }
-    else {
-        float yOffset = Random::Range(-settings.heightVariance, settings.heightVariance);
-        spawnPos.y = std::clamp(spawnPos.y + yOffset, settings.minY, settings.maxY);
-        spawnPos.x += platformWidth;
-    }
+    float yOffset = vertical
+        ? Random::Range(-settings.sameXOffsetYRange, settings.sameXOffsetYRange)
+        : Random::Range(-settings.heightVariance, settings.heightVariance);
+
+    spawnPos.y = std::clamp(spawnPos.y + yOffset, settings.minY, settings.maxY);
+    spawnPos.x += platformWidth * (vertical ? 0.5f : 1.0f); //  horizontal movement for vertical stacks is half-width
 
     auto platform = PlatformFactory::Create("Platform", spawnPos, texturePath);
     platforms.push_back(platform);
 
-    // Update for next spawn
     nextSpawnPosition = spawnPos;
 }
+
 
 
 void EnvironmentGenerator::spawnFinishPoint() {

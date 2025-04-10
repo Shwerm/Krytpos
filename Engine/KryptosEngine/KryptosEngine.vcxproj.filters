@@ -708,6 +708,9 @@
     <ClInclude Include="Include\KryptosEngine.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Include\2DCollider\Collider2D.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\GameObjectSystem\GameObject.cpp">
@@ -744,6 +747,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Source\EnvironmentGenerator\EnvironmentGenerator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\2DCollider\Collider2D.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

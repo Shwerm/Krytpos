@@ -12,7 +12,12 @@
  */
 
 #include <SFML/Window/Keyboard.hpp>
+#include <SFML/Graphics/Rect.hpp>
+#include <SFML/Graphics.hpp>
+
+
 #include "../../Include/PlayerClass/Player.h"
+#include "../../Include/GameObjectSystem/GameObjectManager.h"
 
  /**
   * @brief Constructs a Player object with default attributes.
@@ -35,6 +40,7 @@ Player::Player(
     spriteRenderer(name) {
     spriteRenderer.loadTexture(texturePath);
     spriteRenderer.setPosition(position);
+    addCollider({ 48.f, 64.f });
 
     // Register variables for debugging in the debug window
     registerDebugVariable("Health: ", health);
@@ -73,6 +79,17 @@ void Player::update(float deltaTime) {
     // Update position and sprite
     position += movement;
     spriteRenderer.setPosition(position);
+
+    // Collision detection (basic AABB)
+    for (auto* obj : GameObjectManager::getInstance().getGameObjects()) {
+        if (obj == this || !obj->hasCollider()) continue;
+
+        if (getCollider()->getBounds().intersects(obj->getCollider()->getBounds())) {
+            // Snap above platform
+            position.y = obj->getCollider()->getBounds().top - getCollider()->getSize().y;
+            setPosition(position);
+        }
+    }
 }
 
 /**

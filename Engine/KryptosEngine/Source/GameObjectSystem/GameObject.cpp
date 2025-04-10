@@ -66,10 +66,23 @@ sf::Angle GameObject::getRotation() const {
     return rotation;
 }
 
+bool GameObject::hasCollider() const {
+    return collider.has_value();
+}
+
+Collider2D* GameObject::getCollider() {
+    return collider ? &*collider : nullptr;
+}
+
+
 // Setters
 void GameObject::setPosition(const sf::Vector2f& newPosition) {
     position = newPosition;
+    if (collider) {
+        collider->setPosition(newPosition);
+    }
 }
+
 
 void GameObject::setActive(bool state) {
     active = state;
@@ -85,4 +98,9 @@ void GameObject::setUseGravity(bool state) {
 
 void GameObject::setRotation(const sf::Angle& newRotation) {
     rotation = newRotation;
+}
+
+void GameObject::addCollider(const sf::Vector2f& size, const sf::Vector2f& offset) {
+    collider = Collider2D(size, offset);
+    collider->setPosition(position);
 }

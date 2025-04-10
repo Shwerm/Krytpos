@@ -14,6 +14,8 @@
 #include <unordered_map>
 #include <functional>
 #include <type_traits>
+#include <optional>
+#include "../2DCollider/Collider2D.h"
 
  /**
   * @class GameObject
@@ -36,6 +38,9 @@ protected:
     bool active;              ///< Indicates whether the object is active.
     float mass;               ///< Mass of the object, used for physics calculations.
     bool useGravity;          ///< Indicates whether the object is affected by gravity.
+    std::optional<Collider2D> collider;
+
+
 
     /**
      * @brief Registers a variable for debugging.
@@ -84,9 +89,9 @@ public:
      * @brief Retrieves debug-tracked variables.
      * @return A map of variable names and their getter functions.
      */
-    const std::unordered_map<std::string, std::function<std::string()>>& getDebugTrackedValues() const{
+    const std::unordered_map<std::string, std::function<std::string()>>& getDebugTrackedValues() const {
         return debugTrackedValues;
-	}
+    }
 
     // Getters
     std::string getName() const;
@@ -95,6 +100,8 @@ public:
     float getMass() const;
     bool getUseGravity() const;
     sf::Angle getRotation() const;
+    bool hasCollider() const;
+    Collider2D* getCollider();
 
     // Setters
     void setPosition(const sf::Vector2f& newPosition);
@@ -102,4 +109,6 @@ public:
     void setMass(float newMass);
     void setUseGravity(bool state);
     void setRotation(const sf::Angle& newRotation);
+    void addCollider(const sf::Vector2f& size, const sf::Vector2f& offset = { 0.f, 0.f });
+
 };

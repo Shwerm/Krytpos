@@ -8,6 +8,8 @@ Platform::Platform(const std::string& name, const sf::Vector2f& position, const 
     renderer = std::make_unique<SpriteRenderer>(name);
     renderer->loadTexture(texturePath);
     renderer->setPosition(position);
+
+    addCollider({ 100.f, 20.f });
 }
 
 void Platform::draw(sf::RenderWindow& window)

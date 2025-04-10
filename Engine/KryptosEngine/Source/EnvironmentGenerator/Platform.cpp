@@ -16,4 +16,8 @@ void Platform::draw(sf::RenderWindow& window)
 {
     if (renderer)
         renderer->draw(window);
+
+    bool showColliders = true;
+    if (showColliders && hasCollider())
+        getCollider()->drawDebug(window);
 }

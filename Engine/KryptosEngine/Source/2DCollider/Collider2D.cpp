@@ -35,6 +35,17 @@ bool Collider2D::intersects(const Collider2D& a, const Collider2D& b) {
         );
 }
 
+void Collider2D::drawDebug(sf::RenderWindow& window) const {
+    sf::RectangleShape rect;
+    rect.setSize(size);
+    rect.setPosition(position + offset);
+    rect.setFillColor(sf::Color::Transparent);
+    rect.setOutlineColor(sf::Color::Red);
+    rect.setOutlineThickness(1.f);
+    window.draw(rect);
+}
+
+
 
 
 

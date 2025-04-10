@@ -100,6 +100,10 @@ void Player::update(float deltaTime) {
  */
 void Player::draw(sf::RenderWindow& window) {
     spriteRenderer.draw(window);
+
+    bool showColliders = true;
+    if (showColliders && hasCollider())
+        getCollider()->drawDebug(window);
 }
 
 // Getters and setters for health

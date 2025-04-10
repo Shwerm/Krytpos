@@ -1,17 +1,4 @@
-﻿  Collider2D.cpp
-  EnvironmentGenerator.cpp
-D:\Personal Projects\Working Title - Kryptos\Kryptos\Engine\KryptosEngine\Source\EnvironmentGenerator\EnvironmentGenerator.cpp(24,96): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-D:\Personal Projects\Working Title - Kryptos\Kryptos\Engine\KryptosEngine\Source\EnvironmentGenerator\EnvironmentGenerator.cpp(46,96): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-  Platform.cpp
-  PlatformFactory.cpp
-  EngineInit.cpp
-  DebugWindowLogger.cpp
-  Logger.cpp
-  GameObjectManager.cpp
-  DebugWindow.cpp
-  GameObject.cpp
+﻿  Platform.cpp
   Player.cpp
-  SpriteRenderer.cpp
-  SpriteRendererLogger.cpp
   Generating Code...
   KryptosEngine.vcxproj -> D:\Personal Projects\Working Title - Kryptos\Kryptos\Engine\KryptosEngine\x64\Debug\KryptosEngine.lib

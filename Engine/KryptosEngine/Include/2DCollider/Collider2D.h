@@ -11,6 +11,9 @@ public:
     sf::FloatRect getBounds() const;
     void setSize(const sf::Vector2f& size);
     sf::Vector2f getSize() const;
+
+    void drawDebug(sf::RenderWindow& window) const;
+
     static bool intersects(const Collider2D& a, const Collider2D& b);
 
 private:

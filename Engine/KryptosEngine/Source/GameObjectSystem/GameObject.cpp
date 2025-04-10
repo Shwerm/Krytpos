@@ -41,6 +41,19 @@ GameObject::~GameObject() {
     GameObjectManager::getInstance().unregisterObject(this);
 }
 
+void GameObject::update(float deltaTime) {
+    if (!active) return;
+
+    if (useGravity) {
+        velocity.y += GRAVITY * deltaTime;
+    }
+
+    // Apply velocity to position
+    position += velocity * deltaTime;
+
+    // Collision/resolution logic can be inserted here if needed
+}
+
 // Getters
 std::string GameObject::getName() const {
     return name;

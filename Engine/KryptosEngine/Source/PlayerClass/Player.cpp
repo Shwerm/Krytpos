@@ -40,6 +40,7 @@ Player::Player(
     spriteRenderer(name) {
     spriteRenderer.loadTexture(texturePath);
     spriteRenderer.setPosition(position);
+    useGravity = true;
 
     addCollider({ 32.f, 48.f }, { 16.f, 0.f });
 

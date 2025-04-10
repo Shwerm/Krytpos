@@ -35,6 +35,7 @@
     <ClInclude Include="Include\DebugWindow\DebugWindow.h" />
     <ClInclude Include="Include\GameObjectSystem\GameObject.h" />
     <ClInclude Include="Include\LoggingSystem\logger.hpp" />
+    <ClInclude Include="Include\Physics\PhysicsConstants.h" />
     <ClInclude Include="Include\PlayerClass\Player.h" />
     <ClInclude Include="Include\PlayerClass\player.hpp" />
     <ClInclude Include="Include\SpriteRenderingSystem\SpriteRenderer.h" />

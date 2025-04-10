@@ -31,15 +31,16 @@ void EnvironmentGenerator::spawnPlatform() {
         : Random::Range(-settings.heightVariance, settings.heightVariance);
 
     spawnPos.y = std::clamp(spawnPos.y + yOffset, settings.minY, settings.maxY);
-    spawnPos.x += platformWidth * (vertical ? 0.5f : 1.0f); //  horizontal movement for vertical stacks is half-width
+
+    float horizontalStep = vertical ? platformWidth * 0.5f : platformWidth;
+    horizontalStep = std::max(horizontalStep, settings.minHorizontalSpacing);
+    spawnPos.x += horizontalStep;
 
     auto platform = PlatformFactory::Create("Platform", spawnPos, texturePath);
     platforms.push_back(platform);
 
     nextSpawnPosition = spawnPos;
 }
-
-
 
 void EnvironmentGenerator::spawnFinishPoint() {
     std::string texturePath = settings.texturePaths[Random::Range(0, settings.texturePaths.size())];

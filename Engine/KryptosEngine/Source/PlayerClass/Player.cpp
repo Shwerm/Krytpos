@@ -78,6 +78,7 @@ void Player::update(float deltaTime) {
 
     // Update position and sprite
     position += movement;
+    setPosition(position);                // Updates GameObject + collider
     spriteRenderer.setPosition(position);
 
     // Collision detection (basic AABB)

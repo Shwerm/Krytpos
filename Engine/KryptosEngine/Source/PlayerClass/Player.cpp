@@ -40,7 +40,8 @@ Player::Player(
     spriteRenderer(name) {
     spriteRenderer.loadTexture(texturePath);
     spriteRenderer.setPosition(position);
-    addCollider({ 48.f, 64.f });
+
+    addCollider({ 32.f, 48.f }, { 16.f, 0.f });
 
     // Register variables for debugging in the debug window
     registerDebugVariable("Health: ", health);

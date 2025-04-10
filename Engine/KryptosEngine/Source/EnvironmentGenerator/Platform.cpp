@@ -9,7 +9,7 @@ Platform::Platform(const std::string& name, const sf::Vector2f& position, const 
     renderer->loadTexture(texturePath);
     renderer->setPosition(position);
 
-    addCollider({ 100.f, 20.f });
+    addCollider({ 32.f, 7.f }, {0.f, 5.f});
 }
 
 void Platform::draw(sf::RenderWindow& window)

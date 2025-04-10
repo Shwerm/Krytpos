@@ -31,7 +31,7 @@ Player::Player(
     const std::string& name,
     const sf::Vector2f& position,
     const std::string& texturePath)
-    : GameObject(name, position, active, rotation, mass, useGravity),
+    : GameObject(name, position, true, sf::degrees(0), 1.0f, true),
     health(100.f),
     attackSpeed(1.f),
     movementSpeed(200.f),

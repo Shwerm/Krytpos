@@ -78,7 +78,11 @@ int main() {
         float deltaTime = clock.restart().asSeconds();
 
         // Update players
-        player.update(deltaTime);
+        // Update all active game objects
+        for (GameObject* obj : GameObjectManager::getInstance().getGameObjects()) {
+            obj->update(deltaTime);
+        }
+
 
         // Handle debug window input
         debugWindow.handleInput();

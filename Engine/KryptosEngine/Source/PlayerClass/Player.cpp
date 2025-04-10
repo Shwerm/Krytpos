@@ -88,7 +88,7 @@ void Player::update(float deltaTime) {
             const auto& b = obj->getCollider()->getBounds();
             const auto& a = getCollider()->getBounds();
 
-            position.y = b.top - a.height;
+            position.y = b.position.y - a.size.y;
             setPosition(position);
         }
     }

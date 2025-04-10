@@ -1,0 +1,47 @@
+/* File: DoxyGenFiles/Header/header.css */
+/* This stylesheet only applies to the custom header bar */
+
+.doxygen-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #1e1e2f;
+    color: #f0f0f0;
+    border-bottom: 1px solid #333;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+}
+
+.project-logo {
+    height: 40px;
+    margin-right: 1rem;
+}
+
+.project-title {
+    font-size: 1.6rem;
+    font-weight: bold;
+    margin: 0;
+}
+
+.project-subtitle {
+    font-size: 0.95rem;
+    color: #bbbbbb;
+    margin: 0.2rem 0 0 0;
+}
+
+.header-right .nav-link {
+    margin-left: 1.5rem;
+    font-size: 0.95rem;
+    text-decoration: none;
+    color: #aaaaaa;
+    transition: color 0.2s ease;
+}
+
+    .header-right .nav-link:hover {
+        color: #ffffff;
+    }

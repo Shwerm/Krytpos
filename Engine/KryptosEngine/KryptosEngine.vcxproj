@@ -19,6 +19,11 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Include\EnvironmentGenerator\EnvironmentGenerator.h" />
+    <ClInclude Include="Include\EnvironmentGenerator\Platform.h" />
+    <ClInclude Include="Include\EnvironmentGenerator\PlatformFactory.h" />
+    <ClInclude Include="Include\EnvironmentGenerator\RandomUtils.h" />
+    <ClInclude Include="Include\EnvironmentGenerator\TerrainGenerationSettings.h" />
     <ClInclude Include="Include\Initialisers\EngineInit.h" />
     <ClInclude Include="Include\LoggingSystem\DebugWindow\DebugWindowLogger.h" />
     <ClInclude Include="Include\GameObjectSystem\GameObjectManager.h" />
@@ -240,6 +245,9 @@
     <ClInclude Include="ThirdParty\spdlog\include\spdlog\version.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Source\EnvironmentGenerator\EnvironmentGenerator.cpp" />
+    <ClCompile Include="Source\EnvironmentGenerator\Platform.cpp" />
+    <ClCompile Include="Source\EnvironmentGenerator\PlatformFactory.cpp" />
     <ClCompile Include="Source\Initialisers\EngineInit.cpp" />
     <ClCompile Include="Source\LoggingSystem\DebugWindow\DebugWindowLogger.cpp" />
     <ClCompile Include="Source\LoggingSystem\Logger.cpp" />
@@ -256,6 +264,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="DoxyGenFiles\Doxyfile" />
+    <None Include="DoxyGenFiles\Header\header.css" />
+    <None Include="DoxyGenFiles\Header\header.html" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>

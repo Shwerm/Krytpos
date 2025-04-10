@@ -672,6 +672,21 @@
     <ClInclude Include="Include\LoggingSystem\SpriteRenderer\SpriteRendererLogger.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Include\EnvironmentGenerator\TerrainGenerationSettings.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\EnvironmentGenerator\Platform.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\EnvironmentGenerator\PlatformFactory.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\EnvironmentGenerator\EnvironmentGenerator.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\EnvironmentGenerator\RandomUtils.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\GameObjectSystem\GameObject.cpp">
@@ -701,6 +716,15 @@
     <ClCompile Include="Source\LoggingSystem\SpriteRenderer\SpriteRendererLogger.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Source\EnvironmentGenerator\Platform.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\EnvironmentGenerator\PlatformFactory.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\EnvironmentGenerator\EnvironmentGenerator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Font Include="EngineAssets\Fonts\DebugWindowFont\AtkinsonHyperlegible-Regular.ttf" />
@@ -708,5 +732,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="DoxyGenFiles\Doxyfile" />
+    <None Include="DoxyGenFiles\Header\header.html" />
+    <None Include="DoxyGenFiles\Header\header.css" />
   </ItemGroup>
 </Project>

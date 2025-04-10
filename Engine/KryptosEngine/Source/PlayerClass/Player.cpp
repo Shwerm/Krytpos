@@ -84,9 +84,11 @@ void Player::update(float deltaTime) {
     for (auto* obj : GameObjectManager::getInstance().getGameObjects()) {
         if (obj == this || !obj->hasCollider()) continue;
 
-        if (getCollider()->getBounds().intersects(obj->getCollider()->getBounds())) {
-            // Snap above platform
-            position.y = obj->getCollider()->getBounds().top - getCollider()->getSize().y;
+        if (Collider2D::intersects(*getCollider(), *obj->getCollider())) {
+            const auto& b = obj->getCollider()->getBounds();
+            const auto& a = getCollider()->getBounds();
+
+            position.y = b.top - a.height;
             setPosition(position);
         }
     }

@@ -8,9 +8,10 @@ public:
     Collider2D(const sf::Vector2f& size, const sf::Vector2f& offset = { 0.f, 0.f });
 
     void setPosition(const sf::Vector2f& pos);
-    sf::FloatRect getBounds() const;
+    sf::Rect<float> getBounds() const;
     void setSize(const sf::Vector2f& size);
     sf::Vector2f getSize() const;
+    static bool intersects(const Collider2D& a, const Collider2D& b);
 
 private:
     sf::Vector2f size;

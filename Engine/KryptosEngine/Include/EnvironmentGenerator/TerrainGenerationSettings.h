@@ -7,8 +7,8 @@
 struct TerrainGenerationSettings {
     int totalPlatforms = 10;
 
-    float minPlatformWidth = 1.0f;
-    float maxPlatformWidth = 3.0f;
+    float minPlatformWidth = 100.0f;
+    float maxPlatformWidth = 200.0f;
 
     float verticalStackChance = 0.25f;
     float heightVariance = 1.0f;
@@ -17,4 +17,5 @@ struct TerrainGenerationSettings {
     float maxY = 3.0f;
 
     std::vector<std::string> texturePaths; // texture path for variety
+    std::string finishPointTexturePath;
 };

@@ -55,6 +55,8 @@ int main() {
         "GameAssets/Environment/Platforms/platform1.png"
     };
 
+	genSettings.finishPointTexturePath = "GameAssets/Environment/Platforms/banner.png";
+
     // Create and generate environment
     sf::Vector2f startPosition(50.0f, 300.0f);
     EnvironmentGenerator generator(genSettings, startPosition);

@@ -24,10 +24,10 @@
     <Font Include="EngineAssets\Fonts\DebugWindowFont\AtkinsonHyperlegible-Regular.ttf" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="GameAssets\Environment\Platforms\banner.png">
+    <Image Include="GameAssets\Environment\Platforms\platform1.png">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="GameAssets\Environment\Platforms\platform1.png">
+    <Image Include="GameAssets\Environment\Platforms\banner.png">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>

@@ -49,7 +49,7 @@ void EnvironmentGenerator::spawnFinishPoint() {
 
     float finishOffset = 50.0f; // arbitrary Y offset for flag, customisable
     sf::Vector2f flagPosition = nextSpawnPosition + sf::Vector2f(0.f, -finishOffset);
-    PlatformFactory::Create("FinishFlag", flagPosition, "Assets/finish_flag.png");
+    PlatformFactory::Create("FinishFlag", flagPosition, settings.finishPointTexturePath);
 
     platforms.push_back(platform);
 }

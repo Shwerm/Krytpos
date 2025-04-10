@@ -1,6 +1,6 @@
 // Platform.cpp
 
-#include "../Include/EnvironmentGenerator/Platform.h"
+#include "../../Include/EnvironmentGenerator/Platform.h"
 
 Platform::Platform(const std::string& name, const sf::Vector2f& position, const std::string& texturePath)
     : GameObject(name, position, true, sf::degrees(0), 0.0f, false)

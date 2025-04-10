@@ -11,8 +11,8 @@
  *   - GameObjectManager.h: Manages registration of game objects.
  */
 
-#include "../Include/GameObjectSystem/GameObject.h"
-#include "../Include/GameObjectSystem/GameObjectManager.h"
+#include "../../Include/GameObjectSystem/GameObject.h"
+#include "../../Include/GameObjectSystem/GameObjectManager.h"
 
  /**
   * @brief Constructs a GameObject and registers it with the GameObjectManager.

@@ -1,8 +1,8 @@
 // EnvironmentGenerator.cpp
 
-#include "../Include/EnvironmentGenerator/EnvironmentGenerator.h"
-#include "../Include/EnvironmentGenerator/PlatformFactory.h"
-#include "../Include/EnvironmentGenerator/RandomUtils.h" 
+#include "../../Include/EnvironmentGenerator/EnvironmentGenerator.h"
+#include "../../Include/EnvironmentGenerator/PlatformFactory.h"
+#include "../../Include/EnvironmentGenerator/RandomUtils.h"
 #include <algorithm>
 
 EnvironmentGenerator::EnvironmentGenerator(const TerrainGenerationSettings& settings, const sf::Vector2f& startPosition)

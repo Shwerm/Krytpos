@@ -4,7 +4,7 @@
  * @ingroup DebugSystem
  */
 
-#include "../Include/DebugWindow/DebugWindow.h"
+#include "../../Include/DebugWindow/DebugWindow.h"
 
 namespace KryptosEngine {
     namespace DebugWindow {

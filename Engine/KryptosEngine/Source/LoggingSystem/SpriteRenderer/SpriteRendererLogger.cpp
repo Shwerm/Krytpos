@@ -1,4 +1,4 @@
-#include "../Include/LoggingSystem/SpriteRenderer/SpriteRendererLogger.h"
+#include "../../../Include/LoggingSystem/SpriteRenderer/SpriteRendererLogger.h"
 
 namespace KryptosEngine {
     // Define the static logger instance

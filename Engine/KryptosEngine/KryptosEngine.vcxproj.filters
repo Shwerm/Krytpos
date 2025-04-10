@@ -687,6 +687,27 @@
     <ClInclude Include="Include\EnvironmentGenerator\RandomUtils.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Include\LoggingSystem\logger.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\DebugWindow\debugWindow.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\GameObjectSystem\gameObject.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Initialisers\init.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\PlayerClass\player.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\SpriteRenderingSystem\spriteRenderer.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\KryptosEngine.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\GameObjectSystem\GameObject.cpp">
@@ -734,5 +755,6 @@
     <None Include="DoxyGenFiles\Doxyfile" />
     <None Include="DoxyGenFiles\Header\header.html" />
     <None Include="DoxyGenFiles\Header\header.css" />
+    <None Include="Include\EnvironmentGenerator\enviro.hpp" />
   </ItemGroup>
 </Project>

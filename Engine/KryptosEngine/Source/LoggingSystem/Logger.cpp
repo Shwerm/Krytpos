@@ -10,7 +10,7 @@
  *   - Logger.h: Header for the Logger class.
  */
 
-#include "../Include/LoggingSystem/Logger.h"
+#include "../../Include/LoggingSystem/Logger.h"
 
 namespace KryptosEngine {
 

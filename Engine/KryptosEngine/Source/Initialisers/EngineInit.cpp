@@ -10,7 +10,7 @@
  *   - EngineInit.h: Header for the EngineInit class.
  */
 
-#include "../Include/Initialisers/EngineInit.h"
+#include "../../Include/Initialisers/EngineInit.h"
 
 namespace KryptosEngine {
 

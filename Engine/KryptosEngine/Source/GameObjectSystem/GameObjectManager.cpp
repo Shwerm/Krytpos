@@ -10,7 +10,7 @@
  *   - GameObjectManager.h: Header for the GameObjectManager class.
  */
 
-#include "../Include/GameObjectSystem/GameObjectManager.h"
+#include "../../Include/GameObjectSystem/GameObjectManager.h"
 
  /**
   * @brief Registers a new game object.

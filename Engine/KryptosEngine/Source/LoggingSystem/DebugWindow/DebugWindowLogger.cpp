@@ -10,7 +10,7 @@
  *   - DebugWindowLogger.h: Header for the DebugWindowLogger class.
  */
 
-#include "../Include/LoggingSystem/DebugWindow/DebugWindowLogger.h"
+#include "../../../Include/LoggingSystem/DebugWindow/DebugWindowLogger.h"
 
 namespace KryptosEngine {
 

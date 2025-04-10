@@ -11,8 +11,8 @@
  *   - stdexcept: For exception handling.
  */
 
-#include "../Include/SpriteRenderingSystem/SpriteRenderer.h"
-#include "../Include/LoggingSystem/SpriteRenderer/SpriteRendererLogger.h"
+#include "../../Include/SpriteRenderingSystem/SpriteRenderer.h"
+#include "../../Include/LoggingSystem/SpriteRenderer/SpriteRendererLogger.h"
 #include <stdexcept>
 
  // Initialize the static texture cache

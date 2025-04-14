@@ -68,6 +68,10 @@ void Player::update(float deltaTime) {
             setPosition(position);
         }
     }
+
+    // Final sync to update collider and sprite
+    setPosition(position);
+    spriteRenderer.setPosition(position);
 }
 
 void Player::draw(sf::RenderWindow& window) {

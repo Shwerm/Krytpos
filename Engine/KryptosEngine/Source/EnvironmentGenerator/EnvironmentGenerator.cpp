@@ -8,12 +8,23 @@
 EnvironmentGenerator::EnvironmentGenerator(const TerrainGenerationSettings& settings, const sf::Vector2f& startPosition)
     : settings(settings)
 {
-    float firstWidth = Random::Range(settings.minPlatformWidth, settings.maxPlatformWidth);
-    nextSpawnPosition = startPosition + sf::Vector2f(firstWidth, 0.f);
+    // First platform will be manually placed under the player, so just store startPosition
+    nextSpawnPosition = startPosition;
 }
 
 void EnvironmentGenerator::generate() {
-    for (int i = 0; i < settings.totalPlatforms; ++i)
+    // Spawn first platform directly under the player
+    std::string texturePath = settings.texturePaths[Random::Range(0, settings.texturePaths.size())];
+
+    auto firstPlatform = PlatformFactory::Create("StartPlatform", nextSpawnPosition, texturePath);
+    platforms.push_back(firstPlatform);
+
+    // Offset spawn position for remaining platforms
+    float firstWidth = Random::Range(settings.minPlatformWidth, settings.maxPlatformWidth);
+    nextSpawnPosition.x += std::max(firstWidth, settings.minHorizontalSpacing);
+
+    // Generate remaining platforms
+    for (int i = 1; i < settings.totalPlatforms; ++i)
         spawnPlatform();
 
     spawnFinishPoint();
@@ -46,7 +57,7 @@ void EnvironmentGenerator::spawnFinishPoint() {
     std::string texturePath = settings.texturePaths[Random::Range(0, settings.texturePaths.size())];
     auto platform = PlatformFactory::Create("FinishPlatform", nextSpawnPosition, texturePath);
 
-    float finishOffset = 50.0f; // arbitrary Y offset for flag, customisable
+    float finishOffset = 50.0f;
     sf::Vector2f flagPosition = nextSpawnPosition + sf::Vector2f(0.f, -finishOffset);
     PlatformFactory::Create("FinishFlag", flagPosition, settings.finishPointTexturePath);
 

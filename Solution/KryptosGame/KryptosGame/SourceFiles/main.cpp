@@ -4,6 +4,7 @@
 
 #include <iostream>
 #include <memory>
+#include <filesystem>
 
 int main() {
     try {
@@ -15,7 +16,6 @@ int main() {
         return -1;
     }
 
-#include <filesystem>
     try {
         std::cout << "Working directory: " << std::filesystem::current_path() << "\n";
     }
@@ -24,6 +24,9 @@ int main() {
     }
 
     sf::RenderWindow window(sf::VideoMode({ 800, 600 }), "Player, Game Object & Sprite Renderer Test");
+
+    // Set up camera controller
+    CameraController camera(static_cast<float>(window.getSize().x), static_cast<float>(window.getSize().y));
 
     std::string playerTexturePath = "D:\\Personal Projects\\Working Title - Kryptos\\Art\\KryptosPlayerSprite\\KrillConcept03.png";
 
@@ -72,7 +75,13 @@ int main() {
             obj->update(deltaTime);
         }
 
+        // Update camera based on player's current position
+        camera.Update(player.getPosition());
+
         debugWindow.handleInput();
+
+        // Apply camera view to window
+        camera.ApplyView(window);
 
         window.clear();
 

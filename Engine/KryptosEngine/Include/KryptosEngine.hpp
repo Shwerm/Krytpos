@@ -7,3 +7,4 @@
 #include "LoggingSystem/logger.hpp"
 #include "PlayerClass/player.hpp"
 #include "SpriteRenderingSystem/spriteRenderer.hpp"
+#include "CameraSystem/PlayerCamera.hpp"

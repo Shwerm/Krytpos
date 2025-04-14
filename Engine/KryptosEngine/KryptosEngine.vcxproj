@@ -19,7 +19,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Include\CameraSystem\CameraController.h" />
     <ClInclude Include="Include\2DCollider\Collider2D.h" />
+    <ClInclude Include="Include\CameraSystem\PlayerCamera.hpp" />
     <ClInclude Include="Include\DebugWindow\debugWindow.hpp" />
     <ClInclude Include="Include\EnvironmentGenerator\EnvironmentGenerator.h" />
     <ClInclude Include="Include\EnvironmentGenerator\Platform.h" />
@@ -254,6 +256,7 @@
     <ClInclude Include="ThirdParty\spdlog\include\spdlog\version.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Source\CameraSystem\CameraController.cpp" />
     <ClCompile Include="Source\2DCollider\Collider2D.cpp" />
     <ClCompile Include="Source\EnvironmentGenerator\EnvironmentGenerator.cpp" />
     <ClCompile Include="Source\EnvironmentGenerator\Platform.cpp" />

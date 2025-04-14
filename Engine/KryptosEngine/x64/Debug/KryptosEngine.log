@@ -1,9 +1,2 @@
-﻿  DebugWindow.cpp
-  EnvironmentGenerator.cpp
-  Platform.cpp
-  PlatformFactory.cpp
-  GameObject.cpp
-  GameObjectManager.cpp
-  Player.cpp
-  Generating Code...
+﻿  CameraController.cpp
   KryptosEngine.vcxproj -> D:\Personal Projects\Working Title - Kryptos\Kryptos\Engine\KryptosEngine\x64\Debug\KryptosEngine.lib

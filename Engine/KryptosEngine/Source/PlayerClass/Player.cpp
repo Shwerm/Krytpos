@@ -1,5 +1,4 @@
 #include <SFML/Window/Keyboard.hpp>
-#include <SFML/Graphics/Rect.hpp>
 #include <SFML/Graphics.hpp>
 
 #include "../../Include/PlayerClass/Player.h"
@@ -16,14 +15,15 @@ Player::Player(
     movementSpeed(200.f),
     attackMultiplier(1.f),
     jumpMultiplier(1.f),
-    spriteRenderer(name) {
+    spriteRenderer(name)
+{
     spriteRenderer.loadTexture(texturePath);
     spriteRenderer.setPosition(position);
     useGravity = true;
 
     addCollider({ 32.f, 48.f }, { 16.f, 0.f });
 
-    // Debug variables
+    // Debug tracking
     registerDebugVariable("Health", health);
     registerDebugVariable("Attack Speed", attackSpeed);
     registerDebugVariable("Movement Speed", movementSpeed);
@@ -41,20 +41,20 @@ void Player::update(float deltaTime) {
         inputVelocity.x += movementSpeed;
     }
 
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Space)) {
-        // Simple jump impulse only if near ground (naive check; improve with grounded flag)
-        if (velocity.y == 0.f) {
-            velocity.y = -jumpMultiplier * 300.f;
-        }
+    // Handle jumping
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Space) && isGrounded) {
+        velocity.y = -jumpMultiplier * 250.f; // Tuned jump impulse
+        isGrounded = false;
     }
 
-    // Combine input velocity and existing vertical velocity
     velocity.x = inputVelocity.x;
-    GameObject::update(deltaTime); // Applies gravity and moves the player
 
-    spriteRenderer.setPosition(position);
+    // Apply gravity & movement
+    GameObject::update(deltaTime);
 
-    // Collision detection and resolution
+    // Ground detection
+    isGrounded = false;
+
     for (auto* obj : GameObjectManager::getInstance().getGameObjects()) {
         if (obj == this || !obj->hasCollider()) continue;
 
@@ -62,14 +62,19 @@ void Player::update(float deltaTime) {
             const auto& b = obj->getCollider()->getBounds();
             const auto& a = getCollider()->getBounds();
 
-            // Snap vertically above platform
-            position.y = b.position.y - a.size.y;
-            velocity.y = 0.f;
-            setPosition(position);
+            // Check if player is landing on top of the object
+            const float verticalThreshold = 5.f;
+            bool landingFromAbove = (position.y + a.size.y <= b.position.y + verticalThreshold);
+
+            if (landingFromAbove && velocity.y >= 0.f) {
+                position.y = b.position.y - a.size.y;
+                velocity.y = 0.f;
+                isGrounded = true;
+            }
         }
     }
 
-    // Final sync to update collider and sprite
+    // Sync position
     setPosition(position);
     spriteRenderer.setPosition(position);
 }
@@ -82,6 +87,7 @@ void Player::draw(sf::RenderWindow& window) {
         getCollider()->drawDebug(window);
 }
 
+// Getters and setters
 float Player::getHealth() const { return health; }
 void Player::setHealth(float value) { health = value; }
 

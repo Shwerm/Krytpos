@@ -3,6 +3,9 @@
   "WorkspaceRootPath": "D:\\Personal Projects\\Working Title - Kryptos\\Kryptos\\Solution\\KryptosGame\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{FA92A39C-C4E6-4A5C-A834-51C19A5E427F}|..\\..\\Engine\\KryptosEngine\\KryptosEngine.vcxproj|D:\\Personal Projects\\Working Title - Kryptos\\Kryptos\\Engine\\KryptosEngine\\Source\\EnvironmentGenerator\\EnvironmentGenerator.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{FA92A39C-C4E6-4A5C-A834-51C19A5E427F}|..\\..\\Engine\\KryptosEngine\\KryptosEngine.vcxproj|D:\\Personal Projects\\Working Title - Kryptos\\Kryptos\\Engine\\KryptosEngine\\Source\\PlayerClass\\Player.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
@@ -20,11 +23,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "main.cpp",
               "DocumentMoniker": "D:\\Personal Projects\\Working Title - Kryptos\\Kryptos\\Solution\\KryptosGame\\KryptosGame\\SourceFiles\\main.cpp",
               "RelativeDocumentMoniker": "KryptosGame\\SourceFiles\\main.cpp",
@@ -41,7 +44,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
+              "Title": "EnvironmentGenerator.cpp",
+              "DocumentMoniker": "D:\\Personal Projects\\Working Title - Kryptos\\Kryptos\\Engine\\KryptosEngine\\Source\\EnvironmentGenerator\\EnvironmentGenerator.cpp",
+              "RelativeDocumentMoniker": "..\\..\\Engine\\KryptosEngine\\Source\\EnvironmentGenerator\\EnvironmentGenerator.cpp",
+              "ToolTip": "D:\\Personal Projects\\Working Title - Kryptos\\Kryptos\\Engine\\KryptosEngine\\Source\\EnvironmentGenerator\\EnvironmentGenerator.cpp",
+              "RelativeToolTip": "..\\..\\Engine\\KryptosEngine\\Source\\EnvironmentGenerator\\EnvironmentGenerator.cpp",
+              "ViewState": "AgIAACMAAAAAAAAAAADwv0EAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-04-14T12:40:10.297Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "Player.h",
               "DocumentMoniker": "D:\\Personal Projects\\Working Title - Kryptos\\Kryptos\\Engine\\KryptosEngine\\Include\\PlayerClass\\Player.h",
               "RelativeDocumentMoniker": "..\\..\\Engine\\KryptosEngine\\Include\\PlayerClass\\Player.h",
@@ -54,13 +70,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Player.cpp",
               "DocumentMoniker": "D:\\Personal Projects\\Working Title - Kryptos\\Kryptos\\Engine\\KryptosEngine\\Source\\PlayerClass\\Player.cpp",
               "RelativeDocumentMoniker": "..\\..\\Engine\\KryptosEngine\\Source\\PlayerClass\\Player.cpp",
               "ToolTip": "D:\\Personal Projects\\Working Title - Kryptos\\Kryptos\\Engine\\KryptosEngine\\Source\\PlayerClass\\Player.cpp",
               "RelativeToolTip": "..\\..\\Engine\\KryptosEngine\\Source\\PlayerClass\\Player.cpp",
-              "ViewState": "AgIAAEoAAAAAAAAAAADwv2gAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAEoAAAAAAAAAAADwv1wAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-04-10T11:30:51.082Z",
               "EditorCaption": ""

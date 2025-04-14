@@ -8,22 +8,22 @@
 EnvironmentGenerator::EnvironmentGenerator(const TerrainGenerationSettings& settings, const sf::Vector2f& startPosition)
     : settings(settings)
 {
-    // First platform will be manually placed under the player, so just store startPosition
     nextSpawnPosition = startPosition;
 }
 
 void EnvironmentGenerator::generate() {
-    // Spawn first platform directly under the player
-    std::string texturePath = settings.texturePaths[Random::Range(0, settings.texturePaths.size())];
+    // Correct Y-offset to place platform under the player
+    const float playerHeight = 48.f; // Match collider height
+    sf::Vector2f firstPlatformPos = nextSpawnPosition; // Already aligned by main.cpp
 
-    auto firstPlatform = PlatformFactory::Create("StartPlatform", nextSpawnPosition, texturePath);
+    std::string texturePath = settings.texturePaths[Random::Range(0, static_cast<int>(settings.texturePaths.size()))];
+    auto firstPlatform = PlatformFactory::Create("StartPlatform", firstPlatformPos, texturePath);
     platforms.push_back(firstPlatform);
 
-    // Offset spawn position for remaining platforms
+    // Offset for next generation
     float firstWidth = Random::Range(settings.minPlatformWidth, settings.maxPlatformWidth);
     nextSpawnPosition.x += std::max(firstWidth, settings.minHorizontalSpacing);
 
-    // Generate remaining platforms
     for (int i = 1; i < settings.totalPlatforms; ++i)
         spawnPlatform();
 
@@ -32,7 +32,7 @@ void EnvironmentGenerator::generate() {
 
 void EnvironmentGenerator::spawnPlatform() {
     float platformWidth = Random::Range(settings.minPlatformWidth, settings.maxPlatformWidth);
-    std::string texturePath = settings.texturePaths[Random::Range(0, settings.texturePaths.size())];
+    std::string texturePath = settings.texturePaths[Random::Range(0, static_cast<int>(settings.texturePaths.size()))];
 
     sf::Vector2f spawnPos = nextSpawnPosition;
     bool vertical = Random::Chance(settings.verticalStackChance);
@@ -54,7 +54,7 @@ void EnvironmentGenerator::spawnPlatform() {
 }
 
 void EnvironmentGenerator::spawnFinishPoint() {
-    std::string texturePath = settings.texturePaths[Random::Range(0, settings.texturePaths.size())];
+    std::string texturePath = settings.texturePaths[Random::Range(0, static_cast<int>(settings.texturePaths.size()))];
     auto platform = PlatformFactory::Create("FinishPlatform", nextSpawnPosition, texturePath);
 
     float finishOffset = 50.0f;

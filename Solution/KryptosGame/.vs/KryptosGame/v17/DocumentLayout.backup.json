@@ -35,7 +35,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Document",
@@ -50,6 +50,10 @@
               "WhenOpened": "2025-04-10T09:36:55.424Z",
               "IsPinned": true,
               "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
             },
             {
               "$type": "Document",
@@ -98,7 +102,7 @@
               "RelativeDocumentMoniker": "..\\..\\Engine\\KryptosEngine\\Source\\GameObjectSystem\\GameObject.cpp",
               "ToolTip": "D:\\Personal Projects\\Working Title - Kryptos\\Kryptos\\Engine\\KryptosEngine\\Source\\GameObjectSystem\\GameObject.cpp",
               "RelativeToolTip": "..\\..\\Engine\\KryptosEngine\\Source\\GameObjectSystem\\GameObject.cpp",
-              "ViewState": "AgIAAEQAAAAAAAAAAADwv0wAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAEQAAAAAAAAAAADwv1cAAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-04-10T13:33:31.554Z",
               "EditorCaption": ""
@@ -115,10 +119,6 @@
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2025-04-10T13:30:08.418Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
             },
             {
               "$type": "Document",

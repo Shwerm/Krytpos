@@ -43,7 +43,7 @@ void Player::update(float deltaTime) {
 
     // Handle jumping
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Space) && isGrounded) {
-        velocity.y = -jumpMultiplier * 250.f; // Tuned jump impulse
+        velocity.y = -jumpMultiplier * 50.f; // Tuned jump impulse
         isGrounded = false;
     }
 

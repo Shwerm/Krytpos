@@ -1,0 +1,19 @@
+﻿  EnemyBase.cpp
+  EnemyClass.cpp
+  CameraController.cpp
+  Collider2D.cpp
+  EnvironmentGenerator.cpp
+  Platform.cpp
+  PlatformFactory.cpp
+  EngineInit.cpp
+  DebugWindowLogger.cpp
+  Logger.cpp
+  GameObjectManager.cpp
+  DebugWindow.cpp
+  GameObject.cpp
+  Player.cpp
+  SpriteRenderer.cpp
+  SpriteRendererLogger.cpp
+  Generating Code...
+  KryptosEngine.vcxproj -> D:\Personal Projects\Working Title - Kryptos\Kryptos\Engine\x64\Debug\Engine.lib
+  3 File(s) copied

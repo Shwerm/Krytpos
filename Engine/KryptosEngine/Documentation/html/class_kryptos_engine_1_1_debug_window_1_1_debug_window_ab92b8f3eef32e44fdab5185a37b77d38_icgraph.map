@@ -1,5 +1,0 @@
-<map id="KryptosEngine::DebugWindow::DebugWindow::toggleVisibility" name="KryptosEngine::DebugWindow::DebugWindow::toggleVisibility">
-<area shape="rect" id="Node000001" title="Toggles debug window visibility. Opens or closes the debug overlay depending on its current state." alt="" coords="253,5,459,48"/>
-<area shape="rect" id="Node000002" href="$class_kryptos_engine_1_1_debug_window_1_1_debug_window.html#ae95f08e8004a6cef8d570a22e8760859" title="Checks for keyboard input to toggle visibility. Should be called once per frame in the engine&#39;s main ..." alt="" coords="5,5,205,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="237,29,205,29,205,24,237,24"/>
-</map>

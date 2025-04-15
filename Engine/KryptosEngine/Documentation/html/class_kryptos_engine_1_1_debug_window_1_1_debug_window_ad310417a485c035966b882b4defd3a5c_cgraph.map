@@ -1,5 +1,0 @@
-<map id="KryptosEngine::DebugWindow::DebugWindow::initialise" name="KryptosEngine::DebugWindow::DebugWindow::initialise">
-<area shape="rect" id="Node000001" title="Initializes the debug window. Loads required assets like fonts and sets up the window state." alt="" coords="5,5,205,48"/>
-<area shape="rect" id="Node000002" href="$class_kryptos_engine_1_1_debug_window_logger.html#ad92491d9b1fddbd22d1b8d177e5acf9c" title="Retrieves the Debug Window logger instance." alt="" coords="253,5,452,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="205,24,237,24,237,29,205,29"/>
-</map>

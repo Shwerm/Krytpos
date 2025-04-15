@@ -1,0 +1,3 @@
+﻿D:\VisualStudio\MSBuild\Current\Bin\amd64\Microsoft.Common.CurrentVersion.targets(2176,5): warning : The referenced project '..\..\..\Engine\KryptosEngine\KryptosEngine.vcxproj' does not exist.
+  main.cpp
+  KryptosGame.vcxproj -> D:\Personal Projects\Working Title - Kryptos\Kryptos\Game\x64\Debug\Game.exe

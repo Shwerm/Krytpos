@@ -1,5 +1,0 @@
-<map id="SpriteRenderer::loadTexture" name="SpriteRenderer::loadTexture">
-<area shape="rect" id="Node000001" title="Loads a texture from a file and sets it for the sprite." alt="" coords="5,13,189,40"/>
-<area shape="rect" id="Node000002" href="$class_kryptos_engine_1_1_sprite_renderer_logger.html#a49dc49d9e25756f02f256f829a8df499" title=" " alt="" coords="237,5,438,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="189,24,221,24,221,29,189,29"/>
-</map>

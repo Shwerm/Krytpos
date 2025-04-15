@@ -144,9 +144,7 @@
       <AdditionalOptions>/IGNORE:4099 /NODEFAULTLIB:msvcrt.lib %(AdditionalOptions)</AdditionalOptions>
     </Link>
     <PostBuildEvent>
-      <Command>if not exist "D:\Personal Projects\Working Title - Kryptos\Krytpos\Solution\KryptosGame\KryptosGame\EngineAssets" mkdir "D:\Personal Projects\Working Title - Kryptos\Krytpos\Solution\KryptosGame\KryptosGame\EngineAssets"
-xcopy /E /Y "D:\Personal Projects\Working Title - Kryptos\Kryptos\Engine\KryptosEngine\EngineAssets" "D:\Personal Projects\Working Title - Kryptos\Krytpos\Solution\KryptosGame\KryptosGame\EngineAssets"
-
+      <Command>xcopy /E /Y /I "$(SolutionDir)Engine\KryptosEngine\EngineAssets" "$(TargetDir)EngineAssets\"
 </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>

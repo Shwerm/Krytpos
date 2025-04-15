@@ -6,6 +6,9 @@
       "AbsoluteMoniker": "D:0:0:{FA92A39C-C4E6-4A5C-A834-51C19A5E427F}|..\\..\\Engine\\KryptosEngine\\KryptosEngine.vcxproj|D:\\Personal Projects\\Working Title - Kryptos\\Kryptos\\Engine\\KryptosEngine\\Source\\EnemyClass\\EnemyClass.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{FA92A39C-C4E6-4A5C-A834-51C19A5E427F}|..\\..\\Engine\\KryptosEngine\\KryptosEngine.vcxproj|D:\\Personal Projects\\Working Title - Kryptos\\Kryptos\\Engine\\KryptosEngine\\Source\\DebugWindow\\DebugWindow.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{FA92A39C-C4E6-4A5C-A834-51C19A5E427F}|..\\..\\Engine\\KryptosEngine\\KryptosEngine.vcxproj|D:\\Personal Projects\\Working Title - Kryptos\\Kryptos\\Engine\\KryptosEngine\\Source\\EnemyClass\\EnemyBase.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
@@ -23,11 +26,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "main.cpp",
               "DocumentMoniker": "D:\\Personal Projects\\Working Title - Kryptos\\Kryptos\\Solution\\KryptosGame\\KryptosGame\\SourceFiles\\main.cpp",
               "RelativeDocumentMoniker": "KryptosGame\\SourceFiles\\main.cpp",
@@ -41,7 +44,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "KryptosEngine.hpp",
               "DocumentMoniker": "D:\\Personal Projects\\Working Title - Kryptos\\Kryptos\\Engine\\KryptosEngine\\Include\\KryptosEngine.hpp",
               "RelativeDocumentMoniker": "..\\..\\Engine\\KryptosEngine\\Include\\KryptosEngine.hpp",
@@ -59,20 +62,33 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "DebugWindow.cpp",
+              "DocumentMoniker": "D:\\Personal Projects\\Working Title - Kryptos\\Kryptos\\Engine\\KryptosEngine\\Source\\DebugWindow\\DebugWindow.cpp",
+              "RelativeDocumentMoniker": "..\\..\\Engine\\KryptosEngine\\Source\\DebugWindow\\DebugWindow.cpp",
+              "ToolTip": "D:\\Personal Projects\\Working Title - Kryptos\\Kryptos\\Engine\\KryptosEngine\\Source\\DebugWindow\\DebugWindow.cpp",
+              "RelativeToolTip": "..\\..\\Engine\\KryptosEngine\\Source\\DebugWindow\\DebugWindow.cpp",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-04-15T12:34:00.401Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
               "Title": "EnemyClass.cpp",
               "DocumentMoniker": "D:\\Personal Projects\\Working Title - Kryptos\\Kryptos\\Engine\\KryptosEngine\\Source\\EnemyClass\\EnemyClass.cpp",
               "RelativeDocumentMoniker": "..\\..\\Engine\\KryptosEngine\\Source\\EnemyClass\\EnemyClass.cpp",
               "ToolTip": "D:\\Personal Projects\\Working Title - Kryptos\\Kryptos\\Engine\\KryptosEngine\\Source\\EnemyClass\\EnemyClass.cpp",
               "RelativeToolTip": "..\\..\\Engine\\KryptosEngine\\Source\\EnemyClass\\EnemyClass.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAhAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-04-15T12:29:39.68Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "EnemyBase.cpp",
               "DocumentMoniker": "D:\\Personal Projects\\Working Title - Kryptos\\Kryptos\\Engine\\KryptosEngine\\Source\\EnemyClass\\EnemyBase.cpp",
               "RelativeDocumentMoniker": "..\\..\\Engine\\KryptosEngine\\Source\\EnemyClass\\EnemyBase.cpp",

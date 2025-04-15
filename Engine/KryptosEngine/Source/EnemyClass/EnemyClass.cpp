@@ -8,7 +8,7 @@ EnemyClass::EnemyClass(const std::string& name,
     : EnemyBase(name, spawnPos, patrolLeft, patrolRight)
 {
     spriteRenderer = std::make_unique<SpriteRenderer>(name);
-    spriteRenderer->loadTexture("Assets/Textures/Enemies/MeleeEnemy.png"); // Update path
+    spriteRenderer->loadTexture("EngineAssets/Textures/Enemies/EnemySpriteSheet.png"); // Update path
     spriteRenderer->setPosition(spawnPos);
 
     addCollider({ 32.f, 48.f }); // Example collider size

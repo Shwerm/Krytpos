@@ -59,12 +59,12 @@ void EnvironmentGenerator::spawnPlatform() {
             ::sf::FloatRect bounds = platform->getCollider()->getBounds();
             float margin = 20.f;
 
-            float patrolLeft = bounds.left + margin;
-            float patrolRight = bounds.left + bounds.width - margin;
+            float patrolLeft = bounds.position.x + margin;
+            float patrolRight = bounds.position.x + bounds.size.x - margin;
 
             sf::Vector2f enemySpawn = {
                 (patrolLeft + patrolRight) / 2.f,
-                bounds.top - 48.f // enemy stands just above the platform
+                bounds.position.y - 48.f // enemy stands just above the platform
             };
 
             auto enemy = new EnemyClass("Enemy", enemySpawn, patrolLeft, patrolRight);

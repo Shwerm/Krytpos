@@ -19,6 +19,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Include\EnemyClass\EnemyBase.h" />
+    <ClInclude Include="Include\EnemyClass\EnemyClass.h" />
     <ClInclude Include="Include\CameraSystem\CameraController.h" />
     <ClInclude Include="Include\2DCollider\Collider2D.h" />
     <ClInclude Include="Include\CameraSystem\PlayerCamera.hpp" />
@@ -256,6 +258,8 @@
     <ClInclude Include="ThirdParty\spdlog\include\spdlog\version.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Source\EnemyClass\EnemyBase.cpp" />
+    <ClCompile Include="Source\EnemyClass\EnemyClass.cpp" />
     <ClCompile Include="Source\CameraSystem\CameraController.cpp" />
     <ClCompile Include="Source\2DCollider\Collider2D.cpp" />
     <ClCompile Include="Source\EnvironmentGenerator\EnvironmentGenerator.cpp" />

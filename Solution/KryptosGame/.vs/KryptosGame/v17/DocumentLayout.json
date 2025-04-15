@@ -3,20 +3,26 @@
   "WorkspaceRootPath": "D:\\Personal Projects\\Working Title - Kryptos\\Kryptos\\Solution\\KryptosGame\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{FA92A39C-C4E6-4A5C-A834-51C19A5E427F}|..\\..\\Engine\\KryptosEngine\\KryptosEngine.vcxproj|D:\\Personal Projects\\Working Title - Kryptos\\Kryptos\\Engine\\KryptosEngine\\CameraController.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{FA92A39C-C4E6-4A5C-A834-51C19A5E427F}|..\\..\\Engine\\KryptosEngine\\KryptosEngine.vcxproj|D:\\Personal Projects\\Working Title - Kryptos\\Kryptos\\Engine\\KryptosEngine\\Source\\CameraSystem\\CameraController.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FA92A39C-C4E6-4A5C-A834-51C19A5E427F}|..\\..\\Engine\\KryptosEngine\\KryptosEngine.vcxproj|D:\\Personal Projects\\Working Title - Kryptos\\Kryptos\\Engine\\KryptosEngine\\CameraController.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{FA92A39C-C4E6-4A5C-A834-51C19A5E427F}|..\\..\\Engine\\KryptosEngine\\KryptosEngine.vcxproj|D:\\Personal Projects\\Working Title - Kryptos\\Kryptos\\Engine\\KryptosEngine\\Include\\CameraSystem\\PlayerCamera.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FA92A39C-C4E6-4A5C-A834-51C19A5E427F}|..\\..\\Engine\\KryptosEngine\\KryptosEngine.vcxproj|D:\\Personal Projects\\Working Title - Kryptos\\Kryptos\\Engine\\KryptosEngine\\Include\\KryptosEngine.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{24693151-1949-4EDC-B165-8DBAF16B226A}|KryptosGame\\KryptosGame.vcxproj|D:\\Personal Projects\\Working Title - Kryptos\\Kryptos\\Solution\\KryptosGame\\KryptosGame\\SourceFiles\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{24693151-1949-4EDC-B165-8DBAF16B226A}|KryptosGame\\KryptosGame.vcxproj|solutionrelative:KryptosGame\\SourceFiles\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FA92A39C-C4E6-4A5C-A834-51C19A5E427F}|..\\..\\Engine\\KryptosEngine\\KryptosEngine.vcxproj|D:\\Personal Projects\\Working Title - Kryptos\\Kryptos\\Engine\\KryptosEngine\\Include\\CameraSystem\\CameraController.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{FA92A39C-C4E6-4A5C-A834-51C19A5E427F}|..\\..\\Engine\\KryptosEngine\\KryptosEngine.vcxproj|D:\\Personal Projects\\Working Title - Kryptos\\Kryptos\\Engine\\KryptosEngine\\Include\\Physics\\PhysicsConstants.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{FA92A39C-C4E6-4A5C-A834-51C19A5E427F}|..\\..\\Engine\\KryptosEngine\\KryptosEngine.vcxproj|D:\\Personal Projects\\Working Title - Kryptos\\Kryptos\\Engine\\KryptosEngine\\Source\\PlayerClass\\Player.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{24693151-1949-4EDC-B165-8DBAF16B226A}|KryptosGame\\KryptosGame.vcxproj|D:\\Personal Projects\\Working Title - Kryptos\\Kryptos\\Solution\\KryptosGame\\KryptosGame\\SourceFiles\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{24693151-1949-4EDC-B165-8DBAF16B226A}|KryptosGame\\KryptosGame.vcxproj|solutionrelative:KryptosGame\\SourceFiles\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,46 +32,20 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 3,
               "Title": "main.cpp",
               "DocumentMoniker": "D:\\Personal Projects\\Working Title - Kryptos\\Kryptos\\Solution\\KryptosGame\\KryptosGame\\SourceFiles\\main.cpp",
               "RelativeDocumentMoniker": "KryptosGame\\SourceFiles\\main.cpp",
               "ToolTip": "D:\\Personal Projects\\Working Title - Kryptos\\Kryptos\\Solution\\KryptosGame\\KryptosGame\\SourceFiles\\main.cpp",
               "RelativeToolTip": "KryptosGame\\SourceFiles\\main.cpp",
-              "ViewState": "AgIAAAIAAAAAAAAAAADwv18AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-04-10T09:36:55.424Z",
               "IsPinned": true,
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "CameraController.cpp",
-              "DocumentMoniker": "D:\\Personal Projects\\Working Title - Kryptos\\Kryptos\\Engine\\KryptosEngine\\CameraController.cpp",
-              "RelativeDocumentMoniker": "..\\..\\Engine\\KryptosEngine\\CameraController.cpp",
-              "ToolTip": "D:\\Personal Projects\\Working Title - Kryptos\\Kryptos\\Engine\\KryptosEngine\\CameraController.cpp",
-              "RelativeToolTip": "..\\..\\Engine\\KryptosEngine\\CameraController.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-04-14T13:42:46.657Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "CameraController.h",
-              "DocumentMoniker": "D:\\Personal Projects\\Working Title - Kryptos\\Kryptos\\Engine\\KryptosEngine\\CameraController.h",
-              "RelativeDocumentMoniker": "..\\..\\Engine\\KryptosEngine\\CameraController.h",
-              "ToolTip": "D:\\Personal Projects\\Working Title - Kryptos\\Kryptos\\Engine\\KryptosEngine\\CameraController.h",
-              "RelativeToolTip": "..\\..\\Engine\\KryptosEngine\\CameraController.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-04-14T13:42:20.908Z",
               "EditorCaption": ""
             },
             {
@@ -75,6 +55,58 @@
             {
               "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "KryptosEngine.hpp",
+              "DocumentMoniker": "D:\\Personal Projects\\Working Title - Kryptos\\Kryptos\\Engine\\KryptosEngine\\Include\\KryptosEngine.hpp",
+              "RelativeDocumentMoniker": "..\\..\\Engine\\KryptosEngine\\Include\\KryptosEngine.hpp",
+              "ToolTip": "D:\\Personal Projects\\Working Title - Kryptos\\Kryptos\\Engine\\KryptosEngine\\Include\\KryptosEngine.hpp",
+              "RelativeToolTip": "..\\..\\Engine\\KryptosEngine\\Include\\KryptosEngine.hpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-04-14T15:36:58.503Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "PlayerCamera.hpp",
+              "DocumentMoniker": "D:\\Personal Projects\\Working Title - Kryptos\\Kryptos\\Engine\\KryptosEngine\\Include\\CameraSystem\\PlayerCamera.hpp",
+              "RelativeDocumentMoniker": "..\\..\\Engine\\KryptosEngine\\Include\\CameraSystem\\PlayerCamera.hpp",
+              "ToolTip": "D:\\Personal Projects\\Working Title - Kryptos\\Kryptos\\Engine\\KryptosEngine\\Include\\CameraSystem\\PlayerCamera.hpp",
+              "RelativeToolTip": "..\\..\\Engine\\KryptosEngine\\Include\\CameraSystem\\PlayerCamera.hpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAAAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-04-14T15:37:33.143Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "CameraController.cpp",
+              "DocumentMoniker": "D:\\Personal Projects\\Working Title - Kryptos\\Kryptos\\Engine\\KryptosEngine\\Source\\CameraSystem\\CameraController.cpp",
+              "RelativeDocumentMoniker": "..\\..\\Engine\\KryptosEngine\\Source\\CameraSystem\\CameraController.cpp",
+              "ToolTip": "D:\\Personal Projects\\Working Title - Kryptos\\Kryptos\\Engine\\KryptosEngine\\Source\\CameraSystem\\CameraController.cpp",
+              "RelativeToolTip": "..\\..\\Engine\\KryptosEngine\\Source\\CameraSystem\\CameraController.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-04-14T13:42:46.657Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "CameraController.h",
+              "DocumentMoniker": "D:\\Personal Projects\\Working Title - Kryptos\\Kryptos\\Engine\\KryptosEngine\\Include\\CameraSystem\\CameraController.h",
+              "RelativeDocumentMoniker": "..\\..\\Engine\\KryptosEngine\\Include\\CameraSystem\\CameraController.h",
+              "ToolTip": "D:\\Personal Projects\\Working Title - Kryptos\\Kryptos\\Engine\\KryptosEngine\\Include\\CameraSystem\\CameraController.h",
+              "RelativeToolTip": "..\\..\\Engine\\KryptosEngine\\Include\\CameraSystem\\CameraController.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAADAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-04-14T13:42:20.908Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "PhysicsConstants.h",
               "DocumentMoniker": "D:\\Personal Projects\\Working Title - Kryptos\\Kryptos\\Engine\\KryptosEngine\\Include\\Physics\\PhysicsConstants.h",
               "RelativeDocumentMoniker": "..\\..\\Engine\\KryptosEngine\\Include\\Physics\\PhysicsConstants.h",
@@ -87,7 +119,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 6,
               "Title": "Player.cpp",
               "DocumentMoniker": "D:\\Personal Projects\\Working Title - Kryptos\\Kryptos\\Engine\\KryptosEngine\\Source\\PlayerClass\\Player.cpp",
               "RelativeDocumentMoniker": "..\\..\\Engine\\KryptosEngine\\Source\\PlayerClass\\Player.cpp",

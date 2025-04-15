@@ -3,6 +3,7 @@
 #include "../../Include/EnvironmentGenerator/EnvironmentGenerator.h"
 #include "../../Include/EnvironmentGenerator/PlatformFactory.h"
 #include "../../Include/EnvironmentGenerator/RandomUtils.h"
+#include "../../Include/EnemyClass/EnemyClass.h"
 #include <algorithm>
 
 EnvironmentGenerator::EnvironmentGenerator(const TerrainGenerationSettings& settings, const sf::Vector2f& startPosition)
@@ -51,6 +52,22 @@ void EnvironmentGenerator::spawnPlatform() {
     platforms.push_back(platform);
 
     nextSpawnPosition = spawnPos;
+
+    // ---- New Enemy Spawn Logic ----
+    if (Random::Chance(0.5f)) {
+        // Calculate patrol edges based on collider width
+        if (platform->hasCollider()) {
+            auto bounds = platform->getCollider()->getBounds();
+            float margin = 20.f;
+
+            float patrolLeft = bounds.left + margin;
+            float patrolRight = bounds.left + bounds.width - margin;
+            sf::Vector2f enemySpawn = { (patrolLeft + patrolRight) / 2.f, spawnPos.y - 48.f }; // offset above platform
+
+            auto enemy = new EnemyClass("Enemy", enemySpawn, patrolLeft, patrolRight);
+            enemy->setUseGravity(true);
+        }
+    }
 }
 
 void EnvironmentGenerator::spawnFinishPoint() {

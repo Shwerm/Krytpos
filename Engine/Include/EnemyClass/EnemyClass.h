@@ -9,6 +9,9 @@ public:
         float patrolLeft,
         float patrolRight);
 
+    void draw(sf::RenderWindow& window) override;
+
+
 protected:
     void tryAttack(const sf::Vector2f& playerPos) override;
 

@@ -14,6 +14,13 @@ EnemyClass::EnemyClass(const std::string& name,
     addCollider({ 32.f, 48.f }); // Example collider size
 }
 
+void EnemyClass::draw(sf::RenderWindow& window) {
+    if (spriteRenderer) {
+        spriteRenderer->draw(window);
+    }
+}
+
+
 void EnemyClass::tryAttack(const sf::Vector2f& playerPos) {
     if (attackCooldownTimer > 0.0f)
         return;

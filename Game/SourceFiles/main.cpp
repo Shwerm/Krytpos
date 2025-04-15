@@ -86,9 +86,7 @@ int main() {
         window.clear();
 
         for (auto* obj : GameObjectManager::getInstance().getGameObjects()) {
-            if (auto* platform = dynamic_cast<Platform*>(obj)) {
-                platform->draw(window);
-            }
+            obj->draw(window);
         }
 
         player.draw(window);

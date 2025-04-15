@@ -54,22 +54,21 @@ void EnvironmentGenerator::spawnPlatform() {
     nextSpawnPosition = spawnPos;
 
     // ---- New Enemy Spawn Logic ----
-    if (Random::Chance(0.5f)) {
-        if (platform->hasCollider()) {
-            ::sf::FloatRect bounds = platform->getCollider()->getBounds();
-            float margin = 20.f;
+    
+    if (platform->hasCollider()) {
+        ::sf::FloatRect bounds = platform->getCollider()->getBounds();
+        float margin = 20.f;
 
-            float patrolLeft = bounds.position.x + margin;
-            float patrolRight = bounds.position.x + bounds.size.x - margin;
+        float patrolLeft = bounds.position.x + margin;
+        float patrolRight = bounds.position.x + bounds.size.x - margin;
 
-            sf::Vector2f enemySpawn = {
-                (patrolLeft + patrolRight) / 2.f,
-                bounds.position.y - 48.f // enemy stands just above the platform
-            };
+        sf::Vector2f enemySpawn = {
+            (patrolLeft + patrolRight) / 2.f,
+            bounds.position.y - 48.f // enemy stands just above the platform
+        };
 
-            auto enemy = new EnemyClass("Enemy", enemySpawn, patrolLeft, patrolRight);
-            enemy->setUseGravity(true);
-        }
+        auto enemy = new EnemyClass("Enemy", enemySpawn, patrolLeft, patrolRight);
+        enemy->setUseGravity(true);
     }
 }
 

@@ -57,6 +57,12 @@ void SpriteRenderer::loadTexture(const std::string& texturePath) {
     sprite = std::make_unique<sf::Sprite>(*texture);
 }
 
+void SpriteRenderer::setTextureRect(const sf::IntRect& rect) {
+    if (sprite) {
+        sprite->setTextureRect(rect);
+    }
+}
+
 /**
  * @brief Sets the position of the sprite.
  * @param position The new position of the sprite.

@@ -57,6 +57,9 @@ public:
      */
     void loadTexture(const std::string& texturePath);
 
+    void setTextureRect(const sf::IntRect& rect);
+
+
     /**
      * @brief Sets the position of the sprite in the game world.
      * @param position The new position of the sprite.

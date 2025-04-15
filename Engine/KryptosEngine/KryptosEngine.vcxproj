@@ -285,6 +285,9 @@
     <None Include="DoxyGenFiles\Header\header.html" />
     <None Include="Include\EnvironmentGenerator\enviro.hpp" />
   </ItemGroup>
+  <ItemGroup>
+    <Image Include="EngineAssets\Textures\Enemies\EnemySpriteSheet.png" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>

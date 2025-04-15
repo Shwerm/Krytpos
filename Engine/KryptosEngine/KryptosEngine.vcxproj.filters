@@ -787,4 +787,9 @@
     <None Include="DoxyGenFiles\Header\header.css" />
     <None Include="Include\EnvironmentGenerator\enviro.hpp" />
   </ItemGroup>
+  <ItemGroup>
+    <Image Include="EngineAssets\Textures\Enemies\EnemySpriteSheet.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+  </ItemGroup>
 </Project>

@@ -1,5 +1,7 @@
 #include "../../Include/EnemyClass/EnemyBase.h"
 #include "../../Include/GameObjectSystem/GameObjectManager.h"
+#include "../../Include/SpriteRenderingSystem/SpriteRenderer.h"
+
 #include <cmath>
 #include <iostream>
 
@@ -93,6 +95,13 @@ void EnemyBase::patrol(float deltaTime) {
 
 void EnemyBase::faceDirection(float directionX) {
     if (spriteRenderer && std::abs(directionX) > 0.01f) {
-        spriteRenderer->setScale({ std::copysign(1.f, directionX), 1.f });
+        if (directionX > 0.01f) {
+            // Forward-facing: row 2, col 3
+            spriteRenderer->setTextureRect({ 64, 32, 32, 32 });
+        }
+        else if (directionX < -0.01f) {
+            // Back-facing: row 4, col 1
+            spriteRenderer->setTextureRect({ 0, 96, 32, 32 });
+        }
     }
 }

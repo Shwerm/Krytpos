@@ -144,7 +144,7 @@
       <AdditionalOptions>/IGNORE:4099 /NODEFAULTLIB:msvcrt.lib %(AdditionalOptions)</AdditionalOptions>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy /E /Y /I "$(SolutionDir)Engine\KryptosEngine\EngineAssets" "$(TargetDir)EngineAssets\"
+      <Command>xcopy /E /Y /I "$(SolutionDir)..\..\Engine\KryptosEngine\EngineAssets" "$(TargetDir)EngineAssets\"
 </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>

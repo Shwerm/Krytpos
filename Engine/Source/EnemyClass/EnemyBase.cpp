@@ -94,22 +94,22 @@ void EnemyBase::patrol(float deltaTime) {
 }
 
 void EnemyBase::faceDirection(float directionX) {
-    if (spriteRenderer && std::abs(directionX) > 0.01f) {
-        sf::IntRect rect;
+    if (!spriteRenderer) return;
 
-        if (directionX > 0.01f) {
-            // Forward-facing: row 2, col 3
-            rect.position = { 64, 32 };
-            rect.size = { 32, 32 };
-        }
-        else if (directionX < -0.01f) {
-            // Back-facing: row 4, col 1
-            rect.position = { 0, 96 };
-            rect.size = { 32, 32 };
-        }
+    sf::IntRect rect;
 
-        spriteRenderer->setTextureRect(rect);
+    if (directionX > 0.01f) {
+        // Forward-facing: row 2, col 2
+        rect.position = { 64, 64 };
+        rect.size = { 32, 32 };
     }
+    else if (directionX < -0.01f) {
+        // Back-facing: row 0, col 0
+        rect.position = { 0, 0 };
+        rect.size = { 32, 32 };
+    }
+
+    spriteRenderer->setTextureRect(rect);
 }
 
 

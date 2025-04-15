@@ -10,7 +10,7 @@ void Collider2D::setPosition(const sf::Vector2f& pos) {
     position = pos;
 }
 
-sf::FloatRect Collider2D::getBounds() const {
+::sf::FloatRect Collider2D::getBounds() const {
     return sf::FloatRect(position + offset, size);
 }
 
@@ -28,12 +28,13 @@ bool Collider2D::intersects(const Collider2D& a, const Collider2D& b) {
     const auto rectB = b.getBounds();
 
     return (
-        rectA.position.x < rectB.position.x + rectB.size.x &&
-        rectA.position.x + rectA.size.x > rectB.position.x &&
-        rectA.position.y < rectB.position.y + rectB.size.y &&
-        rectA.position.y + rectA.size.y > rectB.position.y
+        rectA.left < rectB.left + rectB.width &&
+        rectA.left + rectA.width > rectB.left &&
+        rectA.top < rectB.top + rectB.height &&
+        rectA.top + rectA.height > rectB.top
         );
 }
+
 
 void Collider2D::drawDebug(sf::RenderWindow& window) const {
     sf::RectangleShape rect;

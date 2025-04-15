@@ -1,11 +1,26 @@
-/Build/
-/Solution/**/*.obj
-/Solution/**/*.pdb
-/Solution/**/*.ipch
-/Solution/**/*.log
-/Solution/.vs/
-*.user
+# Visual Studio
 *.suo
+*.user
+*.VC.db
+*.VC.VC.opendb
+*.opensdf
 *.sdf
+*.ipch
+*.obj
+*.pch
+*.pdb
+*.ilk
+*.exe
+*.dll
+*.lib
 .vs/
 
+# Build folders
+Build/
+bin/
+Debug/
+Release/
+
+# Documentation output
+Docs/html/
+Docs/latex/

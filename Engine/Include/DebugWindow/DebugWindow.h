@@ -1,31 +1,13 @@
-/*
- * DebugWindow.h - Kryptos Debugging Interface
- * -------------------------------------------
- * Provides a graphical debugging overlay to visualize game objects and their state.
- * Designed for use within the Kryptos game and engine.
- *
- * Author: Sam Camilleri, Mural Studios
- * All Rights Reserved, 2025.
- *
- * Dependencies:
- *   - GameObjectManager.h: Manages game objects in the engine.
+/**
+ * @file DebugWindow.h
+ * @brief Header file for the DebugWindow class used in the Kryptos Debugging System.
+ * @ingroup DebugSystem
+ * @author
+ * Sam Camilleri, Mural Studios
+ * @date 2025
  */
 
- /**
-  * @file DebugWindow.h
-  * @brief Header file for the DebugWindow class used in the Kryptos Debugging System.
-  * @ingroup DebugSystem
-  * @author
-  * Sam Camilleri, Mural Studios
-  * @date 2025
-  */
-
 #pragma once
-
-  /**
-   * @defgroup DebugSystem Debugging System
-   * @brief Contains classes and functionality related to runtime debugging.
-   */
 
 #include "../GameObjectSystem/GameObjectManager.h"
 #include <SFML/Graphics.hpp>
@@ -42,76 +24,63 @@ namespace KryptosEngine {
     namespace DebugWindow {
 
         /**
-         * @ingroup DebugSystem
          * @class DebugWindow
+         * @ingroup DebugSystem
          * @brief Provides a graphical interface for debugging game objects in the engine.
-         * @details The DebugWindow displays real-time information such as transform and physics values,
-         * along with developer-defined variables. This tool is essential for debugging during development.
+         *
+         * Displays transform data, physics values, and developer-defined debug variables in a scrollable overlay.
+         * Can be toggled on/off via a designated key. Each GameObject entry can be expanded for additional details.
          */
         class DebugWindow {
         private:
-            sf::RenderWindow debugWindow; /**< SFML window used to render the debug overlay. */
-            bool isVisible;               /**< Boolean flag to track window visibility status. */
-            sf::Keyboard::Key toggleKey;  /**< Keybind for toggling the debug window visibility. */
+            sf::RenderWindow debugWindow; ///< SFML window used for rendering the debug interface.
+            bool isVisible;               ///< Whether the debug window is currently visible.
+            sf::Keyboard::Key toggleKey;  ///< Keyboard key used to toggle the debug window.
 
-            /**
-             * @brief Stores game object name labels.
-             * Maps each GameObject pointer to a unique pointer managing its sf::Text object.
-             */
-            std::unordered_map<GameObject*, std::unique_ptr<sf::Text>> nameTexts;
-
-            /**
-             * @brief Tracks whether each game object in the debug window is expanded or collapsed.
-             * This determines whether additional debug details are drawn.
-             */
-            std::unordered_map<GameObject*, bool> expandedState;
-
-            sf::Font defaultFont; /**< Font used for rendering debug UI text. */
+            std::unordered_map<GameObject*, std::unique_ptr<sf::Text>> nameTexts; ///< Text objects for GameObject names.
+            std::unordered_map<GameObject*, bool> expandedState; ///< Whether each object is expanded in the UI.
+            sf::Font defaultFont; ///< Font used to render all debug text.
 
         public:
             /**
-             * @brief Default constructor.
-             * Initializes the internal state but does not load resources.
+             * @brief Constructs a DebugWindow. Does not open or initialise the window yet.
              */
             DebugWindow();
 
             /**
-             * @brief Initializes the debug window.
-             * Loads required assets like fonts and sets up the window state.
-             * @throw std::runtime_error if fonts or other resources fail to load.
+             * @brief Loads the debug font and sets window parameters like framerate.
+             * @throws std::runtime_error if required resources fail to load.
              */
             void initialise();
 
             /**
-             * @brief Checks for keyboard input to toggle visibility.
-             * Should be called once per frame in the engine's main loop.
+             * @brief Checks for toggle key press to show/hide the debug window.
+             * Should be called every frame.
              */
             void handleInput();
 
             /**
-             * @brief Toggles debug window visibility.
-             * Opens or closes the debug overlay depending on its current state.
+             * @brief Opens or closes the debug window based on its current state.
              */
             void toggleVisibility();
 
             /**
-             * @brief Closes the debug window.
-             * Cleans up any open resources and resets the visibility flag.
+             * @brief Closes the debug window if open and resets visibility state.
              */
             void close();
 
             /**
-             * @brief Checks if the debug window is currently open.
-             * @return True if open, false if closed.
+             * @brief Returns whether the debug window is currently open.
+             * @return True if open, false if not.
              */
             bool isOpen() const;
 
             /**
-             * @brief Renders the debug interface.
-             * Iterates through active game objects and displays relevant data.
-             * Also handles interaction with expandable details via mouse click.
+             * @brief Renders all GameObjects and tracked variables in the debug window.
+             * Should be called once per frame when the window is open.
              */
             void draw();
         };
+
     } // namespace DebugWindow
 } // namespace KryptosEngine

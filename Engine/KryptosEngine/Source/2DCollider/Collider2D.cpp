@@ -28,12 +28,15 @@ bool Collider2D::intersects(const Collider2D& a, const Collider2D& b) {
     const auto rectB = b.getBounds();
 
     return (
-        rectA.left < rectB.left + rectB.width &&
-        rectA.left + rectA.width > rectB.left &&
-        rectA.top < rectB.top + rectB.height &&
-        rectA.top + rectA.height > rectB.top
+        rectA.position.x < rectB.position.x + rectB.size.x &&
+        rectA.position.x + rectA.size.x > rectB.position.x &&
+        rectA.position.y < rectB.position.y + rectB.size.y &&
+        rectA.position.y + rectA.size.y > rectB.position.y
         );
 }
+
+
+
 
 
 void Collider2D::drawDebug(sf::RenderWindow& window) const {

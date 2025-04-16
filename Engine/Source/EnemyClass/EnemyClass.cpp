@@ -43,6 +43,8 @@ void EnemyClass::fixedUpdate(float fixedDeltaTime) {
     auto* myCollider = getCollider();
     const auto myBounds = myCollider->getBounds();
 
+    isGrounded = false;
+
     for (auto* obj : GameObjectManager::getInstance().getGameObjects()) {
         if (obj == this || !obj->hasCollider()) continue;
 
@@ -59,12 +61,48 @@ void EnemyClass::fixedUpdate(float fixedDeltaTime) {
             if (landingFromAbove && velocity.y >= 0.f) {
                 position.y = platformTop - myBounds.size.y - (myBounds.position.y - position.y);
                 velocity.y = 0.f;
+                isGrounded = true;
             }
         }
     }
 
-    setPosition(position); // sync collider position
+    // --- Patrolling logic (only if grounded)
+    if (isGrounded) {
+        float direction = movingLeft ? -1.f : 1.f;
+        velocity.x = direction * movementSpeed;
+
+        // Edge detection box
+        sf::Vector2f probeOffset = { direction * myBounds.size.x * 0.6f, 2.f }; // just ahead of feet
+        sf::Vector2f probePoint = { myBounds.position.x + probeOffset.x, myBounds.position.y + myBounds.size.y + probeOffset.y };
+
+        bool hasGround = false;
+        for (auto* obj : GameObjectManager::getInstance().getGameObjects()) {
+            if (obj == this || !obj->hasCollider()) continue;
+
+            const auto bounds = obj->getCollider()->getBounds();
+
+            if (probePoint.x >= bounds.position.x &&
+                probePoint.x <= bounds.position.x + bounds.size.x &&
+                probePoint.y >= bounds.position.y &&
+                probePoint.y <= bounds.position.y + bounds.size.y) {
+                hasGround = true;
+                break;
+            }
+        }
+
+        if (!hasGround) {
+            movingLeft = !movingLeft; // Flip patrol direction
+            velocity.x = 0.f;
+        }
+
+        // Flip sprite if needed
+        spriteRenderer.setScale({ movingLeft ? -1.f : 1.f, 1.f });
+    }
+
+    position += velocity * fixedDeltaTime;
+    setPosition(position); // sync collider
 }
+
 
 
 

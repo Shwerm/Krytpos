@@ -17,6 +17,9 @@ private:
     float movementSpeed;
     float attackMultiplier;
     SpriteRenderer spriteRenderer;
+    bool movingLeft = true;
+    bool isGrounded = false;
+
 
 public:
     EnemyClass(

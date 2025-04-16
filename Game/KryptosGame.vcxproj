@@ -125,7 +125,7 @@
       <PreprocessorDefinitions>SFML_STATIC</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
-      <AdditionalIncludeDirectories>$(SolutionDir)Engine/Include;$(SolutionDir)Engine/Libraries/SFML-3.0.0/include;$(SolutionDir)Engine/Libraries/spdlog/include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Engine/Include;$(SolutionDir)Engine/Libraries/SFML-3.0.0/include;$(SolutionDir)Engine/Libraries/spdlog/include;$(SolutionDir)Engine/Libraries/SFML-3.0.0/lib</AdditionalIncludeDirectories>
       <AdditionalOptions>/utf-8
  %(AdditionalOptions)</AdditionalOptions>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
@@ -152,7 +152,7 @@
       <PreprocessorDefinitions>SFML_STATIC</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
-      <AdditionalIncludeDirectories>$(SolutionDir)Engine/Include;$(SolutionDir)Engine/Libraries/SFML-3.0.0/include;$(SolutionDir)Engine/Libraries/spdlog/include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Engine/Include;$(SolutionDir)Engine/Libraries/SFML-3.0.0/include;$(SolutionDir)Engine/Libraries/spdlog/include;$(SolutionDir)Engine/Libraries/SFML-3.0.0/lib</AdditionalIncludeDirectories>
       <AdditionalOptions>/utf-8
  %(AdditionalOptions)</AdditionalOptions>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>

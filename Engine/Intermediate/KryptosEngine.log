@@ -1,18 +1,20 @@
-﻿  EnemyClass.cpp
-  CameraController.cpp
-  Collider2D.cpp
-  EnvironmentGenerator.cpp
-  Platform.cpp
-  PlatformFactory.cpp
-  EngineInit.cpp
-  DebugWindowLogger.cpp
-  Logger.cpp
-  GameObjectManager.cpp
-  DebugWindow.cpp
-  GameObject.cpp
-  Player.cpp
-  SpriteRenderer.cpp
-  SpriteRendererLogger.cpp
+﻿cl : command line  warning D9035: option 'Gm' has been deprecated and will be removed in a future release
+  EnemyClass.cpp
   Generating Code...
+  Skipping... (no relevant changes detected)
+  SpriteRendererLogger.cpp
+  SpriteRenderer.cpp
+  Player.cpp
+  GameObject.cpp
+  DebugWindow.cpp
+  GameObjectManager.cpp
+  Logger.cpp
+  DebugWindowLogger.cpp
+  EngineInit.cpp
+  PlatformFactory.cpp
+  Platform.cpp
+  EnvironmentGenerator.cpp
+  Collider2D.cpp
+  CameraController.cpp
   KryptosEngine.vcxproj -> D:\Personal Projects\Working Title - Kryptos\Kryptos\Engine\x64\Debug\Engine.lib
   3 File(s) copied

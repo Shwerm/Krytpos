@@ -389,6 +389,7 @@
       <AdditionalIncludeDirectories>$(ProjectDir)Libraries\spdlog\include;D:\Personal Projects\C++\Libraries\SFML\SFML-3.0.0\include\SFML</AdditionalIncludeDirectories>
       <AdditionalOptions>/utf-8
  %(AdditionalOptions)</AdditionalOptions>
+      <MinimalRebuild>true</MinimalRebuild>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>

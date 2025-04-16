@@ -11,7 +11,7 @@ EnemyClass::EnemyClass(
     const std::string& name,
     const sf::Vector2f& position,
     const std::string& texturePath)
-    : GameObject(name, position, true, sf::degrees(0), 1.0f, false),
+    : GameObject(name, position, true, sf::degrees(0), 1.0f, true),
     health(100.f),
     movementSpeed(200.f),
     attackMultiplier(1.f),
@@ -19,8 +19,8 @@ EnemyClass::EnemyClass(
 {
     // Hardcoded sprite sheet frame: Walk Frame 1
     sf::IntRect initialFrame;
-    initialFrame.position = { , -1 };
-    initialFrame.size = { 32, 48 };
+    initialFrame.position = { 64, 36 };
+    initialFrame.size = { 32, 38 };
 
 
     spriteRenderer.loadTexture(texturePath);
@@ -28,7 +28,7 @@ EnemyClass::EnemyClass(
     spriteRenderer.setPosition(position);
     spriteRenderer.setOrigin({ 16.f, 24.f }); // Centered origin
 
-    addCollider({ 32.f, 48.f }, { 16.f, 0.f });
+    addCollider({ 32.f, 38.f }, { -16.f, -24.f });
 
     // Debug tracking
     registerDebugVariable("Health", health);
@@ -39,6 +39,27 @@ EnemyClass::EnemyClass(
 void EnemyClass::update(float deltaTime) {
     GameObject::update(deltaTime); // Apply gravity and velocity
 
+
+    // Ground collision detection
+    for (auto* obj : GameObjectManager::getInstance().getGameObjects()) {
+        if (obj == this || !obj->hasCollider()) continue;
+
+        if (Collider2D::intersects(*getCollider(), *obj->getCollider())) {
+            const auto& b = obj->getCollider()->getBounds();
+            const auto& a = getCollider()->getBounds();
+
+            const float verticalThreshold = 5.f;
+            bool landingFromAbove = (position.y + a.size.y <= b.position.y + verticalThreshold);
+
+            if (landingFromAbove && velocity.y >= 0.f) {
+                position.y = b.position.y - a.size.y;
+                velocity.y = 0.f;
+            }
+        }
+    }
+
+    // Sync position
+    setPosition(position);
     // Basic movement logic (placeholder)
     spriteRenderer.setPosition(position);
 }

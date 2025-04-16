@@ -8,3 +8,4 @@
 #include "PlayerClass/player.hpp"
 #include "SpriteRenderingSystem/spriteRenderer.hpp"
 #include "CameraSystem/PlayerCamera.hpp"
+#include "UI/HealthBar.h"

@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Include\UI\HealthBar.h" />
     <ClInclude Include="Include\EnemyClass\EnemyClass.h" />
     <ClInclude Include="Include\CameraSystem\CameraController.h" />
     <ClInclude Include="Include\2DCollider\Collider2D.h" />
@@ -257,6 +258,7 @@
     <ClInclude Include="ThirdParty\spdlog\include\spdlog\version.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Source\UI\HealthBar.cpp" />
     <ClCompile Include="Source\EnemyClass\EnemyClass.cpp" />
     <ClCompile Include="Source\CameraSystem\CameraController.cpp" />
     <ClCompile Include="Source\2DCollider\Collider2D.cpp" />

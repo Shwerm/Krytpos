@@ -28,7 +28,8 @@ protected:
     void registerDebugVariable(const std::string& name, T& variable);
 
 public:
-    GameObject(const std::string& name,
+    GameObject(
+        const std::string& name,
         const sf::Vector2f& position,
         const bool& active,
         const sf::Angle& rotation,

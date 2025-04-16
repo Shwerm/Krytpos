@@ -1,33 +1,66 @@
+// EnemyClass.cpp - Kryptos Enemy Game Object Class Implementation
+
+#include <SFML/Graphics.hpp>
+#include <SFML/Window/Keyboard.hpp>
 #include "../../Include/EnemyClass/EnemyClass.h"
-#include <iostream>
+#include "../../Include/GameObjectSystem/GameObjectManager.h"
+#include "../../Include/Physics/PhysicsConstants.h"
 
-EnemyClass::EnemyClass(const std::string& name,
-    const sf::Vector2f& spawnPos,
-    float patrolLeft,
-    float patrolRight)
-    : EnemyBase(name, spawnPos, patrolLeft, patrolRight)
+EnemyClass::EnemyClass(
+    const std::string& name,
+    const sf::Vector2f& position,
+    const std::string& texturePath)
+    : GameObject(name, position, true, sf::degrees(0), 1.0f, true),
+	health(100.f),
+	movementSpeed(200.f),
+	attackMultiplier(1.f),
+	spriteRenderer(name)
 {
-    spriteRenderer = std::make_unique<SpriteRenderer>(name);
-    spriteRenderer->loadTexture("Assets/EngineAssets/Textures/Enemies/EnemySpriteSheet.png"); // Update path
-    spriteRenderer->setPosition(spawnPos);
 
-    addCollider({ 32.f, 48.f }); // Example collider size
+    // Debug tracking registration
+    registerDebugVariable("Health", this->health);
+    registerDebugVariable("Speed", this->movementSpeed);
+    registerDebugVariable("AttackMultiplier", this->attackMultiplier);
+}
+
+void EnemyClass::update(float deltaTime) {
+    GameObject::update(deltaTime); // include physics, gravity, etc.
+
+    // Basic movement logic (optional)
+    position.x += movementSpeed * deltaTime;
+    spriteRenderer.setPosition(position);
 }
 
 void EnemyClass::draw(sf::RenderWindow& window) {
-    if (spriteRenderer) {
-        spriteRenderer->draw(window);
-    }
+    window.draw(spriteRenderer);
 }
 
+// Getters
+float EnemyClass::getHealth() const {
+    return health;
+}
 
-void EnemyClass::tryAttack(const sf::Vector2f& playerPos) {
-    if (attackCooldownTimer > 0.0f)
-        return;
+float EnemyClass::getMovementSpeed() const {
+    return movementSpeed;
+}
 
-    attackCooldownTimer = attackCooldown;
+float EnemyClass::getAttackMultiplier() const {
+    return attackMultiplier;
+}
 
-    std::cout << "[EnemyMelee] Attack at " << playerPos.x << ", " << playerPos.y << "\n";
+const sf::Sprite& EnemyClass::getSpriteRenderer() const {
+    return spriteRenderer;
+}
 
-    // Future: spawn a hitbox here, or check overlap with player
+// Setters
+void EnemyClass::setHealth(float value) {
+    health = value;
+}
+
+void EnemyClass::setMovementSpeed(float value) {
+    movementSpeed = value;
+}
+
+void EnemyClass::setAttackMultiplier(float value) {
+    attackMultiplier = value;
 }

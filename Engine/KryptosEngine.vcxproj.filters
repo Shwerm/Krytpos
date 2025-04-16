@@ -723,9 +723,6 @@
     <ClInclude Include="Include\EnemyClass\EnemyClass.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Include\EnemyClass\EnemyBase.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\GameObjectSystem\GameObject.cpp">
@@ -771,9 +768,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Source\EnemyClass\EnemyClass.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\EnemyClass\EnemyBase.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

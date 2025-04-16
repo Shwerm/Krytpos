@@ -19,11 +19,10 @@ Player::Player(
 {
     spriteRenderer.loadTexture(texturePath);
     spriteRenderer.setPosition(position);
-    useGravity = true;
+    spriteRenderer.setOrigin({ 16.f, 24.f }); // Center for a 32x48 sprite
 
     addCollider({ 32.f, 48.f }, { 16.f, 0.f });
 
-    // Debug tracking
     registerDebugVariable("Health", health);
     registerDebugVariable("Attack Speed", attackSpeed);
     registerDebugVariable("Movement Speed", movementSpeed);
@@ -41,20 +40,21 @@ void Player::update(float deltaTime) {
         inputVelocity.x += movementSpeed;
     }
 
-    // Handle jumping
+    // Jumping
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Space) && isGrounded) {
-        velocity.y = -jumpMultiplier * 170.f; // Tuned jump impulse
+        velocity.y = -jumpMultiplier * 170.f;
         isGrounded = false;
     }
 
     velocity.x = inputVelocity.x;
 
-    // Apply gravity & movement
+    // Apply movement + gravity
     GameObject::update(deltaTime);
 
-    // Ground detection
+    // Reset grounded state, will be updated if collision occurs
     isGrounded = false;
 
+    // Ground collision detection
     for (auto* obj : GameObjectManager::getInstance().getGameObjects()) {
         if (obj == this || !obj->hasCollider()) continue;
 
@@ -62,7 +62,6 @@ void Player::update(float deltaTime) {
             const auto& b = obj->getCollider()->getBounds();
             const auto& a = getCollider()->getBounds();
 
-            // Check if player is landing on top of the object
             const float verticalThreshold = 5.f;
             bool landingFromAbove = (position.y + a.size.y <= b.position.y + verticalThreshold);
 
@@ -83,11 +82,13 @@ void Player::draw(sf::RenderWindow& window) {
     spriteRenderer.draw(window);
 
     bool showColliders = true;
-    if (showColliders && hasCollider())
+    if (showColliders && hasCollider()) {
         getCollider()->drawDebug(window);
+    }
 }
 
-// Getters and setters
+// Getter and Setter Implementations
+
 float Player::getHealth() const { return health; }
 void Player::setHealth(float value) { health = value; }
 

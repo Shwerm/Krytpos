@@ -8,8 +8,8 @@
  * @class Player
  * @brief Represents the player character in the Kryptos game engine.
  *
- * The Player class extends GameObject and includes player-specific attributes such as health,
- * movement speed, attack speed, and multipliers for attacks and jumping.
+ * Inherits from GameObject and adds player-specific attributes such as
+ * health, movement speed, attack speed, and multipliers for attacking and jumping.
  */
 class Player : public GameObject {
 private:
@@ -18,15 +18,18 @@ private:
     float movementSpeed;
     float attackMultiplier;
     float jumpMultiplier;
-    bool isGrounded = false; ///< Whether the player is currently grounded
+    bool isGrounded = false; ///< Tracks if the player is currently grounded
     SpriteRenderer spriteRenderer;
 
 public:
-    Player(const std::string& name, const sf::Vector2f& position, const std::string& texturePath);
+    Player(
+        const std::string& name,
+        const sf::Vector2f& position,
+        const std::string& texturePath);
     ~Player() override = default;
 
-    void update(float deltaTime);
-    void draw(sf::RenderWindow& window);
+    void update(float deltaTime) override;
+    void draw(sf::RenderWindow& window) override;
 
     // Getters and setters for health
     float getHealth() const;

@@ -6,7 +6,7 @@ HealthBarObject::HealthBarObject(Player* playerRef, const sf::Vector2f& screenSi
     backgroundRenderer("HealthBar_BG"),
     fillRenderer("HealthBar_Fill"),
     player(playerRef),
-    offsetFromBottomRight({ -250.f, 100.f }) // adjust for size of bar
+    offsetFromBottomRight({ 20.f, 40.f }) // adjust for size of bar
 {
     // Load both textures
     backgroundRenderer.loadTexture("Assets/EngineAssets/Textures/UI/EmptyBar.png");

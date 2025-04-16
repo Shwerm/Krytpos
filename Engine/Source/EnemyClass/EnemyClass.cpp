@@ -1,5 +1,5 @@
 #include <SFML/Graphics.hpp>
-#include <SFML/Window/Keyboard.hpp>
+#include <SFML/Window/Keyboard.hpp> 
 #include <iostream>
 
 #include "../../Include/EnemyClass/EnemyClass.h"
@@ -16,21 +16,37 @@ EnemyClass::EnemyClass(
     attackMultiplier(1.f),
     spriteRenderer(name)
 {
-    sf::IntRect initialFrame;
-    initialFrame.position = { 64, 36 };
-    initialFrame.size = { 32, 38 };
+    std::cout << "[EnemyClass] constructor start\n";
 
-    spriteRenderer.loadTexture(texturePath);
-    spriteRenderer.setTextureRect(initialFrame);
+    // Attempt to load texture with crash safety
+    try {
+        spriteRenderer.loadTexture(texturePath);
+
+        sf::IntRect initialFrame;
+        initialFrame.position = { 64, 36 };
+        initialFrame.size = { 32, 38 };
+
+        spriteRenderer.setTextureRect(initialFrame);
+    }
+    catch (const std::exception& e) {
+        std::cerr << "[EnemyClass] Texture load error: " << e.what() << "\n";
+        throw; // Rethrow so engine-level handler can catch and log it
+    }
+
     spriteRenderer.setPosition(position);
     spriteRenderer.setOrigin({ 16.f, 24.f });
 
-    addCollider({ 32.f, 38.f }, { -16.f, -24.f });
+    addCollider({ 24.f, 38.f }, { -10.f, -24.f });
 
     registerDebugVariable("Health", health);
     registerDebugVariable("Speed", movementSpeed);
     registerDebugVariable("AttackMultiplier", attackMultiplier);
+
+    std::cout << "[EnemyClass] constructor end\n";
 }
+
+
+
 
 void EnemyClass::update(float deltaTime) {
     // No physics here anymore — visuals only
@@ -52,6 +68,7 @@ void EnemyClass::fixedUpdate(float fixedDeltaTime) {
     for (auto* obj : GameObjectManager::getInstance().getGameObjects()) {
         if (!obj || obj == this || !obj->hasCollider()) continue;
 
+    std::cout << "[EnemyClass] Gravity + Collider check passed\n";
         const auto myBounds = myCollider->getBounds();
         const auto otherBounds = obj->getCollider()->getBounds();
 
@@ -69,7 +86,7 @@ void EnemyClass::fixedUpdate(float fixedDeltaTime) {
         }
     }
 
-    // --- Patrolling logic
+    //// --- Patrolling logic
     if (isGrounded) {
         float direction = movingLeft ? -1.f : 1.f;
         velocity.x = direction * movementSpeed;
@@ -105,24 +122,22 @@ void EnemyClass::fixedUpdate(float fixedDeltaTime) {
 
         // Safely flip sprite scale
         try {
-            spriteRenderer.setScale({ movingLeft ? -1.f : 1.f, 1.f });
+           spriteRenderer.setScale({ movingLeft ? -1.f : 1.f, 1.f });
         }
         catch (...) {
             std::cerr << "[EnemyClass] spriteRenderer.setScale() threw unexpectedly!\n";
         }
     }
 
-    // Apply final movement
+    //// Apply final movement
     position += velocity * fixedDeltaTime;
     setPosition(position); // Sync collider
 
     // --- Debug logs
-    std::cout << "[EnemyClass] Pos: (" << position.x << ", " << position.y << ")"
+    /*std::cout << "[EnemyClass] Pos: (" << position.x << ", " << position.y << ")"
         << " | Vel: (" << velocity.x << ", " << velocity.y << ")"
-        << " | Grounded: " << (isGrounded ? "Yes" : "No") << "\n";
+        << " | Grounded: " << (isGrounded ? "Yes" : "No") << "\n";*/
 }
-
-
 
 void EnemyClass::draw(sf::RenderWindow& window) {
     spriteRenderer.draw(window);

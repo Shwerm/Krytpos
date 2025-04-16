@@ -12,7 +12,6 @@
 *.ilk
 *.exe
 *.dll
-*.lib
 .vs/
 
 # Build folders

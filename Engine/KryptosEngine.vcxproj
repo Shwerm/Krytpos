@@ -287,6 +287,8 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="EngineAssets\Textures\Enemies\EnemySpriteSheet.png" />
+    <Image Include="EngineAssets\Textures\UI\EmptyBar.png" />
+    <Image Include="EngineAssets\Textures\UI\RedBar.png" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>

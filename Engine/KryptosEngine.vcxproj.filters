@@ -791,5 +791,11 @@
     <Image Include="EngineAssets\Textures\Enemies\EnemySpriteSheet.png">
       <Filter>Resource Files</Filter>
     </Image>
+    <Image Include="EngineAssets\Textures\UI\EmptyBar.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="EngineAssets\Textures\UI\RedBar.png">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
 </Project>

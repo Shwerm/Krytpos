@@ -11,7 +11,7 @@ Player::Player(
     const std::string& texturePath)
     : GameObject(name, position, true, sf::degrees(0), 1.0f, true),
     health(100.f),
-    maxHealth(100.f);
+    maxHealth(100.f),
     attackSpeed(1.f),
     movementSpeed(200.f),
     attackMultiplier(1.f),

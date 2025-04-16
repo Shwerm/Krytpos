@@ -37,27 +37,36 @@ void EnemyClass::update(float deltaTime) {
 }
 
 void EnemyClass::fixedUpdate(float fixedDeltaTime) {
-    GameObject::fixedUpdate(fixedDeltaTime); // Apply gravity and velocity
+    GameObject::fixedUpdate(fixedDeltaTime); // Apply gravity
+
+    if (!hasCollider()) return;
+    auto* myCollider = getCollider();
+    const auto myBounds = myCollider->getBounds();
 
     for (auto* obj : GameObjectManager::getInstance().getGameObjects()) {
         if (obj == this || !obj->hasCollider()) continue;
 
-        if (Collider2D::intersects(*getCollider(), *obj->getCollider())) {
-            const auto& b = obj->getCollider()->getBounds();
-            const auto& a = getCollider()->getBounds();
+        const auto otherBounds = obj->getCollider()->getBounds();
 
+        if (Collider2D::intersects(*myCollider, *obj->getCollider())) {
             const float verticalThreshold = 5.f;
-            bool landingFromAbove = (position.y + a.size.y <= b.position.y + verticalThreshold);
+
+            const float myBottom = myBounds.position.y + myBounds.size.y;
+            const float platformTop = otherBounds.position.y;
+
+            const bool landingFromAbove = (myBottom <= platformTop + verticalThreshold);
 
             if (landingFromAbove && velocity.y >= 0.f) {
-                position.y = b.position.y - a.size.y;
+                position.y = platformTop - myBounds.size.y - (myBounds.position.y - position.y);
                 velocity.y = 0.f;
             }
         }
     }
 
-    setPosition(position); // Update collider
+    setPosition(position); // sync collider position
 }
+
+
 
 void EnemyClass::draw(sf::RenderWindow& window) {
     spriteRenderer.draw(window);

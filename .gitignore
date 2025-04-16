@@ -10,7 +10,6 @@
 *.pch
 *.pdb
 *.ilk
-*.exe
 *.dll
 .vs/
 

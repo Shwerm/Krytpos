@@ -349,8 +349,8 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <OutDir>.\x64\Debug\</OutDir>
-    <IncludePath>D:\Personal Projects\C++\Libraries\SFML\SFML-3.0.0\include;D:\Personal Projects\Working Title - Kryptos\Krytpos\Engine\KryptosEngine\Include;$(IncludePath)</IncludePath>
-    <LibraryPath>D:\Personal Projects\C++\Libraries\SFML\SFML-3.0.0\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(ProjectDir)Libraries\SFML-3.0.0\include\SFML;$(SolutionDir)Engine\KryptosEngine\Include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(ProjectDir)Libraries\SFML-3.0.0\lib;$(LibraryPath)</LibraryPath>
     <IntDir>.\Intermediate\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -394,10 +394,11 @@
       <PreprocessorDefinitions>SFML_STATIC</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
-      <AdditionalIncludeDirectories>$(ProjectDir)Libraries\spdlog\include;D:\Personal Projects\C++\Libraries\SFML\SFML-3.0.0\include\SFML</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)Libraries/SFML-3.0.0/include;$(ProjectDir)Libraries/spdlog/include</AdditionalIncludeDirectories>
       <AdditionalOptions>/utf-8
  %(AdditionalOptions)</AdditionalOptions>
       <MinimalRebuild>false</MinimalRebuild>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -418,10 +419,11 @@
       <PreprocessorDefinitions>SFML_STATIC</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
-      <AdditionalIncludeDirectories>$(ProjectDir)ThirdParty\spdlog\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)Libraries/SFML-3.0.0/include;$(ProjectDir)Libraries/spdlog/include</AdditionalIncludeDirectories>
       <AdditionalOptions>/utf-8
  %(AdditionalOptions)</AdditionalOptions>
       <MinimalRebuild>false</MinimalRebuild>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>

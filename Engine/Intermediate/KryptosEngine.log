@@ -1,6 +1,5 @@
 ﻿  HealthBar.cpp
   EnemyClass.cpp
-D:\Personal Projects\Working Title - Kryptos\Kryptos\Engine\Source\EnemyClass\EnemyClass.cpp(1,1): warning C4828: The file contains a character starting at offset 0x5ac that is illegal in the current source character set (codepage 65001).
   CameraController.cpp
   Collider2D.cpp
   EnvironmentGenerator.cpp

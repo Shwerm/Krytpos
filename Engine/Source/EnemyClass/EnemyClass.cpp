@@ -46,7 +46,7 @@ EnemyClass::EnemyClass(
 
 
 void EnemyClass::update(float deltaTime) {
-    // No physics here anymore — visuals only
+    // No physics here anymore - visuals only
     spriteRenderer.setPosition(position);
 }
 
@@ -82,7 +82,7 @@ void EnemyClass::fixedUpdate(float fixedDeltaTime) {
         }
     }
 
-    //// --- Patrolling logic
+    // --- Patrolling logic
     if (isGrounded) {
         float direction = movingLeft ? -1.f : 1.f;
         velocity.x = direction * movementSpeed;
@@ -125,7 +125,7 @@ void EnemyClass::fixedUpdate(float fixedDeltaTime) {
         }
     }
 
-    //// Apply final movement
+    // Apply final movement
     position += velocity * fixedDeltaTime;
     setPosition(position); // Sync collider
 

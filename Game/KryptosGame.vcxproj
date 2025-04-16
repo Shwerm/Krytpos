@@ -22,11 +22,6 @@
     <ClCompile Include="SourceFiles\main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Engine\KryptosEngine\KryptosEngine.vcxproj">
-      <Project>{fa92a39c-c4e6-4a5c-a834-51c19a5e427f}</Project>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Font Include="EngineAssets\Fonts\DebugWindowFont\AtkinsonHyperlegible-Bold.ttf" />
     <Font Include="EngineAssets\Fonts\DebugWindowFont\AtkinsonHyperlegible-Regular.ttf" />
   </ItemGroup>
@@ -134,7 +129,7 @@
       <AdditionalOptions>/utf-8
  %(AdditionalOptions)</AdditionalOptions>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
-      <MinimalRebuild>true</MinimalRebuild>
+      <MinimalRebuild>false</MinimalRebuild>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>

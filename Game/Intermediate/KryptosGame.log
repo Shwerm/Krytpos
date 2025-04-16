@@ -1,5 +1,2 @@
-﻿D:\VisualStudio\MSBuild\Current\Bin\amd64\Microsoft.Common.CurrentVersion.targets(2176,5): warning : The referenced project '..\..\..\Engine\KryptosEngine\KryptosEngine.vcxproj' does not exist.
-cl : command line  warning D9035: option 'Gm' has been deprecated and will be removed in a future release
-  Skipping... (no relevant changes detected)
-  main.cpp
+﻿  main.cpp
   KryptosGame.vcxproj -> D:\Personal Projects\Working Title - Kryptos\Kryptos\Game\x64\Debug\Game.exe

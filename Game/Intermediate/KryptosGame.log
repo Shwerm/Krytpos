@@ -1,3 +1,9 @@
 ﻿D:\VisualStudio\MSBuild\Current\Bin\amd64\Microsoft.Common.CurrentVersion.targets(2176,5): warning : The referenced project '..\..\..\Engine\KryptosEngine\KryptosEngine.vcxproj' does not exist.
+cl : command line  warning D9035: option 'Gm' has been deprecated and will be removed in a future release
   main.cpp
-  KryptosGame.vcxproj -> D:\Personal Projects\Working Title - Kryptos\Kryptos\Game\x64\Debug\Game.exe
+D:\Personal Projects\Working Title - Kryptos\Kryptos\Game\SourceFiles\main.cpp(57,15): error C2660: 'EnvironmentGenerator::generate': function does not take 0 arguments
+      D:\Personal Projects\Working Title - Kryptos\Kryptos\Engine\Include\EnvironmentGenerator\EnvironmentGenerator.h(16,10):
+      see declaration of 'EnvironmentGenerator::generate'
+      D:\Personal Projects\Working Title - Kryptos\Kryptos\Game\SourceFiles\main.cpp(57,15):
+      while trying to match the argument list '()'
+  

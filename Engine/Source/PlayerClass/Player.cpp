@@ -15,7 +15,8 @@ Player::Player(
     movementSpeed(200.f),
     attackMultiplier(1.f),
     jumpMultiplier(1.f),
-    spriteRenderer(name)
+    spriteRenderer(name),
+    respawnPosition(position) // default fallback
 {
     spriteRenderer.loadTexture(texturePath);
     spriteRenderer.setPosition(position);
@@ -72,6 +73,12 @@ void Player::update(float deltaTime) {
         }
     }
 
+    // Fall check
+    if (position.y > fallThresholdY) {
+        position = respawnPosition;
+        velocity = { 0.f, 0.f };
+    }
+
     // Sync position
     setPosition(position);
     spriteRenderer.setPosition(position);
@@ -86,7 +93,9 @@ void Player::draw(sf::RenderWindow& window) {
     }
 }
 
-// Getter and Setter Implementations
+void Player::setRespawnPosition(const sf::Vector2f& position) {
+    respawnPosition = position;
+}
 
 float Player::getHealth() const { return health; }
 void Player::setHealth(float value) { health = value; }

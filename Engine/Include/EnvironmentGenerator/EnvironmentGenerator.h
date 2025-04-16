@@ -7,12 +7,13 @@
 #include <memory>
 
 class Platform;
+class Player;
 
 class EnvironmentGenerator {
 public:
     EnvironmentGenerator(const TerrainGenerationSettings& settings, const sf::Vector2f& startPosition);
 
-    void generate();
+    void generate(Player* player);
 
 private:
     void spawnPlatform();

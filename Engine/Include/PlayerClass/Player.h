@@ -21,6 +21,9 @@ private:
     bool isGrounded = false; ///< Tracks if the player is currently grounded
     SpriteRenderer spriteRenderer;
 
+    sf::Vector2f respawnPosition;  ///< The position to respawn to
+    float fallThresholdY = 1000.f; ///< Y value below which the player respawns
+
 public:
     Player(
         const std::string& name,
@@ -30,6 +33,8 @@ public:
 
     void update(float deltaTime) override;
     void draw(sf::RenderWindow& window) override;
+
+    void setRespawnPosition(const sf::Vector2f& position);
 
     // Getters and setters for health
     float getHealth() const;

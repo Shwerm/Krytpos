@@ -44,3 +44,10 @@ void GameObjectManager::unregisterObject(GameObject* object) {
 const std::vector<GameObject*>& GameObjectManager::getGameObjects() const {
     return gameObjects;
 }
+
+void GameObjectManager::fixedUpdateAll(float fixedDeltaTime) {
+    for (auto* object : gameObjects) {
+        object->fixedUpdate(fixedDeltaTime);
+    }
+}
+

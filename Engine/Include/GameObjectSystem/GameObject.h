@@ -39,9 +39,9 @@ public:
     virtual ~GameObject();
 
     virtual void update(float deltaTime);
+    virtual void fixedUpdate(float fixedDeltaTime); // NEW
 
     virtual void draw(sf::RenderWindow& window) {}
-
 
     std::string getName() const;
     sf::Vector2f getPosition() const;
@@ -64,7 +64,6 @@ public:
     virtual const std::unordered_map<std::string, std::function<std::string()>>& getDebugTrackedValues() const;
 };
 
-// Template definition must be outside the class body
 template <typename T>
 void GameObject::registerDebugVariable(const std::string& name, T& variable) {
     debugTrackedValues[name] = [&variable]() -> std::string {

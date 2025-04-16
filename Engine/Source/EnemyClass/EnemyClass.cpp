@@ -11,7 +11,7 @@ EnemyClass::EnemyClass(
     const std::string& name,
     const sf::Vector2f& position,
     const std::string& texturePath)
-    : GameObject(name, position, true, sf::degrees(0), 1.0f, true),
+    : GameObject(name, position, true, sf::degrees(0), 1.0f, false),
     health(100.f),
     movementSpeed(200.f),
     attackMultiplier(1.f),
@@ -19,7 +19,7 @@ EnemyClass::EnemyClass(
 {
     // Hardcoded sprite sheet frame: Walk Frame 1
     sf::IntRect initialFrame;
-    initialFrame.position = { 0, 0 };
+    initialFrame.position = { , -1 };
     initialFrame.size = { 32, 48 };
 
 
@@ -40,7 +40,6 @@ void EnemyClass::update(float deltaTime) {
     GameObject::update(deltaTime); // Apply gravity and velocity
 
     // Basic movement logic (placeholder)
-    position.x += movementSpeed * deltaTime;
     spriteRenderer.setPosition(position);
 }
 

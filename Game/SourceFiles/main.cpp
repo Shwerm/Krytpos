@@ -59,6 +59,9 @@ int main() {
     KryptosEngine::DebugWindow::DebugWindow debugWindow;
     debugWindow.initialise();
 
+    const float fixedDeltaTime = 1.f / 60.f; // 60 Hz physics
+    float accumulator = 0.f;
+
     sf::Clock clock;
 
     while (window.isOpen()) {
@@ -69,18 +72,22 @@ int main() {
             }
         }
 
-        float deltaTime = clock.restart().asSeconds();
+        float frameTime = clock.restart().asSeconds();
+        accumulator += std::min(frameTime, 0.1f); // prevent massive spikes on window focus
 
-        for (GameObject* obj : GameObjectManager::getInstance().getGameObjects()) {
-            obj->update(deltaTime);
+        // Fixed timestep physics
+        while (accumulator >= fixedDeltaTime) {
+            GameObjectManager::getInstance().fixedUpdateAll(fixedDeltaTime);
+            accumulator -= fixedDeltaTime;
         }
 
-        // Update camera based on player's current position
+        // Visual/input updates
+        for (GameObject* obj : GameObjectManager::getInstance().getGameObjects()) {
+            obj->update(frameTime);
+        }
+
         camera.Update(player.getPosition());
-
         debugWindow.handleInput();
-
-        // Apply camera view to window
         camera.ApplyView(window);
 
         window.clear();
@@ -97,6 +104,7 @@ int main() {
 
         window.display();
     }
+
 
     return 0;
 }

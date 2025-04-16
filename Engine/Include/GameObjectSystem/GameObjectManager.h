@@ -76,4 +76,6 @@ public:
      * @return A constant reference to the vector of game object pointers.
      */
     const std::vector<GameObject*>& getGameObjects() const;
+
+    void fixedUpdateAll(float fixedDeltaTime); // Add to class definition
 };

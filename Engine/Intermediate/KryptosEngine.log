@@ -1,5 +1,4 @@
-﻿  EnemyBase.cpp
-  EnemyClass.cpp
+﻿  EnemyClass.cpp
   CameraController.cpp
   Collider2D.cpp
   EnvironmentGenerator.cpp

@@ -4,6 +4,7 @@
 #include "../../Include/EnvironmentGenerator/PlatformFactory.h"
 #include "../../Include/EnvironmentGenerator/RandomUtils.h"
 #include "../../Include/EnemyClass/EnemyClass.h"
+#include "../../Include/GameObjectSystem/GameObjectManager.h"
 #include <algorithm>
 
 EnvironmentGenerator::EnvironmentGenerator(const TerrainGenerationSettings& settings, const sf::Vector2f& startPosition)
@@ -52,6 +53,19 @@ void EnvironmentGenerator::spawnPlatform() {
     platforms.push_back(platform);
 
     nextSpawnPosition = spawnPos;
+
+    // --- Spawn enemies on the platform ---
+    if (Random::Chance(0.5f)) {
+        std::string enemyTexturePath = "Assets/EngineAssets/Textures/Enemies/EnemySpriteSheet.png";
+
+        // Offset so enemy spawns on top of the platform
+        sf::Vector2f enemySpawnPos = spawnPos;
+        enemySpawnPos.y -= 48.f; // adjust based on your enemy sprite height
+
+        auto enemy = new EnemyClass("Enemy", enemySpawnPos, enemyTexturePath);
+        GameObjectManager::getInstance().registerObject(enemy);
+    }
+
 }
 
 void EnvironmentGenerator::spawnFinishPoint() {

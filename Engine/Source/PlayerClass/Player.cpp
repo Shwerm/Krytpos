@@ -19,7 +19,6 @@ Player::Player(
 {
     spriteRenderer.loadTexture(texturePath);
     spriteRenderer.setPosition(position);
-    spriteRenderer.setOrigin({ 16.f, 24.f }); // Center for a 32x48 sprite
 
     addCollider({ 32.f, 48.f }, { 16.f, 0.f });
 

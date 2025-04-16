@@ -4,12 +4,19 @@
 #include "../GameObjectSystem/GameObject.h"
 #include "../SpriteRenderingSystem/SpriteRenderer.h"
 
+/**
+ * @class EnemyClass
+ * @brief Represents an enemy entity inheriting from GameObject.
+ *
+ * Handles unique enemy attributes such as health, movement speed,
+ * attack multiplier, and visual rendering using a sprite sheet.
+ */
 class EnemyClass : public GameObject {
 private:
     float health;
     float movementSpeed;
     float attackMultiplier;
-    sf::Sprite spriteRenderer;
+    SpriteRenderer spriteRenderer;
 
 public:
     EnemyClass(
@@ -26,7 +33,6 @@ public:
     float getHealth() const;
     float getMovementSpeed() const;
     float getAttackMultiplier() const;
-    const sf::Sprite& getSpriteRenderer() const;
 
     // Setters
     void setHealth(float value);

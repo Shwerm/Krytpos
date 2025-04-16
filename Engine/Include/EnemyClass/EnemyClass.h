@@ -20,6 +20,10 @@ private:
     bool movingLeft = true;
     bool isGrounded = false;
 
+    float flipCooldown = 0.f;
+    const float flipCooldownDuration = 0.4f; // seconds
+
+
 
 public:
     EnemyClass(

@@ -1,5 +1,6 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/Window/Keyboard.hpp>
+#include <iostream>
 
 #include "../../Include/EnemyClass/EnemyClass.h"
 #include "../../Include/GameObjectSystem/GameObjectManager.h"
@@ -11,7 +12,7 @@ EnemyClass::EnemyClass(
     const std::string& texturePath)
     : GameObject(name, position, true, sf::degrees(0), 1.0f, true),
     health(100.f),
-    movementSpeed(200.f),
+    movementSpeed(15.f),
     attackMultiplier(1.f),
     spriteRenderer(name)
 {
@@ -44,9 +45,12 @@ void EnemyClass::fixedUpdate(float fixedDeltaTime) {
     auto* myCollider = getCollider();
     isGrounded = false;
 
-    // Check for grounding on platforms
+    // Decrease flip cooldown timer
+    flipCooldown = std::max(0.f, flipCooldown - fixedDeltaTime);
+
+    // --- Grounding logic
     for (auto* obj : GameObjectManager::getInstance().getGameObjects()) {
-        if (obj == this || !obj->hasCollider()) continue;
+        if (!obj || obj == this || !obj->hasCollider()) continue;
 
         const auto myBounds = myCollider->getBounds();
         const auto otherBounds = obj->getCollider()->getBounds();
@@ -56,59 +60,67 @@ void EnemyClass::fixedUpdate(float fixedDeltaTime) {
         const float myBottom = myBounds.position.y + myBounds.size.y;
         const float platformTop = otherBounds.position.y;
 
-        const bool landingFromAbove = (myBottom <= platformTop + verticalThreshold);
-
         if (Collider2D::intersects(*myCollider, *obj->getCollider()) &&
-            landingFromAbove && velocity.y >= 0.f) {
-            // Adjust position to sit flush on the platform
+            myBottom <= platformTop + verticalThreshold &&
+            velocity.y >= 0.f) {
             position.y = platformTop - myBounds.size.y - (myBounds.position.y - position.y);
             velocity.y = 0.f;
             isGrounded = true;
         }
     }
 
-    // --- Patrol movement logic
+    // --- Patrolling logic
     if (isGrounded) {
         float direction = movingLeft ? -1.f : 1.f;
         velocity.x = direction * movementSpeed;
 
-        // Check for edge using a small point ahead of the feet
-        const auto myBounds = getCollider()->getBounds();
+        const auto bounds = getCollider()->getBounds(); // Re-fetch after gravity/grounding
+
+        // Small probe point just ahead of forward foot
         sf::Vector2f probePoint = {
-            myBounds.position.x + (movingLeft ? -4.f : myBounds.size.x + 4.f),
-            myBounds.position.y + myBounds.size.y + 2.f
+            bounds.position.x + (movingLeft ? -1.f : bounds.size.x + 1.f),
+            bounds.position.y + bounds.size.y + 1.f
         };
 
-        bool hasGround = false;
+        bool groundAhead = false;
         for (auto* obj : GameObjectManager::getInstance().getGameObjects()) {
-            if (obj == this || !obj->hasCollider()) continue;
+            if (!obj || obj == this || !obj->hasCollider()) continue;
 
-            const auto bounds = obj->getCollider()->getBounds();
+            const auto groundBounds = obj->getCollider()->getBounds();
 
-            if (probePoint.x >= bounds.position.x &&
-                probePoint.x <= bounds.position.x + bounds.size.x &&
-                probePoint.y >= bounds.position.y &&
-                probePoint.y <= bounds.position.y + bounds.size.y) {
-                hasGround = true;
+            if (probePoint.x >= groundBounds.position.x &&
+                probePoint.x <= groundBounds.position.x + groundBounds.size.x &&
+                probePoint.y >= groundBounds.position.y &&
+                probePoint.y <= groundBounds.position.y + groundBounds.size.y) {
+                groundAhead = true;
                 break;
             }
         }
 
-        if (!hasGround) {
+        if (!groundAhead && flipCooldown <= 0.f) {
             movingLeft = !movingLeft;
             velocity.x = 0.f;
+            flipCooldown = flipCooldownDuration;
         }
 
-        // Flip sprite to face direction
-        spriteRenderer.setScale({ movingLeft ? -1.f : 1.f, 1.f });
+        // Safely flip sprite scale
+        try {
+            spriteRenderer.setScale({ movingLeft ? -1.f : 1.f, 1.f });
+        }
+        catch (...) {
+            std::cerr << "[EnemyClass] spriteRenderer.setScale() threw unexpectedly!\n";
+        }
     }
 
-    // Apply velocity and sync everything at the end
+    // Apply final movement
     position += velocity * fixedDeltaTime;
-    setPosition(position); // updates collider
+    setPosition(position); // Sync collider
+
+    // --- Debug logs
+    std::cout << "[EnemyClass] Pos: (" << position.x << ", " << position.y << ")"
+        << " | Vel: (" << velocity.x << ", " << velocity.y << ")"
+        << " | Grounded: " << (isGrounded ? "Yes" : "No") << "\n";
 }
-
-
 
 
 

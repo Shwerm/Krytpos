@@ -1038,6 +1038,29 @@
     <None Include="Libraries\SFML-3.0.0\include\SFML\System\Vector3.inl" />
     <None Include="Libraries\SFML-3.0.0\include\SFML\Window\Event.inl" />
     <None Include="Libraries\SFML-3.0.0\include\SFML\Window\WindowBase.inl" />
+    <None Include="Libraries\SFML-3.0.0\lib\Debug\FLACd.pdb" />
+    <None Include="Libraries\SFML-3.0.0\lib\Debug\freetyped.pdb" />
+    <None Include="Libraries\SFML-3.0.0\lib\Debug\oggd.pdb" />
+    <None Include="Libraries\SFML-3.0.0\lib\Debug\sfml-audio-s-d.pdb" />
+    <None Include="Libraries\SFML-3.0.0\lib\Debug\sfml-audio-s.pdb" />
+    <None Include="Libraries\SFML-3.0.0\lib\Debug\sfml-audio.pdb" />
+    <None Include="Libraries\SFML-3.0.0\lib\Debug\sfml-graphics-s-d.pdb" />
+    <None Include="Libraries\SFML-3.0.0\lib\Debug\sfml-graphics-s.pdb" />
+    <None Include="Libraries\SFML-3.0.0\lib\Debug\sfml-graphics.pdb" />
+    <None Include="Libraries\SFML-3.0.0\lib\Debug\sfml-main-s-d.pdb" />
+    <None Include="Libraries\SFML-3.0.0\lib\Debug\sfml-main.pdb" />
+    <None Include="Libraries\SFML-3.0.0\lib\Debug\sfml-network-s-d.pdb" />
+    <None Include="Libraries\SFML-3.0.0\lib\Debug\sfml-network-s.pdb" />
+    <None Include="Libraries\SFML-3.0.0\lib\Debug\sfml-network.pdb" />
+    <None Include="Libraries\SFML-3.0.0\lib\Debug\sfml-system-s-d.pdb" />
+    <None Include="Libraries\SFML-3.0.0\lib\Debug\sfml-system-s.pdb" />
+    <None Include="Libraries\SFML-3.0.0\lib\Debug\sfml-system.pdb" />
+    <None Include="Libraries\SFML-3.0.0\lib\Debug\sfml-window-s-d.pdb" />
+    <None Include="Libraries\SFML-3.0.0\lib\Debug\sfml-window-s.pdb" />
+    <None Include="Libraries\SFML-3.0.0\lib\Debug\sfml-window.pdb" />
+    <None Include="Libraries\SFML-3.0.0\lib\Debug\vorbisd.pdb" />
+    <None Include="Libraries\SFML-3.0.0\lib\Debug\vorbisencd.pdb" />
+    <None Include="Libraries\SFML-3.0.0\lib\Debug\vorbisfiled.pdb" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="GameAssets\Textures\Enemies\EnemySpriteSheet.png" />
@@ -1047,6 +1070,42 @@
     <Image Include="GameAssets\Textures\Player\KrillConcept03Reversed.png" />
     <Image Include="GameAssets\Textures\UI\EmptyBar.png" />
     <Image Include="GameAssets\Textures\UI\RedBar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="Libraries\SFML-3.0.0\lib\FLAC.lib" />
+    <Library Include="Libraries\SFML-3.0.0\lib\FLACd.lib" />
+    <Library Include="Libraries\SFML-3.0.0\lib\freetype.lib" />
+    <Library Include="Libraries\SFML-3.0.0\lib\freetyped.lib" />
+    <Library Include="Libraries\SFML-3.0.0\lib\ogg.lib" />
+    <Library Include="Libraries\SFML-3.0.0\lib\oggd.lib" />
+    <Library Include="Libraries\SFML-3.0.0\lib\sfml-audio-d.lib" />
+    <Library Include="Libraries\SFML-3.0.0\lib\sfml-audio-s-d.lib" />
+    <Library Include="Libraries\SFML-3.0.0\lib\sfml-audio-s.lib" />
+    <Library Include="Libraries\SFML-3.0.0\lib\sfml-audio.lib" />
+    <Library Include="Libraries\SFML-3.0.0\lib\sfml-graphics-d.lib" />
+    <Library Include="Libraries\SFML-3.0.0\lib\sfml-graphics-s-d.lib" />
+    <Library Include="Libraries\SFML-3.0.0\lib\sfml-graphics-s.lib" />
+    <Library Include="Libraries\SFML-3.0.0\lib\sfml-graphics.lib" />
+    <Library Include="Libraries\SFML-3.0.0\lib\sfml-main-s-d.lib" />
+    <Library Include="Libraries\SFML-3.0.0\lib\sfml-main-s.lib" />
+    <Library Include="Libraries\SFML-3.0.0\lib\sfml-network-d.lib" />
+    <Library Include="Libraries\SFML-3.0.0\lib\sfml-network-s-d.lib" />
+    <Library Include="Libraries\SFML-3.0.0\lib\sfml-network-s.lib" />
+    <Library Include="Libraries\SFML-3.0.0\lib\sfml-network.lib" />
+    <Library Include="Libraries\SFML-3.0.0\lib\sfml-system-d.lib" />
+    <Library Include="Libraries\SFML-3.0.0\lib\sfml-system-s-d.lib" />
+    <Library Include="Libraries\SFML-3.0.0\lib\sfml-system-s.lib" />
+    <Library Include="Libraries\SFML-3.0.0\lib\sfml-system.lib" />
+    <Library Include="Libraries\SFML-3.0.0\lib\sfml-window-d.lib" />
+    <Library Include="Libraries\SFML-3.0.0\lib\sfml-window-s-d.lib" />
+    <Library Include="Libraries\SFML-3.0.0\lib\sfml-window-s.lib" />
+    <Library Include="Libraries\SFML-3.0.0\lib\sfml-window.lib" />
+    <Library Include="Libraries\SFML-3.0.0\lib\vorbis.lib" />
+    <Library Include="Libraries\SFML-3.0.0\lib\vorbisd.lib" />
+    <Library Include="Libraries\SFML-3.0.0\lib\vorbisenc.lib" />
+    <Library Include="Libraries\SFML-3.0.0\lib\vorbisencd.lib" />
+    <Library Include="Libraries\SFML-3.0.0\lib\vorbisfile.lib" />
+    <Library Include="Libraries\SFML-3.0.0\lib\vorbisfiled.lib" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>

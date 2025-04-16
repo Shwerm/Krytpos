@@ -6,18 +6,12 @@
 *.opensdf
 *.sdf
 *.ipch
-*.obj
 *.pch
-*.pdb
 *.ilk
-*.dll
 .vs/
 
 # Build folders
 Build/
-bin/
-Debug/
-Release/
 
 # Documentation output
 Docs/html/

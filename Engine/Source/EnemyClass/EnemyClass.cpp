@@ -40,40 +40,44 @@ void EnemyClass::fixedUpdate(float fixedDeltaTime) {
     GameObject::fixedUpdate(fixedDeltaTime); // Apply gravity
 
     if (!hasCollider()) return;
-    auto* myCollider = getCollider();
-    const auto myBounds = myCollider->getBounds();
 
+    auto* myCollider = getCollider();
     isGrounded = false;
 
+    // Check for grounding on platforms
     for (auto* obj : GameObjectManager::getInstance().getGameObjects()) {
         if (obj == this || !obj->hasCollider()) continue;
 
+        const auto myBounds = myCollider->getBounds();
         const auto otherBounds = obj->getCollider()->getBounds();
 
-        if (Collider2D::intersects(*myCollider, *obj->getCollider())) {
-            const float verticalThreshold = 5.f;
+        const float verticalThreshold = 5.f;
 
-            const float myBottom = myBounds.position.y + myBounds.size.y;
-            const float platformTop = otherBounds.position.y;
+        const float myBottom = myBounds.position.y + myBounds.size.y;
+        const float platformTop = otherBounds.position.y;
 
-            const bool landingFromAbove = (myBottom <= platformTop + verticalThreshold);
+        const bool landingFromAbove = (myBottom <= platformTop + verticalThreshold);
 
-            if (landingFromAbove && velocity.y >= 0.f) {
-                position.y = platformTop - myBounds.size.y - (myBounds.position.y - position.y);
-                velocity.y = 0.f;
-                isGrounded = true;
-            }
+        if (Collider2D::intersects(*myCollider, *obj->getCollider()) &&
+            landingFromAbove && velocity.y >= 0.f) {
+            // Adjust position to sit flush on the platform
+            position.y = platformTop - myBounds.size.y - (myBounds.position.y - position.y);
+            velocity.y = 0.f;
+            isGrounded = true;
         }
     }
 
-    // --- Patrolling logic (only if grounded)
+    // --- Patrol movement logic
     if (isGrounded) {
         float direction = movingLeft ? -1.f : 1.f;
         velocity.x = direction * movementSpeed;
 
-        // Edge detection box
-        sf::Vector2f probeOffset = { direction * myBounds.size.x * 0.6f, 2.f }; // just ahead of feet
-        sf::Vector2f probePoint = { myBounds.position.x + probeOffset.x, myBounds.position.y + myBounds.size.y + probeOffset.y };
+        // Check for edge using a small point ahead of the feet
+        const auto myBounds = getCollider()->getBounds();
+        sf::Vector2f probePoint = {
+            myBounds.position.x + (movingLeft ? -4.f : myBounds.size.x + 4.f),
+            myBounds.position.y + myBounds.size.y + 2.f
+        };
 
         bool hasGround = false;
         for (auto* obj : GameObjectManager::getInstance().getGameObjects()) {
@@ -91,17 +95,19 @@ void EnemyClass::fixedUpdate(float fixedDeltaTime) {
         }
 
         if (!hasGround) {
-            movingLeft = !movingLeft; // Flip patrol direction
+            movingLeft = !movingLeft;
             velocity.x = 0.f;
         }
 
-        // Flip sprite if needed
+        // Flip sprite to face direction
         spriteRenderer.setScale({ movingLeft ? -1.f : 1.f, 1.f });
     }
 
+    // Apply velocity and sync everything at the end
     position += velocity * fixedDeltaTime;
-    setPosition(position); // sync collider
+    setPosition(position); // updates collider
 }
+
 
 
 

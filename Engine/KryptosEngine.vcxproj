@@ -490,6 +490,16 @@
     <None Include="DoxyGenFiles\Header\header.css" />
     <None Include="DoxyGenFiles\Header\header.html" />
     <None Include="Include\EnvironmentGenerator\enviro.hpp" />
+    <None Include="Libraries\SFML-3.0.0\bin\sfml-audio-3.dll" />
+    <None Include="Libraries\SFML-3.0.0\bin\sfml-audio-d-3.dll" />
+    <None Include="Libraries\SFML-3.0.0\bin\sfml-graphics-3.dll" />
+    <None Include="Libraries\SFML-3.0.0\bin\sfml-graphics-d-3.dll" />
+    <None Include="Libraries\SFML-3.0.0\bin\sfml-network-3.dll" />
+    <None Include="Libraries\SFML-3.0.0\bin\sfml-network-d-3.dll" />
+    <None Include="Libraries\SFML-3.0.0\bin\sfml-system-3.dll" />
+    <None Include="Libraries\SFML-3.0.0\bin\sfml-system-d-3.dll" />
+    <None Include="Libraries\SFML-3.0.0\bin\sfml-window-3.dll" />
+    <None Include="Libraries\SFML-3.0.0\bin\sfml-window-d-3.dll" />
     <None Include="Libraries\SFML-3.0.0\doc\html\Angle_8hpp.html" />
     <None Include="Libraries\SFML-3.0.0\doc\html\Angle_8hpp_source.html" />
     <None Include="Libraries\SFML-3.0.0\doc\html\annotated.html" />

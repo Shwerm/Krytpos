@@ -1979,6 +1979,16 @@
     <None Include="Libraries\SFML-3.0.0\lib\Debug\vorbisd.pdb" />
     <None Include="Libraries\SFML-3.0.0\lib\Debug\vorbisencd.pdb" />
     <None Include="Libraries\SFML-3.0.0\lib\Debug\vorbisfiled.pdb" />
+    <None Include="Libraries\SFML-3.0.0\bin\sfml-audio-3.dll" />
+    <None Include="Libraries\SFML-3.0.0\bin\sfml-audio-d-3.dll" />
+    <None Include="Libraries\SFML-3.0.0\bin\sfml-graphics-3.dll" />
+    <None Include="Libraries\SFML-3.0.0\bin\sfml-graphics-d-3.dll" />
+    <None Include="Libraries\SFML-3.0.0\bin\sfml-network-3.dll" />
+    <None Include="Libraries\SFML-3.0.0\bin\sfml-network-d-3.dll" />
+    <None Include="Libraries\SFML-3.0.0\bin\sfml-system-3.dll" />
+    <None Include="Libraries\SFML-3.0.0\bin\sfml-system-d-3.dll" />
+    <None Include="Libraries\SFML-3.0.0\bin\sfml-window-3.dll" />
+    <None Include="Libraries\SFML-3.0.0\bin\sfml-window-d-3.dll" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="GameAssets\Textures\Enemies\EnemySpriteSheet.png">

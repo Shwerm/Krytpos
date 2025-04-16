@@ -1,23 +1,20 @@
 #pragma once
 
-#include <SFML/Graphics.hpp>
+#include "../../Include/GameObjectSystem/GameObject.h"
+#include "../../Include/SpriteRenderingSystem/SpriteRenderer.h"
 
-/**
- * @brief UI HealthBar component to display player's health.
- */
-class HealthBar {
+class Player; // Forward declare Player
+
+class HealthBarObject : public GameObject {
 public:
-    HealthBar(const sf::Vector2f& position, const sf::Vector2f& size);
-
-    void setTextures(const sf::Texture& backgroundTexture, const sf::Texture& fillTexture);
-    void setHealth(float current, float max);
-    void draw(sf::RenderTarget& target) const;
+    HealthBarObject(Player* playerRef, const sf::Vector2f& screenSize);
+    void update(float deltaTime) override;
+    void draw(sf::RenderWindow& window) override;
 
 private:
-    sf::Sprite backgroundSprite;
-    sf::Sprite fillSprite;
+    SpriteRenderer backgroundRenderer;
+    SpriteRenderer fillRenderer;
 
-    sf::Vector2f size;
-    float currentHealth;
-    float maxHealth;
+    Player* player; // Reference to track health
+    sf::Vector2f offsetFromBottomRight;
 };

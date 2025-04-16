@@ -1,47 +1,44 @@
 #include "../../Include/UI/HealthBar.h"
+#include "../../Include/PlayerClass/Player.h" // Ensure Player includes getHealth(), getMaxHealth()
 
-/**
- * @brief Construct a new HealthBar object at a given position and size.
- */
-HealthBar::HealthBar(const sf::Vector2f& position, const sf::Vector2f& size)
-    : size(size), currentHealth(100.0f), maxHealth(100.0f)
+HealthBarObject::HealthBarObject(Player* playerRef, const sf::Vector2f& screenSize)
+    : GameObject("HealthBar", { 0.f, 0.f }, true, sf::degrees(0), 0.f, false),
+    backgroundRenderer("HealthBar_BG"),
+    fillRenderer("HealthBar_Fill"),
+    player(playerRef),
+    offsetFromBottomRight({ 220.f, 40.f }) // adjust for size of bar
 {
-    backgroundSprite.setPosition(position);
-    fillSprite.setPosition(position);
+    // Load both textures
+    backgroundRenderer.loadTexture("assets/ui/EmptyBar.png");
+    fillRenderer.loadTexture("assets/ui/RedBar.png");
+
+    // Set positions (bottom-right anchored)
+    sf::Vector2f basePos = {
+        screenSize.x - offsetFromBottomRight.x,
+        screenSize.y - offsetFromBottomRight.y
+    };
+
+    backgroundRenderer.setPosition(basePos);
+    fillRenderer.setPosition(basePos);
 }
 
-/**
- * @brief Set the background and fill textures for the health bar.
- */
-void HealthBar::setTextures(const sf::Texture& backgroundTexture, const sf::Texture& fillTexture)
+void HealthBarObject::update(float deltaTime)
 {
-    backgroundSprite.setTexture(backgroundTexture);
-    fillSprite.setTexture(fillTexture);
-}
+    if (!player) return;
 
-/**
- * @brief Set the current and max health to control the fill amount.
- */
-void HealthBar::setHealth(float current, float max)
-{
-    currentHealth = current;
-    maxHealth = max;
+    float current = player->getHealth();
+    float max = player->getMaxHealth();
+    float percentage = (max > 0.f) ? (current / max) : 0.f;
 
-    float healthPercent = (maxHealth > 0.0f) ? (currentHealth / maxHealth) : 0.0f;
-
-    // Scale the fill bar width according to health percentage
-    auto originalSize = fillSprite.getTexture()->getSize();
-    fillSprite.setTextureRect({
+    const auto& tex = fillRenderer.getScale(); // or .getSize() if available
+    fillRenderer.setTextureRect({
         { 0, 0 },
-        { static_cast<int>(originalSize.x * healthPercent), static_cast<int>(originalSize.y) }
+        { static_cast<int>(200.f * percentage), 28 } // assuming bar is 200px wide
         });
 }
 
-/**
- * @brief Draw the health bar to the target render surface.
- */
-void HealthBar::draw(sf::RenderTarget& target) const
+void HealthBarObject::draw(sf::RenderWindow& window)
 {
-    target.draw(backgroundSprite);
-    target.draw(fillSprite);
+    backgroundRenderer.draw(window);
+    fillRenderer.draw(window);
 }

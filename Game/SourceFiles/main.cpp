@@ -34,6 +34,10 @@ int main() {
     sf::Vector2f playerStart(100.f, 300.f);
     Player player("Kryptos", playerStart, playerTexturePath);
 
+    // Create and register health bar UI
+    auto* healthBar = new HealthBarObject(&player, sf::Vector2f(window.getSize()));
+    GameObjectManager::getInstance().registerObject(healthBar);
+
     // Set up environment generation settings
     TerrainGenerationSettings genSettings;
     genSettings.totalPlatforms = 15;

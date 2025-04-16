@@ -11,6 +11,7 @@ Player::Player(
     const std::string& texturePath)
     : GameObject(name, position, true, sf::degrees(0), 1.0f, true),
     health(100.f),
+    maxHealth(100.f);
     attackSpeed(1.f),
     movementSpeed(200.f),
     attackMultiplier(1.f),
@@ -99,6 +100,9 @@ void Player::setRespawnPosition(const sf::Vector2f& position) {
 
 float Player::getHealth() const { return health; }
 void Player::setHealth(float value) { health = value; }
+
+float Player::getMaxHealth() const { return maxHealth; }
+void Player::setMaxHealth(float value) { maxHealth = value; }
 
 float Player::getAttackSpeed() const { return attackSpeed; }
 void Player::setAttackSpeed(float value) { attackSpeed = value; }

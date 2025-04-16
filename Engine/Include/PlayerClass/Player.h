@@ -14,6 +14,7 @@
 class Player : public GameObject {
 private:
     float health;
+    float maxHealth;
     float attackSpeed;
     float movementSpeed;
     float attackMultiplier;
@@ -39,6 +40,10 @@ public:
     // Getters and setters for health
     float getHealth() const;
     void setHealth(float value);
+
+    float getMaxHealth() const;
+    void setMaxHealth(float value);
+
 
     // Getters and setters for attack speed
     float getAttackSpeed() const;

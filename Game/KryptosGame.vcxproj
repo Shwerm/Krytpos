@@ -30,10 +30,6 @@
     <Font Include="EngineAssets\Fonts\DebugWindowFont\AtkinsonHyperlegible-Bold.ttf" />
     <Font Include="EngineAssets\Fonts\DebugWindowFont\AtkinsonHyperlegible-Regular.ttf" />
   </ItemGroup>
-  <ItemGroup>
-    <Image Include="GameAssets\Environment\Platforms\banner.png" />
-    <Image Include="GameAssets\Environment\Platforms\platform1.png" />
-  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>

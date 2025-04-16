@@ -50,9 +50,9 @@ int main() {
     genSettings.maxY = 450.0f;
     genSettings.verticalStackChance = 0.3f;
     genSettings.texturePaths = {
-        "../../GameAssets/Environment/Platforms/platform1.png"
+        "Assets/EngineAssets/Textures/Environment/Platforms/platform1.png"
     };
-    genSettings.finishPointTexturePath = "../../GameAssets/Environment/Platforms/banner.png";
+    genSettings.finishPointTexturePath = "Assets/EngineAssets/Textures/Environment/Platforms/banner.png";
 
     // Generate the environment using the player's actual X/Y base
     float playerBaseY = player.getPosition().y + 48.f; // Collider height

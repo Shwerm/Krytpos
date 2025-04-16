@@ -797,5 +797,11 @@
     <Image Include="EngineAssets\Textures\UI\RedBar.png">
       <Filter>Resource Files</Filter>
     </Image>
+    <Image Include="EngineAssets\Textures\Environment\Platforms\banner.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="EngineAssets\Textures\Environment\Platforms\platform1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
 </Project>

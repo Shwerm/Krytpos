@@ -286,11 +286,13 @@
     <None Include="Include\EnvironmentGenerator\enviro.hpp" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="EngineAssets\Textures\Enemies\EnemySpriteSheet.png" />
-    <Image Include="EngineAssets\Textures\Environment\Platforms\banner.png" />
-    <Image Include="EngineAssets\Textures\Environment\Platforms\platform1.png" />
-    <Image Include="EngineAssets\Textures\UI\EmptyBar.png" />
-    <Image Include="EngineAssets\Textures\UI\RedBar.png" />
+    <Image Include="GameAssets\Textures\Enemies\EnemySpriteSheet.png" />
+    <Image Include="GameAssets\Textures\Environment\Platforms\banner.png" />
+    <Image Include="GameAssets\Textures\Environment\Platforms\platform1.png" />
+    <Image Include="GameAssets\Textures\Player\KrillConcept03.png" />
+    <Image Include="GameAssets\Textures\Player\KrillConcept03Reversed.png" />
+    <Image Include="GameAssets\Textures\UI\EmptyBar.png" />
+    <Image Include="GameAssets\Textures\UI\RedBar.png" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
@@ -403,7 +405,8 @@
       <AdditionalDependencies>sfml-graphics-s-d.lib;sfml-system-s-d.lib;sfml-network-s-d.lib;sfml-window-s-d.lib;sfml-audio-s-d.lib;sfml-resource-s-d.lib;opengl32.lib;freetype.lib;winmm.lib;gdi32.lib;flac.lib;vorbisenc.lib;vorbisfile.lib;vorbis.lib;ogg.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy /Y /E /I /Q "$(ProjectDir)EngineAssets" "$(SolutionDir)\Game\x64\Debug\Assets\EngineAssets"</Command>
+      <Command>xcopy /Y /E /I /Q "$(ProjectDir)EngineAssets" "$(SolutionDir)\Game\x64\Debug\Assets\EngineAssets" &amp;&amp; xcopy /Y /E /I /Q "$(ProjectDir)GameAssets" "$(SolutionDir)\Game\x64\Debug\Assets\GameAssets"
+</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -427,7 +430,7 @@
       <AdditionalDependencies>sfml-graphics-s.lib;sfml-system-s.lib;sfml-network-s.lib;sfml-window-s.lib;sfml-audio-s.lib;sfml-resource-s.lib;opengl32.lib;freetype.lib;winmm.lib;gdi32.lib;flac.lib;vorbisenc.lib;vorbisfile.lib;vorbis.lib;ogg.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy /Y /E /I /Q "$(ProjectDir)EngineAssets" "$(SolutionDir)\Game\x64\Release\Assets\EngineAssets"</Command>
+      <Command>xcopy /Y /E /I /Q "$(ProjectDir)EngineAssets" "$(SolutionDir)\Game\x64\Release\Assets\EngineAssets" &amp;&amp; xcopy /Y /E /I /Q "$(ProjectDir)GameAssets" "$(SolutionDir)\Game\x64\Release\Assets\GameAssets"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

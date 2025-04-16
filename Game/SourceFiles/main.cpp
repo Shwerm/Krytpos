@@ -29,7 +29,7 @@ int main() {
     // Set up camera controller
     CameraController camera(static_cast<float>(window.getSize().x), static_cast<float>(window.getSize().y));
 
-    std::string playerTexturePath = "D:\\Personal Projects\\Working Title - Kryptos\\Art\\KryptosPlayerSprite\\KrillConcept03.png";
+    std::string playerTexturePath = "Assets/GameAssets/Textures/Player/KrillConcept03.png";
 
     // Create player first
     sf::Vector2f playerStart(100.f, 300.f);
@@ -50,9 +50,9 @@ int main() {
     genSettings.maxY = 450.0f;
     genSettings.verticalStackChance = 0.3f;
     genSettings.texturePaths = {
-        "Assets/EngineAssets/Textures/Environment/Platforms/platform1.png"
+        "Assets/GameAssets/Textures/Environment/Platforms/platform1.png"
     };
-    genSettings.finishPointTexturePath = "Assets/EngineAssets/Textures/Environment/Platforms/banner.png";
+    genSettings.finishPointTexturePath = "Assets/GameAssets/Textures/Environment/Platforms/banner.png";
 
     // Generate the environment using the player's actual X/Y base
     float playerBaseY = player.getPosition().y + 48.f; // Collider height

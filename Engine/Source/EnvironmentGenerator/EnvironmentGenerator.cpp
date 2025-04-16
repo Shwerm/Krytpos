@@ -66,7 +66,7 @@ void EnvironmentGenerator::spawnPlatform() {
 void EnvironmentGenerator::spawnEnemyOnPlatform(const sf::Vector2f& platformPosition) {
     if (!Random::Chance(0.5f)) return; // 50% chance
 
-    std::string enemyTexturePath = "Assets/EngineAssets/Textures/Enemies/EnemySpriteSheet.png";
+    std::string enemyTexturePath = "Assets/GameAssets/Textures/Enemies/EnemySpriteSheet.png";
 
     sf::Vector2f enemySpawnPos = platformPosition;
     enemySpawnPos.y -= 48.f; // Adjust based on sprite height

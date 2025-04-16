@@ -788,19 +788,25 @@
     <None Include="Include\EnvironmentGenerator\enviro.hpp" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="EngineAssets\Textures\Enemies\EnemySpriteSheet.png">
+    <Image Include="GameAssets\Textures\Enemies\EnemySpriteSheet.png">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="EngineAssets\Textures\UI\EmptyBar.png">
+    <Image Include="GameAssets\Textures\UI\EmptyBar.png">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="EngineAssets\Textures\UI\RedBar.png">
+    <Image Include="GameAssets\Textures\UI\RedBar.png">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="EngineAssets\Textures\Environment\Platforms\banner.png">
+    <Image Include="GameAssets\Textures\Environment\Platforms\banner.png">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="EngineAssets\Textures\Environment\Platforms\platform1.png">
+    <Image Include="GameAssets\Textures\Environment\Platforms\platform1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="GameAssets\Textures\Player\KrillConcept03.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="GameAssets\Textures\Player\KrillConcept03Reversed.png">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>

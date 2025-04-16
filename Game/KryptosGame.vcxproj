@@ -170,7 +170,8 @@
       <AdditionalDependencies>sfml-graphics-s.lib;sfml-system-s.lib;sfml-network-s.lib;sfml-window-s.lib;sfml-audio-s.lib;opengl32.lib;freetype.lib;winmm.lib;gdi32.lib;flac.lib;vorbisenc.lib;vorbisfile.lib;vorbis.lib;ogg.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy /Y /E /I /Q "$(ProjectDir)EngineAssets" "$(SolutionDir)\Game\x64\Release\Assets</Command>
+      <Command>
+      </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

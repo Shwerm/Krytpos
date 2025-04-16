@@ -38,4 +38,6 @@ public:
     void setHealth(float value);
     void setMovementSpeed(float value);
     void setAttackMultiplier(float value);
+
+    void fixedUpdate(float fixedDeltaTime) override;
 };

@@ -1,5 +1,3 @@
-// EnemyClass.cpp - Kryptos Enemy Game Object Class Implementation
-
 #include <SFML/Graphics.hpp>
 #include <SFML/Window/Keyboard.hpp>
 
@@ -17,30 +15,30 @@ EnemyClass::EnemyClass(
     attackMultiplier(1.f),
     spriteRenderer(name)
 {
-    // Hardcoded sprite sheet frame: Walk Frame 1
     sf::IntRect initialFrame;
     initialFrame.position = { 64, 36 };
     initialFrame.size = { 32, 38 };
 
-
     spriteRenderer.loadTexture(texturePath);
     spriteRenderer.setTextureRect(initialFrame);
     spriteRenderer.setPosition(position);
-    spriteRenderer.setOrigin({ 16.f, 24.f }); // Centered origin
+    spriteRenderer.setOrigin({ 16.f, 24.f });
 
     addCollider({ 32.f, 38.f }, { -16.f, -24.f });
 
-    // Debug tracking
     registerDebugVariable("Health", health);
     registerDebugVariable("Speed", movementSpeed);
     registerDebugVariable("AttackMultiplier", attackMultiplier);
 }
 
 void EnemyClass::update(float deltaTime) {
-    GameObject::update(deltaTime); // Apply gravity and velocity
+    // No physics here anymore — visuals only
+    spriteRenderer.setPosition(position);
+}
 
+void EnemyClass::fixedUpdate(float fixedDeltaTime) {
+    GameObject::fixedUpdate(fixedDeltaTime); // Apply gravity and velocity
 
-    // Ground collision detection
     for (auto* obj : GameObjectManager::getInstance().getGameObjects()) {
         if (obj == this || !obj->hasCollider()) continue;
 
@@ -58,10 +56,7 @@ void EnemyClass::update(float deltaTime) {
         }
     }
 
-    // Sync position
-    setPosition(position);
-    // Basic movement logic (placeholder)
-    spriteRenderer.setPosition(position);
+    setPosition(position); // Update collider
 }
 
 void EnemyClass::draw(sf::RenderWindow& window) {
@@ -74,27 +69,11 @@ void EnemyClass::draw(sf::RenderWindow& window) {
 }
 
 // Getters
-float EnemyClass::getHealth() const {
-    return health;
-}
-
-float EnemyClass::getMovementSpeed() const {
-    return movementSpeed;
-}
-
-float EnemyClass::getAttackMultiplier() const {
-    return attackMultiplier;
-}
+float EnemyClass::getHealth() const { return health; }
+float EnemyClass::getMovementSpeed() const { return movementSpeed; }
+float EnemyClass::getAttackMultiplier() const { return attackMultiplier; }
 
 // Setters
-void EnemyClass::setHealth(float value) {
-    health = value;
-}
-
-void EnemyClass::setMovementSpeed(float value) {
-    movementSpeed = value;
-}
-
-void EnemyClass::setAttackMultiplier(float value) {
-    attackMultiplier = value;
-}
+void EnemyClass::setHealth(float value) { health = value; }
+void EnemyClass::setMovementSpeed(float value) { movementSpeed = value; }
+void EnemyClass::setAttackMultiplier(float value) { attackMultiplier = value; }

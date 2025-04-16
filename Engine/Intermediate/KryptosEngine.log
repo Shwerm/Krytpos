@@ -1,5 +1,6 @@
 ﻿cl : command line  warning D9035: option 'Gm' has been deprecated and will be removed in a future release
   EnemyClass.cpp
+D:\Personal Projects\Working Title - Kryptos\Kryptos\Engine\Source\EnemyClass\EnemyClass.cpp(1,1): warning C4828: The file contains a character starting at offset 0x46e that is illegal in the current source character set (codepage 65001).
   Generating Code...
   Skipping... (no relevant changes detected)
   SpriteRendererLogger.cpp
@@ -13,8 +14,8 @@
   EngineInit.cpp
   PlatformFactory.cpp
   Platform.cpp
-  EnvironmentGenerator.cpp
   Collider2D.cpp
   CameraController.cpp
+  EnvironmentGenerator.cpp
   KryptosEngine.vcxproj -> D:\Personal Projects\Working Title - Kryptos\Kryptos\Engine\x64\Debug\Engine.lib
   3 File(s) copied

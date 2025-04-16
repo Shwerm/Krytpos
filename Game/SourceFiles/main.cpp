@@ -54,7 +54,7 @@ int main() {
     sf::Vector2f platformStart(player.getPosition().x, playerBaseY);
 
     EnvironmentGenerator generator(genSettings, platformStart);
-    generator.generate();
+    generator.generate(&player);
 
     KryptosEngine::DebugWindow::DebugWindow debugWindow;
     debugWindow.initialise();

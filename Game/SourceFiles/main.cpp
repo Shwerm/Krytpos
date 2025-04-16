@@ -6,6 +6,7 @@
 #include <memory>
 #include <filesystem>
 
+
 int main() {
     try {
         KryptosEngine::EngineInit::Initialise();
@@ -91,16 +92,28 @@ int main() {
         }
 
         camera.Update(player.getPosition());
-        debugWindow.handleInput();
-        camera.ApplyView(window);
 
         window.clear();
 
+        // ---------- Draw world (camera view) ----------
+        camera.ApplyView(window);
+
         for (auto* obj : GameObjectManager::getInstance().getGameObjects()) {
-            obj->draw(window);
+            if (obj->getName() != "HealthBar") {
+                obj->draw(window);
+            }
         }
 
         player.draw(window);
+
+        // ---------- Draw UI (screen-space) ----------
+        window.setView(window.getDefaultView());
+
+        for (auto* obj : GameObjectManager::getInstance().getGameObjects()) {
+            if (obj->getName() == "HealthBar") {
+                obj->draw(window);
+            }
+        }
 
         if (debugWindow.isOpen()) {
             debugWindow.draw();
@@ -108,7 +121,6 @@ int main() {
 
         window.display();
     }
-
 
     return 0;
 }

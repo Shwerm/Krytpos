@@ -16,7 +16,6 @@ EnemyClass::EnemyClass(
     attackMultiplier(1.f),
     spriteRenderer(name)
 {
-    std::cout << "[EnemyClass] constructor start\n";
 
     // Attempt to load texture with crash safety
     try {
@@ -41,8 +40,6 @@ EnemyClass::EnemyClass(
     registerDebugVariable("Health", health);
     registerDebugVariable("Speed", movementSpeed);
     registerDebugVariable("AttackMultiplier", attackMultiplier);
-
-    std::cout << "[EnemyClass] constructor end\n";
 }
 
 
@@ -68,7 +65,6 @@ void EnemyClass::fixedUpdate(float fixedDeltaTime) {
     for (auto* obj : GameObjectManager::getInstance().getGameObjects()) {
         if (!obj || obj == this || !obj->hasCollider()) continue;
 
-    std::cout << "[EnemyClass] Gravity + Collider check passed\n";
         const auto myBounds = myCollider->getBounds();
         const auto otherBounds = obj->getCollider()->getBounds();
 

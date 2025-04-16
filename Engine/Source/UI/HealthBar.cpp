@@ -6,7 +6,7 @@ HealthBarObject::HealthBarObject(Player* playerRef, const sf::Vector2f& screenSi
     backgroundRenderer("HealthBar_BG"),
     fillRenderer("HealthBar_Fill"),
     player(playerRef),
-    offsetFromBottomRight({ 220.f, 40.f }) // adjust for size of bar
+    offsetFromBottomRight({ -250.f, 100.f }) // adjust for size of bar
 {
     // Load both textures
     backgroundRenderer.loadTexture("Assets/EngineAssets/Textures/UI/EmptyBar.png");
@@ -14,8 +14,8 @@ HealthBarObject::HealthBarObject(Player* playerRef, const sf::Vector2f& screenSi
 
     // Set positions (bottom-right anchored)
     sf::Vector2f basePos = {
-        screenSize.x - offsetFromBottomRight.x,
-        screenSize.y - offsetFromBottomRight.y
+    offsetFromBottomRight.x,
+    screenSize.y - offsetFromBottomRight.y
     };
 
     backgroundRenderer.setPosition(basePos);

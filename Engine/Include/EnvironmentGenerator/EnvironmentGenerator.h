@@ -16,6 +16,7 @@ public:
 
 private:
     void spawnPlatform();
+    void spawnEnemyOnPlatform(const sf::Vector2f& platformPosition); 
     void spawnFinishPoint();
 
     const TerrainGenerationSettings& settings;

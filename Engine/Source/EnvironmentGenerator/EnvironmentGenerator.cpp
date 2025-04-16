@@ -14,20 +14,21 @@ EnvironmentGenerator::EnvironmentGenerator(const TerrainGenerationSettings& sett
 }
 
 void EnvironmentGenerator::generate() {
-    // Correct Y-offset to place platform under the player
-    const float playerHeight = 48.f; // Match collider height
-    sf::Vector2f firstPlatformPos = nextSpawnPosition; // Already aligned by main.cpp
+    // First platform (no enemy)
+    const float playerHeight = 48.f;
+    sf::Vector2f firstPlatformPos = nextSpawnPosition;
 
     std::string texturePath = settings.texturePaths[Random::Range(0, static_cast<int>(settings.texturePaths.size()))];
     auto firstPlatform = PlatformFactory::Create("StartPlatform", firstPlatformPos, texturePath);
     platforms.push_back(firstPlatform);
 
-    // Offset for next generation
     float firstWidth = Random::Range(settings.minPlatformWidth, settings.maxPlatformWidth);
     nextSpawnPosition.x += std::max(firstWidth, settings.minHorizontalSpacing);
 
-    for (int i = 1; i < settings.totalPlatforms; ++i)
+    for (int i = 1; i < settings.totalPlatforms; ++i) {
         spawnPlatform();
+        spawnEnemyOnPlatform(nextSpawnPosition); // Call here after!! platform is spawned
+    }
 
     spawnFinishPoint();
 }
@@ -53,19 +54,18 @@ void EnvironmentGenerator::spawnPlatform() {
     platforms.push_back(platform);
 
     nextSpawnPosition = spawnPos;
+}
 
-    // --- Spawn enemies on the platform ---
-    if (Random::Chance(0.5f)) {
-        std::string enemyTexturePath = "Assets/EngineAssets/Textures/Enemies/EnemySpriteSheet.png";
+void EnvironmentGenerator::spawnEnemyOnPlatform(const sf::Vector2f& platformPosition) {
+    if (!Random::Chance(0.5f)) return; // 50% chance
 
-        // Offset so enemy spawns on top of the platform
-        sf::Vector2f enemySpawnPos = spawnPos;
-        enemySpawnPos.y -= 48.f; // adjust based on your enemy sprite height
+    std::string enemyTexturePath = "Assets/EngineAssets/Textures/Enemies/EnemySpriteSheet.png";
 
-        auto enemy = new EnemyClass("Enemy", enemySpawnPos, enemyTexturePath);
-        GameObjectManager::getInstance().registerObject(enemy);
-    }
+    sf::Vector2f enemySpawnPos = platformPosition;
+    enemySpawnPos.y -= 48.f; // Adjust based on sprite height
 
+    auto enemy = new EnemyClass("Enemy", enemySpawnPos, enemyTexturePath);
+    GameObjectManager::getInstance().registerObject(enemy);
 }
 
 void EnvironmentGenerator::spawnFinishPoint() {

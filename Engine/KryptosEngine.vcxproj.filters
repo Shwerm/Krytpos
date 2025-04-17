@@ -1353,6 +1353,12 @@
     <ClInclude Include="Include\PlayerClass\AttackHitbox.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Include\EnvironmentGenerator\ParallaxLayer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\EnvironmentGenerator\ParallaxBackground.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\GameObjectSystem\GameObject.cpp">
@@ -1410,6 +1416,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Source\PlayerClass\AttackHitbox.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\EnvironmentGenerator\ParallaxLayer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\EnvironmentGenerator\ParallaxBackground.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -2031,6 +2043,21 @@
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="GameAssets\Textures\UI\BlueBar.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="GameAssets\Textures\Environment\ParallaxBackground\parallax-mountain-bg.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="GameAssets\Textures\Environment\ParallaxBackground\parallax-mountain-foreground-trees.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="GameAssets\Textures\Environment\ParallaxBackground\parallax-mountain-montain-far.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="GameAssets\Textures\Environment\ParallaxBackground\parallax-mountain-mountains.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="GameAssets\Textures\Environment\ParallaxBackground\parallax-mountain-trees.png">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>

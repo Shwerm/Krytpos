@@ -19,6 +19,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Include\EnvironmentGenerator\ParallaxBackground.h" />
+    <ClInclude Include="Include\EnvironmentGenerator\ParallaxLayer.h" />
     <ClInclude Include="Include\PlayerClass\AttackHitbox.h" />
     <ClInclude Include="Include\UI\HealthBar.h" />
     <ClInclude Include="Include\EnemyClass\EnemyClass.h" />
@@ -467,6 +469,8 @@
     <ClInclude Include="ThirdParty\spdlog\include\spdlog\version.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Source\EnvironmentGenerator\ParallaxBackground.cpp" />
+    <ClCompile Include="Source\EnvironmentGenerator\ParallaxLayer.cpp" />
     <ClCompile Include="Source\PlayerClass\AttackHitbox.cpp" />
     <ClCompile Include="Source\UI\HealthBar.cpp" />
     <ClCompile Include="Source\EnemyClass\EnemyClass.cpp" />
@@ -1058,6 +1062,11 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="GameAssets\Textures\Enemies\EnemySpriteSheet.png" />
+    <Image Include="GameAssets\Textures\Environment\ParallaxBackground\parallax-mountain-bg.png" />
+    <Image Include="GameAssets\Textures\Environment\ParallaxBackground\parallax-mountain-foreground-trees.png" />
+    <Image Include="GameAssets\Textures\Environment\ParallaxBackground\parallax-mountain-montain-far.png" />
+    <Image Include="GameAssets\Textures\Environment\ParallaxBackground\parallax-mountain-mountains.png" />
+    <Image Include="GameAssets\Textures\Environment\ParallaxBackground\parallax-mountain-trees.png" />
     <Image Include="GameAssets\Textures\Environment\Platforms\banner.png" />
     <Image Include="GameAssets\Textures\Environment\Platforms\platform1.png" />
     <Image Include="GameAssets\Textures\Player\KrillConcept03.png" />

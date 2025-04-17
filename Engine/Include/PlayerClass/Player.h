@@ -70,5 +70,7 @@ public:
     bool previousMousePressed = false; // Track last frame's state
 
     void takeDamage(float amount);
+    void checkDeath();
+
 };
 #endif // PLAYER_H

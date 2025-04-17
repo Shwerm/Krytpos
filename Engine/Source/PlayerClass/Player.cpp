@@ -51,6 +51,7 @@ void Player::update(float deltaTime) {
 	staminaSystem.Update(deltaTime); // Update stamina system
     damageCooldown = std::max(0.f, damageCooldown - deltaTime);
 
+    checkDeath();
 
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::A)) {
         inputVelocity.x -= movementSpeed;
@@ -215,6 +216,20 @@ void Player::handleAttack() {
     auto* hitbox = new AttackHitbox("AttackHitbox", attackPos, dir);
     GameObjectManager::getInstance().registerObject(hitbox);
 }
+
+void Player::checkDeath() {
+    if (health > 0.f)
+        return;
+
+    std::cout << "[Player] Died. Respawning...\n";
+
+    // Reset player state
+    health = maxHealth;
+    staminaSystem.Reset();
+    velocity = { 0.f, 0.f };
+    setPosition(respawnPosition);
+}
+
 
 
 

@@ -8,7 +8,7 @@
 Player::Player(
     const std::string& name,
     const sf::Vector2f& position,
-    const std::string& texturePath)
+    const std::string& texturePathRight)
     : GameObject(name, position, true, sf::degrees(0), 1.0f, true),
     health(100.f),
     maxHealth(100.f),
@@ -17,11 +17,18 @@ Player::Player(
     attackMultiplier(1.f),
     jumpMultiplier(1.f),
     spriteRenderer(name),
-    respawnPosition(position)
+    respawnPosition(position),
+    texturePathRight(texturePathRight)
 {
-    spriteRenderer.loadTexture(texturePath);
+    // Build left-facing texture path based on naming convention
+    texturePathLeft = texturePathRight;
+    const size_t dotPos = texturePathLeft.find_last_of('.');
+    if (dotPos != std::string::npos) {
+        texturePathLeft.insert(dotPos, "Reversed");
+    }
 
-    // Set sprite origin for proper flipping
+    // Load default (facing right)
+    spriteRenderer.loadTexture(texturePathRight);
     spriteRenderer.setOrigin({ 0.f, 2.f });
     spriteRenderer.setPosition(position);
 
@@ -34,7 +41,6 @@ Player::Player(
     registerDebugVariable("Jump Multiplier", jumpMultiplier);
 }
 
-
 void Player::update(float deltaTime) {
     sf::Vector2f inputVelocity(0.f, 0.f);
 
@@ -45,32 +51,35 @@ void Player::update(float deltaTime) {
         inputVelocity.x += movementSpeed;
     }
 
-    // Flip sprite safely, using correct scale
+    // Switch textures based on movement direction
     if (inputVelocity.x < 0.f && isFacingRight) {
         isFacingRight = false;
         try {
-            spriteRenderer.setScale({ -1.f, 1.f });
+            spriteRenderer.loadTexture(texturePathLeft);
         }
         catch (...) {
-            std::cerr << "[Player] spriteRenderer.setScale() threw unexpectedly!\n";
+            std::cerr << "[Player] Failed to load flipped (left) texture.\n";
         }
     }
     else if (inputVelocity.x > 0.f && !isFacingRight) {
         isFacingRight = true;
         try {
-            spriteRenderer.setScale({ 1.f, 1.f });
+            spriteRenderer.loadTexture(texturePathRight);
         }
         catch (...) {
-            std::cerr << "[Player] spriteRenderer.setScale() threw unexpectedly!\n";
+            std::cerr << "[Player] Failed to load right-facing texture.\n";
         }
     }
 
-
     velocity.x = inputVelocity.x;
 
-    // Apply movement + gravity
-    GameObject::update(deltaTime);
+    // Jumping
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Space) && isGrounded) {
+        velocity.y = -jumpMultiplier * 170.f;
+        isGrounded = false;
+    }
 
+    GameObject::update(deltaTime);
     isGrounded = false;
 
     for (auto* obj : GameObjectManager::getInstance().getGameObjects()) {
@@ -99,7 +108,6 @@ void Player::update(float deltaTime) {
     setPosition(position);
     spriteRenderer.setPosition(position);
 }
-
 
 void Player::draw(sf::RenderWindow& window) {
     spriteRenderer.draw(window);

@@ -20,19 +20,18 @@ private:
     float movementSpeed;
     float attackMultiplier;
     float jumpMultiplier;
-    bool isGrounded = false; ///< Tracks if the player is currently grounded
+    bool isGrounded = false;
+    bool isFacingRight = true;
     SpriteRenderer spriteRenderer;
-    bool isFacingRight = true; ///< Tracks whether the player is facing right
 
+    sf::Vector2f respawnPosition;
+    float fallThresholdY = 1000.f;
 
-    sf::Vector2f respawnPosition;  ///< The position to respawn to
-    float fallThresholdY = 1000.f; ///< Y value below which the player respawns
+    std::string texturePathRight;
+    std::string texturePathLeft;
 
 public:
-    Player(
-        const std::string& name,
-        const sf::Vector2f& position,
-        const std::string& texturePath);
+    Player(const std::string& name, const sf::Vector2f& position, const std::string& texturePathRight);
     ~Player() override = default;
 
     void update(float deltaTime) override;
@@ -40,27 +39,21 @@ public:
 
     void setRespawnPosition(const sf::Vector2f& position);
 
-    // Getters and setters for health
     float getHealth() const;
     void setHealth(float value);
 
     float getMaxHealth() const;
     void setMaxHealth(float value);
 
-
-    // Getters and setters for attack speed
     float getAttackSpeed() const;
     void setAttackSpeed(float value);
 
-    // Getters and setters for movement speed
     float getMovementSpeed() const;
     void setMovementSpeed(float value);
 
-    // Getters and setters for attack multiplier
     float getAttackMultiplier() const;
     void setAttackMultiplier(float value);
 
-    // Getters and setters for jump multiplier
     float getJumpMultiplier() const;
     void setJumpMultiplier(float value);
 };

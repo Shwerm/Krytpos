@@ -2,6 +2,7 @@
 
 #include <SFML/Graphics.hpp>
 #include <string>
+#include <optional>
 
 /**
  * @brief Represents a single layer in the parallax background.
@@ -16,8 +17,8 @@ public:
 
 private:
     sf::Texture texture;
-    sf::Sprite sprite1;
-    sf::Sprite sprite2;
+    std::optional<sf::Sprite> sprite1;
+    std::optional<sf::Sprite> sprite2;
 
     float speed;
     float width;

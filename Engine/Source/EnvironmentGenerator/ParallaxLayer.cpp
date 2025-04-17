@@ -13,37 +13,41 @@ ParallaxLayer::ParallaxLayer(const std::string& texturePath, float scrollSpeed, 
     texture.setRepeated(true);
     texture.setSmooth(false);
 
-    sprite1.setTexture(texture);
-    sprite2.setTexture(texture);
+    sprite1.emplace(texture);
+    sprite2.emplace(texture);
 
-    sprite1.setPosition(sf::Vector2f(0.f, 0.f));
-    sprite2.setPosition(sf::Vector2f(width, 0.f));
+    sprite1->setPosition({ 0.f, 0.f });
+    sprite2->setPosition({ width, 0.f });
 }
 
 void ParallaxLayer::update(float cameraX)
 {
+    if (!sprite1 || !sprite2) return;
+
     float offset = -cameraX * speed;
-    sprite1.setPosition(sf::Vector2f(offset, sprite1.getPosition().y));
-    sprite2.setPosition(sf::Vector2f(offset + width, sprite2.getPosition().y));
+    sprite1->setPosition({ offset, sprite1->getPosition().y });
+    sprite2->setPosition({ offset + width, sprite2->getPosition().y });
 
     wrapSprites(cameraX);
 }
 
 void ParallaxLayer::wrapSprites(float cameraX)
 {
-    if (sprite1.getPosition().x + width < 0)
+    if (!sprite1 || !sprite2) return;
+
+    if (sprite1->getPosition().x + width < 0.f)
     {
-        sprite1.setPosition(sf::Vector2f(sprite2.getPosition().x + width, sprite1.getPosition().y));
+        sprite1->setPosition({ sprite2->getPosition().x + width, sprite1->getPosition().y });
     }
 
-    if (sprite2.getPosition().x + width < 0)
+    if (sprite2->getPosition().x + width < 0.f)
     {
-        sprite2.setPosition(sf::Vector2f(sprite1.getPosition().x + width, sprite2.getPosition().y));
+        sprite2->setPosition({ sprite1->getPosition().x + width, sprite2->getPosition().y });
     }
 }
 
 void ParallaxLayer::draw(sf::RenderTarget& target)
 {
-    target.draw(sprite1);
-    target.draw(sprite2);
+    if (sprite1) target.draw(*sprite1);
+    if (sprite2) target.draw(*sprite2);
 }

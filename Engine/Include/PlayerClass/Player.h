@@ -32,6 +32,7 @@ private:
     std::string texturePathLeft;
 
     StaminaSystem staminaSystem; // Added stamina system member
+    float damageCooldown = 0.f; // Time until player can take damage again
 
 public:
     Player(const std::string& name, const sf::Vector2f& position, const std::string& texturePathRight);
@@ -68,6 +69,6 @@ public:
     void handleAttack();
     bool previousMousePressed = false; // Track last frame's state
 
+    void takeDamage(float amount);
 };
-
 #endif // PLAYER_H

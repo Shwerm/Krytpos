@@ -21,7 +21,7 @@ Player::Player(
     spriteRenderer(name),
     respawnPosition(position),
     texturePathRight(texturePathRight),
-	staminaSystem(100.f, 10.f) // Initialise stamina system with max stamina and regen rate
+	staminaSystem(100.f, 20.f) // Initialise stamina system with max stamina and regen rate
 {
     // Build left-facing texture path based on naming convention
     texturePathLeft = texturePathRight;
@@ -46,6 +46,10 @@ Player::Player(
 
 void Player::update(float deltaTime) {
     sf::Vector2f inputVelocity(0.f, 0.f);
+
+	staminaSystem.Update(deltaTime); // Update stamina system
+    damageCooldown = std::max(0.f, damageCooldown - deltaTime);
+
 
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::A)) {
         inputVelocity.x -= movementSpeed;
@@ -108,8 +112,17 @@ void Player::update(float deltaTime) {
                 velocity.y = 0.f;
                 isGrounded = true;
             }
+
+            // Enemy damage detection (after grounding logic)
+            if (auto* enemy = dynamic_cast<EnemyClass*>(obj)) {
+                if (damageCooldown <= 0.f) {
+                    takeDamage(10.f); // Damage amount
+                    damageCooldown = 1.f; // Cooldown in seconds
+                }
+            }
         }
     }
+
 
     if (position.y > fallThresholdY) {
         position = respawnPosition;
@@ -166,6 +179,14 @@ float Player::getMaxStamina() const {
 float Player::getStaminaRatio() const {
     return staminaSystem.GetStaminaRatio();
 }
+
+void Player::takeDamage(float amount) {
+    health -= amount;
+    if (health < 0.f) health = 0.f;
+
+    std::cout << "[Player] Took " << amount << " damage. Current Health: " << health << "\n";
+}
+
 
 void Player::handleAttack() {
     const float staminaCost = 20.f;

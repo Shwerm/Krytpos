@@ -13,11 +13,8 @@ public:
     ParallaxLayer(const std::string& texturePath, float scrollSpeed, float windowWidth, float scale, float yOffset);
     ~ParallaxLayer() = default;
 
-    void update(float cameraX);
+    void update(float cameraX, const sf::View& cameraView);
     void draw(sf::RenderTarget& target);
-    float scale = 1.0f;
-    float yOffset = -1000.0f;
-
 
 private:
     sf::Texture texture;
@@ -26,6 +23,8 @@ private:
 
     float speed;
     float width;
+    float scale;
+    float yOffset;
 
     void wrapSprites(float cameraX);
 };

@@ -18,19 +18,20 @@ ParallaxLayer::ParallaxLayer(const std::string& texturePath, float scrollSpeed, 
 
     sprite1->setScale({ scale, scale });
     sprite2->setScale({ scale, scale });
-
-    sprite1->setPosition({ 0.f, yOffset });
-    sprite2->setPosition({ width * scale, yOffset });
 }
 
-
-void ParallaxLayer::update(float cameraX)
+void ParallaxLayer::update(float cameraX, const sf::View& cameraView)
 {
     if (!sprite1 || !sprite2) return;
 
     float offset = -cameraX * speed;
-    sprite1->setPosition({ offset, sprite1->getPosition().y });
-    sprite2->setPosition({ offset + width, sprite2->getPosition().y });
+    float scaledWidth = width * scale;
+
+    float cameraBottomY = cameraView.getCenter().y + cameraView.getSize().y / 2.f;
+    float targetY = cameraBottomY - yOffset;
+
+    sprite1->setPosition({ offset, targetY });
+    sprite2->setPosition({ offset + scaledWidth, targetY });
 
     wrapSprites(cameraX);
 }
@@ -43,15 +44,14 @@ void ParallaxLayer::wrapSprites(float cameraX)
 
     if (sprite1->getPosition().x + spriteWidth < 0.f)
     {
-        sprite1->setPosition({ sprite2->getPosition().x + spriteWidth, yOffset });
+        sprite1->setPosition({ sprite2->getPosition().x + spriteWidth, sprite1->getPosition().y });
     }
 
     if (sprite2->getPosition().x + spriteWidth < 0.f)
     {
-        sprite2->setPosition({ sprite1->getPosition().x + spriteWidth, yOffset });
+        sprite2->setPosition({ sprite1->getPosition().x + spriteWidth, sprite2->getPosition().y });
     }
 }
-
 
 void ParallaxLayer::draw(sf::RenderTarget& target)
 {

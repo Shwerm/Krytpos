@@ -33,6 +33,11 @@ public:
      */
     void ApplyView(sf::RenderWindow& window) const;
 
+    /**
+     * @brief Returns the current internal SFML view.
+     */
+    const sf::View& GetView() const { return m_view; }
+
 private:
     sf::View m_view; ///< The internal SFML view object used to control the camera.
 };

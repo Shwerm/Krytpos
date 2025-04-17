@@ -106,7 +106,7 @@ int main() {
         camera.ApplyView(window);
 
         // ---------- Update and Draw Parallax Background ----------
-        parallaxBackground.update(player.getPosition().x);
+        parallaxBackground.update(player.getPosition().x, camera.GetView());
         parallaxBackground.draw(window);
 
         // ---------- Draw World Space Objects ----------

@@ -12,7 +12,7 @@ class ParallaxBackground
 public:
     ParallaxBackground(float windowWidth);
 
-    void update(float cameraX);
+    void update(float cameraX, const sf::View& cameraView);
     void draw(sf::RenderTarget& target);
 
 private:

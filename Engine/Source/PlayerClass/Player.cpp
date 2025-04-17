@@ -4,6 +4,8 @@
 #include "../../Include/PlayerClass/Player.h"
 #include "../../Include/GameObjectSystem/GameObjectManager.h"
 #include "../../Include/Physics/PhysicsConstants.h"
+#include "../../Include/PlayerClass/AttackHitbox.h"
+
 
 Player::Player(
     const std::string& name,
@@ -53,7 +55,7 @@ void Player::update(float deltaTime) {
     }
 
     // Inside update(float deltaTime)
-    if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
+    if (sf::Mouse::isButtonPressed(sf::Mouse::Button::Left)) {
         handleAttack();
     }
 

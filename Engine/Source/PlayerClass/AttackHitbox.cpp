@@ -33,3 +33,19 @@ void AttackHitbox::update(float deltaTime)
         }
     }
 }
+
+void AttackHitbox::draw(sf::RenderWindow& window)
+{
+    if (!hasCollider()) return;
+
+    // Visual debug rectangle (red outline)
+    sf::RectangleShape debugRect;
+    debugRect.setSize(getCollider()->getSize());
+    debugRect.setPosition(getPosition() + getCollider()->getOffset());
+    debugRect.setFillColor(sf::Color::Transparent);
+    debugRect.setOutlineColor(sf::Color::Red);
+    debugRect.setOutlineThickness(2.f);
+
+    window.draw(debugRect);
+}
+

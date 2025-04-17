@@ -15,4 +15,6 @@ private:
 public:
     AttackHitbox(const std::string& name, const sf::Vector2f& position, const sf::Vector2f& direction);
     void update(float deltaTime) override;
+
+	void draw(sf::RenderWindow& window) override;
 };

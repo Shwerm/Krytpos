@@ -15,7 +15,7 @@ ParallaxLayer::ParallaxLayer(const std::string& texturePath,
 {
     if (!texture.loadFromFile(texturePath))
     {
-        std::cerr << "Failed to load parallax texture: " << texturePath << std::endl;
+        std::cerr << "[ERROR] Failed to load parallax texture: " << texturePath << std::endl;
         return;
     }
 
@@ -24,11 +24,16 @@ ParallaxLayer::ParallaxLayer(const std::string& texturePath,
 
     sprite1 = std::make_unique<sf::Sprite>(texture);
     sprite1->setScale({ scale, scale });
+    sprite1->setColor(sf::Color(255, 255, 255, 255)); // ensure visibility
+
+    std::cout << "[DEBUG] Loaded texture: " << texturePath << "\n";
+    std::cout << "        Texture size: " << texture.getSize().x << " x " << texture.getSize().y << "\n";
 
     if (repeatEnabled)
     {
         sprite2 = std::make_unique<sf::Sprite>(texture);
         sprite2->setScale({ scale, scale });
+        sprite2->setColor(sf::Color(255, 255, 255, 255));
     }
 }
 
@@ -36,7 +41,9 @@ void ParallaxLayer::update(float cameraX, const sf::View& cameraView)
 {
     if (!sprite1) return;
 
-    float offsetX = lockX ? cameraView.getCenter().x - (width * scale) / 2.f
+    // FIX: Use texture width instead of window width
+    float offsetX = lockX
+        ? cameraView.getCenter().x - (texture.getSize().x * scale) / 2.f
         : (-cameraX * speed + xOffset);
 
     float offsetY = -cameraView.getCenter().y * speed + yOffset;
@@ -44,21 +51,17 @@ void ParallaxLayer::update(float cameraX, const sf::View& cameraView)
 
     sprite1->setPosition({ offsetX, offsetY });
 
+    /*if (lockX && speed == 0.0f)
+    {
+        std::cout << "[DEBUG] Sky sprite Pos: " << sprite1->getPosition().x << ", " << sprite1->getPosition().y << "\n";
+        std::cout << "         Size: " << sprite1->getGlobalBounds().size.x << " x " << sprite1->getGlobalBounds().size.y << "\n";
+    }*/
+
     if (repeatEnabled && sprite2)
     {
         sprite2->setPosition({ offsetX + scaledWidth, offsetY });
         wrapSprites(cameraX);
     }
-
-    // Debug sky layer visibility
-    if (speed == 0.0f && lockX)
-    {
-        std::cout << "[SkyLayer] PosX: " << sprite1->getPosition().x
-            << " | PosY: " << sprite1->getPosition().y << "\n";
-        std::cout << "           Size: " << sprite1->getGlobalBounds().size.x
-            << " x " << sprite1->getGlobalBounds().size.y << "\n";
-    }
-
 }
 
 void ParallaxLayer::wrapSprites(float cameraX)
@@ -88,29 +91,8 @@ void ParallaxLayer::draw(sf::RenderTarget& target)
 
     target.draw(*sprite1);
 
-    // DEBUG: Bounding box for sprite1
-    sf::FloatRect bounds = sprite1->getGlobalBounds();
-    sf::RectangleShape debugRect;
-    debugRect.setPosition(bounds.position);
-    debugRect.setSize(bounds.size);
-    debugRect.setFillColor(sf::Color::Transparent);
-    debugRect.setOutlineColor(sf::Color::Red);
-    debugRect.setOutlineThickness(2.0f);
-    target.draw(debugRect);
-
     if (repeatEnabled && sprite2)
     {
         target.draw(*sprite2);
-
-        sf::FloatRect bounds2 = sprite2->getGlobalBounds();
-        sf::RectangleShape debugRect2;
-        debugRect2.setPosition(bounds2.position);
-        debugRect2.setSize(bounds2.size);
-        debugRect2.setFillColor(sf::Color::Transparent);
-        debugRect2.setOutlineColor(sf::Color::Green);
-        debugRect2.setOutlineThickness(2.0f);
-        target.draw(debugRect2);
     }
 }
-
-

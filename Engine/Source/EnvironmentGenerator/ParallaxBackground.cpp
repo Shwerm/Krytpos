@@ -2,12 +2,12 @@
 
 ParallaxBackground::ParallaxBackground(float windowWidth)
 {
-    // Sky background - static in X, moves with camera in Y
+    // Sky background — fixed X, moves with Y
     layers.emplace_back(std::make_unique<ParallaxLayer>(
         "Assets/GameAssets/Textures/Environment/ParallaxBackground/parallax-mountain-bg.png",
-        0.0f, windowWidth, 4.0f, 0.0f, -2076.0f, false, true));
+        0.0f, windowWidth, 4.0f, -50.0f, 0.0f, false, true));
 
-    // Scrollable, repeatable parallax layers
+    // Repeatable parallax layers
     layers.emplace_back(std::make_unique<ParallaxLayer>(
         "Assets/GameAssets/Textures/Environment/ParallaxBackground/parallax-mountain-montain-far.png",
         0.25f, windowWidth, 4.0f, 100.0f, -420.0f));

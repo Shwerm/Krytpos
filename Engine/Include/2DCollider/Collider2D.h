@@ -56,6 +56,13 @@ public:
      */
     static bool intersects(const Collider2D& a, const Collider2D& b);
 
+    /**
+     * @brief Returns the local offset of the collider from the object's position.
+     * @return sf::Vector2f offset.
+     */
+    sf::Vector2f getOffset() const { return offset; }
+
+
 private:
     sf::Vector2f size;     ///< Width and height of the collider.
     sf::Vector2f offset;   ///< Local offset from the object's position.

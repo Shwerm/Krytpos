@@ -1,9 +1,14 @@
-﻿  AttackHitbox.cpp
-  HealthBar.cpp
+﻿  Collider2D.cpp
+  DebugWindow.cpp
   EnemyClass.cpp
   EnvironmentGenerator.cpp
-  DebugWindow.cpp
+  Platform.cpp
+  PlatformFactory.cpp
+  GameObject.cpp
+  GameObjectManager.cpp
+  AttackHitbox.cpp
   Player.cpp
+  HealthBar.cpp
   StaminaBar.cpp
   Generating Code...
   KryptosEngine.vcxproj -> D:\Personal Projects\Working Title - Kryptos\Kryptos\Engine\x64\Debug\Engine.lib

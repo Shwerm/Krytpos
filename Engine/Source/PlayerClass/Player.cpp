@@ -1,12 +1,12 @@
 #include <SFML/Window/Keyboard.hpp>
 #include <SFML/Graphics.hpp>
+#include <SFML/Graphics/Rect.hpp>
 
 #include "../../Include/PlayerClass/Player.h"
 #include "../../Include/GameObjectSystem/GameObjectManager.h"
 #include "../../Include/Physics/PhysicsConstants.h"
 #include "../../Include/PlayerClass/AttackHitbox.h"
 #include "../../Include/EnemyClass/EnemyClass.h"
-
 
 Player::Player(
     const std::string& name,
@@ -22,16 +22,14 @@ Player::Player(
     spriteRenderer(name),
     respawnPosition(position),
     texturePathRight(texturePathRight),
-	staminaSystem(100.f, 20.f) // Initialise stamina system with max stamina and regen rate
+    staminaSystem(100.f, 20.f)
 {
-    // Build left-facing texture path based on naming convention
     texturePathLeft = texturePathRight;
     const size_t dotPos = texturePathLeft.find_last_of('.');
     if (dotPos != std::string::npos) {
         texturePathLeft.insert(dotPos, "Reversed");
     }
 
-    // Load default (facing right)
     spriteRenderer.loadTexture(texturePathRight);
     spriteRenderer.setOrigin({ 0.f, 2.f });
     spriteRenderer.setPosition(position);
@@ -48,7 +46,7 @@ Player::Player(
 void Player::update(float deltaTime) {
     sf::Vector2f inputVelocity(0.f, 0.f);
 
-	staminaSystem.Update(deltaTime); // Update stamina system
+    staminaSystem.Update(deltaTime);
     damageCooldown = std::max(0.f, damageCooldown - deltaTime);
 
     checkDeath();
@@ -59,81 +57,98 @@ void Player::update(float deltaTime) {
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D)) {
         inputVelocity.x += movementSpeed;
     }
+
     bool currentPressed = sf::Mouse::isButtonPressed(sf::Mouse::Button::Left);
-
     if (currentPressed && !previousMousePressed) {
-        handleAttack(); // Trigger only on press
+        handleAttack();
     }
-
     previousMousePressed = currentPressed;
 
-
-    // Switch textures based on movement direction
     if (inputVelocity.x < 0.f && isFacingRight) {
         isFacingRight = false;
-        try {
-            spriteRenderer.loadTexture(texturePathLeft);
-        }
-        catch (...) {
-            std::cerr << "[Player] Failed to load flipped (left) texture.\n";
-        }
+        try { spriteRenderer.loadTexture(texturePathLeft); }
+        catch (...) { std::cerr << "[Player] Failed to load flipped (left) texture.\n"; }
     }
     else if (inputVelocity.x > 0.f && !isFacingRight) {
         isFacingRight = true;
-        try {
-            spriteRenderer.loadTexture(texturePathRight);
-        }
-        catch (...) {
-            std::cerr << "[Player] Failed to load right-facing texture.\n";
-        }
+        try { spriteRenderer.loadTexture(texturePathRight); }
+        catch (...) { std::cerr << "[Player] Failed to load right-facing texture.\n"; }
     }
 
     velocity.x = inputVelocity.x;
 
-    // Jumping
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Space) && isGrounded) {
         velocity.y = -jumpMultiplier * 170.f;
         isGrounded = false;
     }
 
     GameObject::update(deltaTime);
-    isGrounded = false;
+
+    // Predictive vertical collision
+    sf::Vector2f predictedPosition = position;
+    predictedPosition.y += velocity.y * deltaTime;
+
+    sf::FloatRect predictedBounds;
+    predictedBounds.position = predictedPosition + getCollider()->getOffset();
+    predictedBounds.size = getCollider()->getSize();
+
+    bool groundedThisFrame = false;
 
     for (auto* obj : GameObjectManager::getInstance().getGameObjects()) {
         if (obj == this || !obj->hasCollider()) continue;
 
-        if (Collider2D::intersects(*getCollider(), *obj->getCollider())) {
-            const auto& b = obj->getCollider()->getBounds();
-            const auto& a = getCollider()->getBounds();
+        sf::FloatRect otherBounds = obj->getCollider()->getBounds();
 
+        // Manual AABB intersection (SFML 3.0 compatible)
+        bool isIntersecting =
+            predictedBounds.position.x < otherBounds.position.x + otherBounds.size.x &&
+            predictedBounds.position.x + predictedBounds.size.x > otherBounds.position.x &&
+            predictedBounds.position.y < otherBounds.position.y + otherBounds.size.y &&
+            predictedBounds.position.y + predictedBounds.size.y > otherBounds.position.y;
+
+        if (isIntersecting) {
             const float verticalThreshold = 5.f;
-            bool landingFromAbove = (position.y + a.size.y <= b.position.y + verticalThreshold);
+            float playerBottom = position.y + getCollider()->getSize().y;
+            float platformTop = otherBounds.position.y;
+
+            bool landingFromAbove = (playerBottom <= platformTop + verticalThreshold);
 
             if (landingFromAbove && velocity.y >= 0.f) {
-                position.y = b.position.y - a.size.y;
+                position.y = platformTop - getCollider()->getSize().y;
                 velocity.y = 0.f;
-                isGrounded = true;
+                groundedThisFrame = true;
+                break;
             }
+        }
+    }
 
-            // Enemy damage detection (after grounding logic)
+    isGrounded = groundedThisFrame;
+
+    if (!groundedThisFrame) {
+        position.y += velocity.y * deltaTime;
+    }
+
+    // Damage from enemies
+    for (auto* obj : GameObjectManager::getInstance().getGameObjects()) {
+        if (obj == this || !obj->hasCollider()) continue;
+
+        if (Collider2D::intersects(*getCollider(), *obj->getCollider())) {
             if (auto* enemy = dynamic_cast<EnemyClass*>(obj)) {
                 if (damageCooldown <= 0.f) {
-                    takeDamage(10.f); // Damage amount
-                    damageCooldown = 1.f; // Cooldown in seconds
+                    takeDamage(10.f);
+                    damageCooldown = 1.f;
                 }
             }
         }
     }
 
-
+    // Death threshold and respawn
     if (position.y > fallThresholdY) {
         position = respawnPosition;
-		health = maxHealth;
+        health = maxHealth;
         staminaSystem.Reset();
         velocity = { 0.f, 0.f };
     }
-
-
 
     setPosition(position);
     spriteRenderer.setPosition(position);
@@ -185,10 +200,8 @@ float Player::getStaminaRatio() const {
 void Player::takeDamage(float amount) {
     health -= amount;
     if (health < 0.f) health = 0.f;
-
     std::cout << "[Player] Took " << amount << " damage. Current Health: " << health << "\n";
 }
-
 
 void Player::handleAttack() {
     const float staminaCost = 20.f;
@@ -198,16 +211,14 @@ void Player::handleAttack() {
         return;
     }
 
-    // Player collider offset = { 16.f, 0.f }, size = { 32.f, 48.f }
-    // To spawn in front of collider, offset horizontally by half the collider width
     const float halfColliderWidth = 32.f / 2.f;
     const float verticalCenterOffset = 48.f / 2.f;
     const float horizontalAdjustment = -32.f;
 
     sf::Vector2f offset = {
-    isFacingRight ? (halfColliderWidth - horizontalAdjustment)
-                  : -(halfColliderWidth + horizontalAdjustment),
-    verticalCenterOffset
+        isFacingRight ? (halfColliderWidth - horizontalAdjustment)
+                      : -(halfColliderWidth + horizontalAdjustment),
+        verticalCenterOffset
     };
 
     sf::Vector2f attackPos = getPosition() + offset;
@@ -222,15 +233,8 @@ void Player::checkDeath() {
         return;
 
     std::cout << "[Player] Died. Respawning...\n";
-
-    // Reset player state
     health = maxHealth;
     staminaSystem.Reset();
     velocity = { 0.f, 0.f };
     setPosition(respawnPosition);
 }
-
-
-
-
-

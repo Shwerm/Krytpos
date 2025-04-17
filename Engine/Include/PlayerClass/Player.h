@@ -3,6 +3,7 @@
 
 #include "../GameObjectSystem/GameObject.h"
 #include "../SpriteRenderingSystem/SpriteRenderer.h"
+#include <iostream>
 
 /**
  * @class Player
@@ -21,6 +22,8 @@ private:
     float jumpMultiplier;
     bool isGrounded = false; ///< Tracks if the player is currently grounded
     SpriteRenderer spriteRenderer;
+    bool isFacingRight = true; ///< Tracks whether the player is facing right
+
 
     sf::Vector2f respawnPosition;  ///< The position to respawn to
     float fallThresholdY = 1000.f; ///< Y value below which the player respawns

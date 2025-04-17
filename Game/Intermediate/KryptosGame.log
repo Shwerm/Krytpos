@@ -1,9 +1,2 @@
 ﻿  main.cpp
-D:\Personal Projects\Working Title - Kryptos\Kryptos\Engine\Libraries\SFML-3.0.0\include\SFML\System\Exception.hpp(41,47): warning C4275: non dll-interface class 'std::runtime_error' used as base for dll-interface class 'sf::Exception'
-  (compiling source file 'SourceFiles/main.cpp')
-      D:\VisualStudio\VC\Tools\MSVC\14.41.34120\include\stdexcept(100,19):
-      see declaration of 'std::runtime_error'
-      D:\Personal Projects\Working Title - Kryptos\Kryptos\Engine\Libraries\SFML-3.0.0\include\SFML\System\Exception.hpp(41,23):
-      see declaration of 'sf::Exception'
-  
   KryptosGame.vcxproj -> D:\Personal Projects\Working Title - Kryptos\Kryptos\Game\x64\Debug\Game.exe

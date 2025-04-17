@@ -3,9 +3,12 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35222.181
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "KryptosEngine", "Engine\KryptosEngine.vcxproj", "{FA92A39C-C4E6-4A5C-A834-51C19A5E427F}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Engine", "Engine\KryptosEngine.vcxproj", "{FA92A39C-C4E6-4A5C-A834-51C19A5E427F}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "KryptosGame", "Game\KryptosGame.vcxproj", "{24693151-1949-4EDC-B165-8DBAF16B226A}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Game", "Game\KryptosGame.vcxproj", "{24693151-1949-4EDC-B165-8DBAF16B226A}"
+	ProjectSection(ProjectDependencies) = postProject
+		{FA92A39C-C4E6-4A5C-A834-51C19A5E427F} = {FA92A39C-C4E6-4A5C-A834-51C19A5E427F}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

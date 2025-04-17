@@ -17,9 +17,12 @@ Player::Player(
     attackMultiplier(1.f),
     jumpMultiplier(1.f),
     spriteRenderer(name),
-    respawnPosition(position) // default fallback
+    respawnPosition(position)
 {
     spriteRenderer.loadTexture(texturePath);
+
+    // Set sprite origin for proper flipping
+    spriteRenderer.setOrigin({ 0.f, 2.f });
     spriteRenderer.setPosition(position);
 
     addCollider({ 32.f, 48.f }, { 16.f, 0.f });
@@ -31,6 +34,7 @@ Player::Player(
     registerDebugVariable("Jump Multiplier", jumpMultiplier);
 }
 
+
 void Player::update(float deltaTime) {
     sf::Vector2f inputVelocity(0.f, 0.f);
 
@@ -41,21 +45,34 @@ void Player::update(float deltaTime) {
         inputVelocity.x += movementSpeed;
     }
 
-    // Jumping
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Space) && isGrounded) {
-        velocity.y = -jumpMultiplier * 170.f;
-        isGrounded = false;
+    // Flip sprite safely, using correct scale
+    if (inputVelocity.x < 0.f && isFacingRight) {
+        isFacingRight = false;
+        try {
+            spriteRenderer.setScale({ -1.f, 1.f });
+        }
+        catch (...) {
+            std::cerr << "[Player] spriteRenderer.setScale() threw unexpectedly!\n";
+        }
     }
+    else if (inputVelocity.x > 0.f && !isFacingRight) {
+        isFacingRight = true;
+        try {
+            spriteRenderer.setScale({ 1.f, 1.f });
+        }
+        catch (...) {
+            std::cerr << "[Player] spriteRenderer.setScale() threw unexpectedly!\n";
+        }
+    }
+
 
     velocity.x = inputVelocity.x;
 
     // Apply movement + gravity
     GameObject::update(deltaTime);
 
-    // Reset grounded state, will be updated if collision occurs
     isGrounded = false;
 
-    // Ground collision detection
     for (auto* obj : GameObjectManager::getInstance().getGameObjects()) {
         if (obj == this || !obj->hasCollider()) continue;
 
@@ -74,16 +91,15 @@ void Player::update(float deltaTime) {
         }
     }
 
-    // Fall check
     if (position.y > fallThresholdY) {
         position = respawnPosition;
         velocity = { 0.f, 0.f };
     }
 
-    // Sync position
     setPosition(position);
     spriteRenderer.setPosition(position);
 }
+
 
 void Player::draw(sf::RenderWindow& window) {
     spriteRenderer.draw(window);

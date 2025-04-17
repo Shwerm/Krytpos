@@ -58,16 +58,27 @@ void ParallaxLayer::wrapSprites(float cameraX, float viewWidth)
     if (!sprite1 || !sprite2 || lockX) return;
 
     float spriteWidth = texture.getSize().x * scale;
-    float cameraLeft = cameraX - viewWidth / 2.f;
+    float camLeft = cameraX - viewWidth / 2.f;
+    float camRight = cameraX + viewWidth / 2.f;
 
-    if (sprite1->getPosition().x + spriteWidth < cameraLeft)
+    // Wrap left
+    if (sprite1->getPosition().x + spriteWidth < camLeft)
     {
         sprite1->setPosition({ sprite2->getPosition().x + spriteWidth, sprite1->getPosition().y });
     }
-
-    if (sprite2->getPosition().x + spriteWidth < cameraLeft)
+    else if (sprite2->getPosition().x + spriteWidth < camLeft)
     {
         sprite2->setPosition({ sprite1->getPosition().x + spriteWidth, sprite2->getPosition().y });
+    }
+
+    // Wrap right
+    if (sprite1->getPosition().x > camRight)
+    {
+        sprite1->setPosition({ sprite2->getPosition().x - spriteWidth, sprite1->getPosition().y });
+    }
+    else if (sprite2->getPosition().x > camRight)
+    {
+        sprite2->setPosition({ sprite1->getPosition().x - spriteWidth, sprite2->getPosition().y });
     }
 }
 

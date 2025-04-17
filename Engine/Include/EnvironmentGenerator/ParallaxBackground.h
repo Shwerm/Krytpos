@@ -1,6 +1,7 @@
 #pragma once
 
 #include <vector>
+#include <memory>
 #include "ParallaxLayer.h"
 
 /**
@@ -15,5 +16,5 @@ public:
     void draw(sf::RenderTarget& target);
 
 private:
-    std::vector<ParallaxLayer> layers;
+    std::vector<std::unique_ptr<ParallaxLayer>> layers;
 };

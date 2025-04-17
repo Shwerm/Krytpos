@@ -13,12 +13,9 @@ ParallaxLayer::ParallaxLayer(const std::string& texturePath, float scrollSpeed, 
     texture.setRepeated(true);
     texture.setSmooth(false);
 
-    // Safe: default construct, then bind the existing texture
-    sprite1 = std::make_unique<sf::Sprite>();
-    sprite2 = std::make_unique<sf::Sprite>();
-
-    sprite1->setTexture(texture);
-    sprite2->setTexture(texture);
+    // This is the only legal way to create sprites in your SFML build
+    sprite1 = std::make_unique<sf::Sprite>(texture);
+    sprite2 = std::make_unique<sf::Sprite>(texture);
 
     sprite1->setPosition({ 0.f, 0.f });
     sprite2->setPosition({ width, 0.f });
@@ -54,7 +51,7 @@ void ParallaxLayer::draw(sf::RenderTarget& target)
 {
     if (!sprite1 || !sprite2)
     {
-        std::cerr << "[ParallaxLayer] Attempted to draw with invalid sprite(s)." << std::endl;
+        std::cerr << "[ParallaxLayer] Skipped draw: sprite(s) not initialised.\n";
         return;
     }
 

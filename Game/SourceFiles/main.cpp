@@ -24,7 +24,7 @@ int main() {
         std::cerr << "Get working dir error: " << e.what() << "\n";
     }
 
-    sf::RenderWindow window(sf::VideoMode({ 800, 600 }), "Player, Game Object & Sprite Renderer Test");
+    sf::RenderWindow window(sf::VideoMode({ 1088, 640 }), "Player, Game Object & Sprite Renderer Test");
 
     // Create parallax background
     ParallaxBackground parallaxBackground(static_cast<float>(window.getSize().x));

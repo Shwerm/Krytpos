@@ -3,7 +3,7 @@
 ParallaxBackground::ParallaxBackground(float windowWidth)
 {
     layers.emplace_back(std::make_unique<ParallaxLayer>(
-        "Assets/GameAssets/Textures/Environment/ParallaxBackground/parallax-mountain-bg.png", 0.1f, windowWidth, 4.0f, -50.0f, -300.0f));
+        "Assets/GameAssets/Textures/Environment/ParallaxBackground/parallax-mountain-bg.png", 0.1f, windowWidth, 4.0f, -5.0f, -435.0f));
 
     layers.emplace_back(std::make_unique<ParallaxLayer>(
         "Assets/GameAssets/Textures/Environment/ParallaxBackground/parallax-mountain-montain-far.png", 0.25f, windowWidth, 3.0f, 600.0f, -300.0f));

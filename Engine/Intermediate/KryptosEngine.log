@@ -1,5 +1,4 @@
-﻿  ParallaxBackground.cpp
-  ParallaxLayer.cpp
+﻿  ParallaxLayer.cpp
 D:\VisualStudio\VC\Tools\MSVC\14.41.34120\include\memory(3597,35): error C2512: 'sf::Sprite::Sprite': no appropriate default constructor available
   (compiling source file 'Source/EnvironmentGenerator/ParallaxLayer.cpp')
       D:\VisualStudio\VC\Tools\MSVC\14.41.34120\include\memory(3597,35):
@@ -9,4 +8,3 @@ D:\VisualStudio\VC\Tools\MSVC\14.41.34120\include\memory(3597,35): error C2512: 
           D:\Personal Projects\Working Title - Kryptos\Kryptos\Engine\Source\EnvironmentGenerator\ParallaxLayer.cpp(17,20):
           see reference to function template instantiation 'std::unique_ptr<sf::Sprite,std::default_delete<sf::Sprite>> std::make_unique<sf::Sprite,,0>(void)' being compiled
   
-  Generating Code...

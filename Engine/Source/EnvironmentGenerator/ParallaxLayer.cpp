@@ -13,7 +13,7 @@ ParallaxLayer::ParallaxLayer(const std::string& texturePath, float scrollSpeed, 
     texture.setRepeated(true);
     texture.setSmooth(false);
 
-    // Create sprites only after texture loads
+    // Safe: default construct, then bind the existing texture
     sprite1 = std::make_unique<sf::Sprite>();
     sprite2 = std::make_unique<sf::Sprite>();
 

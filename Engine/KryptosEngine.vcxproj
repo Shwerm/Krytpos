@@ -464,6 +464,7 @@
     <ClInclude Include="ThirdParty\spdlog\include\spdlog\version.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Source\EngineSFMLLink.cpp" />
     <ClCompile Include="Source\UI\HealthBar.cpp" />
     <ClCompile Include="Source\EnemyClass\EnemyClass.cpp" />
     <ClCompile Include="Source\CameraSystem\CameraController.cpp" />
@@ -1201,6 +1202,7 @@
  %(AdditionalOptions)</AdditionalOptions>
       <MinimalRebuild>false</MinimalRebuild>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <DisableSpecificWarnings>4275;%(DisableSpecificWarnings)</DisableSpecificWarnings>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -1208,9 +1210,13 @@
       <AdditionalDependencies>sfml-graphics-s-d.lib;sfml-system-s-d.lib;sfml-network-s-d.lib;sfml-window-s-d.lib;sfml-audio-s-d.lib;sfml-resource-s-d.lib;opengl32.lib;freetype.lib;winmm.lib;gdi32.lib;flac.lib;vorbisenc.lib;vorbisfile.lib;vorbis.lib;ogg.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy /Y /E /I /Q "$(ProjectDir)EngineAssets" "$(SolutionDir)\Game\x64\Debug\Assets\EngineAssets" &amp;&amp; xcopy /Y /E /I /Q "$(ProjectDir)GameAssets" "$(SolutionDir)\Game\x64\Debug\Assets\GameAssets"
-</Command>
+      <Command>xcopy /Y /E /I /Q "$(ProjectDir)EngineAssets" "$(SolutionDir)\Game\x64\Debug\Assets\EngineAssets"
+xcopy /Y /E /I /Q "$(ProjectDir)GameAssets" "$(SolutionDir)\Game\x64\Debug\Assets\GameAssets"
+xcopy /Y /Q /I "$(SolutionDir)Engine\Libraries\SFML-3.0.0\bin\sfml-*.dll" "$(SolutionDir)Game/x64/Debug"</Command>
     </PostBuildEvent>
+    <Lib>
+      <AdditionalDependencies>sfml-graphics-d.lib;sfml-window-d.lib;sfml-system-d.lib;sfml-audio-d.lib;opengl32.lib;freetype.lib;winmm.lib;gdi32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -1227,6 +1233,7 @@
  %(AdditionalOptions)</AdditionalOptions>
       <MinimalRebuild>false</MinimalRebuild>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <DisableSpecificWarnings>4275;%(DisableSpecificWarnings)</DisableSpecificWarnings>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -1236,8 +1243,14 @@
       <AdditionalDependencies>sfml-graphics-s.lib;sfml-system-s.lib;sfml-network-s.lib;sfml-window-s.lib;sfml-audio-s.lib;sfml-resource-s.lib;opengl32.lib;freetype.lib;winmm.lib;gdi32.lib;flac.lib;vorbisenc.lib;vorbisfile.lib;vorbis.lib;ogg.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy /Y /E /I /Q "$(ProjectDir)EngineAssets" "$(SolutionDir)\Game\x64\Release\Assets\EngineAssets" &amp;&amp; xcopy /Y /E /I /Q "$(ProjectDir)GameAssets" "$(SolutionDir)\Game\x64\Release\Assets\GameAssets"</Command>
+      <Command>xcopy /Y /E /I /Q "$(ProjectDir)EngineAssets" "$(SolutionDir)\Game\x64\Release\Assets\EngineAssets"
+xcopy /Y /E /I /Q "$(ProjectDir)GameAssets" "$(SolutionDir)\Game\x64\Release\Assets\GameAssets"
+xcopy /Y /Q /I "$(SolutionDir)Engine\Libraries\SFML-3.0.0\bin\sfml-*.dll" "$(SolutionDir)Game/x64/Release"
+</Command>
     </PostBuildEvent>
+    <Lib>
+      <AdditionalDependencies>sfml-graphics.lib;sfml-window.lib;sfml-system.lib;sfml-audio.lib;opengl32.lib;freetype.lib;winmm.lib;gdi32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Lib>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

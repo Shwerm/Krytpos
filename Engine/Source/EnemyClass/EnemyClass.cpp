@@ -153,3 +153,13 @@ float EnemyClass::getAttackMultiplier() const { return attackMultiplier; }
 void EnemyClass::setHealth(float value) { health = value; }
 void EnemyClass::setMovementSpeed(float value) { movementSpeed = value; }
 void EnemyClass::setAttackMultiplier(float value) { attackMultiplier = value; }
+
+void EnemyClass::applyKnockback(const sf::Vector2f& force) {
+    velocity = force;
+    movingLeft = false; // disable AI temporarily
+    flipCooldown = flipCooldownDuration; // prevent auto flip
+
+    // Optional: Log knockback
+    std::cout << "[Enemy] Knocked back with velocity (" << force.x << ", " << force.y << ")\n";
+}
+

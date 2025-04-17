@@ -64,6 +64,9 @@ public:
     float getStamina() const;
     float getMaxStamina() const;
     float getStaminaRatio() const;
+
+    void handleAttack();
+
 };
 
 #endif // PLAYER_H

@@ -52,6 +52,11 @@ void Player::update(float deltaTime) {
         inputVelocity.x += movementSpeed;
     }
 
+    // Inside update(float deltaTime)
+    if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
+        handleAttack();
+    }
+
     // Switch textures based on movement direction
     if (inputVelocity.x < 0.f && isFacingRight) {
         isFacingRight = false;
@@ -104,8 +109,11 @@ void Player::update(float deltaTime) {
     if (position.y > fallThresholdY) {
         position = respawnPosition;
 		health = maxHealth;
+        staminaSystem.Reset();
         velocity = { 0.f, 0.f };
     }
+
+
 
     setPosition(position);
     spriteRenderer.setPosition(position);
@@ -153,4 +161,20 @@ float Player::getMaxStamina() const {
 float Player::getStaminaRatio() const {
     return staminaSystem.GetStaminaRatio();
 }
+
+void Player::handleAttack() {
+    const float staminaCost = 20.f;
+
+    if (!staminaSystem.UseStamina(staminaCost)) {
+        std::cout << "[Player] Not enough stamina to attack.\n";
+        return;
+    }
+
+    sf::Vector2f attackPos = position + sf::Vector2f(isFacingRight ? 32.f : -32.f, 0.f);
+    sf::Vector2f dir = isFacingRight ? sf::Vector2f(1.f, 0.f) : sf::Vector2f(-1.f, 0.f);
+
+    auto* hitbox = new AttackHitbox("AttackHitbox", attackPos, dir);
+    GameObjectManager::getInstance().registerObject(hitbox);
+}
+
 

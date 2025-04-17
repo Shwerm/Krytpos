@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Include\PlayerClass\AttackHitbox.h" />
     <ClInclude Include="Include\UI\HealthBar.h" />
     <ClInclude Include="Include\EnemyClass\EnemyClass.h" />
     <ClInclude Include="Include\CameraSystem\CameraController.h" />
@@ -466,6 +467,7 @@
     <ClInclude Include="ThirdParty\spdlog\include\spdlog\version.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Source\PlayerClass\AttackHitbox.cpp" />
     <ClCompile Include="Source\UI\HealthBar.cpp" />
     <ClCompile Include="Source\EnemyClass\EnemyClass.cpp" />
     <ClCompile Include="Source\CameraSystem\CameraController.cpp" />

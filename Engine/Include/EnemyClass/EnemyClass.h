@@ -47,4 +47,6 @@ public:
     void setAttackMultiplier(float value);
 
     void fixedUpdate(float fixedDeltaTime) override;
+
+    void applyKnockback(const sf::Vector2f& force);
 };

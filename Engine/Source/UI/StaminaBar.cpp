@@ -6,7 +6,7 @@ StaminaBarObject::StaminaBarObject(Player* playerRef, const sf::Vector2f& screen
     backgroundRenderer("StaminaBar_BG"),
     fillRenderer("StaminaBar_Fill"),
     player(playerRef),
-    offsetFromBottomRight({ 20.f, 10.f }) // Slightly below health bar
+    offsetFromBottomRight({ 20.f, 50.f }) // Slightly below health bar
 {
     backgroundRenderer.loadTexture("Assets/GameAssets/Textures/UI/EmptyBar.png");
     fillRenderer.loadTexture("Assets/GameAssets/Textures/UI/BlueBar.png");

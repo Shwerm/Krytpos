@@ -5,6 +5,7 @@
 #include "../../Include/GameObjectSystem/GameObjectManager.h"
 #include "../../Include/Physics/PhysicsConstants.h"
 #include "../../Include/PlayerClass/AttackHitbox.h"
+#include "../../Include/EnemyClass/EnemyClass.h"
 
 
 Player::Player(

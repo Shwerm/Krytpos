@@ -179,10 +179,12 @@ void Player::handleAttack() {
     // To spawn in front of collider, offset horizontally by half the collider width
     const float halfColliderWidth = 32.f / 2.f;
     const float verticalCenterOffset = 48.f / 2.f;
+    const float horizontalAdjustment = -32.f;
 
     sf::Vector2f offset = {
-        isFacingRight ? halfColliderWidth : -halfColliderWidth,
-        verticalCenterOffset
+    isFacingRight ? (halfColliderWidth - horizontalAdjustment)
+                  : -(halfColliderWidth + horizontalAdjustment),
+    verticalCenterOffset
     };
 
     sf::Vector2f attackPos = getPosition() + offset;

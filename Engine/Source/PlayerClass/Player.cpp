@@ -175,11 +175,23 @@ void Player::handleAttack() {
         return;
     }
 
-    sf::Vector2f attackPos = position + sf::Vector2f(isFacingRight ? 32.f : -32.f, 0.f);
+    // Player collider offset = { 16.f, 0.f }, size = { 32.f, 48.f }
+    // To spawn in front of collider, offset horizontally by half the collider width
+    const float halfColliderWidth = 32.f / 2.f;
+    const float verticalCenterOffset = 48.f / 2.f;
+
+    sf::Vector2f offset = {
+        isFacingRight ? halfColliderWidth : -halfColliderWidth,
+        verticalCenterOffset
+    };
+
+    sf::Vector2f attackPos = getPosition() + offset;
     sf::Vector2f dir = isFacingRight ? sf::Vector2f(1.f, 0.f) : sf::Vector2f(-1.f, 0.f);
 
     auto* hitbox = new AttackHitbox("AttackHitbox", attackPos, dir);
     GameObjectManager::getInstance().registerObject(hitbox);
 }
+
+
 
 

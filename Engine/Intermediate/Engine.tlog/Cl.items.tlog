@@ -14,3 +14,5 @@ D:\Personal Projects\Working Title - Kryptos\Kryptos\Engine\Source\GameObjectSys
 D:\Personal Projects\Working Title - Kryptos\Kryptos\Engine\Source\PlayerClass\Player.cpp;D:\Personal Projects\Working Title - Kryptos\Kryptos\Engine\Intermediate\Player.obj
 D:\Personal Projects\Working Title - Kryptos\Kryptos\Engine\Source\SpriteRenderingSystem\SpriteRenderer.cpp;D:\Personal Projects\Working Title - Kryptos\Kryptos\Engine\Intermediate\SpriteRenderer.obj
 D:\Personal Projects\Working Title - Kryptos\Kryptos\Engine\Source\LoggingSystem\SpriteRenderer\SpriteRendererLogger.cpp;D:\Personal Projects\Working Title - Kryptos\Kryptos\Engine\Intermediate\SpriteRendererLogger.obj
+D:\Personal Projects\Working Title - Kryptos\Kryptos\Engine\Source\PlayerClass\StaminaSystem.cpp;D:\Personal Projects\Working Title - Kryptos\Kryptos\Engine\Intermediate\StaminaSystem.obj
+D:\Personal Projects\Working Title - Kryptos\Kryptos\Engine\Source\UI\StaminaBar.cpp;D:\Personal Projects\Working Title - Kryptos\Kryptos\Engine\Intermediate\StaminaBar.obj

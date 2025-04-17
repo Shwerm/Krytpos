@@ -9,3 +9,4 @@
 #include "SpriteRenderingSystem/spriteRenderer.hpp"
 #include "CameraSystem/PlayerCamera.hpp"
 #include "UI/HealthBar.h"
+#include "UI/StaminaBar.h"

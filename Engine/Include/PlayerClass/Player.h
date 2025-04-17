@@ -3,6 +3,7 @@
 
 #include "../GameObjectSystem/GameObject.h"
 #include "../SpriteRenderingSystem/SpriteRenderer.h"
+#include "StaminaSystem.h" 
 #include <iostream>
 
 /**
@@ -30,6 +31,8 @@ private:
     std::string texturePathRight;
     std::string texturePathLeft;
 
+    StaminaSystem staminaSystem; // Added stamina system member
+
 public:
     Player(const std::string& name, const sf::Vector2f& position, const std::string& texturePathRight);
     ~Player() override = default;
@@ -56,6 +59,11 @@ public:
 
     float getJumpMultiplier() const;
     void setJumpMultiplier(float value);
+
+    // Stamina accessors for future UI or gameplay
+    float getStamina() const;
+    float getMaxStamina() const;
+    float getStaminaRatio() const;
 };
 
 #endif // PLAYER_H

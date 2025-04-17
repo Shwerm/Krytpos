@@ -46,6 +46,7 @@
     <ClInclude Include="Include\LoggingSystem\Logger.h" />
     <ClInclude Include="Include\LoggingSystem\SpriteRenderer\SpriteRendererLogger.h" />
     <ClInclude Include="Include\SpriteRenderingSystem\spriteRenderer.hpp" />
+    <ClInclude Include="Include\UI\StaminaBar.h" />
     <ClInclude Include="Libraries\SFML-3.0.0\include\SFML\Audio.hpp" />
     <ClInclude Include="Libraries\SFML-3.0.0\include\SFML\Audio\AudioResource.hpp" />
     <ClInclude Include="Libraries\SFML-3.0.0\include\SFML\Audio\Export.hpp" />
@@ -252,6 +253,7 @@
     <ClInclude Include="Libraries\spdlog\include\spdlog\stopwatch.h" />
     <ClInclude Include="Libraries\spdlog\include\spdlog\tweakme.h" />
     <ClInclude Include="Libraries\spdlog\include\spdlog\version.h" />
+    <ClInclude Include="Include\PlayerClass\StaminaSystem.h" />
     <ClInclude Include="ThirdParty\sdplog\include\spdlog\async.h" />
     <ClInclude Include="ThirdParty\sdplog\include\spdlog\async_logger-inl.h" />
     <ClInclude Include="ThirdParty\sdplog\include\spdlog\async_logger.h" />
@@ -480,6 +482,8 @@
     <ClCompile Include="Source\PlayerClass\Player.cpp" />
     <ClCompile Include="Source\SpriteRenderingSystem\SpriteRenderer.cpp" />
     <ClCompile Include="Source\LoggingSystem\SpriteRenderer\SpriteRendererLogger.cpp" />
+    <ClCompile Include="Source\PlayerClass\StaminaSystem.cpp" />
+    <ClCompile Include="Source\UI\StaminaBar.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Font Include="EngineAssets\Fonts\DebugWindowFont\AtkinsonHyperlegible-Bold.ttf" />
@@ -1056,6 +1060,7 @@
     <Image Include="GameAssets\Textures\Environment\Platforms\platform1.png" />
     <Image Include="GameAssets\Textures\Player\KrillConcept03.png" />
     <Image Include="GameAssets\Textures\Player\KrillConcept03Reversed.png" />
+    <Image Include="GameAssets\Textures\UI\BlueBar.png" />
     <Image Include="GameAssets\Textures\UI\EmptyBar.png" />
     <Image Include="GameAssets\Textures\UI\RedBar.png" />
   </ItemGroup>

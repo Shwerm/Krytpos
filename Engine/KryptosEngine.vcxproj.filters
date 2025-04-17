@@ -1344,6 +1344,12 @@
     <ClInclude Include="Libraries\spdlog\include\spdlog\version.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Include\PlayerClass\StaminaSystem.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\UI\StaminaBar.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\GameObjectSystem\GameObject.cpp">
@@ -1392,6 +1398,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Source\UI\HealthBar.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\PlayerClass\StaminaSystem.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\UI\StaminaBar.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -2010,6 +2022,9 @@
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="GameAssets\Textures\Player\KrillConcept03Reversed.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="GameAssets\Textures\UI\BlueBar.png">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>

@@ -18,7 +18,8 @@ Player::Player(
     jumpMultiplier(1.f),
     spriteRenderer(name),
     respawnPosition(position),
-    texturePathRight(texturePathRight)
+    texturePathRight(texturePathRight),
+	staminaSystem(100.f, 10.f) // Initialise stamina system with max stamina and regen rate
 {
     // Build left-facing texture path based on naming convention
     texturePathLeft = texturePathRight;
@@ -102,6 +103,7 @@ void Player::update(float deltaTime) {
 
     if (position.y > fallThresholdY) {
         position = respawnPosition;
+		health = maxHealth;
         velocity = { 0.f, 0.f };
     }
 
@@ -139,3 +141,16 @@ void Player::setAttackMultiplier(float value) { attackMultiplier = value; }
 
 float Player::getJumpMultiplier() const { return jumpMultiplier; }
 void Player::setJumpMultiplier(float value) { jumpMultiplier = value; }
+
+float Player::getStamina() const {
+    return staminaSystem.GetStamina();
+}
+
+float Player::getMaxStamina() const {
+    return staminaSystem.GetMaxStamina();
+}
+
+float Player::getStaminaRatio() const {
+    return staminaSystem.GetStaminaRatio();
+}
+

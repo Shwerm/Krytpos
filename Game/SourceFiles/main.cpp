@@ -39,6 +39,11 @@ int main() {
     auto* healthBar = new HealthBarObject(&player, sf::Vector2f(window.getSize()));
     GameObjectManager::getInstance().registerObject(healthBar);
 
+    // Create and register stamina bar UI
+    auto* staminaBar = new StaminaBarObject(&player, sf::Vector2f(window.getSize()));
+    GameObjectManager::getInstance().registerObject(staminaBar);
+
+
     // Set up environment generation settings
     TerrainGenerationSettings genSettings;
     genSettings.totalPlatforms = 15;
@@ -99,7 +104,8 @@ int main() {
         camera.ApplyView(window);
 
         for (auto* obj : GameObjectManager::getInstance().getGameObjects()) {
-            if (obj->getName() != "HealthBar") {
+            if (obj->getName() == "HealthBar" || obj->getName() == "StaminaBar") 
+            {
                 obj->draw(window);
             }
         }
@@ -110,7 +116,8 @@ int main() {
         window.setView(window.getDefaultView());
 
         for (auto* obj : GameObjectManager::getInstance().getGameObjects()) {
-            if (obj->getName() == "HealthBar") {
+            if (obj->getName() == "HealthBar" || obj->getName() == "StaminaBar")
+            {
                 obj->draw(window);
             }
         }

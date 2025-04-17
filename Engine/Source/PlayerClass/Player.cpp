@@ -53,11 +53,14 @@ void Player::update(float deltaTime) {
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D)) {
         inputVelocity.x += movementSpeed;
     }
+    bool currentPressed = sf::Mouse::isButtonPressed(sf::Mouse::Button::Left);
 
-    // Inside update(float deltaTime)
-    if (sf::Mouse::isButtonPressed(sf::Mouse::Button::Left)) {
-        handleAttack();
+    if (currentPressed && !previousMousePressed) {
+        handleAttack(); // Trigger only on press
     }
+
+    previousMousePressed = currentPressed;
+
 
     // Switch textures based on movement direction
     if (inputVelocity.x < 0.f && isFacingRight) {

@@ -1,12 +1,5 @@
-﻿  Collider2D.cpp
-  DebugWindow.cpp
-  EnemyClass.cpp
+﻿  DebugWindow.cpp
   EnvironmentGenerator.cpp
-  Platform.cpp
-  PlatformFactory.cpp
-  GameObject.cpp
-  GameObjectManager.cpp
-  AttackHitbox.cpp
   Player.cpp
   HealthBar.cpp
   StaminaBar.cpp

@@ -66,6 +66,7 @@ public:
     float getStaminaRatio() const;
 
     void handleAttack();
+    bool previousMousePressed = false; // Track last frame's state
 
 };
 

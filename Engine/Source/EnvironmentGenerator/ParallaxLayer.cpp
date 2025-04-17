@@ -24,17 +24,17 @@ void ParallaxLayer::update(float cameraX, const sf::View& cameraView)
 {
     if (!sprite1 || !sprite2) return;
 
-    float offset = -cameraX * speed;
+    float offsetX = -cameraX * speed;
+    float offsetY = -cameraView.getCenter().y * speed + yOffset;
+
     float scaledWidth = width * scale;
 
-    float cameraBottomY = cameraView.getCenter().y + cameraView.getSize().y / 2.f;
-    float targetY = cameraBottomY - yOffset;
-
-    sprite1->setPosition({ offset, targetY });
-    sprite2->setPosition({ offset + scaledWidth, targetY });
+    sprite1->setPosition({ offsetX, offsetY });
+    sprite2->setPosition({ offsetX + scaledWidth, offsetY });
 
     wrapSprites(cameraX);
 }
+
 
 void ParallaxLayer::wrapSprites(float cameraX)
 {

@@ -3,19 +3,19 @@
 ParallaxBackground::ParallaxBackground(float windowWidth)
 {
     layers.emplace_back(std::make_unique<ParallaxLayer>(
-        "Assets/GameAssets/Textures/Environment/ParallaxBackground/parallax-mountain-bg.png", 0.1f, windowWidth, 3.0f, 280.0f));
+        "Assets/GameAssets/Textures/Environment/ParallaxBackground/parallax-mountain-bg.png", 0.1f, windowWidth, 4.0f, 640.0f));
 
     layers.emplace_back(std::make_unique<ParallaxLayer>(
-        "Assets/GameAssets/Textures/Environment/ParallaxBackground/parallax-mountain-montain-far.png", 0.25f, windowWidth, 3.0f, 260.0f));
+        "Assets/GameAssets/Textures/Environment/ParallaxBackground/parallax-mountain-montain-far.png", 0.25f, windowWidth, 3.0f, 600.0f));
 
     layers.emplace_back(std::make_unique<ParallaxLayer>(
-        "Assets/GameAssets/Textures/Environment/ParallaxBackground/parallax-mountain-mountains.png", 0.4f, windowWidth, 3.0f, 240.0f));
+        "Assets/GameAssets/Textures/Environment/ParallaxBackground/parallax-mountain-mountains.png", 0.4f, windowWidth, 3.0f, 450.0f));
 
     layers.emplace_back(std::make_unique<ParallaxLayer>(
-        "Assets/GameAssets/Textures/Environment/ParallaxBackground/parallax-mountain-trees.png", 0.6f, windowWidth, 3.0f, 220.0f));
+        "Assets/GameAssets/Textures/Environment/ParallaxBackground/parallax-mountain-trees.png", 0.6f, windowWidth, 3.0f, 200.0f));
 
     layers.emplace_back(std::make_unique<ParallaxLayer>(
-        "Assets/GameAssets/Textures/Environment/ParallaxBackground/parallax-mountain-foreground-trees.png", 0.8f, windowWidth, 3.0f, 200.0f));
+        "Assets/GameAssets/Textures/Environment/ParallaxBackground/parallax-mountain-foreground-trees.png", 0.8f, windowWidth, 3.0f, 120.0f));
 }
 
 void ParallaxBackground::update(float cameraX, const sf::View& cameraView)

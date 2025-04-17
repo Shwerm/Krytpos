@@ -2,20 +2,27 @@
 
 ParallaxBackground::ParallaxBackground(float windowWidth)
 {
+    // Static sky background - no scroll, no repeat
     layers.emplace_back(std::make_unique<ParallaxLayer>(
-        "Assets/GameAssets/Textures/Environment/ParallaxBackground/parallax-mountain-bg.png", 0.1f, windowWidth, 4.0f, -5.0f, -435.0f));
+        "Assets/GameAssets/Textures/Environment/ParallaxBackground/parallax-mountain-bg.png",
+        0.0f, windowWidth, 4.0f, -15.0f, -444.0f, false));
+
+    // Scrollable, repeatable parallax layers
+    layers.emplace_back(std::make_unique<ParallaxLayer>(
+        "Assets/GameAssets/Textures/Environment/ParallaxBackground/parallax-mountain-montain-far.png",
+        0.25f, windowWidth, 4.0f, 100.0f, -420.0f));
 
     layers.emplace_back(std::make_unique<ParallaxLayer>(
-        "Assets/GameAssets/Textures/Environment/ParallaxBackground/parallax-mountain-montain-far.png", 0.25f, windowWidth, 3.0f, 600.0f, -300.0f));
+        "Assets/GameAssets/Textures/Environment/ParallaxBackground/parallax-mountain-mountains.png",
+        0.4f, windowWidth, 4.0f, 300.0f, -420.0f));
 
     layers.emplace_back(std::make_unique<ParallaxLayer>(
-        "Assets/GameAssets/Textures/Environment/ParallaxBackground/parallax-mountain-mountains.png", 0.4f, windowWidth, 3.0f, 450.0f, -300.0f));
+        "Assets/GameAssets/Textures/Environment/ParallaxBackground/parallax-mountain-trees.png",
+        0.6f, windowWidth, 4.0f, 380.0f, -420.0f));
 
     layers.emplace_back(std::make_unique<ParallaxLayer>(
-        "Assets/GameAssets/Textures/Environment/ParallaxBackground/parallax-mountain-trees.png", 0.6f, windowWidth, 3.0f, 200.0f, -300.0f));
-
-    layers.emplace_back(std::make_unique<ParallaxLayer>(
-        "Assets/GameAssets/Textures/Environment/ParallaxBackground/parallax-mountain-foreground-trees.png", 0.8f, windowWidth, 3.0f, 120.0f, -300.0f));
+        "Assets/GameAssets/Textures/Environment/ParallaxBackground/parallax-mountain-foreground-trees.png",
+        0.8f, windowWidth, 4.0f, 480.0f));
 }
 
 void ParallaxBackground::update(float cameraX, const sf::View& cameraView)

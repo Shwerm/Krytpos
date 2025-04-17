@@ -10,7 +10,14 @@
 class ParallaxLayer
 {
 public:
-    ParallaxLayer(const std::string& texturePath, float scrollSpeed, float windowWidth, float scale, float yOffset, float xOffset = 0.0f, bool repeat = true);
+    ParallaxLayer(const std::string& texturePath,
+        float scrollSpeed,
+        float windowWidth,
+        float scale,
+        float yOffset,
+        float xOffset = 0.0f,
+        bool repeat = true,
+        bool lockX = false);
 
     void update(float cameraX, const sf::View& cameraView);
     void draw(sf::RenderTarget& target);
@@ -26,6 +33,7 @@ private:
     float yOffset;
     float xOffset;
     bool repeatEnabled;
+    bool lockX;
 
     void wrapSprites(float cameraX);
 };

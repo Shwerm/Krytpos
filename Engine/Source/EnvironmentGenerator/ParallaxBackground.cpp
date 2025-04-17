@@ -18,11 +18,11 @@ ParallaxBackground::ParallaxBackground(float windowWidth)
 
     layers.emplace_back(std::make_unique<ParallaxLayer>(
         "Assets/GameAssets/Textures/Environment/ParallaxBackground/parallax-mountain-trees.png",
-        0.6f, windowWidth, 4.0f, 380.0f, -420.0f));
+        0.6f, windowWidth, 4.0f, 360.0f, -420.0f));
 
     layers.emplace_back(std::make_unique<ParallaxLayer>(
         "Assets/GameAssets/Textures/Environment/ParallaxBackground/parallax-mountain-foreground-trees.png",
-        0.8f, windowWidth, 4.0f, 480.0f));
+        0.8f, windowWidth, 4.0f, 360.0f, -420.0f));
 }
 
 void ParallaxBackground::update(float cameraX, const sf::View& cameraView)

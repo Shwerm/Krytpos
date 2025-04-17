@@ -26,7 +26,7 @@ private:
     SpriteRenderer spriteRenderer;
 
     sf::Vector2f respawnPosition;
-    float fallThresholdY = 1000.f;
+    float fallThresholdY = 430.f;
 
     std::string texturePathRight;
     std::string texturePathLeft;

@@ -36,7 +36,7 @@ Player::Player(
     spriteRenderer.setOrigin({ 0.f, 2.f });
     spriteRenderer.setPosition(position);
 
-    addCollider({ 32.f, 48.f }, { 16.f, 0.f });
+    addCollider({ 28.f, 48.f }, { 18.f, 0.f });
 
     registerDebugVariable("Health", health);
     registerDebugVariable("Attack Speed", attackSpeed);

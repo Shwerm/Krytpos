@@ -10,11 +10,14 @@
 class ParallaxLayer
 {
 public:
-    ParallaxLayer(const std::string& texturePath, float scrollSpeed, float windowWidth);
+    ParallaxLayer(const std::string& texturePath, float scrollSpeed, float windowWidth, float scale, float yOffset);
     ~ParallaxLayer() = default;
 
     void update(float cameraX);
     void draw(sf::RenderTarget& target);
+    float scale = 1.0f;
+    float yOffset = -1000.0f;
+
 
 private:
     sf::Texture texture;

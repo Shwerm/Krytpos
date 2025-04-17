@@ -1,8 +1,8 @@
 #include "../../Include/EnvironmentGenerator/ParallaxLayer.h"
 #include <iostream>
 
-ParallaxLayer::ParallaxLayer(const std::string& texturePath, float scrollSpeed, float windowWidth, float scale, float yOffset)
-    : speed(scrollSpeed), width(windowWidth), scale(scale), yOffset(yOffset)
+ParallaxLayer::ParallaxLayer(const std::string& texturePath, float scrollSpeed, float windowWidth, float scale, float yOffset, float xOffset)
+    : speed(scrollSpeed), width(windowWidth), scale(scale), yOffset(yOffset), xOffset(xOffset)
 {
     if (!texture.loadFromFile(texturePath))
     {
@@ -24,9 +24,8 @@ void ParallaxLayer::update(float cameraX, const sf::View& cameraView)
 {
     if (!sprite1 || !sprite2) return;
 
-    float offsetX = -cameraX * speed;
+    float offsetX = -cameraX * speed + xOffset;
     float offsetY = -cameraView.getCenter().y * speed + yOffset;
-
     float scaledWidth = width * scale;
 
     sprite1->setPosition({ offsetX, offsetY });
@@ -34,6 +33,7 @@ void ParallaxLayer::update(float cameraX, const sf::View& cameraView)
 
     wrapSprites(cameraX);
 }
+
 
 
 void ParallaxLayer::wrapSprites(float cameraX)

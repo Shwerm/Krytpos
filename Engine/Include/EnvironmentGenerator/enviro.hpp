@@ -5,4 +5,7 @@
 #include "PlatformFactory.h"
 #include "RandomUtils.h"
 #include "TerrainGenerationSettings.h"
+#include "ParallaxBackground.h"
+#include "ParallaxLayer.h"
+
 

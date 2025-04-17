@@ -13,8 +13,12 @@ ParallaxLayer::ParallaxLayer(const std::string& texturePath, float scrollSpeed, 
     texture.setRepeated(true);
     texture.setSmooth(false);
 
-    sprite1.emplace(texture);
-    sprite2.emplace(texture);
+    // Create sprites only after texture loads
+    sprite1 = std::make_unique<sf::Sprite>();
+    sprite2 = std::make_unique<sf::Sprite>();
+
+    sprite1->setTexture(texture);
+    sprite2->setTexture(texture);
 
     sprite1->setPosition({ 0.f, 0.f });
     sprite2->setPosition({ width, 0.f });
@@ -48,6 +52,12 @@ void ParallaxLayer::wrapSprites(float cameraX)
 
 void ParallaxLayer::draw(sf::RenderTarget& target)
 {
-    if (sprite1) target.draw(*sprite1);
-    if (sprite2) target.draw(*sprite2);
+    if (!sprite1 || !sprite2)
+    {
+        std::cerr << "[ParallaxLayer] Attempted to draw with invalid sprite(s)." << std::endl;
+        return;
+    }
+
+    target.draw(*sprite1);
+    target.draw(*sprite2);
 }

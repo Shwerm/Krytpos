@@ -2,10 +2,10 @@
 #include <SFML/Window/Event.hpp>
 #include <KryptosEngine.hpp>
 
+
 #include <iostream>
 #include <memory>
 #include <filesystem>
-
 
 int main() {
     try {
@@ -26,6 +26,9 @@ int main() {
 
     sf::RenderWindow window(sf::VideoMode({ 800, 600 }), "Player, Game Object & Sprite Renderer Test");
 
+    // Create parallax background
+    ParallaxBackground parallaxBackground(static_cast<float>(window.getSize().x));
+
     // Set up camera controller
     CameraController camera(static_cast<float>(window.getSize().x), static_cast<float>(window.getSize().y));
 
@@ -42,7 +45,6 @@ int main() {
     // Create and register stamina bar UI
     auto* staminaBar = new StaminaBarObject(&player, sf::Vector2f(window.getSize()));
     GameObjectManager::getInstance().registerObject(staminaBar);
-
 
     // Set up environment generation settings
     TerrainGenerationSettings genSettings;
@@ -100,28 +102,30 @@ int main() {
 
         window.clear();
 
-        window.clear();
-
-        // ---------- Draw world (camera view) ----------
+        // ---------- Apply camera ----------
         camera.ApplyView(window);
 
+        // ---------- Update and Draw Parallax Background ----------
+        parallaxBackground.update(player.getPosition().x);
+        parallaxBackground.draw(window);
+
+        // ---------- Draw World Space Objects ----------
         for (auto* obj : GameObjectManager::getInstance().getGameObjects()) {
             if (obj->getName() != "HealthBar" && obj->getName() != "StaminaBar") {
-                obj->draw(window); // Only draw world objects here
+                obj->draw(window);
             }
         }
 
-        player.draw(window); // Still draw player in world space
+        player.draw(window);
 
         // ---------- Draw UI (screen-space) ----------
         window.setView(window.getDefaultView());
 
         for (auto* obj : GameObjectManager::getInstance().getGameObjects()) {
             if (obj->getName() == "HealthBar" || obj->getName() == "StaminaBar") {
-                obj->draw(window); // Only UI objects here
+                obj->draw(window);
             }
         }
-
 
         if (debugWindow.isOpen()) {
             debugWindow.draw();

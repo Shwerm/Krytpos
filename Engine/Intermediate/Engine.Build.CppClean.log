@@ -1,16 +1,5 @@
 d:\personal projects\working title - kryptos\kryptos\engine\x64\debug\engine.pdb
 d:\personal projects\working title - kryptos\kryptos\engine\x64\debug\engine.idb
-d:\personal projects\working title - kryptos\kryptos\engine\intermediate\tennis.obj
-d:\personal projects\working title - kryptos\kryptos\engine\intermediate\stencil.obj
-d:\personal projects\working title - kryptos\kryptos\engine\intermediate\soundeffects.obj
-d:\personal projects\working title - kryptos\kryptos\engine\intermediate\soundcapture.obj
-d:\personal projects\working title - kryptos\kryptos\engine\intermediate\sound.obj
-d:\personal projects\working title - kryptos\kryptos\engine\intermediate\shader.obj
-d:\personal projects\working title - kryptos\kryptos\engine\intermediate\rawinput.obj
-d:\personal projects\working title - kryptos\kryptos\engine\intermediate\keyboard.obj
-d:\personal projects\working title - kryptos\kryptos\engine\intermediate\joystick.obj
-d:\personal projects\working title - kryptos\kryptos\engine\intermediate\ftp.obj
-d:\personal projects\working title - kryptos\kryptos\engine\intermediate\eventhandling.obj
 d:\personal projects\working title - kryptos\kryptos\engine\intermediate\spriterendererlogger.obj
 d:\personal projects\working title - kryptos\kryptos\engine\intermediate\spriterenderer.obj
 d:\personal projects\working title - kryptos\kryptos\engine\intermediate\player.obj
@@ -27,7 +16,6 @@ d:\personal projects\working title - kryptos\kryptos\engine\intermediate\collide
 d:\personal projects\working title - kryptos\kryptos\engine\intermediate\cameracontroller.obj
 d:\personal projects\working title - kryptos\kryptos\engine\intermediate\enemyclass.obj
 d:\personal projects\working title - kryptos\kryptos\engine\intermediate\healthbar.obj
-d:\personal projects\working title - kryptos\kryptos\engine\intermediate\win32.obj
 d:\personal projects\working title - kryptos\kryptos\engine\x64\debug\engine.lib
 d:\personal projects\working title - kryptos\kryptos\engine\intermediate\engine.tlog\cl.command.1.tlog
 d:\personal projects\working title - kryptos\kryptos\engine\intermediate\engine.tlog\cl.items.tlog

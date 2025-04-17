@@ -100,27 +100,28 @@ int main() {
 
         window.clear();
 
+        window.clear();
+
         // ---------- Draw world (camera view) ----------
         camera.ApplyView(window);
 
         for (auto* obj : GameObjectManager::getInstance().getGameObjects()) {
-            if (obj->getName() == "HealthBar" || obj->getName() == "StaminaBar") 
-            {
-                obj->draw(window);
+            if (obj->getName() != "HealthBar" && obj->getName() != "StaminaBar") {
+                obj->draw(window); // Only draw world objects here
             }
         }
 
-        player.draw(window);
+        player.draw(window); // Still draw player in world space
 
         // ---------- Draw UI (screen-space) ----------
         window.setView(window.getDefaultView());
 
         for (auto* obj : GameObjectManager::getInstance().getGameObjects()) {
-            if (obj->getName() == "HealthBar" || obj->getName() == "StaminaBar")
-            {
-                obj->draw(window);
+            if (obj->getName() == "HealthBar" || obj->getName() == "StaminaBar") {
+                obj->draw(window); // Only UI objects here
             }
         }
+
 
         if (debugWindow.isOpen()) {
             debugWindow.draw();

@@ -35,5 +35,5 @@ private:
     bool repeatEnabled;
     bool lockX;
 
-    void wrapSprites(float cameraX);
+    void wrapSprites(float cameraX, float viewWidth);
 };

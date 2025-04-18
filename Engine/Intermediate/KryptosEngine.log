@@ -1,4 +1,34 @@
-﻿  Player.cpp
+﻿  Collider2D.cpp
+  CameraController.cpp
+D:\Personal Projects\Working Title - Kryptos\Kryptos\Engine\Include\CameraSystem\CameraController.h(1,1): warning C4828: The file contains a character starting at offset 0x1b5 that is illegal in the current source character set (codepage 65001).
+  (compiling source file 'Source/CameraSystem/CameraController.cpp')
+  
+  DebugWindow.cpp
+  EnemyClass.cpp
+  EnvironmentGenerator.cpp
+D:\Personal Projects\Working Title - Kryptos\Kryptos\Engine\Include\EnvironmentGenerator\EnvironmentGenerator.h(1,1): warning C4828: The file contains a character starting at offset 0x26e that is illegal in the current source character set (codepage 65001).
+  (compiling source file 'Source/EnvironmentGenerator/EnvironmentGenerator.cpp')
+  
+  ParallaxBackground.cpp
+D:\Personal Projects\Working Title - Kryptos\Kryptos\Engine\Source\EnvironmentGenerator\ParallaxBackground.cpp(1,1): warning C4828: The file contains a character starting at offset 0x9a that is illegal in the current source character set (codepage 65001).
+  ParallaxLayer.cpp
+  Platform.cpp
+  PlatformFactory.cpp
+  GameObject.cpp
+  GameObjectManager.cpp
+  EngineInit.cpp
+  DebugWindowLogger.cpp
+  Logger.cpp
+  SpriteRendererLogger.cpp
+  AttackHitbox.cpp
+  Player.cpp
+  StaminaSystem.cpp
+  SpriteRenderer.cpp
+  HealthBar.cpp
+  Generating Code...
+  Compiling...
+  StaminaBar.cpp
+  Generating Code...
   KryptosEngine.vcxproj -> D:\Personal Projects\Working Title - Kryptos\Kryptos\Engine\x64\Debug\Engine.lib
   2 File(s) copied
   13 File(s) copied

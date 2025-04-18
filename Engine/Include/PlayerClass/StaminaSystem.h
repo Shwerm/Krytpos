@@ -1,59 +1,73 @@
-// StaminaSystem.hpp
+/**
+ * @file StaminaSystem.h
+ * @brief Manages stamina consumption and regeneration for characters.
+ *
+ * @ingroup CombatSystem
+ *
+ * @author
+ * Sam Camilleri, Mural Studios
+ * @version 1.0
+ * @date 2025
+ */
+
 #pragma once
 
-/**
- * @brief Handles stamina consumption and regeneration for a game character.
- * Designed to be used by player or AI characters in gameplay.
- */
+ /**
+  * @class StaminaSystem
+  * @brief Handles stamina usage, regeneration, and querying for gameplay mechanics.
+  *
+  * Used by Player and AI characters to limit actions like attacking or sprinting.
+  */
 class StaminaSystem
 {
 public:
+    // -----------------------------------------------------
+    // Constructors
+    // -----------------------------------------------------
+
     /**
-     * @brief Constructs a StaminaSystem with specified max stamina and regen rate.
-     * @param maxStamina The maximum stamina value.
-     * @param regenRatePerSecond The regeneration rate in stamina units per second.
+     * @brief Constructs a stamina system with a given maximum and regeneration rate.
+     * @param maxStamina Maximum stamina.
+     * @param regenRatePerSecond Stamina regenerated per second.
      */
     StaminaSystem(float maxStamina, float regenRatePerSecond);
 
+    // -----------------------------------------------------
+    // Public Methods
+    // -----------------------------------------------------
+
     /**
-     * @brief Updates the stamina system. Regenerates stamina based on delta time.
-     * @param deltaTime Time passed since last frame (in seconds).
+     * @brief Updates stamina over time.
+     * @param deltaTime Elapsed time in seconds.
      */
     void Update(float deltaTime);
 
     /**
-     * @brief Attempts to consume a specified amount of stamina.
-     * @param amount Amount of stamina to use.
+     * @brief Attempts to consume a set amount of stamina.
+     * @param amount Amount to consume.
      * @return True if successful, false if not enough stamina.
      */
     bool UseStamina(float amount);
 
     /**
-     * @brief Resets the stamina to the maximum value.
+     * @brief Fully restores stamina to max.
      */
     void Reset();
 
-    /**
-     * @brief Gets the current stamina value.
-     * @return Current stamina.
-     */
+    // -----------------------------------------------------
+    // Getters
+    // -----------------------------------------------------
+
     float GetStamina() const;
-
-    /**
-     * @brief Gets the maximum stamina value.
-     * @return Maximum stamina.
-     */
     float GetMaxStamina() const;
-
-    /**
-     * @brief Gets a 0.0 to 1.0 ratio of current to max stamina.
-     * Useful for UI representation.
-     * @return Ratio of current stamina.
-     */
     float GetStaminaRatio() const;
 
 private:
-    float m_currentStamina;
-    float m_maxStamina;
-    float m_regenRate;
+    // -----------------------------------------------------
+    // Private Members
+    // -----------------------------------------------------
+
+    float m_currentStamina; ///< Current stamina value.
+    float m_maxStamina;     ///< Maximum stamina value.
+    float m_regenRate;      ///< Regeneration rate per second.
 };

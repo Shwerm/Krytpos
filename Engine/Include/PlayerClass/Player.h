@@ -1,76 +1,130 @@
-#ifndef PLAYER_H
-#define PLAYER_H
+/**
+ * @file Player.h
+ * @brief Represents the player character in the Kryptos Engine.
+ *
+ * @ingroup PlayerSystem, CombatSystem
+ *
+ * @author
+ * Sam Camilleri, Mural Studios
+ * @version 1.0
+ * @date 2025
+ */
+
+#pragma once
 
 #include "../GameObjectSystem/GameObject.h"
 #include "../SpriteRenderingSystem/SpriteRenderer.h"
-#include "StaminaSystem.h" 
+#include "StaminaSystem.h"
+#include <SFML/Graphics.hpp>
+#include <string>
 #include <iostream>
 
-/**
- * @class Player
- * @brief Represents the player character in the Kryptos game engine.
- *
- * Inherits from GameObject and adds player-specific attributes such as
- * health, movement speed, attack speed, and multipliers for attacking and jumping.
- */
-class Player : public GameObject {
+ /**
+  * @class Player
+  * @brief Inherits from GameObject and defines player-specific attributes and behaviours.
+  *
+  * Handles health, stamina, movement, jumping, and attack logic for the player character.
+  */
+class Player : public GameObject
+{
+public:
+    // -----------------------------------------------------
+    // Constructors / Destructor
+    // -----------------------------------------------------
+
+    /**
+     * @brief Constructs a new Player.
+     * @param name Name of the player object.
+     * @param position Initial position in world space.
+     * @param texturePathRight Texture to use when facing right.
+     */
+    Player(const std::string& name, const sf::Vector2f& position, const std::string& texturePathRight);
+
+    /**
+     * @brief Virtual destructor.
+     */
+    ~Player() override = default;
+
+    // -----------------------------------------------------
+    // Public Methods
+    // -----------------------------------------------------
+
+    void update(float deltaTime) override;
+    void draw(sf::RenderWindow& window) override;
+
+    void handleAttack();
+    void takeDamage(float amount);
+    void checkDeath();
+
+    void setRespawnPosition(const sf::Vector2f& position);
+
+    // -----------------------------------------------------
+    // Getters
+    // -----------------------------------------------------
+
+    float getHealth() const;
+    float getMaxHealth() const;
+    float getAttackSpeed() const;
+    float getMovementSpeed() const;
+    float getAttackMultiplier() const;
+    float getJumpMultiplier() const;
+
+    float getStamina() const;
+    float getMaxStamina() const;
+    float getStaminaRatio() const;
+
+    // -----------------------------------------------------
+    // Setters
+    // -----------------------------------------------------
+
+    void setHealth(float value);
+    void setMaxHealth(float value);
+    void setAttackSpeed(float value);
+    void setMovementSpeed(float value);
+    void setAttackMultiplier(float value);
+    void setJumpMultiplier(float value);
+
+    // -----------------------------------------------------
+    // Public Members (temporary)
+    // -----------------------------------------------------
+
+    bool previousMousePressed = false; ///< Tracks last frame's mouse state for attack input.
+
 private:
+    // -----------------------------------------------------
+    // Player Attributes
+    // -----------------------------------------------------
+
     float health;
     float maxHealth;
     float attackSpeed;
     float movementSpeed;
     float attackMultiplier;
     float jumpMultiplier;
+
     bool isGrounded = false;
     bool isFacingRight = true;
-    SpriteRenderer spriteRenderer;
 
-    sf::Vector2f respawnPosition;
-    float fallThresholdY = 430.f;
+    // -----------------------------------------------------
+    // Components & Resources
+    // -----------------------------------------------------
+
+    SpriteRenderer spriteRenderer;
+    StaminaSystem staminaSystem;
 
     std::string texturePathRight;
     std::string texturePathLeft;
 
-    StaminaSystem staminaSystem; // Added stamina system member
-    float damageCooldown = 0.f; // Time until player can take damage again
+    // -----------------------------------------------------
+    // Respawn Logic
+    // -----------------------------------------------------
 
-public:
-    Player(const std::string& name, const sf::Vector2f& position, const std::string& texturePathRight);
-    ~Player() override = default;
+    sf::Vector2f respawnPosition;
+    float fallThresholdY = 430.f;
 
-    void update(float deltaTime) override;
-    void draw(sf::RenderWindow& window) override;
+    // -----------------------------------------------------
+    // Damage Logic
+    // -----------------------------------------------------
 
-    void setRespawnPosition(const sf::Vector2f& position);
-
-    float getHealth() const;
-    void setHealth(float value);
-
-    float getMaxHealth() const;
-    void setMaxHealth(float value);
-
-    float getAttackSpeed() const;
-    void setAttackSpeed(float value);
-
-    float getMovementSpeed() const;
-    void setMovementSpeed(float value);
-
-    float getAttackMultiplier() const;
-    void setAttackMultiplier(float value);
-
-    float getJumpMultiplier() const;
-    void setJumpMultiplier(float value);
-
-    // Stamina accessors for future UI or gameplay
-    float getStamina() const;
-    float getMaxStamina() const;
-    float getStaminaRatio() const;
-
-    void handleAttack();
-    bool previousMousePressed = false; // Track last frame's state
-
-    void takeDamage(float amount);
-    void checkDeath();
-
+    float damageCooldown = 0.f;
 };
-#endif // PLAYER_H

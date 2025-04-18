@@ -1,17 +1,13 @@
-/*
- * Logger.h - Kryptos Engine Logging System
- * ----------------------------------------
- * Provides a centralized logging system for the Kryptos engine, utilizing spdlog.
- * Supports console and file-based logging with customizable log levels.
+/**
+ * @file Logger.h
+ * @brief Centralised logging interface for the Kryptos Engine using spdlog.
  *
- * Author: Sam Camilleri, Mural Studios
- * All Rights Reserved, 2025.
+ * @ingroup LoggingSystem
  *
- * Dependencies:
- *   - spdlog/spdlog.h: Core logging functionalities.
- *   - spdlog/sinks/stdout_color_sinks.h: For colored console output.
- *   - spdlog/sinks/basic_file_sink.h: For file-based logging.
- *   - memory: For managing shared pointers.
+ * @author
+ * Sam Camilleri, Mural Studios
+ * @version 1.0
+ * @date 2025
  */
 
 #pragma once
@@ -21,36 +17,39 @@
 #include <spdlog/sinks/basic_file_sink.h>
 #include <memory>
 
-namespace KryptosEngine {
-
+namespace KryptosEngine
+{
     /**
      * @class Logger
-     * @brief Provides a centralized logging system for the Kryptos engine.
+     * @brief Provides a default logger instance for global logging across the engine.
      *
-     * The Logger class initializes a default logger and provides access to it
-     * for consistent logging throughout the engine. Supports both console and
-     * file-based logging.
+     * Supports both console and file-based logging, configured at engine startup.
      */
-    class Logger {
+    class Logger
+    {
     public:
+        // -----------------------------------------------------
+        // Public Static Methods
+        // -----------------------------------------------------
+
         /**
-         * @brief Initializes the general logging system.
+         * @brief Initialises the general logging system.
          *
-         * Sets up the logging sinks, formats, and default logger.
-         * Ensures logging is ready to use at engine startup.
+         * Configures logging sinks and formatting rules.
          */
         static void Init();
 
         /**
-         * @brief Retrieves the default logger instance.
-         *
-         * Provides access to the initialized logger for use in other components.
-         * @return A shared pointer to the spdlog logger.
+         * @brief Retrieves the global engine logger.
+         * @return Shared pointer to the spdlog logger.
          */
         static std::shared_ptr<spdlog::logger>& GetLogger();
 
     private:
-        static std::shared_ptr<spdlog::logger> s_Logger; ///< Default engine logger.
-    };
+        // -----------------------------------------------------
+        // Private Members
+        // -----------------------------------------------------
 
-} // namespace KryptosEngine
+        static std::shared_ptr<spdlog::logger> s_Logger; ///< Global logger instance.
+    };
+}

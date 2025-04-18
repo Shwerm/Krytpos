@@ -1,2 +1,10 @@
 ﻿  main.cpp
-  KryptosGame.vcxproj -> D:\Personal Projects\Working Title - Kryptos\Kryptos\Game\x64\Debug\Game.exe
+D:\Personal Projects\Working Title - Kryptos\Kryptos\Engine\Include\EnvironmentGenerator\EnvironmentGenerator.h(1,1): warning C4828: The file contains a character starting at offset 0x26e that is illegal in the current source character set (codepage 65001).
+  (compiling source file 'SourceFiles/main.cpp')
+  
+D:\Personal Projects\Working Title - Kryptos\Kryptos\Engine\Include\CameraSystem\CameraController.h(1,1): warning C4828: The file contains a character starting at offset 0x1b5 that is illegal in the current source character set (codepage 65001).
+  (compiling source file 'SourceFiles/main.cpp')
+  
+Engine.lib(Player.obj) : error LNK2019: unresolved external symbol "public: class sf::Vector2<float> __cdecl Collider2D::getOffset(void)const " (?getOffset@Collider2D@@QEBA?AV?$Vector2@M@sf@@XZ) referenced in function "public: virtual void __cdecl Player::update(float)" (?update@Player@@UEAAXM@Z)
+Engine.lib(AttackHitbox.obj) : error LNK2001: unresolved external symbol "public: class sf::Vector2<float> __cdecl Collider2D::getOffset(void)const " (?getOffset@Collider2D@@QEBA?AV?$Vector2@M@sf@@XZ)
+.\x64\Debug\Game.exe : fatal error LNK1120: 1 unresolved externals

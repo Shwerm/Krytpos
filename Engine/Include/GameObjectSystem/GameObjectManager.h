@@ -1,81 +1,92 @@
-/*
- * GameObjectManager.h - Kryptos Game Object Management
- * ----------------------------------------------------
- * Manages all active game objects within the game engine.
- * Provides a singleton interface for registering, unregistering,
- * and accessing game objects.
+/**
+ * @file GameObjectManager.h
+ * @brief Singleton manager for registration and lifecycle of all GameObject instances.
  *
- * Author: Sam Camilleri, Mural Studios
- * All Rights Reserved, 2025.
+ * @ingroup GameObjectSystem
  *
- * Dependencies:
- *   - GameObject.h: Base class for game objects.
- *   - vector: For storing game object pointers.
- *   - algorithm: For handling object removal.
+ * @author
+ * Sam Camilleri, Mural Studios
+ * @version 1.0
+ * @date 2025
  */
 
 #pragma once
+
 #include "GameObject.h"
 #include <vector>
 #include <algorithm>
 
  /**
   * @class GameObjectManager
-  * @brief Singleton class for managing all active game objects.
+  * @brief Central registry for managing all active GameObjects.
   *
-  * This class provides centralized management for game objects,
-  * ensuring consistent registration, unregistration, and access.
+  * Provides global registration, unregistration, and access to all GameObject instances.
   */
-class GameObjectManager {
-private:
-    std::vector<GameObject*> gameObjects; ///< List of all active game objects.
-
-    /**
-     * @brief Private constructor to enforce singleton pattern.
-     */
-    GameObjectManager() = default;
-
+class GameObjectManager
+{
 public:
-    /**
-     * @brief Deleted copy constructor to prevent copying the singleton instance.
-     */
-    GameObjectManager(const GameObjectManager&) = delete;
+    // -----------------------------------------------------
+    // Deleted Functions (Singleton Protection)
+    // -----------------------------------------------------
 
-    /**
-     * @brief Deleted assignment operator to prevent copying the singleton instance.
-     */
+    GameObjectManager(const GameObjectManager&) = delete;
     GameObjectManager& operator=(const GameObjectManager&) = delete;
 
+    // -----------------------------------------------------
+    // Accessor
+    // -----------------------------------------------------
+
     /**
-     * @brief Provides access to the singleton instance of GameObjectManager.
-     * @return A reference to the singleton instance.
+     * @brief Returns the global singleton instance of the manager.
+     * @return Reference to the GameObjectManager instance.
      */
-    static GameObjectManager& getInstance() {
+    static GameObjectManager& getInstance()
+    {
         static GameObjectManager instance;
         return instance;
     }
 
+    // -----------------------------------------------------
+    // Public Methods
+    // -----------------------------------------------------
+
     /**
-     * @brief Registers a new game object.
-     *
-     * Adds the object to the internal list if it is not already registered.
-     * @param object Pointer to the game object to register.
+     * @brief Registers a new GameObject instance into the system.
+     * @param object Pointer to the object to register.
      */
     void registerObject(GameObject* object);
 
     /**
-     * @brief Unregisters an existing game object.
-     *
-     * Removes the object from the internal list.
-     * @param object Pointer to the game object to unregister.
+     * @brief Unregisters a GameObject instance from the system.
+     * @param object Pointer to the object to remove.
      */
     void unregisterObject(GameObject* object);
 
     /**
-     * @brief Provides access to all registered game objects.
-     * @return A constant reference to the vector of game object pointers.
+     * @brief Provides access to all currently registered GameObjects.
+     * @return Const reference to the internal list of GameObject pointers.
      */
     const std::vector<GameObject*>& getGameObjects() const;
 
-    void fixedUpdateAll(float fixedDeltaTime); // Add to class definition
+    /**
+     * @brief Executes `fixedUpdate` for every registered GameObject.
+     * @param fixedDeltaTime Time step to pass to each object.
+     */
+    void fixedUpdateAll(float fixedDeltaTime);
+
+private:
+    // -----------------------------------------------------
+    // Private Constructor
+    // -----------------------------------------------------
+
+    /**
+     * @brief Private constructor for enforcing singleton pattern.
+     */
+    GameObjectManager() = default;
+
+    // -----------------------------------------------------
+    // Private Members
+    // -----------------------------------------------------
+
+    std::vector<GameObject*> gameObjects; ///< All registered active GameObject pointers.
 };

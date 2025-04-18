@@ -1,86 +1,96 @@
 /**
  * @file DebugWindow.h
- * @brief Header file for the DebugWindow class used in the Kryptos Debugging System.
+ * @brief Debug overlay window for visualising GameObject data at runtime.
+ *
  * @ingroup DebugSystem
  * @author
  * Sam Camilleri, Mural Studios
+ * @version 1.0
  * @date 2025
  */
 
 #pragma once
 
 #include "../GameObjectSystem/GameObjectManager.h"
-#include <SFML/Graphics.hpp>
-#include <unordered_map>
-#include <memory>
-#include "../../Include/DebugWindow/DebugWindow.h"
 #include "../../Include/PlayerClass/Player.h"
 #include "../../Include/LoggingSystem/DebugWindow/DebugWindowLogger.h"
+#include <SFML/Graphics.hpp>
 #include <SFML/Window/Event.hpp>
+#include <unordered_map>
+#include <memory>
 #include <stdexcept>
 #include <iostream>
 
-namespace KryptosEngine {
-    namespace DebugWindow {
+namespace KryptosEngine::DebugWindow
+{
+    /**
+     * @class DebugWindow
+     * @brief Provides a graphical interface for debugging active GameObjects.
+     *
+     * Displays live transform and physics data in a toggleable UI overlay. Each object has an expandable entry.
+     */
+    class DebugWindow
+    {
+    public:
+        // -----------------------------------------------------
+        // Constructors / Destructor
+        // -----------------------------------------------------
 
         /**
-         * @class DebugWindow
-         * @ingroup DebugSystem
-         * @brief Provides a graphical interface for debugging game objects in the engine.
-         *
-         * Displays transform data, physics values, and developer-defined debug variables in a scrollable overlay.
-         * Can be toggled on/off via a designated key. Each GameObject entry can be expanded for additional details.
+         * @brief Constructs the debug window controller. Window is not open or initialised on construction.
          */
-        class DebugWindow {
-        private:
-            sf::RenderWindow debugWindow; ///< SFML window used for rendering the debug interface.
-            bool isVisible;               ///< Whether the debug window is currently visible.
-            sf::Keyboard::Key toggleKey;  ///< Keyboard key used to toggle the debug window.
+        DebugWindow();
 
-            std::unordered_map<GameObject*, std::unique_ptr<sf::Text>> nameTexts; ///< Text objects for GameObject names.
-            std::unordered_map<GameObject*, bool> expandedState; ///< Whether each object is expanded in the UI.
-            sf::Font defaultFont; ///< Font used to render all debug text.
+        // -----------------------------------------------------
+        // Public Methods
+        // -----------------------------------------------------
 
-        public:
-            /**
-             * @brief Constructs a DebugWindow. Does not open or initialise the window yet.
-             */
-            DebugWindow();
+        /**
+         * @brief Loads necessary font assets and configures the debug window.
+         * @throws std::runtime_error if fonts or system resources fail to load.
+         */
+        void initialise();
 
-            /**
-             * @brief Loads the debug font and sets window parameters like framerate.
-             * @throws std::runtime_error if required resources fail to load.
-             */
-            void initialise();
+        /**
+         * @brief Handles key input for toggling window visibility.
+         * Should be called every frame.
+         */
+        void handleInput();
 
-            /**
-             * @brief Checks for toggle key press to show/hide the debug window.
-             * Should be called every frame.
-             */
-            void handleInput();
+        /**
+         * @brief Toggles the debug window's visibility.
+         */
+        void toggleVisibility();
 
-            /**
-             * @brief Opens or closes the debug window based on its current state.
-             */
-            void toggleVisibility();
+        /**
+         * @brief Forces the debug window to close and resets visibility state.
+         */
+        void close();
 
-            /**
-             * @brief Closes the debug window if open and resets visibility state.
-             */
-            void close();
+        /**
+         * @brief Returns whether the debug window is currently visible.
+         * @return True if the window is open and drawing.
+         */
+        bool isOpen() const;
 
-            /**
-             * @brief Returns whether the debug window is currently open.
-             * @return True if open, false if not.
-             */
-            bool isOpen() const;
+        /**
+         * @brief Draws the debug UI for all active GameObjects.
+         * Should be called once per frame if visible.
+         */
+        void draw();
 
-            /**
-             * @brief Renders all GameObjects and tracked variables in the debug window.
-             * Should be called once per frame when the window is open.
-             */
-            void draw();
-        };
+    private:
+        // -----------------------------------------------------
+        // Private Members
+        // -----------------------------------------------------
 
-    } // namespace DebugWindow
-} // namespace KryptosEngine
+        sf::RenderWindow debugWindow; ///< SFML render window for debug drawing.
+        bool isVisible;               ///< Whether the debug window is currently visible.
+        sf::Keyboard::Key toggleKey;  ///< Key used to toggle the window on/off.
+
+        sf::Font defaultFont; ///< Default font for rendering debug text.
+
+        std::unordered_map<GameObject*, std::unique_ptr<sf::Text>> nameTexts; ///< Map of GameObject names to renderable text.
+        std::unordered_map<GameObject*, bool> expandedState; ///< Tracks whether a GameObject entry is expanded in the debug UI.
+    };
+}

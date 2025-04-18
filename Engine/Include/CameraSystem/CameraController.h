@@ -1,43 +1,68 @@
-// CameraController.h
+/**
+ * @file CameraController.h
+ * @brief 2D Camera View Controller for the Rendering System.
+ *
+ * @ingroup RenderingSystem
+ * @author
+ * Sam Camilleri, Mural Studios
+ * @version 1.0
+ * @date 2025
+ */
 
 #pragma once
 
 #include <SFML/Graphics.hpp>
 
-/**
- * @class CameraController
- * @brief Handles the 2D camera system by controlling and updating the view to follow a target (e.g. player).
- *
- * This class is responsible for maintaining a view that follows a player or entity in the scene,
- * and applying the view to the render window before drawing.
- */
+ /**
+  * @class CameraController
+  * @brief Manages a dynamic 2D camera that follows a target position (typically the player).
+  *
+  * Updates and applies a viewport view based on the target’s position, maintaining a centred camera.
+  */
 class CameraController
 {
 public:
+    // -----------------------------------------------------
+    // Constructors / Destructor
+    // -----------------------------------------------------
+
     /**
-     * @brief Constructs a camera controller with a specified view size.
+     * @brief Constructs the camera controller with a specified view size.
      * @param width Width of the camera view.
      * @param height Height of the camera view.
      */
     CameraController(float width, float height);
 
+    // -----------------------------------------------------
+    // Public Methods
+    // -----------------------------------------------------
+
     /**
-     * @brief Updates the camera view to follow the player's position.
-     * @param playerPosition The current world position of the player.
+     * @brief Updates the camera's view to follow the given target position.
+     * @param playerPosition Current position of the target in world space.
      */
     void Update(const sf::Vector2f& playerPosition);
 
     /**
-     * @brief Applies the current camera view to the given SFML render window.
-     * @param window The render window to which the view will be set.
+     * @brief Applies the internal view to the specified render window.
+     * @param window The target SFML render window.
      */
     void ApplyView(sf::RenderWindow& window) const;
 
+    // -----------------------------------------------------
+    // Getter
+    // -----------------------------------------------------
+
     /**
-     * @brief Returns the current internal SFML view.
+     * @brief Returns the internal SFML view object.
+     * @return A constant reference to the sf::View.
      */
     const sf::View& GetView() const { return m_view; }
 
 private:
-    sf::View m_view; ///< The internal SFML view object used to control the camera.
+    // -----------------------------------------------------
+    // Private Members
+    // -----------------------------------------------------
+
+    sf::View m_view; ///< SFML view instance representing the camera's viewport.
 };

@@ -51,11 +51,11 @@ int main() {
     genSettings.totalPlatforms = 15;
     genSettings.minPlatformWidth = 1.5f;
     genSettings.maxPlatformWidth = 3.5f;
-    genSettings.heightVariance = 1.0f;
+    genSettings.heightVariance = 10.0f;
     genSettings.sameXOffsetYRange = 1.25f;
     genSettings.minY = 150.0f;
     genSettings.maxY = 450.0f;
-    genSettings.verticalStackChance = 0.3f;
+    genSettings.verticalStackChance = 1.0f;
     genSettings.texturePaths = {
         "Assets/GameAssets/Textures/Environment/Platforms/platform1.png"
     };

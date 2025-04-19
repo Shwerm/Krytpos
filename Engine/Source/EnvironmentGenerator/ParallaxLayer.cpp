@@ -70,7 +70,7 @@ ParallaxLayer::ParallaxLayer(const std::string& texturePath,
 
 /**
  * @brief Updates the sprite positions based on camera X position and view.
- * @param cameraX Camera’s world-space X coordinate.
+ * @param cameraX Camera's world-space X coordinate.
  * @param cameraView The current SFML view for screen-centred offsets.
  */
 void ParallaxLayer::update(float cameraX, const sf::View& cameraView)

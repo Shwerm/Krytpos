@@ -17,7 +17,7 @@
   * @class CameraController
   * @brief Manages a dynamic 2D camera that follows a target position (typically the player).
   *
-  * Updates and applies a viewport view based on the target’s position, maintaining a centred camera.
+  * Updates and applies a viewport view based on the target's position, maintaining a centred camera.
   */
 class CameraController
 {

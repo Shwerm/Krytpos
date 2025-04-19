@@ -58,7 +58,7 @@ ParallaxBackground::ParallaxBackground(float windowWidth)
 // -----------------------------------------------------
 
 /**
- * @brief Updates all parallax layers relative to the camera’s position.
+ * @brief Updates all parallax layers relative to the camera's position.
  * @param cameraX Horizontal position of the camera in world space.
  * @param cameraView Current camera view for centring and wrapping logic.
  */

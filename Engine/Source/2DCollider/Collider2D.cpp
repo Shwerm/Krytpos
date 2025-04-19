@@ -19,7 +19,6 @@
  // -----------------------------------------------------
  // Constructor
  // -----------------------------------------------------
-
  /**
   * @brief Constructs a Collider2D with a given size and optional offset.
   * @param size Dimensions of the collider (width and height).
@@ -31,7 +30,6 @@ Collider2D::Collider2D(const sf::Vector2f& size, const sf::Vector2f& offset)
 // -----------------------------------------------------
 // Public Methods
 // -----------------------------------------------------
-
 /**
  * @brief Sets the world-space position of the collider.
  * @param pos World-space position of the owning GameObject.
@@ -49,7 +47,7 @@ sf::FloatRect Collider2D::getBounds() const {
 }
 
 /**
- * @brief Sets the collider’s size (width and height).
+ * @brief Sets the collider's size (width and height).
  * @param newSize New size to apply to the collider.
  */
 void Collider2D::setSize(const sf::Vector2f& newSize) {
@@ -78,6 +76,16 @@ void Collider2D::drawDebug(sf::RenderWindow& window) const {
 
     window.draw(rect);
 }
+
+/**
+ * @brief Returns the local offset of the collider from its GameObject's origin.
+ * @return Offset vector (x, y).
+ */
+sf::Vector2f Collider2D::getOffset() const
+{
+    return offset;
+}
+
 
 // -----------------------------------------------------
 // Static Methods

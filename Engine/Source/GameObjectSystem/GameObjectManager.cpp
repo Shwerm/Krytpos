@@ -1,53 +1,62 @@
-/*
- * GameObjectManager.cpp - Kryptos Game Object Management Implementation
- * ---------------------------------------------------------------------
- * Implements the GameObjectManager class for managing game objects.
+/**
+ * @file GameObjectManager.cpp
+ * @brief Manages all active GameObjects in the Kryptos Engine.
  *
- * Author: Sam Camilleri, Mural Studios
- * All Rights Reserved, 2025.
+ * @ingroup GameObjectSystem
  *
- * Dependencies:
- *   - GameObjectManager.h: Header for the GameObjectManager class.
+ * Provides centralised registration, unregistration, and iteration over all GameObjects.
+ * Ensures clean lifecycle handling of runtime objects and supports fixed update propagation.
+ *
+ * @author
+ * Sam Camilleri, Mural Studios
+ * @version 1.0
+ * @date 2025
  */
 
 #include "../../Include/GameObjectSystem/GameObjectManager.h"
 
+ // -----------------------------------------------------
+ // Public Methods
+ // -----------------------------------------------------
+
  /**
-  * @brief Registers a new game object.
-  *
-  * Adds the game object to the internal list if it is not already registered.
-  * Ensures no duplicate registrations.
-  * @param object Pointer to the game object to register.
+  * @brief Registers a GameObject if it's not already in the system.
+  * @param object Pointer to the GameObject to add.
   */
-void GameObjectManager::registerObject(GameObject* object) {
-    if (std::find(gameObjects.begin(), gameObjects.end(), object) == gameObjects.end()) {
+void GameObjectManager::registerObject(GameObject* object)
+{
+    if (std::find(gameObjects.begin(), gameObjects.end(), object) == gameObjects.end())
+    {
         gameObjects.push_back(object);
     }
 }
 
 /**
- * @brief Unregisters an existing game object.
- *
- * Removes the game object from the internal list if it exists.
- * @param object Pointer to the game object to unregister.
+ * @brief Removes a GameObject from the registry.
+ * @param object Pointer to the GameObject to remove.
  */
-void GameObjectManager::unregisterObject(GameObject* object) {
+void GameObjectManager::unregisterObject(GameObject* object)
+{
     gameObjects.erase(std::remove(gameObjects.begin(), gameObjects.end(), object), gameObjects.end());
 }
 
 /**
- * @brief Provides access to all registered game objects.
- *
- * Returns a constant reference to the internal list of game objects.
- * @return A constant reference to the vector of game object pointers.
+ * @brief Returns a const reference to all currently registered GameObjects.
+ * @return Const vector reference of GameObject pointers.
  */
-const std::vector<GameObject*>& GameObjectManager::getGameObjects() const {
+const std::vector<GameObject*>& GameObjectManager::getGameObjects() const
+{
     return gameObjects;
 }
 
-void GameObjectManager::fixedUpdateAll(float fixedDeltaTime) {
-    for (auto* object : gameObjects) {
+/**
+ * @brief Calls fixedUpdate on all registered GameObjects.
+ * @param fixedDeltaTime The fixed timestep to apply.
+ */
+void GameObjectManager::fixedUpdateAll(float fixedDeltaTime)
+{
+    for (auto* object : gameObjects)
+    {
         object->fixedUpdate(fixedDeltaTime);
     }
 }
-

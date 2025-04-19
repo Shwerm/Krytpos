@@ -1,42 +1,51 @@
-/*
- * DebugWindowLogger.cpp - Kryptos Debug Window Logging Implementation
- * -------------------------------------------------------------------
- * Implements the DebugWindowLogger class for managing logging specific to the Debug Window.
+/**
+ * @file DebugWindowLogger.cpp
+ * @brief Implements a dedicated logger for the Debug Window subsystem.
  *
- * Author: Sam Camilleri, Mural Studios
- * All Rights Reserved, 2025.
+ * @ingroup LoggingSystem
  *
- * Dependencies:
- *   - DebugWindowLogger.h: Header for the DebugWindowLogger class.
+ * This logger is used to output messages specific to the Debug Window interface,
+ * including initialization messages, toggle actions, and error states.
+ * Logs to the console with its own format and tag.
+ *
+ * Author:
+ * Sam Camilleri, Mural Studios
+ * @version 1.0
+ * @date 2025
  */
 
 #include "../../../Include/LoggingSystem/DebugWindow/DebugWindowLogger.h"
 
-namespace KryptosEngine {
+namespace KryptosEngine
+{
+    // -----------------------------------------------------
+    // Static Members
+    // -----------------------------------------------------
 
-    // Define the static logger instance
     std::shared_ptr<spdlog::logger> DebugWindowLogger::s_DebugLogger;
 
+    // -----------------------------------------------------
+    // Public Static Methods
+    // -----------------------------------------------------
+
     /**
-     * @brief Initializes the Debug Window logger.
+     * @brief Initialises the Debug Window logger instance.
      *
-     * Sets up the logger with a custom name, output format, and debug-level logging.
-     * Ensures detailed and color-coded logs for Debug Window events.
+     * Configures the output format, name, and log level specifically for debug UI.
      */
-    void DebugWindowLogger::Init() {
-        // Create the Debug Window logger
+    void DebugWindowLogger::Init()
+    {
         s_DebugLogger = spdlog::stdout_color_mt("DebugWindowLogger");
         s_DebugLogger->set_pattern("[%T] [%^%l%$] [DebugWindow] %v");
-        s_DebugLogger->set_level(spdlog::level::debug); // Set logging level to debug
+        s_DebugLogger->set_level(spdlog::level::debug);
     }
 
     /**
-     * @brief Retrieves the Debug Window logger instance.
-     *
-     * Provides access to the logger for use in Debug Window components and systems.
-     * @return A shared pointer to the spdlog logger.
+     * @brief Retrieves the Debug Window logger.
+     * @return Shared pointer to the debug logger instance.
      */
-    std::shared_ptr<spdlog::logger>& DebugWindowLogger::GetLogger() {
+    std::shared_ptr<spdlog::logger>& DebugWindowLogger::GetLogger()
+    {
         return s_DebugLogger;
     }
 

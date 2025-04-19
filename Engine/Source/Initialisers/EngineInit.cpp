@@ -1,39 +1,58 @@
-/*
- * EngineInit.cpp - Kryptos Engine Initialization Implementation
- * -------------------------------------------------------------
- * Implements the EngineInit class for initializing the Kryptos engine's core systems.
+/**
+ * @file EngineInit.cpp
+ * @brief Initialises all core systems of the Kryptos Engine.
  *
- * Author: Sam Camilleri, Mural Studios
- * All Rights Reserved, 2025.
+ * @ingroup CoreSystem
  *
- * Dependencies:
- *   - EngineInit.h: Header for the EngineInit class.
+ * Central bootstrapper responsible for setting up the logging, debugging, and rendering logs.
+ * Called at the beginning of engine execution to prepare runtime subsystems.
+ *
+ * Author:
+ * Sam Camilleri, Mural Studios
+ * @version 1.0
+ * @date 2025
  */
 
 #include "../../Include/Initialisers/EngineInit.h"
 
-namespace KryptosEngine {
+namespace KryptosEngine
+{
+    // -----------------------------------------------------
+    // Static Initialisation Method
+    // -----------------------------------------------------
 
     /**
-     * @brief Initializes all engine systems.
+     * @brief Performs full startup sequence for all engine systems.
      *
-     * Sets up the general logging system and the debug window logging system.
-     * Additional systems can be initialised in this method as required.
+     * - Logging
+     * - Debug Window logging
+     * - Sprite Renderer logging
+     *
+     * Future systems can be added to this entry point.
      */
-    void EngineInit::Initialise() {
-        // Initialize general logging system
+    void EngineInit::Initialise()
+    {
+        // -----------------------------------------------------
+        // General Logger
+        // -----------------------------------------------------
         Logger::Init();
         Logger::GetLogger()->info("General logging system initialised");
 
-        // Initialize Debug Window logging
+        // -----------------------------------------------------
+        // Debug Window Logger
+        // -----------------------------------------------------
         DebugWindowLogger::Init();
         DebugWindowLogger::GetLogger()->info("Debug Window logging initialised");
 
-		// Initialise Sprite Rendering logging
-		SpriteRendererLogger::Init();
-		SpriteRendererLogger::GetLogger()->info("Sprite Rendering logging initialised");
+        // -----------------------------------------------------
+        // Sprite Renderer Logger
+        // -----------------------------------------------------
+        SpriteRendererLogger::Init();
+        SpriteRendererLogger::GetLogger()->info("Sprite Rendering logging initialised");
 
-        // Future systems can be initialised here
+        // -----------------------------------------------------
+        // Engine Ready
+        // -----------------------------------------------------
         Logger::GetLogger()->info("Engine initialisation completed");
     }
 

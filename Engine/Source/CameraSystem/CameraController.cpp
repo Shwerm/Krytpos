@@ -1,33 +1,55 @@
-// CameraController.cpp
+/**
+ * @file CameraController.cpp
+ * @brief Implementation of the CameraController class used to follow a target in 2D space.
+ *
+ * @ingroup RenderingSystem
+ *
+ * Updates an SFML view to follow the player or any tracked target.
+ * Applies the current view to the render window before drawing.
+ *
+ * @author
+ * Sam Camilleri, Mural Studios
+ * @version 1.0
+ * @date 2025
+ */
 
 #include "../../Include/CameraSystem/CameraController.h"
 
-/**
- * @brief Constructor that initialises the camera view with the specified size and centres it.
- * @param width Width of the view.
- * @param height Height of the view.
- */
+ // -----------------------------------------------------
+ // Constructor
+ // -----------------------------------------------------
+
+ /**
+  * @brief Constructs the camera controller and initialises the SFML view.
+  * @param width Width of the camera view.
+  * @param height Height of the camera view.
+  */
 CameraController::CameraController(float width, float height)
 {
-    // Set the view size to the given width and height
+    // Set the logical size of the view to the given dimensions
     m_view.setSize(sf::Vector2f(width, height));
 
-    // Centre the view initially at the middle of the screen
+    // Centre the view initially on the screen midpoint
     m_view.setCenter(sf::Vector2f(width / 2.0f, height / 2.0f));
 }
 
+// -----------------------------------------------------
+// Public Methods
+// -----------------------------------------------------
+
 /**
- * @brief Updates the camera's centre to follow the given player position.
- * @param playerPosition The player's world position to centre the view on.
+ * @brief Updates the camera's view to follow the player.
+ * @param playerPosition The world-space position to centre the view on.
  */
 void CameraController::Update(const sf::Vector2f& playerPosition)
 {
+    // Reposition the camera view to track the player
     m_view.setCenter(playerPosition);
 }
 
 /**
- * @brief Applies the internal camera view to the specified render window.
- * @param window The SFML render window to apply the current view to.
+ * @brief Applies the current view to the given SFML render window.
+ * @param window The render window to apply the view to.
  */
 void CameraController::ApplyView(sf::RenderWindow& window) const
 {
